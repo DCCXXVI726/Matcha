@@ -15,7 +15,6 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
         alias: {
-            Libui: path.resolve('./src/libui/'),
             Public: path.resolve('./public/'),
             Styles: path.resolve('./src/styles/'),
             Constants: path.resolve('./src/Constants/'),
