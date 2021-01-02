@@ -7,6 +7,9 @@ export const hex2rgba = (hex: string, alpha: number = 100): string => {
     return `rgba(${r},${g},${b},${alpha / 100})`;
 };
 
+/* None */
+export const noColor = 'transparent';
+
 /* PINK */
 export const pink0 = '#c73868';
 
