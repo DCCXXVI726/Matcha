@@ -50,7 +50,9 @@ module.exports = {
         ],
     },
     plugins: [
-        new UnusedFilesWebpackPlugin(),
+        new UnusedFilesWebpackPlugin({
+            patterns: ['src/**/*.tsx', 'src/**/*.ts']
+        }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'public', 'index.html'),
         }),
