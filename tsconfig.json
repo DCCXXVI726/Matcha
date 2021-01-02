@@ -4,6 +4,7 @@
         "paths": {
             "Libui/*": ["./src/libui/*"],
             "Styles/*": ["./src/styles/*"],
+            "I18n": ["./src/i18n.js"],
             "Constants/*": ["./src/Constants/*"],
         },
         "jsx": "react",

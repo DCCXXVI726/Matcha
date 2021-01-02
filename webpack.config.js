@@ -17,6 +17,7 @@ module.exports = {
         alias: {
             Public: path.resolve('./public/'),
             Styles: path.resolve('./src/styles/'),
+            I18n: path.resolve('./src/i18n.js'),
             Constants: path.resolve('./src/Constants/'),
         }
     },

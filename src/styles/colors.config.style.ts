@@ -8,10 +8,7 @@ export const hex2rgba = (hex: string, alpha: number = 100): string => {
 };
 
 /* PINK */
-
-export const pink2 = '#eaadc1';
-export const pink1 = '#f4d6e0';
-export const pink0 = '#f9eaef';
+export const pink0 = '#c73868';
 
 /* WHITE */
 export const white = '#ffffff';
