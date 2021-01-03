@@ -1,4 +1,4 @@
-import React, { useState, FunctionComponent } from 'react';
+import React, { useState, FunctionComponent, useMemo, ReactNodeArray } from 'react';
 import { MenuItem } from '@material-ui/core';
 import i18next from 'I18n';
 
@@ -11,12 +11,12 @@ export const LangChooser: FunctionComponent = () => {
     const [open, setOpen] = React.useState(false);
 
     const handleChange = (event: any) => {
-        if (event.target.value === 'ru') {
-            i18next.changeLanguage('en');
-            changeLang(langsList[1]);
-        } else {
+        if (event?.target.value === langsList[0]) {
             i18next.changeLanguage('ru');
             changeLang(langsList[0]);
+        } else {
+            i18next.changeLanguage('en');
+            changeLang(langsList[1]);
         }
     };
 
@@ -27,6 +27,12 @@ export const LangChooser: FunctionComponent = () => {
     const handleOpen = () => {
         setOpen(true);
     };
+
+    const menu: ReactNodeArray = useMemo(() =>
+        langsList.map((langItem, key) => (
+            <MenuItem key={key} value={langItem}>{langItem}</MenuItem>
+        ))
+    , [lang]);
 
     return (
         <>
@@ -39,9 +45,7 @@ export const LangChooser: FunctionComponent = () => {
                 value={lang}
                 onChange={handleChange}
             >
-            {langsList.map(langItem => (
-                <MenuItem key={langItem} value={langItem}>{langItem}</MenuItem>
-            ))}
+            {menu}
             </SelectStyled>
         </>
     );
