@@ -1,5 +1,7 @@
 {
     "logo": "Matcha",
     "auth.lang": "English",
-    "auth.login": "Log in"
+    "auth.login": "Log in",
+    "auth.slogan": "Swipe Right",
+    "auth.create": "Create account"
 }

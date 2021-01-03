@@ -1,5 +1,7 @@
 {
     "logo": "Matcha",
     "auth.lang": "Русский",
-    "auth.login": "Войдите"
+    "auth.login": "Войдите",
+    "auth.slogan": "Свайп вправо",
+    "auth.create": "Создать аккаунт"
 }

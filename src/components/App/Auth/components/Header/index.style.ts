@@ -1,12 +1,7 @@
 import styled from 'styled-components';
 
 import { white, pink0, noColor } from 'Styles/colors.config.style';
-import {
-    Button,
-    Container,
-    Link,
-    Paper,
-} from '@material-ui/core';
+import { Button, Container, Link, Paper } from '@material-ui/core';
 
 export const PaperStyled = styled(Paper)`
     background-color: ${noColor};
@@ -20,8 +15,10 @@ export const PaperStyled = styled(Paper)`
 export const LogoStyled = styled(Container)`
     display: flex;
     align-items: center;
+    user-select: none;
 
 `;
+
 export const ContolStyled = styled(Container)`
     display: flex;
     justify-content: flex-end;
@@ -72,4 +69,5 @@ export const ContainerStyled = styled(Container)`
     display: flex;
     padding: 20px 0px;
     color: ${white};
+
 `;
