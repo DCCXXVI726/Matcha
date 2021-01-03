@@ -1,7 +1,7 @@
 import styled from 'styled-components';
+import { Button, Container, Link, Paper } from '@material-ui/core';
 
 import { white, pink0, noColor } from 'Styles/colors.config.style';
-import { Button, Container, Link, Paper } from '@material-ui/core';
 
 export const PaperStyled = styled(Paper)`
     background-color: ${noColor};
