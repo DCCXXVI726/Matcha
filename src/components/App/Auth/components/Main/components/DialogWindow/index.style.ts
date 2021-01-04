@@ -56,12 +56,17 @@ export const ButtonWithLogoStyled = styled(Button)`
     color: ${gray7};
     margin-bottom: 20px;
     font-weight: bold;
-    font-size: 1.2rem;
     display: flex;
     justify-content: space-around;
 
+    & span {
+        justify-content: normal;
+        font-size: 1.1rem;
+        font-weight: bold;
+    }
+
     & ${ImageStyled} {
-        margin: 0;
+        margin: 0 30px 0 0;
     }
 
     &:hover {

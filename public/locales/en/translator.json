@@ -7,5 +7,6 @@
     "auth.text": "By clicking  Log In, you agree to our Terms. Learn how we process your data in our Privacy Polity and Cookie Policy.",
     "auth.login.google": "Log In with GOOGLE",
     "auth.login.intra42": "Log In with Intra42",
+    "auth.login.insta": "Log In with Instagram",
     "auth.login.problems": "Problems with log In?"
 }

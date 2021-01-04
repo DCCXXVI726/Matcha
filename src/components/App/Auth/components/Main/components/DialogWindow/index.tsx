@@ -5,6 +5,8 @@ import { useTranslation } from 'react-i18next';
 import Logo from 'Public/assets/tinder-icon.svg';
 import IconGoogle from 'Public/assets/google-icon.svg';
 import Icon42 from 'Public/assets/42-icon.svg';
+import IconInstagram from 'Public/assets/instagram-icon.svg';
+
 import {
     TypographyStyled,
     ImageStyled,
@@ -42,20 +44,23 @@ export const DialogWindow: FunctionComponent = () => {
                 </DialogContentStyled>
 
                 <DialogContentStyled>
-                    <Typography gutterBottom>
-                        {t('auth.text')}
-                    </Typography>
+                    <Typography>{t('auth.text')}</Typography>
                     <ButtonWithLogoStyled fullWidth variant='contained' onClick={handleClickOpen}>
                         <ImageStyled  src={IconGoogle} alt='Logo' />
-                        {t('auth.login.google')}
+                        <Typography variant='button'>{t('auth.login.google')}</Typography>
                     </ButtonWithLogoStyled>
+
                     <ButtonWithLogoStyled fullWidth variant='contained' onClick={handleClickOpen}>
                         <ImageStyled  src={Icon42} alt='Logo' />
-                        {t('auth.login.intra42')}
+                        <Typography variant='button'>{t('auth.login.intra42')}</Typography>
                     </ButtonWithLogoStyled>
-                    <Typography gutterBottom> //create new window
-                        {t('auth.login.problems')}
-                    </Typography>
+
+                    <ButtonWithLogoStyled fullWidth variant='contained' onClick={handleClickOpen}>
+                        <ImageStyled  src={IconInstagram} alt='Logo' />
+                        <Typography variant='button'>{t('auth.login.insta')}</Typography>
+                    </ButtonWithLogoStyled>
+
+                    <Typography align='center'>{t('auth.login.problems')}</Typography>
                 </DialogContentStyled>
             </DialogStyled>
         </DialogWindowStyled>
