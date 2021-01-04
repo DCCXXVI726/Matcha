@@ -8,5 +8,8 @@
     "auth.login.google": "Log In with GOOGLE",
     "auth.login.intra42": "Log In with Intra42",
     "auth.login.insta": "Log In with Instagram",
-    "auth.login.problems": "Problems with log In?"
+    "auth.login.problems": "Trouble Logging In?",
+    "auth.problems.tittle": "Account recovery",
+    "auth.problems.description": "We'll email you a link that will instantly log you in",
+    "auth.problems.placeholder": "Email Address"
 }

@@ -8,5 +8,8 @@
     "auth.login.google": "Войти через GOOGLE",
     "auth.login.intra42": "Войти через Intra42",
     "auth.login.insta": "Войти через Instagram",
-    "auth.login.problems": "Проблемы со входом?"
+    "auth.login.problems": "Проблемы со входом?",
+    "auth.problems.tittle": "Восстановление аккаунта",
+    "auth.problems.description": "Мы отправим вам ссылку для мгновенного входа.",
+    "auth.problems.placeholder": "Адрес электронной почты"
 }

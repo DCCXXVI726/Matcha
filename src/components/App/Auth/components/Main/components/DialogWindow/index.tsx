@@ -7,6 +7,8 @@ import IconGoogle from 'Public/assets/google-icon.svg';
 import Icon42 from 'Public/assets/42-icon.svg';
 import IconInstagram from 'Public/assets/instagram-icon.svg';
 
+import { ForgotPassword } from '../ForgotPassword';
+
 import {
     TypographyStyled,
     ImageStyled,
@@ -35,7 +37,6 @@ export const DialogWindow: FunctionComponent = () => {
                 {t('auth.create')}
             </ButtonStyled>
             <DialogStyled onClose={handleClose} aria-labelledby='customized-dialog-title' open={open}>
-
                 <DialogContentStyled id='customized-dialog-title'>
                     <ImageStyled  src={Logo} alt='Logo' />
                     <TypographyStyled align='center' variant='h4'>
@@ -60,7 +61,7 @@ export const DialogWindow: FunctionComponent = () => {
                         <Typography variant='button'>{t('auth.login.insta')}</Typography>
                     </ButtonWithLogoStyled>
 
-                    <Typography align='center'>{t('auth.login.problems')}</Typography>
+                    <ForgotPassword onClose={handleClose} />
                 </DialogContentStyled>
             </DialogStyled>
         </DialogWindowStyled>

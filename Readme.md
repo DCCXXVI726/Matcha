@@ -1,3 +1,3 @@
-https://material-ui.com/ru/getting-started/templates/
+https://material-ui.com/getting-started/templates/
 // figma
 // taskmanager
