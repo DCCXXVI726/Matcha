@@ -16,7 +16,9 @@ export const Mail: FunctionComponent = () => {
         }
     };
 
-    const handlePress = (): void => {};
+    const handlePress = (): void => {
+        // here send request to send mail
+    };
 
     return (
         <>
