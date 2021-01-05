@@ -7,6 +7,18 @@ export const hex2rgba = (hex: string, alpha: number = 100): string => {
     return `rgba(${r},${g},${b},${alpha / 100})`;
 };
 
+/* COOl GRAY */
+export const coolGray9 = '#131618';
+export const coolGray8 = '#262c31';
+export const coolGray7 = '#3a424a';
+export const coolGray6 = '#4d5862';
+export const coolGray5 = '#616e7c';
+export const coolGray4 = '#808b95';
+export const coolGray3 = '#a0a8b0';
+export const coolGray2 = '#bfc5ca';
+export const coolGray1 = '#dfe2e4';
+export const coolGray0 = '#e0e4e9';
+
 /* GRAY */
 export const gray9 = '#262626';
 export const gray8 = '#4D4D4D';

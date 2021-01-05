@@ -8,7 +8,7 @@ export const DialogStyled = styled(Dialog).attrs({
     classes: { paper }
 })`
     .${paper} {
-        height: 500px;
+        height: 520px;
         padding-left: 44px;
         padding-right: 44px;
         width: 440px;
@@ -39,6 +39,7 @@ export const ButtonStyled = styled(Button)`
 
     &:hover {
         background: linear-gradient(262deg, #fe5f61, #fe5f61);
+        box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
     }
 
 `;
