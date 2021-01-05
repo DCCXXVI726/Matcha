@@ -8,7 +8,6 @@ import {
 
 import { white, black, gray7 } from 'Styles/colors.config.style';
 
-
 export const TypographyStyled = styled(Typography)`
     font-weight: bold;
     font-style: italic;
@@ -29,6 +28,7 @@ export const DialogStyled = styled(Dialog).attrs({
     classes: { paper }
 })`
     .${paper} {
+        height: 500px;
         padding-left: 44px;
         padding-right: 44px;
         width: 440px;
@@ -40,8 +40,8 @@ export const DialogStyled = styled(Dialog).attrs({
 
 export const DialogContentStyled = styled.div`
     p {
-        margin-top: 20px;
-        margin-bottom: 30px;
+        margin-top: 30px;
+        margin-bottom: 20px;
         font-size: 0.8rem;
         font-weight: lighter;
     }

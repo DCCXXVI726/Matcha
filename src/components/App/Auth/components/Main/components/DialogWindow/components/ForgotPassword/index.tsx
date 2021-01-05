@@ -1,13 +1,17 @@
 import React, { FunctionComponent } from 'react';
-import { TextField } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
 import { useTranslation } from 'react-i18next';
 
 import {
+    TextFieldStyled,
     TypographyStyled,
-    DialogStyled,
     DialogContentStyled,
     DialogWindowStyled,
 } from './index.style';
+
+import {
+    DialogStyled,
+} from '../DialogWindow/index.style';
 
 interface ForgotPasswordProps {
     onClose: any;
@@ -33,11 +37,22 @@ export const ForgotPassword: FunctionComponent<ForgotPasswordProps> = ({ onClose
             </TypographyStyled>
             <DialogStyled onClose={handleClose} aria-labelledby='customized-dialog-title' open={open}>
 
+                <TypographyStyled align='center'>
+                    {t('auth.problems.tittle')}
+                </TypographyStyled>
+
                 <DialogContentStyled id='customized-dialog-title'>
-                    {t('auth.login.insta')}
+                    <TypographyStyled align='center'>
+                        {t('auth.problems.description')}
+                    </TypographyStyled>
                 </DialogContentStyled>
-                <TextField id='standard-secondary' label='Standard secondary' color='secondary' />
+
+                <TextFieldStyled id='standard-secondary' label={t('auth.problems.placeholder')} />
+                <Button variant='contained'>
+                    {t('auth.problems.button')}
+                </Button>
+
             </DialogStyled>
         </DialogWindowStyled>
     );
-}
+};

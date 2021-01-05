@@ -3,11 +3,16 @@ import {
     Typography,
     // Button,
     Dialog,
+    TextField,
     // DialogTitle,
 } from '@material-ui/core';
 
 // import { white, black, gray7 } from 'Styles/colors.config.style';
 
+export const TextFieldStyled = styled(TextField)`
+    text-transform: none;
+
+`;
 
 export const TypographyStyled = styled(Typography)`
     font-weight: bold;

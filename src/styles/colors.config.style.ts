@@ -1,4 +1,4 @@
-export const hex2rgba = (hex: string, alpha: number = 100): string => {;
+export const hex2rgba = (hex: string, alpha: number = 100): string => {
     const [r, g, b] = [
         parseInt(hex.slice(1, 3), 16),
         parseInt(hex.slice(3, 5), 16),
