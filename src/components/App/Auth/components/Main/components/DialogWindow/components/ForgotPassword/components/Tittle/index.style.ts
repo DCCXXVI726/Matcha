@@ -1,35 +1,12 @@
 import styled from 'styled-components';
-import {
-    Typography,
-    // Button,
-    Dialog,
-    TextField,
-    // DialogTitle,
-} from '@material-ui/core';
+import { Typography, Dialog } from '@material-ui/core';
 
 import { gray7 } from 'Styles/colors.config.style';
-
-import { ButtonStyled } from '../../index.style';
-
-interface ButtonProps {
-    disabled?: boolean;
-}
-
-    /* background: ${(props: ButtonProps) => props.disabled ? `linear-gradient(262deg, #ff7854, #fd267d)` : 'blue'}; */
-export const Button = styled(ButtonStyled)<ButtonProps>`
-    background: ${(props: ButtonProps) => props.disabled ? `linear-gradient(262deg, #ff7854, #fd267d)` : 'blue'};
-
-`;
 
 export const ImageStyled = styled.img`
     display: block;
     margin: 30px auto 15px;
     width: 30px;
-
-`;
-
-export const TextFieldStyled = styled(TextField)`
-    text-transform: none;
 
 `;
 
@@ -50,13 +27,6 @@ export const TypographyDescriptionStyled = styled(Typography)`
 
 `;
 
-export const TypographyStyled = styled(Typography)`
-    font-weight: bold;
-    text-decoration: underline;
-    cursor: pointer;
-
-`;
-
 const paper = 'DialogPaper';
 export const DialogStyled = styled(Dialog).attrs({
     classes: { paper }
@@ -70,5 +40,3 @@ export const DialogStyled = styled(Dialog).attrs({
     }
 
 `;
-
-export const DialogWindowStyled = styled.div``;

@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { ForgotPassword } from '../ForgotPassword';
+import { ForgotPassword } from './components/ForgotPassword';
 import { LoginButtons } from './components/LoginButtons';
 import { Tittle } from './components/Tittle';
 
