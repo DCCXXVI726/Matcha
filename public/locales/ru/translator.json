@@ -12,5 +12,6 @@
     "auth.problems.tittle": "Восстановление аккаунта",
     "auth.problems.description": "Мы отправим вам ссылку для мгновенного входа.",
     "auth.problems.placeholder": "Адрес электронной почты",
-    "auth.problems.button": "Отправить электронное письмо"
+    "auth.problems.button": "Отправить электронное письмо",
+    "slide.names.separator": "и"
 }

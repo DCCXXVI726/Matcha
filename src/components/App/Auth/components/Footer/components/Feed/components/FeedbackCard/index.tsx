@@ -1,42 +1,44 @@
 import React, { FunctionComponent } from 'react';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import { useTranslation } from 'react-i18next';
+import { CardContent } from '@material-ui/core';
 
-// interface FeedbackCardProps {
-//     id: number;
-//     firstname?: string;
-//     secondname?: string;
-//     text: string;
-// }
+import {
+    SvgIconStyled,
+    TypographyStyled,
+    DescriptionStyled,
+    TittleStyled,
+    CardStyled,
+} from './index.style';
 
-// export const FeedbackCard: FunctionComponent<FeedbackCardProps> = () => {
-export const FeedbackCard: FunctionComponent = () => {
-  const bull = <span>•</span>;
+const addSecondName = (
+    secondname: string | undefined,
+    separator: string
+): string => secondname ? ` ${separator} ${secondname} ` : '';
 
-  return (
-    <Card>
-      <CardContent>
-        <Typography color='textSecondary' gutterBottom>
-          Word of the Day
-        </Typography>
-        <Typography variant='h5' component='h2'>
-          be{bull}nev{bull}o{bull}lent
-        </Typography>
-        <Typography color='textSecondary'>
-          adjective
-        </Typography>
-        <Typography variant='body2' component='p'>
-          well meaning and kindly.
-          <br />
-          {'a benevolent smile'}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size='small'>Learn More</Button>
-      </CardActions>
-    </Card>
-  );
+interface FeedbackCardProps {
+    id: number;
+    firstname: string;
+    secondname?: string;
+    text: string;
 }
+
+export const FeedbackCard: FunctionComponent<FeedbackCardProps> = (props) => {
+    const { t } = useTranslation();
+    const names = `${props.firstname}${addSecondName(props.secondname, t('slide.names.separator'))}`;
+
+    return (
+    <CardStyled>
+        <CardContent>
+            <TittleStyled>
+                <TypographyStyled color='textSecondary'>
+                    {names}
+                </TypographyStyled>
+                <SvgIconStyled color='disabled' />
+            </TittleStyled>
+            <DescriptionStyled>
+                {'Повстречавшись всего пару месяцев, мы решили разойтись, потому что не могли понять, что нам делать дальше. Я была влюблена, но думала, что всё это несерьезно. Прошло 9 месяцев, и вот мы уже не можем представить жизнь друг без друга.'}
+            </DescriptionStyled>
+        </CardContent>
+    </CardStyled>
+    );
+};

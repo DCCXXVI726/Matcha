@@ -12,5 +12,6 @@
     "auth.problems.tittle": "Account recovery",
     "auth.problems.description": "We'll email you a link that will instantly log you in",
     "auth.problems.placeholder": "Email Address",
-    "auth.problems.button": "Send email"
+    "auth.problems.button": "Send email",
+    "slide.names.separator": "and"
 }
