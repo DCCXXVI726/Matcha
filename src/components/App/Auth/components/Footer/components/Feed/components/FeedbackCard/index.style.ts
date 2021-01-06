@@ -1,13 +1,11 @@
 import styled from 'styled-components';
-import CreateIcon from '@material-ui/icons/Create';
-import {
-    Typography,
-    Card,
-} from '@material-ui/core';
+import FormatQuoteRoundedIcon from '@material-ui/icons/FormatQuoteRounded';
+
+import { Typography, Card } from '@material-ui/core';
 
 import { black, coolGray1, coolGray5 } from 'Styles/colors.config.style';
 
-export const SvgIconStyled = styled(CreateIcon)`
+export const SvgIconStyled = styled(FormatQuoteRoundedIcon)`
     position: absolute;
     right: 0;
     top: -2px;
