@@ -8,7 +8,7 @@ const langsList = ['Русский', 'English'];
 
 export const LangChooser: FunctionComponent = () => {
     const [lang, changeLang] = useState(langsList[1]);
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
 
     const handleChange = (event: any) => {
         if (event?.target.value === langsList[0]) {

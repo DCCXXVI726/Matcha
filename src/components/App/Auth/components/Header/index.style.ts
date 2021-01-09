@@ -69,5 +69,6 @@ export const ContainerStyled = styled(Container)`
     display: flex;
     padding: 20px 0px;
     color: ${white};
+    user-select: none;
 
 `;

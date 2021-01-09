@@ -32,6 +32,7 @@ export const TittleStyled = styled.div`
 `;
 
 export const CardStyled = styled(Card)`
+    width: 400px;
     user-select: none;
     box-shadow: 0 2px 6px 0 rgba(112,125,134,0.14);
     margin: 20px;
