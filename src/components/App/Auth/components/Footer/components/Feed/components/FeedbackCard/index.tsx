@@ -36,7 +36,7 @@ export const FeedbackCard: FunctionComponent<FeedbackCardProps> = (props) => {
                 <SvgIconStyled color='disabled' />
             </TittleStyled>
             <DescriptionStyled>
-                {'Повстречавшись всего пару месяцев, мы решили разойтись, потому что не могли понять, что нам делать дальше. Я была влюблена, но думала, что всё это несерьезно. Прошло 9 месяцев, и вот мы уже не можем представить жизнь друг без друга.'}
+                {props.text}
             </DescriptionStyled>
         </CardContent>
     </CardStyled>
