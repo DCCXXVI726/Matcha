@@ -9,18 +9,16 @@ import { Tittle } from './components/Tittle';
 import { DialogStyled } from '../../index.style';
 
 interface ForgotPasswordProps {
-    onClose: any;
+    onClose: () => void;
 }
 
 export const ForgotPassword: FunctionComponent<ForgotPasswordProps> = ({ onClose }) => {
     const { t } = useTranslation();
     const [open, setOpen] = React.useState(false);
 
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
+    const handleClickOpen = (): void => setOpen(true);
 
-    const handleClose = () => {
+    const handleClose = (): void => {
         setOpen(false);
         onClose();
     };

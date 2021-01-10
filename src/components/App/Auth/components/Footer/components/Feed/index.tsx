@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactNodeArray, useMemo } from 'react';
+import React, { FunctionComponent, ReactNode, useMemo } from 'react';
 // import { useTranslation } from 'react-i18next';
 
 import {
@@ -43,22 +43,32 @@ const prop4 = {
     text: 'Когда я обучался в институте, мы с соседом по комнате обожали посидеть в Матче. Мы не находили нешуточных отношений или же встреч на 1 ночь, элементарно забавлялись. Как видите, где я встретил собственного мужа.'
 };
 
+export type Tuple = {
+    isVisible: boolean,
+    value: ReactNode,
+};
+
+const toggleVisible = (card: Tuple): void => {
+    card.isVisible = !card.isVisible;
+};
+
 export const Feed: FunctionComponent = () => {
     // const { t } = useTranslation();
 
-    const cards: ReactNodeArray = useMemo(() => {
-        return [
-            <FeedbackCard key={prop.id} {...prop} />,
-            <FeedbackCard key={prop.id} {...prop1} />,
-            <FeedbackCard key={prop.id} {...prop2} />,
-            <FeedbackCard key={prop.id} {...prop3} />,
-            <FeedbackCard key={prop.id} {...prop4} />,
-        ];
-    }, []);
+    const cards: Tuple[] = useMemo(() => [
+            { isVisible: true, value: <FeedbackCard key={prop.id} {...prop} /> },
+            { isVisible: true, value: <FeedbackCard key={prop.id} {...prop1} /> },
+            { isVisible: true, value: <FeedbackCard key={prop.id} {...prop2} /> },
+            { isVisible: true, value: <FeedbackCard key={prop.id} {...prop3} /> },
+            { isVisible: true, value: <FeedbackCard key={prop.id} {...prop4} /> },
+        ], []);
 
     return (
         <FeedStyled>
-            <SlideShow cards={cards} />
+            <SlideShow
+                cards={cards}
+                toggleVisible={toggleVisible}
+            />
         </FeedStyled>
     );
 };

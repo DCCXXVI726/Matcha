@@ -10,8 +10,8 @@ export const LangChooser: FunctionComponent = () => {
     const [lang, changeLang] = useState(langsList[1]);
     const [open, setOpen] = useState(false);
 
-    const handleChange = (event: any) => {
-        if (event?.target.value === langsList[0]) {
+    const handleChange = (event: React.ChangeEvent<{ name?: string; value: unknown }>): void => {
+        if (event.target.value === langsList[0]) {
             i18next.changeLanguage('ru');
             changeLang(langsList[0]);
         } else {
@@ -20,13 +20,9 @@ export const LangChooser: FunctionComponent = () => {
         }
     };
 
-    const handleClose = () => {
-        setOpen(false);
-    };
+    const handleClose = (): void => setOpen(false);
 
-    const handleOpen = () => {
-        setOpen(true);
-    };
+    const handleOpen = (): void => setOpen(true);
 
     const menu: ReactNodeArray = useMemo(() =>
         langsList.map((langItem, key) => (

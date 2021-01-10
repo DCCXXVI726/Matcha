@@ -13,15 +13,15 @@ export const Tittle: FunctionComponent = () => {
     const { t } = useTranslation();
 
     return (
-            <>
-                <ImageStyled  src={Logo} alt='Logo' />
-                <TypographyTittleStyled align='center'>
-                    {t('auth.problems.tittle')}
-                </TypographyTittleStyled>
+        <>
+            <ImageStyled  src={Logo} alt='Logo' />
+            <TypographyTittleStyled align='center'>
+                {t('auth.problems.tittle')}
+            </TypographyTittleStyled>
 
-                <TypographyDescriptionStyled align='center'>
-                    {t('auth.problems.description')}
-                </TypographyDescriptionStyled>
-            </>
+            <TypographyDescriptionStyled align='center'>
+                {t('auth.problems.description')}
+            </TypographyDescriptionStyled>
+        </>
     );
 };

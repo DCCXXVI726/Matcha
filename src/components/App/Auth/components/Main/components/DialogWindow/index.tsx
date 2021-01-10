@@ -16,13 +16,9 @@ export const DialogWindow: FunctionComponent = () => {
     const { t } = useTranslation();
     const [open, setOpen] = React.useState(false);
 
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
+    const handleClickOpen = (): void => setOpen(true);
 
-    const handleClose = () => {
-        setOpen(false);
-    };
+    const handleClose = (): void => setOpen(false);
 
     return (
         <DialogWindowStyled>

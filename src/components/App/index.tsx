@@ -9,10 +9,10 @@ import {
 } from './index.style';
 
 export const App: FunctionComponent = () => {
-        return (
-            <ThemeProvider theme={theme}>
-                <CssBaseline />
-                <Auth />
-            </ThemeProvider>
+    return (
+        <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <Auth />
+        </ThemeProvider>
     );
 };

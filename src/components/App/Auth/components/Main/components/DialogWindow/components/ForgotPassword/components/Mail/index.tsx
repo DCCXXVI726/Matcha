@@ -9,7 +9,7 @@ export const Mail: FunctionComponent = () => {
     const [value, setValue] = useState('');
     const [isDisabled, statusToggle] = useState(true);
 
-    const handleChange = (event: any): void => {
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
         setValue(event.target.value);
         if (EmailValidator.validate(event.target.value)) {
             statusToggle(false);

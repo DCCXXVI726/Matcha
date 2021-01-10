@@ -1,10 +1,8 @@
 import styled from 'styled-components';
 import {
     Typography,
-    // Button,
     Dialog,
     TextField,
-    // DialogTitle,
 } from '@material-ui/core';
 
 import { gray7 } from 'Styles/colors.config.style';
@@ -15,9 +13,11 @@ interface ButtonProps {
     disabled?: boolean;
 }
 
-    /* background: ${(props: ButtonProps) => props.disabled ? `linear-gradient(262deg, #ff7854, #fd267d)` : 'blue'}; */
 export const Button = styled(ButtonStyled)<ButtonProps>`
-    background: ${(props: ButtonProps) => props.disabled ? `linear-gradient(262deg, #ff7854, #fd267d)` : 'blue'};
+    background: ${(props: ButtonProps) => props.disabled
+        ? `linear-gradient(262deg, #ff7854, #fd267d)`
+        : 'blue'
+    };
 
 `;
 
