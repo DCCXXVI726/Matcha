@@ -1,5 +1,6 @@
 {
     "logo": "Matcha",
+    "copyright": "© 2021 SLEONIA",
     "auth.lang": "Русский",
     "auth.login": "Войдите",
     "auth.slogan": "Свайп вправо",
@@ -13,5 +14,9 @@
     "auth.problems.description": "Мы отправим вам ссылку для мгновенного входа.",
     "auth.problems.placeholder": "Адрес электронной почты",
     "auth.problems.button": "Отправить электронное письмо",
-    "slide.names.separator": "и"
+    "slide.names.separator": "и",
+    "auth.footer.company": "Компания",
+    "auth.footer.community": "Сообщество",
+    "auth.footer.partners": "Партнёрство",
+    "auth.footer.legal": "Конфиденциальность"
 }

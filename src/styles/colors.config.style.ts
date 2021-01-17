@@ -48,8 +48,8 @@ export const graphite0 = '#383838';
 export const noColor = 'transparent';
 
 /* PINK */
+export const pink1 = '#fd5068';
 export const pink0 = '#c73868';
-
 /* WHITE */
 export const white = '#ffffff';
 

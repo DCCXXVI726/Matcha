@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const FooterStyled = styled.div`
-    margin-top: 30px;
+    margin: 30px auto;
+    width: 70%;
+    user-select: none;
 
 `;

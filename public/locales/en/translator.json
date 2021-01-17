@@ -1,5 +1,6 @@
 {
     "logo": "Matcha",
+    "copyright": "© 2021 SLEONIA",
     "auth.lang": "English",
     "auth.login": "Log in",
     "auth.slogan": "Swipe Right",
@@ -13,5 +14,9 @@
     "auth.problems.description": "We'll email you a link that will instantly log you in",
     "auth.problems.placeholder": "Email Address",
     "auth.problems.button": "Send email",
-    "slide.names.separator": "and"
+    "slide.names.separator": "and",
+    "auth.footer.company": "Company",
+    "auth.footer.community": "Community",
+    "auth.footer.partners": "Partners",
+    "auth.footer.legal": "Legal"
 }
