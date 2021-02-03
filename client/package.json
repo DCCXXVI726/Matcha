@@ -2,6 +2,8 @@
   "name": "react-webpack",
   "version": "1.0.0",
   "description": "React webpack setup",
+  "proxy": "http://localhost:8080",
+  "private": true,
   "main": "webpack-dev-server",
   "scripts": {
     "start": "webpack-dev-server",
@@ -37,7 +39,7 @@
     "url-loader": "^4.1.1",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.2",
