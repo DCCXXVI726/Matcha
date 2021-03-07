@@ -8,13 +8,8 @@ export const Main = (): JSX.Element => {
 
     useEffect(() => {
         axios.get('api/ping')
-            .then((response) => {
-                console.log(response)
-                setData(response.data.message)
-            })
-            .catch(function (error) {
-                console.log('lox', error);
-            });
+            .then((response) => setData(response.data.message))
+            .catch((e) => console.log(error));
     }, [data])
 
     return (
