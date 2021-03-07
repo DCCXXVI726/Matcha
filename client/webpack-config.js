@@ -11,6 +11,11 @@ module.exports = {
         extensions: ['.ts', '.tsx', '.js', '.jsx'],
         modules: [cwd, 'node_modules']
     },
+    devServer: {
+        contentBase: path.join(__dirname, 'stub'),
+        compress: true,
+        port: 8081,
+    },
 
     module: {
         rules: [
@@ -112,7 +117,7 @@ module.exports = {
     context: cwd,
 
     output: {
-        path: path.resolve(cwd, 'dist'),
+        path: path.resolve(cwd, 'stub'),
         filename: 'index.js'
     },
 };
