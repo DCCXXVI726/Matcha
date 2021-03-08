@@ -12,6 +12,6 @@ export const MainContainerStyled = styled.div(({ theme }) => css`
     background-color: ${theme.primary};
 `);
 
-export const MainStyled = styled.div`
+export const MainStyled = styled.main`
     grid-area: main;
 `;

@@ -14,6 +14,13 @@ const PORT = 3030;
 
 app.use(webpackDevMiddleware(webpack(webpackConfig)));
 
+app.get('/api/login', (_, res: Response) => {
+    res
+        .header('Content-Type', 'application/json')
+        .status(200)
+        .json({ data: 'kek' });
+});
+
 app.get('/api*', (_, res: Response) => {
     axios.get(`http://localhost:8080${_.path}`)
         .then((response) => res.json(response.data))

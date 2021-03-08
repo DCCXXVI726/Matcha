@@ -3,6 +3,8 @@ import React from 'react';
 import { Router as ReactRouter, Route, Switch } from 'react-router';
 import { createBrowserHistory } from 'history';
 
+import { actions, createStore } from './__data__/index';
+
 import { ThemeWrapper } from './theme';
 
 import { Header } from './components/header';
@@ -13,6 +15,10 @@ import { Auth } from './pages/auth';
 import { NotFound } from './pages/not-found';
 
 import { MainContainerStyled, MainStyled } from './index.style';
+
+export const store = createStore();
+window.store = store;
+store.dispatch(actions.fetchLogin());
 
 const history = createBrowserHistory();
 
