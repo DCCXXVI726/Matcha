@@ -3,6 +3,8 @@ import React from 'react';
 import { Router as ReactRouter, Route, Switch } from 'react-router';
 import { createBrowserHistory } from 'history';
 
+import { ThemeWrapper } from './theme';
+
 import { Header } from './components/header';
 import { Navbar } from './components/navbar';
 
@@ -31,5 +33,7 @@ const MainContainer = (): JSX.Element => (
 );
 
 export const Component = (): JSX.Element => (
-    <MainContainer />
+    <ThemeWrapper>
+        <MainContainer />
+    </ThemeWrapper>
 );
