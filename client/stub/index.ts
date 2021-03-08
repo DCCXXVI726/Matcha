@@ -13,14 +13,15 @@ const app = express();
 const PORT = 3030;
 
 app.use(webpackDevMiddleware(webpack(webpackConfig)));
-app.get('/app', (_, res: Response) => {
-    res.sendFile(path.resolve(__dirname, 'index.html'));
-});
 
 app.get('/api*', (_, res: Response) => {
     axios.get(`http://localhost:8080${_.path}`)
         .then((response) => res.json(response.data))
         .catch(e => console.error(e));
+});
+
+app.get('/*', (_, res: Response) => {
+    res.sendFile(path.resolve(__dirname, 'index.html'));
 });
 
 app.listen(PORT, () => 'Dev server started');
