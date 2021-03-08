@@ -42,10 +42,7 @@ module.exports = {
             },
             {
                 test: /\.svg$/,
-                include: [
-                    path.resolve(__dirname, 'src/assets'),
-                ],
-                use: 'svg-inline-loader'
+                use: ['@svgr/webpack', 'url-loader'],
             },
             {
                 test: /\.css$/,

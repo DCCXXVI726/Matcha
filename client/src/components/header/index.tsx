@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { IconButton, Button } from '@material-ui/core';
+import { IconButton } from '@material-ui/core';
 
 import { ThemeWrapperContext } from '../../theme';
 import { darkMode, lightMode } from '../../assets';
@@ -11,13 +11,9 @@ export const Header = (): JSX.Element => {
     return (
         <HeaderStyled>
             {'Header'}
-            <Button onClick={changeTheme}>Button</Button>
-            {/* <Button onClick={changeTheme}> {theme === 'DARK' ? lightMode : darkMode} </Button> */}
-            {/* <IconButton onClick={changeTheme} color='primary' aria-label='upload picture' component='span'> */}
-                {/* {theme === 'DARK' ? lightMode : darkMode} */}
-            {/* </IconButton> */}
+            <IconButton onClick={changeTheme}>
+                <img src={theme === 'DARK' ? lightMode : darkMode} />
+            </IconButton>
         </HeaderStyled>
     );
 };
-
-// icon={theme === 'DARK' ? lightMode : darkMode}

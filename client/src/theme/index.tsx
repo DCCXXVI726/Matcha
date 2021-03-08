@@ -26,9 +26,6 @@ export const ThemeWrapper = ({ children }: ThemeWrapperProps): JSX.Element => {
         setThemeColor(themeColor === 'DARK' ? 'LIGHT' : 'DARK');
     }, [themeColor]);
 
-    console.log(themeColor);
-    console.log(theme[themeColor]);
-
     return (
         <ThemeWrapperContext.Provider
             value={[

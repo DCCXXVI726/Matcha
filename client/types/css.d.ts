@@ -1,4 +1,6 @@
-declare module '*.css' {
-    const map: { [key: string]: string };
-    export default map;
+declare module '\*.svg' {
+    import React = require('react');
+    export const ReactComponent: React.SFC<React.SVGProps<SVGSVGElement>>;
+    const src: string;
+    export default src;
 }
