@@ -18,7 +18,8 @@ import { MainContainerStyled, MainStyled } from './index.style';
 
 export const store = createStore();
 window.store = store;
-store.dispatch(actions.fetchLogin());
+store.dispatch(actions.fetchLogin('alexey', 'drolyag'));
+console.log(window.store.getState());
 
 const history = createBrowserHistory();
 

@@ -14,11 +14,14 @@ const PORT = 3030;
 
 app.use(webpackDevMiddleware(webpack(webpackConfig)));
 
-app.get('/api/login', (_, res: Response) => {
-    res
-        .header('Content-Type', 'application/json')
-        .status(200)
-        .json({ data: 'kek' });
+app.use(express.urlencoded());
+
+// Parse JSON bodies (as sent by API clients)
+app.use(express.json());
+app.post('/api/login', (req, res) => {
+    //@ts-ignore
+    console.log(req.body);
+    res.json({ cool: true });
 });
 
 app.get('/api*', (_, res: Response) => {
