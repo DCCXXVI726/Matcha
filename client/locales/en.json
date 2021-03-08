@@ -1,3 +1,4 @@
 {
-    "hello": "hello"
+    "hello": "hello",
+    "not-found": "The page was here, and now it's not here"
 }
