@@ -1,12 +1,12 @@
-// import axios from 'axios';
+import { Dispatch } from 'redux';
 import * as types from '../action-types';
 
-export const fetchLogin = (login: string, password: string): void => {
-    return (dispatch): void => {;
+export const fetchLogin = (login: string, password: string) => {
+    return async (dispatch: Dispatch): Promise<void> => {
         dispatch({
             type: types.AUTH_LOADING
         });
-        fetch('/api/login', {
+        const response = await fetch('/api/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -17,14 +17,19 @@ export const fetchLogin = (login: string, password: string): void => {
                     password: password
                 }
             })
-        })
-            .then(res => res.json())
-            .then(res => dispatch({
+        });
+
+        if (!response.ok) {
+            console.warn(`An error has occured: ${response.status}`);
+            dispatch({
+                type: types.AUTH_ERROR
+            });
+        } else {
+            const json = await response.json();
+            dispatch({
                 type: types.AUTH_FETCH,
-                payload: res
-            }))
-            .catch(() => dispatch({
-                type: types.AUTH_ERROR,
-            }));
+                payload: json
+            });
+        }
     };
 };
