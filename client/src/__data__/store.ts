@@ -16,11 +16,17 @@ export const createReducer = () =>
 export const createStore = () => {
     const reducer = createReducer();
 
-    const composeEnhancers = compose;
+    const composeEnhancers =
+        typeof window === 'object' &&
+        window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+            ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+                name: 'Matcha21'
+            })
+            : compose;
 
     return composeEnhancers(
         applyMiddleware(
-            thunkMiddleware
+            thunkMiddleware,
         )
     )(createReduxStore)(reducer, {});
 };
