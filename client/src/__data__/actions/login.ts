@@ -26,6 +26,8 @@ export const fetchLogin = (login: string, password: string) => {
             });
         } else {
             const json = await response.json();
+            /* eslint-disable-next-line no-console */
+            console.log(`Login successful: ${response.status}`);
             dispatch({
                 type: types.AUTH_FETCH,
                 payload: json
