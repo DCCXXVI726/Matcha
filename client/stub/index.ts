@@ -2,6 +2,7 @@ import path = require('path');
 import axios from 'axios';
 import express = require('express');
 import { Response } from 'express';
+import * as cors from 'cors';
 import webpack = require('webpack');
 import webpackDevMiddleware = require('webpack-dev-middleware');
 /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
@@ -10,14 +11,20 @@ import webpackConfig = require('../webpack-config');
 
 const app = express();
 
+const ERROR_CODE = 404;
 const PORT = 3030;
 
 app.use(webpackDevMiddleware(webpack(webpackConfig)));
-app.use(express.urlencoded());
+app.use(cors());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.post('/api/login', (req, res) => {
-    res.json( req.body );
+    if (req.body?.user.login === 'test' && req.body?.user.password === 'test') {
+        res.json(req.body?.user.login);
+    } else {
+        res.status(ERROR_CODE).send('User not found');
+    }
 });
 
 app.get('/api*', (_, res: Response) => {
