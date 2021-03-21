@@ -1,4 +1,7 @@
 {
     "hello": "hello",
+    "auth.login-placeholder": "login",
+    "auth.password-placeholder": "password",
+    "auth-button": "Login",
     "not-found": "The page was here, and now it's not here"
 }
