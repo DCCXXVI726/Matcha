@@ -11,7 +11,6 @@ import webpackConfig = require('../webpack-config');
 
 const app = express();
 
-const ERROR_CODE = 404;
 const PORT = 3030;
 
 app.use(webpackDevMiddleware(webpack(webpackConfig)));
@@ -20,11 +19,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.post('/api/login', (req, res) => {
-    if (req.body?.user.login === 'test' && req.body?.user.password === 'test') {
-        res.json(req.body?.user.login);
-    } else {
-        res.status(ERROR_CODE).send('User not found');
-    }
+    axios.post('http://localhost:8080/api/login', {
+        login: req.body?.user.login,
+        password: req.body?.user.password
+    })
+        .then((response) => res.json(response.data))
+        .catch(e => console.error(e));
 });
 
 app.get('/api*', (_, res: Response) => {
