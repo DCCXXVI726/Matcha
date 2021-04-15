@@ -10,6 +10,7 @@ require (
 	github.com/go-ozzo/ozzo-validation v3.6.0+incompatible
 	github.com/golang-migrate/migrate v3.5.4+incompatible // indirect
 	github.com/golang-migrate/migrate/v4 v4.14.1 // indirect
+	github.com/gopherschool/http-rest-api v0.0.0-20190922093049-d59926c5ce3c
 	github.com/gorilla/mux v1.8.0
 	github.com/lib/pq v1.10.0
 	github.com/sirupsen/logrus v1.8.1
