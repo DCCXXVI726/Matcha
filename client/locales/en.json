@@ -1,5 +1,6 @@
 {
     "hello": "hello",
+    "auth.email-placeholder": "Your email",
     "auth.login-placeholder": "login",
     "auth.password-placeholder": "password",
     "auth-button": "Login",

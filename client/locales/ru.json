@@ -1,5 +1,6 @@
 {
     "hello": "Привет",
+    "auth.email-placeholder": "Email",
     "auth.login-placeholder": "Имя аккаунта",
     "auth.password-placeholder": "Пароль",
     "auth-button": "Войти",
