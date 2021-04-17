@@ -1,0 +1,19 @@
+version: "3"
+services: 
+    builder:
+        build:
+            context: .
+            dockerfile: ./Dockerfile_builder
+        container_name: builder
+    node_builder:
+        build:
+            context: .
+            dockerfile: ./Dockerfile_nodebuilder
+        container_name: node_builder
+    alp_prox:
+        build:
+            context: .
+            dockerfile: ./Dockerfile_alpprox
+        container_name: alp_prox
+        ports: 
+            - '8080:8080'

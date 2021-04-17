@@ -1,0 +1,7 @@
+FROM alpine:latest
+RUN apk --no-cache add ca-certificates
+COPY --from=newmatcha_builder /main ./
+COPY --from=newmatcha_node_builder /stub ./web
+RUN chmod +x ./main
+EXPOSE 8080
+CMD ./main
