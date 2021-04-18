@@ -8,7 +8,7 @@ import Cookies from 'js-cookie';
 import { LoginComponent } from './pages/login';
 import { NotFound } from './pages/not-found';
 
-import { ThemeWrapper } from './theme';
+import { ThemeWrapper, ThemeColors, ThemeWrapperContext } from './theme';
 import { SessionContext, getSessionCookie } from './session';
 
 export const history = createBrowserHistory();
@@ -80,9 +80,23 @@ const MainContainer = (): JSX.Element => {
         </SessionContext.Provider>
     );
 };
+import { Global, css } from '@emotion/react';
+
+const GlobalStyles = (): JSX.Element => {
+    // const [theme,] = useContext(ThemeWrapperContext);
+    // console.info(theme);
+    return (
+        <Global styles={theme => css`
+        body {
+            background-color: ${(theme).primary};
+        }
+    `} />
+    );
+};
 
 export const Component = (): JSX.Element => (
     <ThemeWrapper>
+        <GlobalStyles />
         <MainContainer />
     </ThemeWrapper>
 );

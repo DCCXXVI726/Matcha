@@ -1,6 +1,8 @@
 {
     "logo-title": "Matcha",
+    "title": "Свайп вправо",
     "logout": "Выйти",
+    "create-account": "Создать аккаунт",
     "auth.email-placeholder": "Email",
     "auth.login-placeholder": "Имя аккаунта",
     "auth.password-placeholder": "Пароль",

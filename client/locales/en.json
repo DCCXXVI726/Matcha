@@ -1,6 +1,8 @@
 {
     "logo-title": "Matcha",
+    "title": "Swipe right",
     "logout": "Logout",
+    "create-account": "Сreate account",
     "auth.email-placeholder": "Your email",
     "auth.login-placeholder": "login",
     "auth.password-placeholder": "password",

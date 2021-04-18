@@ -8,7 +8,10 @@ import { darkMode, lightMode } from '../../assets';
 export const ThemeToggle = (): JSX.Element => {
     const [theme, changeTheme] = useContext(ThemeWrapperContext);
     return (
-        <IconButton onClick={changeTheme as () => void}>
+        <IconButton
+            onClick={changeTheme as () => void}
+            size='medium'
+        >
             <img src={theme === 'DARK' ? lightMode : darkMode} />
         </IconButton>
     );
