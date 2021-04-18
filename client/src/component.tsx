@@ -1,125 +1,80 @@
 import React, { useEffect, useState, useContext } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Router, Switch, Route, Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
 import { createBrowserHistory, History } from 'history';
 import Cookies from 'js-cookie';
 
-import { SessionContext, getSessionCookie, setSessionCookie } from './session';
+import { LoginComponent } from './pages/login';
+import { NotFound } from './pages/not-found';
 
-const history = createBrowserHistory();
+import { ThemeWrapper } from './theme';
+import { SessionContext, getSessionCookie } from './session';
 
-const LoginHandler = ({ history }) => {
-    const [email, setEmail] = useState('');
-    const handleSubmit = async e => {
-        e.preventDefault();
-        setSessionCookie({ email });
-        history.push('/');
-    };
+export const history = createBrowserHistory();
 
-    const session = useContext(SessionContext);
+interface Props {
+    history: History
+}
 
-    if (session.email !== undefined) {
-        history.push('/');
-    }
+const LogoutHandler = ({ history }: Props): JSX.Element => {
+    const { t } = useTranslation();
 
-    return (
-        <div style={{ marginTop: '1rem' }}>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type='text'
-                    placeholder='Enter email address'
-                    //value={email}
-                    onChange={e => setEmail(e.target.value)}
-                />
-                <input type='submit' value='Login' />
-            </form>
-        </div>
-    );
-};
-
-const LogoutHandler = ({ history }: any) => {
-    useEffect(
-        () => {
-            Cookies.remove('session');
-            history.push('/login');
-        },
-        [history]
-    );
-
-    return <div>Logging out!</div>;
-};
-
-const ProtectedHandler = ({ history }) => {
-    const session = useContext(SessionContext);
-    if (session.email === undefined) {
+    useEffect(() => {
+        Cookies.remove('session');
         history.push('/login');
-    }
-    return (
-        <div>
-            <h6>Protected data for {session.email}</h6>
-            <p>
-                <Link to='/main'>main</Link>
-            </p>
-            <p>
-                <Link to='/logout'>Logout here</Link>
-            </p>
-        </div>
-    );
+    }, [history]);
+
+    return <p>{t('logout')}</p>;
 };
 
-const Main = () => {
-    return (
-        <div>
-            <h6>KEKEKKEKEKEKE</h6>
-        </div>
-    );
-};
-
-const PrivateRoute = ({ children, ...rest }): JSX.Element => {
+const ProtectedHandler = ({ history }: Props): JSX.Element => {
+    const { t } = useTranslation();
     const session = useContext(SessionContext);
 
     if (session.email === undefined) {
         history.push('/login');
     }
 
+    console.warn(session.email);
+
     return (
-        <Route {...rest} render={({ location }): JSX.Element => {
-            return session.email !== undefined
-                ? children
-                : <Redirect to={{
-                    pathname: '/login',
-                    state: { from: location }
-                }} />;
-        }} />
+        <div>
+            <p>
+                <Link to='/kek'>main</Link>
+            </p>
+            <p>
+                <Link to='/logout'>{t('logout')}</Link>
+            </p>
+        </div>
     );
 };
 
+const PrivateRoute = ({ ...rest }): JSX.Element => {
+    const session = useContext(SessionContext);
 
-const Routes = () => {
+    return (
+        session.email
+            ? <Route {...rest} />
+            : <Redirect to={{ pathname: '/login' }} />
+    );
+};
+
+const MainContainer = (): JSX.Element => {
     const [session, setSession] = useState(getSessionCookie());
-    useEffect(
-        () => {
-            setSession(getSessionCookie());
-        },
-        [session]
-    );
+
+    useEffect(() => {
+        setSession(getSessionCookie());
+    }, [session]);
 
     return (
         <SessionContext.Provider value={session}>
             <Router history={history}>
-                <div>
-                    <h6>Nav Bar</h6>
-                    <h6>
-                        {session.email || 'No user is logged in'}
-                    </h6>
-                </div>
                 <Switch>
-                    <Route path='/login' component={LoginHandler} />
+                    <Route path='/login' component={LoginComponent} />
                     <Route path='/logout' component={LogoutHandler} />
-                    <PrivateRoute path='/main'>
-                        <Main />
-                    </PrivateRoute>
-                    <Route path='*' component={ProtectedHandler} />
+                    <PrivateRoute exact path='/' component={ProtectedHandler} />
+                    <Route path='*' component={NotFound} />
                 </Switch>
             </Router>
         </SessionContext.Provider>
@@ -127,5 +82,7 @@ const Routes = () => {
 };
 
 export const Component = (): JSX.Element => (
-    <Routes />
+    <ThemeWrapper>
+        <MainContainer />
+    </ThemeWrapper>
 );

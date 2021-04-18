@@ -1,8 +1,10 @@
 {
     "hello": "hello",
+    "logout": "Logout",
     "auth.email-placeholder": "Your email",
     "auth.login-placeholder": "login",
     "auth.password-placeholder": "password",
     "auth-button": "Login",
-    "not-found": "The page was here, and now it's not here"
+    "not-found": "The page was here, and now it's not here",
+    "back-to-home": "Back to home"
 }

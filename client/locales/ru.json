@@ -1,8 +1,10 @@
 {
     "hello": "Привет",
+    "logout": "Выйти",
     "auth.email-placeholder": "Email",
     "auth.login-placeholder": "Имя аккаунта",
     "auth.password-placeholder": "Пароль",
     "auth-button": "Войти",
-    "not-found": "Страница была здесь, а теперь её тут нет"
+    "not-found": "Страница была здесь, а теперь её тут нет",
+    "back-to-home": "Вернуться на главную"
 }
