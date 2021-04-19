@@ -80,15 +80,19 @@ const MainContainer = (): JSX.Element => {
         </SessionContext.Provider>
     );
 };
-import { Global, css } from '@emotion/react';
+import { Global, css, SerializedStyles } from '@emotion/react';
 
 const GlobalStyles = (): JSX.Element => {
-    // const [theme,] = useContext(ThemeWrapperContext);
-    // console.info(theme);
     return (
-        <Global styles={theme => css`
+        <Global styles={(theme): SerializedStyles => css`
         body {
-            background-color: ${(theme).primary};
+            background-color: ${(theme as ThemeColors).primary};
+            background-image:
+                linear-gradient(45deg, transparent 25%, ${(theme as ThemeColors).secondary} 25%, transparent 25%),
+                linear-gradient(-45deg, transparent 25%, ${(theme as ThemeColors).secondary} 25%, transparent 25%),
+                linear-gradient(-45deg, transparent 75%, ${(theme as ThemeColors).secondary} 75%, transparent 0),
+                radial-gradient(gray 1px, transparent 0);
+            background-size: 40px 40px, 40px 40px;
         }
     `} />
     );

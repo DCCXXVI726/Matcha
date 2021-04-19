@@ -1,25 +1,29 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { Modal } from '../modal';
+
+import {
+    ButtonWrapper,
+    HeadlineStyled,
+} from '../../index.style';
 
 import {
     MainStyled,
-    ButtonWrapper,
-    SectionStyled,
-    HeadlineStyled,
-    ModalStyled
+    SectionStyled
 } from './index.style';
 
 export const Main = (): JSX.Element => {
     const { t } = useTranslation();
     const [open, setOpen] = useState<boolean>(false);
 
-    const handleOpen = (): void => {
+    const handleOpen = useCallback((): void => {
         setOpen(true);
-    };
+    }, []);
 
-    const handleClose = (): void => {
+    const handleClose = useCallback((): void => {
         setOpen(false);
-    };
+    }, []);
 
     return (
         <>
@@ -36,19 +40,11 @@ export const Main = (): JSX.Element => {
                     >
                         {t('create-account')}
                     </ButtonWrapper>
-                    <ModalStyled
+                    <Modal
                         open={open}
-                        onClose={handleClose}
-                        aria-labelledby='modal-title'
-                        aria-describedby='modal-description'
-                    >
-                        <div>
-                            <h2 id='modal-title'>Text in a modal</h2>
-                            <p id='modal-description'>
-                                Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                            </p>
-                        </div>
-                    </ModalStyled>
+                        handleOpen={handleOpen}
+                        handleClose={handleClose}
+                    />
                 </SectionStyled>
             </MainStyled>
         </>

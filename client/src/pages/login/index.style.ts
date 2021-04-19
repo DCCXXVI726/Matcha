@@ -66,20 +66,11 @@ export const ButtonLoginWrapper = styled(Button)`
     }
 `;
 
-export const MainStyled = styled.main(({ theme }) => css`
-    display: flex;
-    min-height: 60%;
-    justify-content: center;
-`);
-
 export const HeadlineStyled = styled(Typography)(({ theme }) => css`
+    background-color: ${(<ThemeColors>theme).primary};
     color: ${(<ThemeColors>theme).secondary};
 `);
 
-export const SectionStyled = styled.section`
-    margin: auto;
-
-`;
 
 export const ButtonWrapper = styled(Button)`
     &.MuiButtonBase-root {
@@ -90,17 +81,54 @@ export const ButtonWrapper = styled(Button)`
 `;
 
 export const ModalStyled = styled(Modal)(({ theme }) => css`
+    .MuiBackdrop-root {
+        background: ${(theme as ThemeColors).transparent};
+    }
+
+    &.modal {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        inset: unset;
+        outline: none;
+    }
+    
+    .paper {
+        outline: none;
+        inset: unset;
+        position: absolute;
+        margin: auto;
+        width: 400px;
+        z-index: 1;
+        display: block;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 500px;
+        /* {theme} */
+        border-radius: 10px;
+        /* background: ${(theme as ThemeColors).primary}; */
+        background: white;
+        box-shadow: 17px 17px 34px #c7c7c7, -17px -17px 34px #f9f9f9;
+    }
+`);
+
+export const AsideStyled = styled.aside(({ theme }) => css`
+    outline: none;
+    inset: unset;
     position: absolute;
     margin: auto;
     width: 400px;
-    background-color: ${(<ThemeColors>theme).primary};
-    border: 2px solid #000;
     z-index: 1;
     display: block;
-    border: 1px solid black;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     height: 500px;
+    border-radius: 10px;
+    /* background: ${(theme as ThemeColors).primary}; */
+    background: white;
+    box-shadow: 17px 17px 34px #c7c7c7, -17px -17px 34px #f9f9f9;
 `);

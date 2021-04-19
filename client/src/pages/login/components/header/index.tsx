@@ -1,10 +1,10 @@
 import React, { useState, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { ThemeWrapperContext } from '../../theme';
-import { ThemeToggle } from '../../components/theme-toggle';
+import { ThemeWrapperContext } from '../../../../theme';
+import { ThemeToggle } from '../../../../components/theme-toggle';
 
-import { tinderIcon } from '../../assets/index';
+import { tinderIcon } from '../../../../assets/index';
 
 import {
     HeaderStyled,
@@ -14,7 +14,7 @@ import {
     LogoWrapperStyled,
     ButtonLoginWrapper,
     ModalStyled,
-} from './index.style';
+} from '../../index.style';
 
 export const Header = (): JSX.Element => {
     const { t } = useTranslation();

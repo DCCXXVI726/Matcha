@@ -16,6 +16,7 @@ const DARK = 'DARK';
 export interface ThemeColors {
     primary: string
     secondary: string
+    transparent: string
 }
 
 interface Theme {

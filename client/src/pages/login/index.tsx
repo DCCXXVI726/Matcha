@@ -9,8 +9,8 @@ import { ThemeToggle } from '../../components/theme-toggle';
 import { SessionContext, setSessionCookie } from '../../session';
 import { tinderIcon } from '../../assets/index';
 
-import { Header } from './header';
-import { Main } from './main';
+import { Header } from './components/header';
+import { Main } from './components/main';
 
 import {
     MainStyled,
