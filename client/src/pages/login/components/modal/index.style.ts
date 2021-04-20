@@ -7,6 +7,10 @@ import { ThemeColors } from '../../../../theme';
 export const IconButtonStyled = styled(IconButton)(({ theme }) => css`
     display: block;
     float: right;
+
+    & > .MuiIconButton-label > .MuiSvgIcon-root {
+        fill: ${(theme as ThemeColors).secondary}
+    }
 `);
 
 export const SectionStyled = styled.section`
@@ -33,11 +37,11 @@ export const LoginBlockStyled = styled.div`
 `;
 
 export const FooterStyled = styled.footer(({ theme }) => css`
-    border-top: 1px solid ${(<ThemeColors>theme).secondary};
+    border-top: 1px solid ${(theme as ThemeColors).secondary};
 `);
 
 export const HeadlineStyled = styled(Typography)(({ theme }) => css`
-    color: ${(<ThemeColors>theme).secondary};
+    color: ${(theme as ThemeColors).secondary};
     text-align: center;
     padding-top: 10px;
     font-style: italic;
@@ -47,16 +51,20 @@ export const HeadlineStyled = styled(Typography)(({ theme }) => css`
     }
 `);
 
-export const AppLinkStyled = styled.div`
+export const AppLinkStyled = styled.div(({ theme }) => css`
     display: flex;
     justify-content: space-around;
-`;
+
+    & > a > .MuiIconButton-label > .MuiSvgIcon-root {
+        fill: ${(theme as ThemeColors).secondary}
+    }
+`);
 
 export const LinkStyled = styled(Link)(({ theme }) => css`
     &.MuiTypography-colorPrimary {
         margin: 10px auto;
         display: block;
         text-decoration: underline;
-        color: ${(<ThemeColors>theme).secondary};
+        color: ${(theme as ThemeColors).secondary};
     }
 `);

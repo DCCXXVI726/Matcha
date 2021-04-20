@@ -6,7 +6,8 @@ import {
 } from '../../index.style';
 
 import {
-    TextFieldStyled
+    TextFieldStyled,
+    ButtonStyled
 } from './index.style';
 
 export const Form = (): JSX.Element => {
@@ -16,6 +17,7 @@ export const Form = (): JSX.Element => {
 
     const handleSubmit = (e: React.SyntheticEvent): void => {
         e.preventDefault();
+        console.log(email, password);
     };
 
     return (
@@ -23,22 +25,33 @@ export const Form = (): JSX.Element => {
             <TextFieldStyled
                 type='email'
                 variant='outlined'
+                color='primary'
                 size='small'
                 fullWidth
                 placeholder={t('auth.email-placeholder')}
                 onChange={(e): void => { setEmail(e.target.value); }}
-                value={email}
+                required
             />
             <TextFieldStyled
                 type='password'
                 variant='outlined'
+                color='primary'
                 size='small'
+                minlength={6}
+                maxLength={100}
                 fullWidth
                 placeholder={t('auth.password-placeholder')}
                 onChange={(e): void => { setPassword(e.target.value); }}
-                value={password}
+                required
             />
-            <input type='submit' value='Login' />
+
+            <ButtonStyled
+                type='submit'
+                variant='contained'
+                color='primary'
+            >
+                {t('auth-button')}
+            </ButtonStyled>
         </FormStyled>
     );
 };

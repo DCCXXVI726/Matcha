@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Fade, Backdrop, SvgIcon, IconButton } from '@material-ui/core';
 import HighlightOffRoundedIcon from '@material-ui/icons/HighlightOffRounded';
 import AndroidSharpIcon from '@material-ui/icons/AndroidSharp';
 import AppleIcon from '@material-ui/icons/Apple';
+
+import { ThemeWrapperContext } from '../../../../theme';
 
 import { tinderIcon, googleLogo as GoogleLogo } from '../../../../assets';
 
@@ -37,10 +39,12 @@ export const Modal = ({
     handleClose
 }: ModalProps): JSX.Element => {
     const { t } = useTranslation();
+    const [theme,] = useContext(ThemeWrapperContext);
     const [showForm, setShowForm] = useState<boolean>(false);
 
     return (
         <ModalStyled
+            currentTheme={theme as string}
             className='modal'
             open={open}
             onClose={handleClose}
@@ -53,7 +57,9 @@ export const Modal = ({
             aria-describedby='modal-description'
         >
             <Fade in={open}>
-                <AsideStyled>
+                <AsideStyled
+                    currentTheme={theme as string}
+                >
                     <header>
                         <IconButtonStyled
                             onClick={handleClose}
@@ -69,7 +75,7 @@ export const Modal = ({
                         <LoginBlockStyled>
                             <LoginButtonStyled
                                 size='large'
-                                variant='outlined'
+                                variant='contained'
                                 color='primary'
                                 fullWidth
                             >
@@ -77,7 +83,7 @@ export const Modal = ({
                             </LoginButtonStyled>
                             <LoginButtonStyled
                                 size='large'
-                                variant='outlined'
+                                variant='contained'
                                 color='primary'
                                 fullWidth
                             >

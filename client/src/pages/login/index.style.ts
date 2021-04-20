@@ -5,18 +5,18 @@ import { Typography, Button, Modal } from '@material-ui/core';
 
 import { ThemeColors } from '../../theme/index';
 
-interface HeaderStyledProps {
+interface StyledProps {
     theme?: Theme
     currentTheme: string
     children: JSX.Element[]
 }
 
-export const HeaderStyled = styled.header(({ theme, currentTheme }: HeaderStyledProps) => css`
+export const HeaderStyled = styled.header(({ theme, currentTheme }: StyledProps) => css`
     ${currentTheme === 'LIGHT'
         ? 'box-shadow:  20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;'
         : 'box-shadow:  20px 20px 60px #202020, -20px -20px 60px #2c2c2c;'
 }
-    background-color: ${(<ThemeColors>theme).primary};
+    background-color: ${(theme as ThemeColors).primary};
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -24,7 +24,7 @@ export const HeaderStyled = styled.header(({ theme, currentTheme }: HeaderStyled
 `);
 
 export const FormStyled = styled.form(({ theme }) => css`
-    background-color: ${(<ThemeColors>theme).primary};
+    background-color: ${(theme as ThemeColors).primary};
 
 `);
 
@@ -36,10 +36,10 @@ export const LinkStyled = styled(Link)`
 
 export const TypographyLogoStyled = styled(Typography)(({ theme }) => css`
     display: inline-block;
-    color: ${(<ThemeColors>theme).secondary};
+    color: ${(theme as ThemeColors).secondary};
 
     &:hover &:active {
-        color: ${(<ThemeColors>theme).secondary};
+        color: ${(theme as ThemeColors).secondary};
     }
 
     &.MuiTypography-body1 {
@@ -50,10 +50,10 @@ export const TypographyLogoStyled = styled(Typography)(({ theme }) => css`
 export const TypographyStyled = styled(Typography)(({ theme }) => css`
     text-align: center;
     display: block;
-    color: ${(<ThemeColors>theme).secondary};
+    color: ${(theme as ThemeColors).secondary};
 
     &:hover &:active {
-        color: ${(<ThemeColors>theme).secondary};
+        color: ${(theme as ThemeColors).secondary};
     }
 
     &.MuiTypography-body1 {
@@ -79,8 +79,8 @@ export const ButtonLoginWrapper = styled(Button)`
 `;
 
 export const HeadlineStyled = styled(Typography)(({ theme }) => css`
-    background-color: ${(<ThemeColors>theme).primary};
-    color: ${(<ThemeColors>theme).secondary};
+    background-color: ${(theme as ThemeColors).primary};
+    color: ${(theme as ThemeColors).secondary};
 `);
 
 
@@ -92,7 +92,7 @@ export const ButtonWrapper = styled(Button)`
     }
 `;
 
-export const ModalStyled = styled(Modal)(({ theme }) => css`
+export const ModalStyled = styled(Modal)(({ theme, currentTheme }: StyledProps) => css`
     .MuiBackdrop-root {
         background: ${(theme as ThemeColors).transparent};
     }
@@ -125,7 +125,7 @@ export const ModalStyled = styled(Modal)(({ theme }) => css`
     }
 `);
 
-export const AsideStyled = styled.aside(({ theme }) => css`
+export const AsideStyled = styled.aside(({ theme, currentTheme }: StyledProps) => css`
     outline: none;
     inset: unset;
     position: absolute;
@@ -137,9 +137,12 @@ export const AsideStyled = styled.aside(({ theme }) => css`
     left: 0;
     right: 0;
     bottom: 0;
-    height: 500px;
+    height: 550px;
     border-radius: 10px;
-    /* background: ${(theme as ThemeColors).primary}; */
-    background: white;
-    box-shadow: 17px 17px 34px #c7c7c7, -17px -17px 34px #f9f9f9;
+
+    ${currentTheme === 'LIGHT'
+        ? 'box-shadow: 17px 17px 34px #c7c7c7, -17px -17px 34px #f9f9f9;'
+        : 'box-shadow:  15px 15px 30px #202020, -15px -15px 30px #2c2c2c;'
+}
+    background-color: ${(theme as ThemeColors).primary};
 `);
