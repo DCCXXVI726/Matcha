@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
 import { css, Theme } from '@emotion/react';
 import { Link } from 'react-router-dom';
+import { Typography, Button, Modal } from '@material-ui/core';
 
 import { ThemeColors } from '../../theme/index';
-import { Typography, Button, Modal } from '@material-ui/core';
 
 interface HeaderStyledProps {
     theme?: Theme
@@ -15,7 +15,7 @@ export const HeaderStyled = styled.header(({ theme, currentTheme }: HeaderStyled
     ${currentTheme === 'LIGHT'
         ? 'box-shadow:  20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;'
         : 'box-shadow:  20px 20px 60px #202020, -20px -20px 60px #2c2c2c;'
-    }
+}
     background-color: ${(<ThemeColors>theme).primary};
     display: flex;
     flex-direction: row;
@@ -25,8 +25,6 @@ export const HeaderStyled = styled.header(({ theme, currentTheme }: HeaderStyled
 
 export const FormStyled = styled.form(({ theme }) => css`
     background-color: ${(<ThemeColors>theme).primary};
-    display: grid;
-    justify-content: center;
 
 `);
 
@@ -36,7 +34,7 @@ export const LinkStyled = styled(Link)`
 
 `;
 
-export const TypographyStyled = styled(Typography)(({ theme }) => css`
+export const TypographyLogoStyled = styled(Typography)(({ theme }) => css`
     display: inline-block;
     color: ${(<ThemeColors>theme).secondary};
 
@@ -45,7 +43,21 @@ export const TypographyStyled = styled(Typography)(({ theme }) => css`
     }
 
     &.MuiTypography-body1 {
-        font-size: 3rem;
+        font-size: 2.5rem;
+    }
+`);
+
+export const TypographyStyled = styled(Typography)(({ theme }) => css`
+    text-align: center;
+    display: block;
+    color: ${(<ThemeColors>theme).secondary};
+
+    &:hover &:active {
+        color: ${(<ThemeColors>theme).secondary};
+    }
+
+    &.MuiTypography-body1 {
+        font-size: 2.5rem;
     }
 `);
 
@@ -98,15 +110,14 @@ export const ModalStyled = styled(Modal)(({ theme }) => css`
         inset: unset;
         position: absolute;
         margin: auto;
-        width: 400px;
+        width: 350px;
         z-index: 1;
         display: block;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
-        height: 500px;
-        /* {theme} */
+        height: 450px;
         border-radius: 10px;
         /* background: ${(theme as ThemeColors).primary}; */
         background: white;

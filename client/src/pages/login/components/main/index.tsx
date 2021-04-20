@@ -42,7 +42,6 @@ export const Main = (): JSX.Element => {
                     </ButtonWrapper>
                     <Modal
                         open={open}
-                        handleOpen={handleOpen}
                         handleClose={handleClose}
                     />
                 </SectionStyled>

@@ -9,7 +9,7 @@ import { tinderIcon } from '../../../../assets/index';
 import {
     HeaderStyled,
     LinkStyled,
-    TypographyStyled,
+    TypographyLogoStyled,
     WrapperStyled,
     LogoWrapperStyled,
     ButtonLoginWrapper,
@@ -36,9 +36,9 @@ export const Header = (): JSX.Element => {
             <WrapperStyled>
                 <LinkStyled to='/'>
                     <LogoWrapperStyled src={tinderIcon} />
-                    <TypographyStyled>
+                    <TypographyLogoStyled>
                         {t('logo-title')}
-                    </TypographyStyled>
+                    </TypographyLogoStyled>
                 </LinkStyled>
             </WrapperStyled>
             <WrapperStyled>

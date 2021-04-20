@@ -8,5 +8,10 @@
     "auth.password-placeholder": "Пароль",
     "auth-button": "Войти",
     "not-found": "Страница была здесь, а теперь её тут нет",
-    "back-to-home": "Вернуться на главную"
+    "back-to-home": "Вернуться на главную",
+
+    "login.with-google": "Войти через Google",
+    "login.with-42": "Войти через 42intra",
+    "login.additional-button": "Другие варианты",
+    "login.download-title": "Скачайте приложение!"
 }

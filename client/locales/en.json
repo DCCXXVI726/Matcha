@@ -8,5 +8,10 @@
     "auth.password-placeholder": "password",
     "auth-button": "Login",
     "not-found": "The page was here, and now it's not here",
-    "back-to-home": "Back to home"
+    "back-to-home": "Back to home",
+
+    "login.with-google": "Login with Google",
+    "login.with-42": "Login with 42intra",
+    "login.additional-button": "Any variants",
+    "login.download-title": "Download app!"
 }
