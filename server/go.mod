@@ -12,6 +12,7 @@ require (
 	github.com/golang-migrate/migrate/v4 v4.14.1 // indirect
 	github.com/gopherschool/http-rest-api v0.0.0-20190922093049-d59926c5ce3c
 	github.com/gorilla/mux v1.8.0
+	github.com/gorilla/sessions v1.2.1
 	github.com/lib/pq v1.10.0
 	github.com/sirupsen/logrus v1.8.1
 	github.com/stretchr/testify v1.7.0
