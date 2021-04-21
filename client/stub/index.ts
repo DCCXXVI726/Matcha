@@ -2,7 +2,6 @@ import path = require('path');
 import axios from 'axios';
 import express = require('express');
 import { Response } from 'express';
-//import * as cors from 'cors';
 import webpack = require('webpack');
 import webpackDevMiddleware = require('webpack-dev-middleware');
 /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
@@ -14,7 +13,6 @@ const app = express();
 const PORT = 3030;
 
 app.use(webpackDevMiddleware(webpack(webpackConfig)));
-//app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 

@@ -4,7 +4,7 @@ import i18next from 'i18next';
 
 import { langsList } from '../../../i18n';
 
-import { SelectStyled } from './index.style';
+import { SelectStyled, FormControlStyled } from './index.style';
 
 export const LangChooser = (): JSX.Element => {
     const [lang, changeLang] = useState(langsList[1]);
@@ -27,20 +27,21 @@ export const LangChooser = (): JSX.Element => {
     const menu: ReactNodeArray = useMemo(() =>
         langsList.map((langItem, key) => (
             <MenuItem key={key} value={langItem}>{langItem}</MenuItem>
-        ))
-    , []);
+        )), []);
 
     return (
-        <SelectStyled
-            labelId='demo-controlled-open-select-label'
-            id='demo-controlled-open-select'
-            open={open}
-            onClose={handleClose}
-            onOpen={handleOpen}
-            value={lang}
-            onChange={handleChange}
-        >
-            {menu}
-        </SelectStyled>
+        <FormControlStyled variant='outlined' size='small'>
+            <SelectStyled
+                labelId='demo-controlled-open-select-label'
+                id='demo-controlled-open-select'
+                open={open}
+                onClose={handleClose}
+                onOpen={handleOpen}
+                value={lang}
+                onChange={handleChange}
+            >
+                {menu}
+            </SelectStyled>
+        </FormControlStyled>
     );
 };

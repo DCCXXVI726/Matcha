@@ -1,14 +1,9 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import {
-    FormStyled
-} from '../../index.style';
+import { FormStyled } from '../../index.style';
 
-import {
-    TextFieldStyled,
-    ButtonStyled
-} from './index.style';
+import { TextFieldStyled, ButtonStyled } from './index.style';
 
 export const Form = (): JSX.Element => {
     const { t } = useTranslation();

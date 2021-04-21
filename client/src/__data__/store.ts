@@ -2,7 +2,8 @@ import {
     createStore as createReduxStore,
     combineReducers,
     applyMiddleware,
-    compose
+    compose,
+    Store
 } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 
@@ -13,20 +14,20 @@ export const createReducer = () =>
         ...reducers
     });
 
-export const createStore = () => {
+declare global {
+    interface Window {
+        __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
+    }
+}
+
+export const createStore = (): Store => {
     const reducer = createReducer();
 
-    const composeEnhancers =
-        typeof window === 'object' &&
-        window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-            ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
-                name: 'Matcha21'
-            })
-            : compose;
+    const composeEnhancers = window['__REDUX_DEVTOOLS_EXTENSION_COMPOSE__'] || compose;
 
     return composeEnhancers(
         applyMiddleware(
-            thunkMiddleware,
+            thunkMiddleware
         )
     )(createReduxStore)(reducer, {});
 };

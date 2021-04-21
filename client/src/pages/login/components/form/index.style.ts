@@ -17,10 +17,9 @@ export const TextFieldStyled = styled(TextField)(({ theme }) => css`
 
 `);
 
-export const ButtonStyled = styled(Button)(({ theme }) => css`
+export const ButtonStyled = styled(Button)`
     &.MuiButtonBase-root {
-        /* color: ${(theme as ThemeColors).primary}; */
         display: block;
         margin: auto;
     }
-`);
+`;

@@ -1,5 +1,11 @@
+/* eslint-disable no-magic-numbers */
+
 export const hex2rgba = (hex: string, alpha = 100): string => {
-    const [r, g, b] = hex?.match(/\w\w/g)?.map((x) => parseInt(x, 16));
+    const colors = hex?.match(/\w\w/g)?.map((x) => parseInt(x, 16));
+    const r = colors ? colors[0] : 0;
+    const g = colors ? colors[1] : 0;
+    const b = colors ? colors[2] : 0;
+
     return `rgba(${r},${g},${b},${alpha / 100})`;
 };
 

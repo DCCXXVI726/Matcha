@@ -6,6 +6,8 @@ import { ThemeToggle } from '../../../../components/theme-toggle';
 
 import { tinderIcon } from '../../../../assets/index';
 
+import { LangChooser } from '../../../../components/header/lang-choose';
+
 import {
     HeaderStyled,
     LinkStyled,
@@ -43,10 +45,11 @@ export const Header = (): JSX.Element => {
             </WrapperStyled>
             <WrapperStyled>
                 <ThemeToggle />
+                <LangChooser />
                 <ButtonLoginWrapper
                     variant='contained'
                     color='primary'
-                    size='large'
+                    size='small'
                     onClick={handleOpen}
                 >
                     {t('auth-button')}

@@ -8,7 +8,7 @@ import Cookies from 'js-cookie';
 import { LoginComponent } from './pages/login';
 import { NotFound } from './pages/not-found';
 
-import { ThemeWrapper, ThemeColors, ThemeWrapperContext } from './theme';
+import { ThemeWrapper, ThemeColors } from './theme';
 import { SessionContext, getSessionCookie } from './session';
 
 export const history = createBrowserHistory();

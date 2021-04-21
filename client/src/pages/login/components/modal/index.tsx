@@ -1,15 +1,15 @@
 import React, { useState, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Fade, Backdrop, SvgIcon, IconButton } from '@material-ui/core';
+import { Fade, Backdrop, IconButton } from '@material-ui/core';
 import HighlightOffRoundedIcon from '@material-ui/icons/HighlightOffRounded';
 import AndroidSharpIcon from '@material-ui/icons/AndroidSharp';
 import AppleIcon from '@material-ui/icons/Apple';
 
 import { ThemeWrapperContext } from '../../../../theme';
 
-import { tinderIcon, googleLogo as GoogleLogo } from '../../../../assets';
+import { tinderIcon } from '../../../../assets';
 
-import { Form } from '../form/form';
+import { Form } from '../form';
 
 import {
     TypographyStyled,
@@ -124,4 +124,4 @@ export const Modal = ({
             </Fade>
         </ModalStyled>
     );
-}
+};
