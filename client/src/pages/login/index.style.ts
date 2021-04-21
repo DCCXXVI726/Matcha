@@ -15,7 +15,7 @@ export const HeaderStyled = styled.header(({ theme, currentTheme }: StyledProps)
     ${currentTheme === 'LIGHT'
         ? 'box-shadow:  20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;'
         : 'box-shadow:  20px 20px 60px #202020, -20px -20px 60px #2c2c2c;'
-}
+    }
     background-color: ${(theme as ThemeColors).primary};
     display: flex;
     flex-direction: row;
@@ -104,7 +104,7 @@ export const ModalStyled = styled(Modal)(({ theme, currentTheme }: StyledProps) 
         inset: unset;
         outline: none;
     }
-    
+
     .paper {
         outline: none;
         inset: unset;
@@ -128,7 +128,6 @@ export const ModalStyled = styled(Modal)(({ theme, currentTheme }: StyledProps) 
 export const AsideStyled = styled.aside(({ theme, currentTheme }: StyledProps) => css`
     outline: none;
     inset: unset;
-    position: absolute;
     margin: auto;
     width: 400px;
     z-index: 1;
@@ -137,7 +136,6 @@ export const AsideStyled = styled.aside(({ theme, currentTheme }: StyledProps) =
     left: 0;
     right: 0;
     bottom: 0;
-    height: 550px;
     border-radius: 10px;
 
     ${currentTheme === 'LIGHT'
