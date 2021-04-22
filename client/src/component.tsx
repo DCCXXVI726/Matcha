@@ -1,9 +1,14 @@
 import React, { useEffect, useState, useContext } from 'react';
+import { Provider } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { Router, Switch, Route, Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
 import { createBrowserHistory, History } from 'history';
 import Cookies from 'js-cookie';
+
+import { createStore } from './__data__';
+
+export const store = createStore();
 
 import { LoginComponent } from './pages/login';
 import { NotFound } from './pages/not-found';
@@ -69,14 +74,16 @@ const MainContainer = (): JSX.Element => {
 
     return (
         <SessionContext.Provider value={session}>
-            <Router history={history}>
-                <Switch>
-                    <Route path='/login' component={LoginComponent} />
-                    <Route path='/logout' component={LogoutHandler} />
-                    <PrivateRoute exact path='/' component={ProtectedHandler} />
-                    <PrivateRoute path='*' component={NotFound} />
-                </Switch>
-            </Router>
+            <Provider store={store}>
+                <Router history={history}>
+                    <Switch>
+                        <Route path='/login' component={LoginComponent} />
+                        <Route path='/logout' component={LogoutHandler} />
+                        <PrivateRoute exact path='/' component={ProtectedHandler} />
+                        <PrivateRoute path='*' component={NotFound} />
+                    </Switch>
+                </Router>
+            </Provider>
         </SessionContext.Provider>
     );
 };

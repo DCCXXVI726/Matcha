@@ -16,12 +16,15 @@ app.use(webpackDevMiddleware(webpack(webpackConfig)));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.post('/api/login', (req, res) => {
-    axios.post('http://localhost:8080/api/login', {
-        login: req.body?.user.login,
-        password: req.body?.user.password
+app.post('/sessions', (req, res) => {
+    axios.post('http://localhost:8080/sessions', {
+        email: req.body?.email,
+        password: req.body?.password
     })
-        .then((response) => res.json(response.data))
+        .then((response) => {
+            console.log(response.headers['set-cookie']);
+            return res.json(response.headers['set-cookie']);
+        })
         .catch(e => console.error(e));
 });
 
