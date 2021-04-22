@@ -74,7 +74,7 @@ const MainContainer = (): JSX.Element => {
                     <Route path='/login' component={LoginComponent} />
                     <Route path='/logout' component={LogoutHandler} />
                     <PrivateRoute exact path='/' component={ProtectedHandler} />
-                    <Route path='*' component={NotFound} />
+                    <PrivateRoute path='*' component={NotFound} />
                 </Switch>
             </Router>
         </SessionContext.Provider>
