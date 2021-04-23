@@ -1,4 +1,4 @@
-import * as reducers from './reducers';
+import * as reducers from './reducers/user';
 import * as actions from './actions';
 import * as selectors from './selectors';
 

@@ -3,16 +3,25 @@ import {
     combineReducers,
     applyMiddleware,
     compose,
+    Reducer,
+    CombinedState,
     Store
 } from 'redux';
+import { reducer as formReducer } from 'redux-form';
 import thunkMiddleware from 'redux-thunk';
 
-import * as reducers from './reducers';
+// import {
+// User
+// } from './types';
 
-export const createReducer = () =>
-    combineReducers({
-        ...reducers
-    });
+import {
+    user
+} from './reducers';
+
+export const createReducer = () => combineReducers({
+    user,
+    form: formReducer
+});
 
 declare global {
     interface Window {

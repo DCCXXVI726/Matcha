@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import { CircularProgress } from '@material-ui/core';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
 import { setSessionCookie } from '../../../../session';
 
 import { actions, selectors } from '../../../../__data__';
-import { State } from '../../../../__data__/types';
+import { LOADING } from '../../../../__data__/constants';
+import { State, Status } from '../../../../__data__/types';
 
 import { FormStyled } from '../../index.style';
 
@@ -12,25 +14,28 @@ import { TextFieldStyled, ButtonStyled } from './index.style';
 
 export interface FormComponentProps {
     history
-    coockie: string;
+    coockie: string
+    status: Status
     fethLogin: (email: string, password: string) => Promise<void>
 }
 
 export const FormComponent = ({
     history,
     coockie,
+    status,
     fethLogin
 }: FormComponentProps): JSX.Element => {
+    console.log(status);
     const { t } = useTranslation();
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
 
     const handleSubmit = async (e: React.SyntheticEvent): Promise<void> => {
         e.preventDefault();
-        await fethLogin(email, password);
-        console.log(coockie);
-        setSessionCookie({ coockie });
-        history && history.push('/');
+        fethLogin(email, password);
+        // console.log(coockie);
+        // setSessionCookie({ coockie });
+        // history && history.push('/');
     };
 
     return (
@@ -65,14 +70,16 @@ export const FormComponent = ({
             >
                 {t('auth-button')}
             </ButtonStyled>
+            {status === LOADING && <CircularProgress />}
         </FormStyled>
     );
 };
 
 /* eslint-disable-next-line @typescript-eslint/explicit-function-return-type */
-const mapStateToProps = (state: State) => {
-    coockie: selectors.user.login(state);
-};
+const mapStateToProps = (state: State) => ({
+    coockie: selectors.user.login(state),
+    status: selectors.user.status(state)
+});
 
 /* eslint-disable-next-line @typescript-eslint/explicit-function-return-type */
 const mapDispatchToProps = (dispatch) => {
