@@ -1,4 +1,3 @@
-import { CircularProgress } from '@material-ui/core';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
@@ -10,7 +9,7 @@ import { State, Status } from '../../../../__data__/types';
 
 import { FormStyled } from '../../index.style';
 
-import { TextFieldStyled, ButtonStyled } from './index.style';
+import { TextFieldStyled, ButtonStyled, CircularProgressStyled } from './index.style';
 
 export interface FormComponentProps {
     history
@@ -25,7 +24,6 @@ export const FormComponent = ({
     status,
     fethLogin
 }: FormComponentProps): JSX.Element => {
-    console.log(status);
     const { t } = useTranslation();
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
@@ -62,15 +60,16 @@ export const FormComponent = ({
                 onChange={(e): void => { setPassword(e.target.value); }}
                 required
             />
-
-            <ButtonStyled
-                type='submit'
-                variant='contained'
-                color='primary'
-            >
-                {t('auth-button')}
-            </ButtonStyled>
-            {status === LOADING && <CircularProgress />}
+            {status === LOADING
+                ? <CircularProgressStyled />
+                : <ButtonStyled
+                    type='submit'
+                    variant='contained'
+                    color='primary'
+                >
+                    {t('auth-button')}
+                </ButtonStyled>
+            }
         </FormStyled>
     );
 };
