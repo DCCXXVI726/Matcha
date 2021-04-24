@@ -7,7 +7,7 @@ import { LIGHT, ThemeColors } from '../../theme';
 export interface StyledProps {
     theme?: Theme
     currentTheme: string
-    children: JSX.Element[]
+    children: JSX.Element | JSX.Element[]
 }
 
 export const HeaderStyled = styled.header(({ theme, currentTheme }: StyledProps) => css`

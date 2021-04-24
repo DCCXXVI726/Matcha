@@ -20,11 +20,11 @@ export const LoginSectionStyled = styled.section(({ theme, currentTheme }: Style
 `);
 
 
-export const SectionStyled = styled.section`
+export const AsideStyled = styled.aside`
     margin: auto;
 `;
 
-export const CarouselStyled = styled.section`
+export const CarouselStyled = styled.aside`
     display: flex;
     overflow-x: clip;
 

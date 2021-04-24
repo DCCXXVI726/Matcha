@@ -1,9 +1,14 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { Card, Typography } from '@material-ui/core';
+import Carousel from 'react-material-ui-carousel';
 
 import { LIGHT, ThemeColors } from '../../../../../theme';
-import { StyledProps } from './../../../index.style';
+import { StyledProps } from '../../../index.style';
+
+export const CarouselStyled = styled(Carousel)`
+
+`;
 
 export const CardStyled = styled(Card)(({ theme, currentTheme }: StyledProps) => css`
     min-width: 400px;
