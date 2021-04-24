@@ -10,7 +10,7 @@ import { createStore } from './__data__';
 
 export const store = createStore();
 
-import { LoginComponent } from './pages/login';
+import { Login } from './pages/login';
 import { NotFound } from './pages/not-found';
 
 import { ThemeWrapper, ThemeColors } from './theme';
@@ -77,7 +77,7 @@ const MainContainer = (): JSX.Element => {
             <Provider store={store}>
                 <Router history={history}>
                     <Switch>
-                        <Route path='/login' component={LoginComponent} />
+                        <Route path='/login' component={Login} />
                         <Route path='/logout' component={LogoutHandler} />
                         <PrivateRoute exact path='/' component={ProtectedHandler} />
                         <PrivateRoute path='*' component={NotFound} />

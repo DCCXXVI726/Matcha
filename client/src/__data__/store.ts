@@ -11,18 +11,22 @@ import { reducer as formReducer, FormStateMap } from 'redux-form';
 import thunkMiddleware from 'redux-thunk';
 
 import {
-    User
+    User,
+    Feedbacks
 } from './types';
 
 import {
-    user
+    user,
+    feedbacks
 } from './reducers';
 
 export const createReducer = (): Reducer<CombinedState<{
-    user: User;
-    form: FormStateMap;
+    user: User
+    feedbacks: Feedbacks
+    form: FormStateMap
 }>> => combineReducers({
     user,
+    feedbacks,
     form: formReducer
 });
 

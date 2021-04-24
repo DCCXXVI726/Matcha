@@ -18,7 +18,6 @@ const initialState: User = {
     login: ''
 };
 
-
 export default (state = initialState, action: Action): User => {
     switch (action.type) {
         case types.AUTH_LOADING:
