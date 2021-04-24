@@ -7,18 +7,21 @@ import {
     CombinedState,
     Store
 } from 'redux';
-import { reducer as formReducer } from 'redux-form';
+import { reducer as formReducer, FormStateMap } from 'redux-form';
 import thunkMiddleware from 'redux-thunk';
 
-// import {
-// User
-// } from './types';
+import {
+    User
+} from './types';
 
 import {
     user
 } from './reducers';
 
-export const createReducer = () => combineReducers({
+export const createReducer = (): Reducer<CombinedState<{
+    user: User;
+    form: FormStateMap;
+}>> => combineReducers({
     user,
     form: formReducer
 });
