@@ -1,76 +1,32 @@
-import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import React from 'react';
 import { connect } from 'react-redux';
-import { setSessionCookie } from '../../../../session';
 
 import { actions, selectors } from '../../../../__data__';
-import { LOADING } from '../../../../__data__/constants';
 import { State, Status } from '../../../../__data__/types';
 
-import { FormStyled } from '../../index.style';
+import { ReduxLoginForm } from './login-form';
 
-import { TextFieldStyled, ButtonStyled, CircularProgressStyled } from './index.style';
-
-export interface FormComponentProps {
-    history
+interface FormContainerProps {
     coockie: string
     status: Status
     fethLogin: (email: string, password: string) => Promise<void>
 }
 
-export const FormComponent = ({
-    history,
+export const FormContainer = ({
     coockie,
     status,
     fethLogin
-}: FormComponentProps): JSX.Element => {
-    const { t } = useTranslation();
-    const [email, setEmail] = useState<string>('');
-    const [password, setPassword] = useState<string>('');
-
-    const handleSubmit = async (e: React.SyntheticEvent): Promise<void> => {
+}: FormContainerProps): JSX.Element => {
+    const handleSubmit = (e: React.SyntheticEvent): void => {
         e.preventDefault();
-        fethLogin(email, password);
-        // console.log(coockie);
-        // setSessionCookie({ coockie });
-        // history && history.push('/');
+        fethLogin('email', 'password');
     };
 
     return (
-        <FormStyled onSubmit={handleSubmit}>
-            <TextFieldStyled
-                type='email'
-                variant='outlined'
-                color='primary'
-                size='small'
-                fullWidth
-                placeholder={t('auth.email-placeholder')}
-                onChange={(e): void => { setEmail(e.target.value); }}
-                required
-            />
-            <TextFieldStyled
-                type='password'
-                variant='outlined'
-                color='primary'
-                size='small'
-                minlength={6}
-                maxLength={100}
-                fullWidth
-                placeholder={t('auth.password-placeholder')}
-                onChange={(e): void => { setPassword(e.target.value); }}
-                required
-            />
-            {status === LOADING
-                ? <CircularProgressStyled />
-                : <ButtonStyled
-                    type='submit'
-                    variant='contained'
-                    color='primary'
-                >
-                    {t('auth-button')}
-                </ButtonStyled>
-            }
-        </FormStyled>
+        <ReduxLoginForm
+            handleSubmit={handleSubmit}
+            status={status}
+        />
     );
 };
 
@@ -89,4 +45,4 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export const Form = connect(mapStateToProps, mapDispatchToProps)(FormComponent);
+export const Form = connect(mapStateToProps, mapDispatchToProps)(FormContainer);
