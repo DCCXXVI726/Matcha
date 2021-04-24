@@ -41,9 +41,11 @@ export const FooterComponent = ({
 
     return (
         <FooterStyled>
-            <CarouselStyled>
+            <div>
+                {/* <CarouselStyled> */}
                 <Cards data={data} />
-            </CarouselStyled>
+            </div>
+            {/* </CarouselStyled> */}
             <BasementStyled>
                 <img src={theme === DARK ? madeInRussiaIconWhite : madeInRussiaIconBlack} />
                 <TypographyStyled>
