@@ -1,3 +1,4 @@
+import fs = require('fs');
 import path = require('path');
 import axios from 'axios';
 import express = require('express');
@@ -26,6 +27,18 @@ app.post('/sessions', (req, res) => {
             return res.json(response.headers['set-cookie']);
         })
         .catch(e => console.error(e));
+});
+
+app.get('/api/feedbacks', (req, res: Response) => {
+    let json: string;
+
+    if (req.query.lang === 'ru') {
+        json = fs.readFileSync('./stub/feedbacks/ru.json', 'utf8');
+    } else {
+        json = fs.readFileSync('./stub/feedbacks/en.json', 'utf8');
+    }
+
+    res.json(JSON.parse(json));
 });
 
 app.get('/api*', (_, res: Response) => {
