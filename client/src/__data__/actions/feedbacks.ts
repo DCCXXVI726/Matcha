@@ -23,7 +23,7 @@ export default (lang: string ) => {
             const json = await response.json();
             dispatch({
                 type: types.FEEDBACKS_FETCH,
-                payload: json
+                payload: json.feedbacks
             });
         }
     };

@@ -1,11 +1,10 @@
 import styled from '@emotion/styled';
 import { css, Theme } from '@emotion/react';
-import { Link } from 'react-router-dom';
-import { Typography, Button, Modal } from '@material-ui/core';
+import { Typography, Button, Modal, Link } from '@material-ui/core';
 
 import { LIGHT, ThemeColors } from '../../theme';
 
-interface StyledProps {
+export interface StyledProps {
     theme?: Theme
     currentTheme: string
     children: JSX.Element[]

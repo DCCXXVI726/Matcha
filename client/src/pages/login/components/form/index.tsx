@@ -30,8 +30,10 @@ export const FormContainer = ({
     );
 };
 
-/* eslint-disable-next-line @typescript-eslint/explicit-function-return-type */
-const mapStateToProps = (state: State) => ({
+const mapStateToProps = (state: State): {
+    coockie: string
+    status: Status
+} => ({
     coockie: selectors.user.login(state),
     status: selectors.user.status(state)
 });
