@@ -11,12 +11,12 @@ export const LangChooser = (): JSX.Element => {
     const [open, setOpen] = useState(false);
 
     const handleChange = (event: React.ChangeEvent<{ name?: string; value: unknown }>): void => {
-        if (event.target.value === langsList[0]) {
+        if (event.target.value === langsList[1]) {
             i18next.changeLanguage('ru');
-            changeLang(langsList[0]);
+            changeLang(langsList[1]);
         } else {
             i18next.changeLanguage('en');
-            changeLang(langsList[1]);
+            changeLang(langsList[0]);
         }
     };
 
