@@ -10,8 +10,8 @@ import { ThemeProvider } from '@emotion/react';
 import * as LIGHT_THEME from './light.theme.style';
 import * as DARK_THEME from './dark.theme.style';
 
-const LIGHT = 'LIGHT';
-const DARK = 'DARK';
+export const LIGHT = 'LIGHT';
+export const DARK = 'DARK';
 
 export interface ThemeColors {
     primary: string

@@ -13,5 +13,8 @@
     "login.with-google": "Login with Google",
     "login.with-42": "Login with 42intra",
     "login.additional-button": "Any variants",
-    "login.download-title": "Download app!"
+    "login.download-title": "Download app!",
+
+    "footer-year": "© 2021 Matcha",
+    "footer-title": "Github"
 }
