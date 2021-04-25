@@ -7,8 +7,6 @@ import { Feedback } from '../../../../../__data__/types';
 import { GRID_STEP } from './index';
 import { GridStyled, HeadlineStyled, DescriptionStyled } from './index.style';
 
-const GRID_SIZE = 12;
-
 interface BannerProps {
     currentTheme: string
     data: Feedback[]
@@ -23,7 +21,7 @@ export const Banner = ({ currentTheme, data }: BannerProps): JSX.Element => {
         const media = (
             <GridStyled
                 currentTheme={currentTheme}
-                xs={GRID_SIZE / totalItems}
+                xs={4}
                 key={i}
             >
                 <CardContent>
@@ -44,8 +42,8 @@ export const Banner = ({ currentTheme, data }: BannerProps): JSX.Element => {
     }
 
     return (
-        <Card raised className='Banner'>
-            <Grid container spacing={0} className='BannerGrid'>
+        <Card raised>
+            <Grid container spacing={0}>
                 {items}
             </Grid>
         </Card>
