@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { MenuItem } from '@material-ui/core';
 import i18next from 'i18next';
 
-import { actions } from '../../../__data__';
+import { actions } from '../../__data__';
 
-import { langsList } from '../../../i18n';
+import { langsList } from '../../i18n';
 
 import { SelectStyled, FormControlStyled } from './index.style';
 

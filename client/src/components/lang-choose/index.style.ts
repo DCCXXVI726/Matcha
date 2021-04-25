@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { Select, FormControl } from '@material-ui/core';
 
-import { ThemeColors } from '../../../theme';
+import { ThemeColors } from '../../theme';
 
 export const FormControlStyled = styled(FormControl)`
     &.MuiFormControl-root {
@@ -26,11 +26,11 @@ export const SelectStyled = styled(Select)(({ theme }) => css`
     }
 
     & .MuiSelect-root {
-        color: ${theme.secondary};
+        color: ${(theme as ThemeColors).secondary};
     }
 
     & .MuiSvgIcon-root {
-        color: ${theme.secondary};
+        color: ${(theme as ThemeColors).secondary};
     }
 
 `);
