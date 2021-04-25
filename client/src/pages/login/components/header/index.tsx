@@ -6,7 +6,9 @@ import { ThemeToggle } from '../../../../components/theme-toggle';
 
 import { tinderIcon } from '../../../../assets/index';
 
-import { LangChooser } from '../../../../components/header/lang-choose';
+import { LangChooser } from '../../../../components/lang-choose';
+
+import { Modal } from '../modal';
 
 import {
     HeaderStyled,
@@ -14,8 +16,7 @@ import {
     TypographyLogoStyled,
     WrapperStyled,
     LogoWrapperStyled,
-    ButtonLoginWrapper,
-    ModalStyled,
+    ButtonLoginWrapper
 } from '../../index.style';
 
 export const Header = (): JSX.Element => {
@@ -54,19 +55,12 @@ export const Header = (): JSX.Element => {
                 >
                     {t('auth-button')}
                 </ButtonLoginWrapper>
-                <ModalStyled
+                <Modal
+                    isLogin
+                    title={t('login.begin')}
                     open={open}
-                    onClose={handleClose}
-                    aria-labelledby='modal-title'
-                    aria-describedby='modal-description'
-                >
-                    <div>
-                        <h2 id='modal-title'>Text in a modal</h2>
-                        <p id='modal-description'>
-                            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                        </p>
-                    </div>
-                </ModalStyled>
+                    handleClose={handleClose}
+                />
             </WrapperStyled>
         </HeaderStyled>
     );

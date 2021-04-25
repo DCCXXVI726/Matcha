@@ -4,26 +4,26 @@ import { connect } from 'react-redux';
 import { actions, selectors } from '../../../../__data__';
 import { State, Status } from '../../../../__data__/types';
 
-import { ReduxLoginForm } from './login-form';
+import { RecoveryForm } from '../form/account-recovery-form';
 
 interface FormContainerProps {
-    coockie: string
     status: Status
-    fethLogin: (email: string, password: string) => Promise<void>
+    password: string
+    accountRecovery: (password: string) => Promise<void>
 }
 
-export const FormContainer = ({
-    coockie,
+export const AccountRecoveryFormContainer = ({
     status,
-    fethLogin
+    password,
+    accountRecovery
 }: FormContainerProps): JSX.Element => {
     const handleSubmit = (e: React.SyntheticEvent): void => {
         e.preventDefault();
-        fethLogin('email', 'password');
+        accountRecovery(password);
     };
 
     return (
-        <ReduxLoginForm
+        <RecoveryForm
             handleSubmit={handleSubmit}
             status={status}
         />
@@ -31,20 +31,20 @@ export const FormContainer = ({
 };
 
 const mapStateToProps = (state: State): {
-    coockie: string
     status: Status
+    password: string
 } => ({
-    coockie: selectors.user.login(state),
-    status: selectors.user.status(state)
+    status: selectors.accountRecovery.status(state),
+    password: selectors.accountRecovery.email(state)
 });
 
 /* eslint-disable-next-line @typescript-eslint/explicit-function-return-type */
 const mapDispatchToProps = (dispatch) => {
     return {
-        fethLogin: (email: string, password: string): Promise<void> => {
-            return dispatch(actions.fetchLogin(email, password));
+        accountRecovery: (password: string): Promise<void> => {
+            return dispatch(actions.accountRecovery(password));
         }
     };
 };
 
-export const Form = connect(mapStateToProps, mapDispatchToProps)(FormContainer);
+export const AccountRecoveryForm = connect(mapStateToProps, mapDispatchToProps)(AccountRecoveryFormContainer);

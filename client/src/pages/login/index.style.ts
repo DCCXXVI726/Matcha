@@ -47,6 +47,7 @@ export const TypographyLogoStyled = styled(Typography)(({ theme }) => css`
 `);
 
 export const TypographyStyled = styled(Typography)(({ theme }) => css`
+    padding: 20px 0;
     text-align: center;
     display: block;
     color: ${(theme as ThemeColors).secondary};
@@ -57,6 +58,22 @@ export const TypographyStyled = styled(Typography)(({ theme }) => css`
 
     &.MuiTypography-body1 {
         font-size: 2.5rem;
+        line-height: 1;
+    }
+`);
+
+export const DescriptionStyled = styled(Typography)(({ theme }) => css`
+    text-align: center;
+    display: block;
+    color: ${(theme as ThemeColors).secondary};
+
+    &:hover &:active {
+        color: ${(theme as ThemeColors).secondary};
+    }
+
+    &.MuiTypography-body1 {
+        font-size: 1.2rem;
+        line-height: 1;
     }
 `);
 

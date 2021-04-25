@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { useTranslation } from 'react-i18next';
 
@@ -11,15 +11,15 @@ import { FormStyled } from '../../index.style';
 
 import { ButtonStyled, CircularProgressStyled } from './index.style';
 
-interface LoginFormComponentProps {
+interface RecoveryFormComponentProps {
     handleSubmit: (e: React.SyntheticEvent) => void,
     status: Status
 }
 
-export const LoginFormComponent = ({
+export const RecoveryFormComponent = ({
     handleSubmit,
     status
-}: LoginFormComponentProps): JSX.Element => {
+}: RecoveryFormComponentProps): JSX.Element => {
     const { t } = useTranslation();
 
     return (
@@ -31,14 +31,6 @@ export const LoginFormComponent = ({
                 minlength={0}
                 maxLength={100}
                 placeholder={t('auth.email-placeholder')}
-                component={renderTextField}
-            />
-            <Field
-                type={'password'}
-                isRequired={true}
-                minlength={6}
-                maxLength={100}
-                placeholder={t('auth.password-placeholder')}
                 component={renderTextField}
             />
             {status === LOADING
@@ -56,6 +48,6 @@ export const LoginFormComponent = ({
 };
 
 
-export const ReduxLoginForm = reduxForm<null, LoginFormComponentProps>({
-    form: 'form',
-})(LoginFormComponent);
+export const RecoveryForm = reduxForm<null, RecoveryFormComponentProps>({
+    form: 'account-recovery',
+})(RecoveryFormComponent);

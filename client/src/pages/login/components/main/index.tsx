@@ -3,15 +3,11 @@ import { useTranslation } from 'react-i18next';
 
 import { ThemeWrapperContext } from '../../../../theme';
 
-import { Modal } from '../modal/auth';
+import { Modal } from '../modal';
 
 import { ButtonWrapper, HeadlineStyled } from '../../index.style';
 
-import {
-    MainStyled,
-    LoginSectionStyled,
-    AsideStyled,
-} from './index.style';
+import { MainStyled, LoginSectionStyled, AsideStyled } from './index.style';
 
 export const Main = (): JSX.Element => {
     const { t } = useTranslation();
@@ -45,6 +41,7 @@ export const Main = (): JSX.Element => {
                             {t('create-account')}
                         </ButtonWrapper>
                         <Modal
+                            title={t('create-account')}
                             open={open}
                             handleClose={handleClose}
                         />
