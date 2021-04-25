@@ -21,8 +21,13 @@ export interface User {
     login: string
 }
 
+export interface AccountRecovery {
+    status: Status
+}
+
 export interface State {
     user: User
     feedbacks: Feedbacks
     lang: Lang
+    accountRecovery: AccountRecovery
 }
