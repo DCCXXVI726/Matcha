@@ -1,3 +1,4 @@
+import { FormStateMap } from 'redux-form';
 import { ERROR, LOADING, SUCCESS } from './constants';
 
 export type Status = typeof ERROR | typeof LOADING | typeof SUCCESS
@@ -30,4 +31,5 @@ export interface State {
     feedbacks: Feedbacks
     lang: Lang
     accountRecovery: AccountRecovery
+    form: FormStateMap
 }

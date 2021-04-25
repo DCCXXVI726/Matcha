@@ -1,32 +1,9 @@
-import * as types from '../action-types';
-import { ERROR, LOADING, SUCCESS } from '../constants';
-import { AccountRecovery } from '../types';
+import { State, Status } from '../types';
 
-interface FeedbacksFetchAction {
-    type:
-        typeof types.ACCOUNT_RECOVERY_FETCH |
-        typeof types.ACCOUNT_RECOVERY_LOADING |
-        typeof types.ACCOUNT_RECOVERY_ERROR
-}
-
-type Action = FeedbacksFetchAction;
-
-const initialState: AccountRecovery = {
-    status: SUCCESS
+export const status = (state: State): Status => {
+    return state.accountRecovery.status;
 };
 
-export default (state = initialState, action: Action): AccountRecovery => {
-    switch (action.type) {
-        case types.ACCOUNT_RECOVERY_LOADING:
-            return { ...state, status: LOADING };
-
-        case types.ACCOUNT_RECOVERY_FETCH:
-            return { ...state, status: SUCCESS };
-
-        case types.ACCOUNT_RECOVERY_ERROR:
-            return { ...state, status: ERROR };
-
-        default:
-            return state;
-    }
+export const email = (state: State): string => {
+    return state.form['account-recovery']?.values?.email || '';
 };
