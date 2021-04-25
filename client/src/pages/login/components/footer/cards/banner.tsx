@@ -1,11 +1,11 @@
 import React from 'react';
 import FormatQuoteRoundedIcon from '@material-ui/icons/FormatQuoteRounded';
-import { Card, CardContent, Typography, Grid } from '@material-ui/core';
+import { CardContent, Typography, Grid } from '@material-ui/core';
 
 import { Feedback } from '../../../../../__data__/types';
 
 import { GRID_STEP } from './index';
-import { GridStyled, HeadlineStyled, DescriptionStyled } from './index.style';
+import { CardStyld, GridStyled, HeadlineStyled, DescriptionStyled } from './index.style';
 
 interface BannerProps {
     currentTheme: string
@@ -42,10 +42,10 @@ export const Banner = ({ currentTheme, data }: BannerProps): JSX.Element => {
     }
 
     return (
-        <Card raised>
+        <CardStyld raised>
             <Grid container spacing={0}>
                 {items}
             </Grid>
-        </Card>
+        </CardStyld>
     );
 };

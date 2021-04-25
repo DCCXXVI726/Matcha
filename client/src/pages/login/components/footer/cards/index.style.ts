@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
-import { Grid, Typography } from '@material-ui/core';
+import { Grid, Typography, Card } from '@material-ui/core';
 
 import { LIGHT, ThemeColors } from '../../../../../theme';
 import { StyledProps } from '../../../index.style';
@@ -24,7 +24,7 @@ export const GridStyled = styled(Grid)(({ theme, currentTheme }: StyledProps) =>
 
     ${currentTheme === LIGHT
         ? 'box-shadow:  5px 5px 25px #f2f2f2, -5px -5px 25px #ffffff;'
-        : 'box-shadow:  5px 5px 25px #242424, -5px -5px 25px #282828;'
+        : 'box-shadow:  5px 5px 25px #181818, -5px -5px 25px #343434;'
 }
 
 `);
@@ -41,3 +41,10 @@ export const DescriptionStyled = styled(Typography)`
     padding-top: 1rem;
 
 `;
+
+export const CardStyld = styled(Card)(({ theme }) => css`
+    &.MuiPaper-root {
+        background-color: ${(theme as ThemeColors).primary};
+        color: ${(theme as ThemeColors).secondary};
+    }
+`);

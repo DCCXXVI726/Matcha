@@ -3,12 +3,9 @@ import { useTranslation } from 'react-i18next';
 
 import { ThemeWrapperContext } from '../../../../theme';
 
-import { Modal } from '../modal';
+import { Modal } from '../modal/auth';
 
-import {
-    ButtonWrapper,
-    HeadlineStyled,
-} from '../../index.style';
+import { ButtonWrapper, HeadlineStyled } from '../../index.style';
 
 import {
     MainStyled,

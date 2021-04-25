@@ -3,11 +3,6 @@ import { css } from '@emotion/react';
 import { Typography, Link } from '@material-ui/core';
 
 import { ThemeColors } from '../../../../theme';
-import Carousel from 'react-material-ui-carousel';
-
-export const CarouselStyled = styled(Carousel)`
-
-`;
 
 export const FooterStyled = styled.footer`
     margin-right: 5rem;

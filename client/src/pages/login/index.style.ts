@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { css, Theme } from '@emotion/react';
-import { Typography, Button, Modal, Link } from '@material-ui/core';
+import { Typography, Button, Modal } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 import { LIGHT, ThemeColors } from '../../theme';
 
