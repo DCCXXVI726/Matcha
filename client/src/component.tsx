@@ -1,20 +1,23 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useCallback, useEffect, useState, useContext } from 'react';
 import { Provider } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { Router, Switch, Route, Redirect } from 'react-router';
+import { Global, css, SerializedStyles } from '@emotion/react';
 import { Link } from 'react-router-dom';
 import { createBrowserHistory, History } from 'history';
 import Cookies from 'js-cookie';
 
 import { createStore } from './__data__';
 
-export const store = createStore();
 
 import { Login } from './pages/login';
 import { NotFound } from './pages/not-found';
 
 import { ThemeWrapper, ThemeColors } from './theme';
 import { SessionContext, getSessionCookie } from './session';
+import { InternetSnackbar } from './components/internet-snackbar';
+
+export const store = createStore();
 
 export const history = createBrowserHistory();
 
@@ -67,10 +70,28 @@ const PrivateRoute = ({ ...rest }): JSX.Element => {
 
 const MainContainer = (): JSX.Element => {
     const [session, setSession] = useState(getSessionCookie());
+    const [isOffline, setStatus] = useState<boolean>(false);
+
+    const toggleStatus = (status: boolean): void => setStatus(status);
+
+    const networkHandler = useCallback((): void => {
+        navigator.onLine ? setStatus(false) : setStatus(true);
+        window.addEventListener('online', () => toggleStatus(false));
+        window.addEventListener('offline', () => toggleStatus(true));
+    }, []);
 
     useEffect(() => {
         setSession(getSessionCookie());
     }, [session]);
+
+    useEffect(() => {
+        window.addEventListener('load', () => networkHandler());
+        return (): void => {
+            window.removeEventListener('offline', () => toggleStatus(false));
+            window.removeEventListener('online', () => toggleStatus(true));
+            window.removeEventListener('load', () => networkHandler());
+        };
+    }, [networkHandler]);
 
     return (
         <SessionContext.Provider value={session}>
@@ -83,11 +104,11 @@ const MainContainer = (): JSX.Element => {
                         <PrivateRoute path='*' component={NotFound} />
                     </Switch>
                 </Router>
+                {isOffline && <InternetSnackbar />}
             </Provider>
         </SessionContext.Provider>
     );
 };
-import { Global, css, SerializedStyles } from '@emotion/react';
 
 const GlobalStyles = (): JSX.Element => {
     return (

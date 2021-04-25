@@ -22,5 +22,7 @@
     "login-account-recovery-button": "Отправить",
 
     "footer-year": "© 2021 Matcha",
-    "footer-title": "Github"
+    "footer-title": "Github",
+
+    "internet-snackbar": "Вы не в сети!"
 }
