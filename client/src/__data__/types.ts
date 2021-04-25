@@ -2,6 +2,10 @@ import { ERROR, LOADING, SUCCESS } from './constants';
 
 export type Status = typeof ERROR | typeof LOADING | typeof SUCCESS
 
+export interface Lang {
+    current: 'ru' | 'en'
+}
+
 export interface Feedback {
     title: string
     description: string
@@ -20,4 +24,5 @@ export interface User {
 export interface State {
     user: User
     feedbacks: Feedbacks
+    lang: Lang
 }
