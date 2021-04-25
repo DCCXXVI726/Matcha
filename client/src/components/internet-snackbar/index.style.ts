@@ -8,8 +8,8 @@ import { LIGHT, ThemeColors } from '../../theme';
 
 export const SnackbarStyled = styled(Snackbar)(({ theme, currentTheme }: StyledProps & SnackbarProps) => css`
     ${currentTheme === LIGHT
-        ? 'box-shadow:  5px 5px 20px #a1a1a1, -5px -5px 20px #ffffff;'
-        : 'box-shadow:  5px 5px 20px #181818, -5px -5px 20px #343434;'
+        ? 'box-shadow:  5px 5px 10px #e3e3e3, -5px -5px 10px #ffffff;'
+        : 'box-shadow:  5px 5px 10px #222222, -5px -5px 10px #2a2a2a;'
 }
     & > .MuiSnackbarContent-root {
         background-color: ${(theme as ThemeColors).primary};
