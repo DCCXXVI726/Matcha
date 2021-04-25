@@ -19,7 +19,6 @@ import {
     FooterStyled,
     LinkStyled,
     TypographyStyled,
-    CarouselStyled,
     BasementStyled
 } from './index.style';
 
@@ -41,11 +40,7 @@ export const FooterComponent = ({
 
     return (
         <FooterStyled>
-            <div>
-                {/* <CarouselStyled> */}
-                <Cards data={data} />
-            </div>
-            {/* </CarouselStyled> */}
+            <Cards data={data} />
             <BasementStyled>
                 <img src={theme === DARK ? madeInRussiaIconWhite : madeInRussiaIconBlack} />
                 <TypographyStyled>
