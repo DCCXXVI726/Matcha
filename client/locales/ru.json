@@ -16,6 +16,10 @@
     "login.download-title": "Скачайте приложение!",
 
     "login.begin": "Начать",
+    "login-problems": "Проблемы со входом?",
+    "login-account-recovery-title": "Восстановление аккаунта",
+    "login-account-recovery-description": "Мы отправим вам ссылку для мгновенного входа.",
+    "login-account-recovery-button": "Отправить",
 
     "footer-year": "© 2021 Matcha",
     "footer-title": "Github"
