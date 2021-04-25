@@ -26,6 +26,7 @@ export const Footer = (): JSX.Element => {
                     color='inherit'
                     href='https://github.com/sleonia/Matcha'
                     style={{ marginLeft: '1rem' }}
+                    target='_blank'
                 >
                     {t('footer-title')}
                 </LinkStyled>
