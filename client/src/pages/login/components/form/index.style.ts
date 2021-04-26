@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
-import { Button, TextField } from '@material-ui/core';
+import { Button, TextField, CircularProgress } from '@material-ui/core';
 
 import { ThemeColors } from '../../../../theme';
 
@@ -23,3 +23,15 @@ export const ButtonStyled = styled(Button)`
         margin: auto;
     }
 `;
+
+export const CircularProgressStyled = styled(CircularProgress)(({ theme }) => css`
+    margin: auto;
+
+    &.MuiCircularProgress-colorPrimary {
+        color: ${(theme as ThemeColors).secondary};
+    }
+
+    &.MuiCircularProgress-root {
+        display: block;
+    }
+`);

@@ -1,15 +1,8 @@
-import React, { useState, useContext } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Fade, Backdrop, IconButton } from '@material-ui/core';
-import HighlightOffRoundedIcon from '@material-ui/icons/HighlightOffRounded';
-import AndroidSharpIcon from '@material-ui/icons/AndroidSharp';
-import AppleIcon from '@material-ui/icons/Apple';
-
+import React, { useState, useCallback, useContext } from 'react';
+import { Fade, Backdrop } from '@material-ui/core';
 import { ThemeWrapperContext } from '../../../../theme';
 
 import { tinderIcon } from '../../../../assets';
-
-import { Form } from '../form';
 
 import {
     TypographyStyled,
@@ -17,108 +10,74 @@ import {
     AsideStyled
 } from '../../index.style';
 
-import {
-    SectionStyled,
-    LogoWrapperStyled,
-    LoginButtonStyled,
-    IconButtonStyled,
-    LoginBlockStyled,
-    FooterStyled,
-    HeadlineStyled,
-    AppLinkStyled,
-    LinkStyled
-} from './index.style';
+import { Header } from './components/header';
+import { AccountRecovery } from './components/account-recovery-modal';
+import { DefaulModal } from './components/default-modal';
+import { Footer } from './components/footer';
+
+import { SectionStyled, LogoWrapperStyled } from './index.style';
+
+const TIMEOUT = 400;
 
 interface ModalProps {
+    isLogin?: boolean
+    title: string
     open: boolean
     handleClose: () => void
 }
 
 export const Modal = ({
+    isLogin = false,
+    title,
     open,
     handleClose
 }: ModalProps): JSX.Element => {
-    const { t } = useTranslation();
     const [theme,] = useContext(ThemeWrapperContext);
-    const [showForm, setShowForm] = useState<boolean>(false);
+    const [isRecovery, setRecovery] = useState<boolean>(false);
 
+    const handleRecoveryOpen = useCallback((): void => {
+        setRecovery(true);
+    }, []);
+
+    const handleRecoveryClose = useCallback((): void => {
+        setRecovery(false);
+    }, []);
+
+    const closeAll = useCallback((): void => {
+        handleClose();
+        setTimeout(() => {
+            handleRecoveryClose();
+        }, TIMEOUT);
+    }, [handleClose, handleRecoveryClose]);
     return (
         <ModalStyled
             currentTheme={theme as string}
             className='modal'
             open={open}
-            onClose={handleClose}
+            onClose={(): void => closeAll()}
             closeAfterTransition
             BackdropComponent={Backdrop}
-            BackdropProps={{
-                timeout: 500,
-            }}
+            BackdropProps={{ timeout: 500 }}
             aria-labelledby='modal-title'
             aria-describedby='modal-description'
         >
             <Fade in={open}>
-                <AsideStyled
-                    currentTheme={theme as string}
-                >
-                    <header>
-                        <IconButtonStyled
-                            onClick={handleClose}
-                        >
-                            <HighlightOffRoundedIcon />
-                        </IconButtonStyled>
-                    </header>
+                <AsideStyled currentTheme={theme as string}>
+                    <Header handleClose={handleClose} />
                     <SectionStyled>
                         <LogoWrapperStyled src={tinderIcon} />
-                        <TypographyStyled>
-                            {t('create-account')}
-                        </TypographyStyled>
-                        <LoginBlockStyled>
-                            <LoginButtonStyled
-                                size='large'
-                                variant='contained'
-                                color='primary'
-                                fullWidth
-                            >
-                                {t('login.with-google')}
-                            </LoginButtonStyled>
-                            <LoginButtonStyled
-                                size='large'
-                                variant='contained'
-                                color='primary'
-                                fullWidth
-                            >
-                                {t('login.with-42')}
-                            </LoginButtonStyled>
-                            <LinkStyled
-                                component='button'
-                                variant='body1'
-                                onClick={(): void => {
-                                    setShowForm(!showForm);
-                                }}
-                            >
-                                {t('login.additional-button')}
-                            </LinkStyled>
-                            {showForm && <Form />}
-                        </LoginBlockStyled>
-                        <FooterStyled>
-                            <HeadlineStyled
-                                variant='h3'
-                            >
-                                {t('login.download-title')}
-                            </HeadlineStyled>
-                            <AppLinkStyled>
-                                <IconButton
-                                    href='#'
-                                >
-                                    <AppleIcon />
-                                </IconButton>
-                                <IconButton
-                                    href='#'
-                                >
-                                    <AndroidSharpIcon />
-                                </IconButton>
-                            </AppLinkStyled>
-                        </FooterStyled>
+                        {isRecovery ? (
+                            <AccountRecovery />
+                        ) : (<>
+                            <TypographyStyled>
+                                {title}
+                            </TypographyStyled>
+                            <DefaulModal
+                                isLogin={isLogin}
+                                handleRecoveryOpen={handleRecoveryOpen}
+                            />
+                        </>)}
+                        <Footer />
                     </SectionStyled>
                 </AsideStyled>
             </Fade>

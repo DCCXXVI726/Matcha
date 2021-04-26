@@ -1,18 +1,17 @@
 import styled from '@emotion/styled';
 import { css, Theme } from '@emotion/react';
-import { Link } from 'react-router-dom';
-import { Typography, Button, Modal } from '@material-ui/core';
+import { Typography, Button, Modal, Link } from '@material-ui/core';
 
-import { ThemeColors } from '../../theme';
+import { LIGHT, ThemeColors } from '../../theme';
 
-interface StyledProps {
+export interface StyledProps {
     theme?: Theme
     currentTheme: string
-    children: JSX.Element[]
+    children?: JSX.Element | JSX.Element[]
 }
 
 export const HeaderStyled = styled.header(({ theme, currentTheme }: StyledProps) => css`
-    ${currentTheme === 'LIGHT'
+    ${currentTheme === LIGHT
         ? 'box-shadow:  20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;'
         : 'box-shadow:  20px 20px 60px #202020, -20px -20px 60px #2c2c2c;'
 }
@@ -48,6 +47,7 @@ export const TypographyLogoStyled = styled(Typography)(({ theme }) => css`
 `);
 
 export const TypographyStyled = styled(Typography)(({ theme }) => css`
+    padding: 20px 0;
     text-align: center;
     display: block;
     color: ${(theme as ThemeColors).secondary};
@@ -58,6 +58,22 @@ export const TypographyStyled = styled(Typography)(({ theme }) => css`
 
     &.MuiTypography-body1 {
         font-size: 2.5rem;
+        line-height: 1;
+    }
+`);
+
+export const DescriptionStyled = styled(Typography)(({ theme }) => css`
+    text-align: center;
+    display: block;
+    color: ${(theme as ThemeColors).secondary};
+
+    &:hover &:active {
+        color: ${(theme as ThemeColors).secondary};
+    }
+
+    &.MuiTypography-body1 {
+        font-size: 1.2rem;
+        line-height: 1;
     }
 `);
 
@@ -135,7 +151,7 @@ export const AsideStyled = styled.aside(({ theme, currentTheme }: StyledProps) =
     bottom: 0;
     border-radius: 10px;
 
-    ${currentTheme === 'LIGHT'
+    ${currentTheme === LIGHT
         ? 'box-shadow: 17px 17px 34px #c7c7c7, -17px -17px 34px #f9f9f9;'
         : 'box-shadow:  15px 15px 30px #202020, -15px -15px 30px #2c2c2c;'
 }

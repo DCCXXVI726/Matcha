@@ -1,12 +1,31 @@
 import styled from '@emotion/styled';
+import { css } from '@emotion/react';
+
+import { LIGHT } from '../../../../theme';
+import { StyledProps } from './../../index.style';
 
 export const MainStyled = styled.main`
-    display: flex;
-    min-height: 60%;
-    justify-content: center;
+    height: 100%;
 `;
 
-export const SectionStyled = styled.section`
+export const LoginSectionStyled = styled.section(({ theme, currentTheme }: StyledProps) => css`
+    display: flex;
+    height: 100%;
+    justify-content: center;
+ 
+    ${currentTheme === LIGHT
+        ? 'box-shadow:  7px 7px 14px #e3e3e3, -7px -7px 14px #ffffff;'
+        : 'box-shadow:  7px 7px 14px #222222, -7px -7px 14px #2a2a2a;'
+}
+`);
+
+
+export const AsideStyled = styled.aside`
     margin: auto;
+`;
+
+export const CarouselStyled = styled.aside`
+    display: flex;
+    overflow-x: clip;
 
 `;

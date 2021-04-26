@@ -10,8 +10,8 @@ import { ThemeProvider } from '@emotion/react';
 import * as LIGHT_THEME from './light.theme.style';
 import * as DARK_THEME from './dark.theme.style';
 
-const LIGHT = 'LIGHT';
-const DARK = 'DARK';
+export const LIGHT = 'LIGHT';
+export const DARK = 'DARK';
 
 export interface ThemeColors {
     primary: string
@@ -34,7 +34,8 @@ interface ThemeWrapperProps {
 }
 
 export const ThemeWrapper = ({ children }: ThemeWrapperProps): JSX.Element => {
-    const [themeColor, setThemeColor] = useState(LIGHT);
+    const isUserThemeLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+    const [themeColor, setThemeColor] = useState(isUserThemeLight ? LIGHT : DARK);
 
     const changeTheme = useCallback((): void => {
         setThemeColor(themeColor === DARK ? LIGHT : DARK);

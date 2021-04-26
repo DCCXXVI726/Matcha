@@ -1,15 +1,23 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useCallback, useEffect, useState, useContext } from 'react';
+import { Provider } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { Router, Switch, Route, Redirect } from 'react-router';
+import { Global, css, SerializedStyles } from '@emotion/react';
 import { Link } from 'react-router-dom';
 import { createBrowserHistory, History } from 'history';
 import Cookies from 'js-cookie';
 
-import { LoginComponent } from './pages/login';
+import { createStore } from './__data__';
+
+
+import { Login } from './pages/login';
 import { NotFound } from './pages/not-found';
 
 import { ThemeWrapper, ThemeColors } from './theme';
 import { SessionContext, getSessionCookie } from './session';
+import { InternetSnackbar } from './components/internet-snackbar';
+
+export const store = createStore();
 
 export const history = createBrowserHistory();
 
@@ -69,18 +77,22 @@ const MainContainer = (): JSX.Element => {
 
     return (
         <SessionContext.Provider value={session}>
-            <Router history={history}>
-                <Switch>
-                    <Route path='/login' component={LoginComponent} />
-                    <Route path='/logout' component={LogoutHandler} />
-                    <PrivateRoute exact path='/' component={ProtectedHandler} />
-                    <PrivateRoute path='*' component={NotFound} />
-                </Switch>
-            </Router>
+            <Provider store={store}>
+                <Router history={history}>
+                    <Switch>
+                        <Route path='/login' component={Login} />
+                        <Route path='/logout' component={LogoutHandler} />
+                        <Route exact path='/' component={ProtectedHandler} />
+                        <Route path='*' component={NotFound} />
+                        {/* <PrivateRoute exact path='/' component={ProtectedHandler} /> */}
+                        {/* <PrivateRoute path='*' component={NotFound} /> */}
+                    </Switch>
+                </Router>
+                <InternetSnackbar />
+            </Provider>
         </SessionContext.Provider>
     );
 };
-import { Global, css, SerializedStyles } from '@emotion/react';
 
 const GlobalStyles = (): JSX.Element => {
     return (

@@ -4,7 +4,7 @@ import translationRU from '../locales/ru.json';
 import translationEN from '../locales/en.json';
 
 /* eslint-disable-next-line no-cyrillic-string/no-cyrillic-string */
-export const langsList = ['Русский', 'English'];
+export const langsList = ['English', 'Русский'];
 
 const resources = {
     ru: {

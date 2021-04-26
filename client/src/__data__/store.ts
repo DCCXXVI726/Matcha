@@ -3,16 +3,40 @@ import {
     combineReducers,
     applyMiddleware,
     compose,
+    Reducer,
+    CombinedState,
     Store
 } from 'redux';
+import { reducer as formReducer, FormStateMap } from 'redux-form';
 import thunkMiddleware from 'redux-thunk';
 
-import * as reducers from './reducers';
+import {
+    User,
+    Feedbacks,
+    Lang,
+    AccountRecovery
+} from './types';
 
-export const createReducer = () =>
-    combineReducers({
-        ...reducers
-    });
+import {
+    user,
+    feedbacks,
+    lang,
+    accountRecovery
+} from './reducers';
+
+export const createReducer = (): Reducer<CombinedState<{
+    user: User
+    feedbacks: Feedbacks
+    lang: Lang
+    accountRecovery: AccountRecovery
+    form: FormStateMap
+}>> => combineReducers({
+    user,
+    feedbacks,
+    lang,
+    accountRecovery,
+    form: formReducer
+});
 
 declare global {
     interface Window {

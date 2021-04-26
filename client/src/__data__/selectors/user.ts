@@ -1,9 +1,9 @@
-import { State } from '../types';
+import { State, Status } from '../types';
 
-export const status = (state: State): string => {
-    return state?.default.user.status;
+export const status = (state: State): Status => {
+    return state.user.status;
 };
 
 export const login = (state: State): string => {
-    return state?.default.user.login;
+    return state.user.login;
 };
