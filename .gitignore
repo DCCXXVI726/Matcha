@@ -1,7 +1,2 @@
-dist
-node_modules
-.vscode
-.DS_Store
-client/stub/index.js
-client/package-lock.json
-package-lock.json
+.gitignore
+.idea
