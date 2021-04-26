@@ -34,7 +34,8 @@ interface ThemeWrapperProps {
 }
 
 export const ThemeWrapper = ({ children }: ThemeWrapperProps): JSX.Element => {
-    const [themeColor, setThemeColor] = useState(LIGHT);
+    const isUserThemeLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+    const [themeColor, setThemeColor] = useState(isUserThemeLight ? LIGHT : DARK);
 
     const changeTheme = useCallback((): void => {
         setThemeColor(themeColor === DARK ? LIGHT : DARK);

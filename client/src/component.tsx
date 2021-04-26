@@ -82,8 +82,10 @@ const MainContainer = (): JSX.Element => {
                     <Switch>
                         <Route path='/login' component={Login} />
                         <Route path='/logout' component={LogoutHandler} />
-                        <PrivateRoute exact path='/' component={ProtectedHandler} />
-                        <PrivateRoute path='*' component={NotFound} />
+                        <Route exact path='/' component={ProtectedHandler} />
+                        <Route path='*' component={NotFound} />
+                        {/* <PrivateRoute exact path='/' component={ProtectedHandler} /> */}
+                        {/* <PrivateRoute path='*' component={NotFound} /> */}
                     </Switch>
                 </Router>
                 <InternetSnackbar />
