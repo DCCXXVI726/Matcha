@@ -4,12 +4,6 @@ import { Typography, Button, Modal, Link } from '@material-ui/core';
 
 import { LIGHT, ThemeColors } from '../../theme';
 
-export interface StyledProps {
-    theme?: Theme
-    currentTheme: string
-    children?: JSX.Element | JSX.Element[]
-}
-
 export const HeaderStyled = styled.header(({ theme, currentTheme }: StyledProps) => css`
     ${currentTheme === LIGHT
         ? 'box-shadow:  20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;'

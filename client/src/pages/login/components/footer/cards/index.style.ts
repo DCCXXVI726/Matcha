@@ -3,7 +3,6 @@ import { css } from '@emotion/react';
 import { Grid, Typography, Card } from '@material-ui/core';
 
 import { LIGHT, ThemeColors } from '../../../../../theme';
-import { StyledProps } from '../../../index.style';
 
 export const GridStyled = styled(Grid)(({ theme, currentTheme }: StyledProps) => css`
     min-width: 200px;
