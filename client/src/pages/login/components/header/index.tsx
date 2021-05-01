@@ -17,7 +17,7 @@ import {
     WrapperStyled,
     LogoWrapperStyled,
     ButtonLoginWrapper
-} from '../../index.style';
+} from '../../../../components/header/index.style';
 
 export const Header = (): JSX.Element => {
     const { t } = useTranslation();
