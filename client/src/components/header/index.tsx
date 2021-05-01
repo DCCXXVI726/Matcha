@@ -36,13 +36,6 @@ export const Header = (): JSX.Element => {
             <WrapperStyled>
                 <ThemeToggle />
                 <LangChooser />
-                <ButtonLoginWrapper
-                    variant='contained'
-                    color='primary'
-                    size='small'
-                >
-                    {t('auth-button')}
-                </ButtonLoginWrapper>
             </WrapperStyled>
         </HeaderStyled>
     );

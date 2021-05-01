@@ -14,7 +14,7 @@ export const LogoWrapperStyled = styled.img`
 export const ButtonLoginWrapper = styled(Button)`
     &.MuiButtonBase-root {
         font-size: 1.2rem;
-        margin: 0 20px;
+        margin: 0px 20px 0px 10px;
     }
 `;
 

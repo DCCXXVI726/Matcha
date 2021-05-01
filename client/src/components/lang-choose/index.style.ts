@@ -6,7 +6,7 @@ import { ThemeColors } from '../../theme';
 
 export const FormControlStyled = styled(FormControl)`
     &.MuiFormControl-root {
-        margin: auto 0 auto 10px;
+        margin: auto 10px;
         padding: 6px 0;
     }
 
