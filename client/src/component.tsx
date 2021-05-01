@@ -31,7 +31,7 @@ const MainContainer = (): JSX.Element => {
                 <Router history={history}>
                     <Switch>
                         <Route path='/login' component={Login} />
-                        <Route path='/onboadring' component={OnBoarding} />
+                        <Route path='/onboarding' component={OnBoarding} />
                         <Route path='*' component={NotFound} />
                     </Switch>
                 </Router>
