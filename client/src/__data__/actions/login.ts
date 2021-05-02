@@ -24,9 +24,9 @@ export const fetchLogin = (email: string, password: string) => {
                 type: types.AUTH_ERROR
             });
         } else {
-            console.dir(response.headers);
+            // console.dir(response.headers);
             const json = await response.json();
-            console.dir(json);
+            // console.dir(json);
             /* eslint-disable-next-line no-console */
             dispatch({
                 type: types.AUTH_FETCH,

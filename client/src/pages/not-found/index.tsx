@@ -1,10 +1,10 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
-import { Grid, Typography, Card, CardContent } from '@material-ui/core';
-import { Link } from 'react-router-dom';
+// import { useTranslation } from 'react-i18next';
+import { Typography, Card, CardContent } from '@material-ui/core';
+// import { Link } from 'react-router-dom';
 
 export const NotFound = (): JSX.Element => {
-    const { t } = useTranslation();
+    // const { t } = useTranslation();
 
     return (
         <Card>

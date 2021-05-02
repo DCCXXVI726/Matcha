@@ -4,11 +4,12 @@ import { useTranslation } from 'react-i18next';
 
 import { ThemeWrapperContext } from '../../../../../../components/theme';
 import { tinderIcon } from '../../../../../../assets';
+import { RulesList } from './rules-list';
 
 import {
     RegistrationModalStyled,
     AsideStyled,
-    SectionStyled,
+    RegistrationSectionStyled,
     LogoWrapperStyled,
     TypographyStyled,
     DescriptionStyled,
@@ -40,7 +41,7 @@ export const RegistrationModal = ({
         >
             <Fade in={open}>
                 <AsideStyled currentTheme={theme as string}>
-                    <SectionStyled>
+                    <RegistrationSectionStyled>
                         <LogoWrapperStyled src={tinderIcon} />
                         <TypographyStyled
                             fontSize='2rem'
@@ -52,7 +53,8 @@ export const RegistrationModal = ({
                         >
                             {t('reg-sub-title')}
                         </DescriptionStyled>
-                    </SectionStyled>
+                    </RegistrationSectionStyled>
+                    <RulesList />
                     <FooterStyled>
                         <Button
                             variant='contained'

@@ -7,7 +7,7 @@ export const MainStyled = styled.main`
     height: 100%;
 `;
 
-export const LoginSectionStyled = styled.section(({ theme, currentTheme }: StyledProps) => css`
+export const LoginSectionStyled = styled.section(({ currentTheme }: StyledProps) => css`
     display: flex;
     height: 100%;
     justify-content: center;

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
-import { Grid, Typography, Card } from '@material-ui/core';
+import { Card } from '@material-ui/core';
 
 import { LIGHT, ThemeColors } from '../../components/theme';
 

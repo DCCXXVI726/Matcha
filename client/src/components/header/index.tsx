@@ -13,8 +13,7 @@ import {
     LinkStyled,
     TypographyLogoStyled,
     WrapperStyled,
-    LogoWrapperStyled,
-    ButtonLoginWrapper
+    LogoWrapperStyled
 } from './index.style';
 
 export const Header = (): JSX.Element => {

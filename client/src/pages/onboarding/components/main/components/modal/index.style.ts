@@ -1,15 +1,12 @@
 import styled from '@emotion/styled';
-import { css, Theme } from '@emotion/react';
-import { Button, IconButton, Typography, Link } from '@material-ui/core';
+import { css } from '@emotion/react';
 
-// import { ThemeColors, LIGHT, DARK } from '../../../../../../components/theme';
+import { ThemeColors } from '../../../../../../components/theme';
 
 import { ModalStyled } from './../../../../../login/index.style';
+import { SectionStyled } from './../../../../../login/components/modal/index.style';
 
-export {
-    SectionStyled,
-    LogoWrapperStyled,
-} from './../../../../../login/components/modal/index.style';
+export { LogoWrapperStyled } from './../../../../../login/components/modal/index.style';
 
 export {
     AsideStyled,
@@ -18,8 +15,11 @@ export {
 } from './../../../../../login/index.style';
 
 
-export const RegistrationModalStyled = styled(ModalStyled)(({ theme }) => css`
-`);
+export const RegistrationModalStyled = styled(ModalStyled);
+
+export const RegistrationSectionStyled = styled(SectionStyled)`
+    padding-bottom: 0;
+`;
 
 export const FooterStyled = styled.footer`
     display: flex;
@@ -28,3 +28,25 @@ export const FooterStyled = styled.footer`
         margin: 10px auto;
     }
 `;
+
+
+export const ListStyled = styled.ul(({ theme }) => css`
+    padding: 0;
+    list-style: none;
+    margin: 0 25px;
+    color: ${(theme as ThemeColors).secondary};
+
+    & li {
+        margin: 10px;
+    }
+
+    & li span {
+        font-size: 1.4rem;
+        vertical-align: text-bottom;
+    }
+
+    & li p {
+        margin: 0;
+    }
+
+`);
