@@ -1,7 +1,7 @@
 import React, { useCallback, useState, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { ThemeWrapperContext } from '../../../../theme';
+import { ThemeWrapperContext } from '../../../../components/theme';
 
 import { Modal } from '../modal';
 

@@ -3,7 +3,7 @@ import { css } from '@emotion/react';
 import { Typography, Button } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
-import { LIGHT, ThemeColors } from '../../theme';
+import { LIGHT, ThemeColors } from '../theme';
 
 export const LogoWrapperStyled = styled.img`
     height: 3rem;

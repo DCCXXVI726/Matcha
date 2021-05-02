@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { Grid, Typography, Card } from '@material-ui/core';
 
-import { LIGHT, ThemeColors } from '../../theme';
+import { LIGHT, ThemeColors } from '../../components/theme';
 
 export const CardStyld = styled(Card)(({ theme, currentTheme }: StyledProps) => css`
     &.MuiPaper-root {

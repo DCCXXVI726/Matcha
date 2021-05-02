@@ -4,7 +4,7 @@ import Carousel from 'react-material-ui-carousel';
 import { Banner } from './banner';
 
 import { Feedback } from '../../../../../__data__/types';
-import { ThemeWrapperContext } from '../../../../../theme';
+import { ThemeWrapperContext } from '../../../../../components/theme';
 
 const START_INDEX = -3;
 export const GRID_STEP = 3;

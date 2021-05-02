@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { css, Theme } from '@emotion/react';
 import { Snackbar, SnackbarProps } from '@material-ui/core';
 
-import { LIGHT, ThemeColors } from '../../theme';
+import { LIGHT, ThemeColors } from '../theme';
 
 export const SnackbarStyled = styled(Snackbar)(({ theme, currentTheme }: StyledProps & SnackbarProps) => css`
     ${currentTheme === LIGHT

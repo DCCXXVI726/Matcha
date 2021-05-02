@@ -6,7 +6,7 @@ import { Typography } from '@material-ui/core';
 
 import { Feedback, State } from '../../../../__data__/types';
 import { actions, selectors } from '../../../../__data__';
-import { DARK, ThemeWrapperContext } from '../../../../theme';
+import { DARK, ThemeWrapperContext } from '../../../../components/theme';
 
 import {
     madeInRussiaIconWhite,

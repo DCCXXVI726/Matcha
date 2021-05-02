@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { ThemeWrapperContext } from '../../../../theme';
+import { ThemeWrapperContext } from '../../../../components/theme';
 import { ThemeToggle } from '../../../../components/theme-toggle';
 
 import { tinderIcon } from '../../../../assets/index';

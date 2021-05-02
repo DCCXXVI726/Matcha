@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { Button, IconButton, Typography, Link } from '@material-ui/core';
 
-import { ThemeColors } from '../../../../theme';
+import { ThemeColors } from '../../../../components/theme';
 
 export const IconButtonStyled = styled(IconButton)(({ theme }) => css`
     display: block;

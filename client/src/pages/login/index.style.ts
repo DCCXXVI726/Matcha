@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { Typography, Button, Modal } from '@material-ui/core';
 
-import { LIGHT, ThemeColors } from '../../theme';
+import { LIGHT, ThemeColors } from '../../components/theme';
 
 export const FormStyled = styled.form(({ theme }) => css`
     background-color: ${(theme as ThemeColors).primary};

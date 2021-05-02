@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 
-import { ThemeWrapperContext } from '../../theme';
+import { ThemeWrapperContext } from '../theme';
 
 import { SnackbarStyled } from './index.style';
 

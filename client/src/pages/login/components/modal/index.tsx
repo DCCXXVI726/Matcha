@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useContext } from 'react';
 import { Fade, Backdrop } from '@material-ui/core';
-import { ThemeWrapperContext } from '../../../../theme';
+import { ThemeWrapperContext } from '../../../../components/theme';
 
 import { tinderIcon } from '../../../../assets';
 

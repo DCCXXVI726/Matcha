@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { Button, TextField, CircularProgress } from '@material-ui/core';
 
-import { ThemeColors } from '../../../../theme';
+import { ThemeColors } from '../../../../components/theme';
 
 export const TextFieldStyled = styled(TextField)(({ theme }) => css`
     & > .MuiInputBase-root {

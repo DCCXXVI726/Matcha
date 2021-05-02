@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
-import { LIGHT } from '../../../../theme';
+import { LIGHT } from '../../../../components/theme';
 
 export const MainStyled = styled.main`
     height: 100%;

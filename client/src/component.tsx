@@ -9,10 +9,10 @@ import { Login } from './pages/login';
 import { OnBoarding } from './pages/onboarding';
 import { NotFound } from './pages/not-found';
 
-import { ThemeWrapper } from './theme';
+import { ThemeWrapper } from './components/theme';
 import { SessionContext, getSessionCookie } from './session';
 import { InternetSnackbar } from './components/internet-snackbar';
-import { GlobalStyles } from './global-styles';
+import { GlobalStyles } from './utils/global-styles';
 
 export const store = createStore();
 

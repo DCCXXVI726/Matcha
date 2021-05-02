@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Typography } from '@material-ui/core';
 
-import { DARK, ThemeWrapperContext } from '../../theme';
+import { DARK, ThemeWrapperContext } from '../theme';
 import { madeInRussiaIconWhite, madeInRussiaIconBlack } from '../../assets';
 
 import {

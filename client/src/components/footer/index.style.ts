@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { Typography, Link } from '@material-ui/core';
 
-import { ThemeColors } from '../../theme';
+import { ThemeColors } from '../theme';
 
 export const FooterStyled = styled.footer(({ theme }) => css`
     & img {

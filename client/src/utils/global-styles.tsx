@@ -1,7 +1,7 @@
 import React from 'react';
 import { Global, css, SerializedStyles } from '@emotion/react';
 
-import { ThemeColors } from './theme';
+import { ThemeColors } from '../components/theme';
 
 export const GlobalStyles = (): JSX.Element => {
     return (
