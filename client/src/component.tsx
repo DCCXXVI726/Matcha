@@ -13,6 +13,7 @@ import { ThemeWrapper } from './components/theme';
 import { SessionContext, getSessionCookie } from './session';
 import { InternetSnackbar } from './components/internet-snackbar';
 import { GlobalStyles } from './utils/global-styles';
+import { CircularProgress } from '@material-ui/core';
 
 export const store = createStore();
 
@@ -24,6 +25,10 @@ const MainContainer = (): JSX.Element => {
     useEffect(() => {
         setSession(getSessionCookie());
     }, [session]);
+
+    useEffect(() => {
+        // return <CircularProgress />;
+    }, []);
 
     return (
         <SessionContext.Provider value={session}>

@@ -2,7 +2,7 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { useTranslation } from 'react-i18next';
 
-import { Radio, RadioGroup, FormControlLabel } from '@material-ui/core';
+import { Radio, RadioGroup, FormControlLabel, Button } from '@material-ui/core';
 
 import { LOADING } from '../../../../../../__data__/constants';
 import { Status } from '../../../../../../__data__/types';
@@ -11,6 +11,7 @@ import { RenderTextField } from '../../../../../../components/render-text-field'
 
 import { FormStyled } from '../../../../../login/index.style';
 import { ButtonStyled, CircularProgressStyled } from '../../../../../login/components/form/index.style';
+import { CloudUpload } from '@material-ui/icons';
 
 // import { ButtonStyled, CircularProgressStyled } from '../index.style';
 
@@ -56,6 +57,13 @@ export const RegistrationFormComponent = ({
                 <FormControlLabel value='female' control={<Radio />} label='Female' />
                 <FormControlLabel value='male' control={<Radio />} label='Male' />
             </RadioGroup>
+            <Button
+                variant='contained'
+                color='default'
+                startIcon={<CloudUpload />}
+            >
+                Upload
+            </Button>
         </FormStyled>
     );
 };
