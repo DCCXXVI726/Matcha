@@ -69,7 +69,7 @@ export const Modal = ({
                         {isRecovery ? (
                             <AccountRecovery />
                         ) : (<>
-                            <TypographyStyled>
+                            <TypographyStyled fontSize='3rem'>
                                 {title}
                             </TypographyStyled>
                             <DefaulModal

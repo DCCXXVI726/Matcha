@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { css } from '@emotion/react';
+import { css, Theme } from '@emotion/react';
 import { Typography, Button, Modal } from '@material-ui/core';
 
 import { LIGHT, ThemeColors } from '../../components/theme';
@@ -9,7 +9,12 @@ export const FormStyled = styled.form(({ theme }) => css`
 
 `);
 
-export const TypographyStyled = styled(Typography)(({ theme }) => css`
+interface TypographyStyledProps {
+    theme?: Theme
+    fontSize: string
+}
+
+export const TypographyStyled = styled(Typography)(({ theme, fontSize }: TypographyStyledProps) => css`
     padding: 20px 0;
     text-align: center;
     display: block;
@@ -20,7 +25,7 @@ export const TypographyStyled = styled(Typography)(({ theme }) => css`
     }
 
     &.MuiTypography-body1 {
-        font-size: 2.5rem;
+        font-size: ${fontSize};
         line-height: 1;
     }
 `);

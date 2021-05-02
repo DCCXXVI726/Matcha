@@ -12,7 +12,7 @@ export const AccountRecovery = (): JSX.Element => {
 
     return (
         <>
-            <TypographyStyled>
+            <TypographyStyled fontSize='3rem'>
                 {t('login-account-recovery-title')}
             </TypographyStyled>
             <DescriptionStyled>

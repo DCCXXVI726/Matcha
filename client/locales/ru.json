@@ -3,10 +3,12 @@
     "title": "Свайп вправо",
     "logout": "Выйти",
     "create-account": "Создать аккаунт",
+
     "auth.email-placeholder": "Email",
     "auth.login-placeholder": "Имя аккаунта",
     "auth.password-placeholder": "Пароль",
     "auth-button": "Войти",
+
     "not-found": "Страница была здесь, а теперь её тут нет",
     "back-to-home": "Вернуться на главную",
 
@@ -14,12 +16,23 @@
     "login.with-42": "Войти через 42intra",
     "login.additional-button": "Другие варианты",
     "login.download-title": "Скачайте приложение!",
-
     "login.begin": "Начать",
     "login-problems": "Проблемы со входом?",
     "login-account-recovery-title": "Восстановление аккаунта",
     "login-account-recovery-description": "Мы отправим вам ссылку для мгновенного входа.",
     "login-account-recovery-button": "Отправить",
+
+    "reg-title": "Добро пожаловать в Matcha",
+    "reg-sub-title": "Пожалуйста, соблюдайте следующие правила",
+    "reg-rules-0-title": "Будьте собой",
+    "reg-rules-0-description": "Ваши возраст, фото, пол и информация о себе должны быть настоящими",
+    "reg-rules-1-title": "Помните о безопасности",
+    "reg-rules-1-description": "Не торопитесь делиться личной информацией. Безопасность превыше всего",
+    "reg-rules-2-title": "Ведите себя достойно",
+    "reg-rules-2-description": "Уважайте других и относитесь к ним достойно",
+    "reg-rules-3-title": "Действуйте решительно",
+    "reg-rules-3-description": "Всегда сообщайте о неподобающем поведении",
+    "reg-accept": "Принять",
 
     "footer-year": "© 2021 Matcha",
     "footer-title": "Github",

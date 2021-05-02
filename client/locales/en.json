@@ -3,10 +3,12 @@
     "title": "Swipe right",
     "logout": "Logout",
     "create-account": "Сreate account",
+
     "auth.email-placeholder": "Your email",
     "auth.login-placeholder": "login",
     "auth.password-placeholder": "password",
     "auth-button": "Login",
+
     "not-found": "The page was here, and now it's not here",
     "back-to-home": "Back to home",
 
@@ -14,12 +16,23 @@
     "login.with-42": "Login with 42intra",
     "login.additional-button": "Any variants",
     "login.download-title": "Download app!",
-
     "login.begin": "Begin",
     "login-problems": "Login problems?",
     "login-account-recovery-title": "Account recovery",
     "login-account-recovery-description": "We send you link for instant enter",
     "login-account-recovery-button": "Send",
+
+    "reg-title": "Welcome to Matcha",
+    "reg-sub-title": "Please observe the following rules",
+    "reg-rules-0-title": "Be Yourself",
+    "reg-rules-0-description": "Your age, photo, gender, and information about yourself must be real",
+    "reg-rules-1-title": "Be aware of safety",
+    "reg-rules-1-description": "Take the time to share personal information. Safety first",
+    "reg-rules-2-title": "Behave with dignity",
+    "reg-rules-2-description": "Respect others and treat them with dignity",
+    "reg-rules-3-title": "Act decisively",
+    "reg-rules-3-description": "Always report inappropriate behavior",
+    "reg-accept": "Accept",
 
     "footer-year": "© 2021 Matcha",
     "footer-title": "Github",
