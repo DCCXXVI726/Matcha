@@ -33,9 +33,21 @@ app.get('/api/feedbacks', (req, res: Response) => {
     let json: string;
 
     if (req.query.lang === 'ru') {
-        json = fs.readFileSync('./stub/feedbacks/ru.json', 'utf8');
+        json = fs.readFileSync('./stub/api/feedbacks/ru.json', 'utf8');
     } else {
-        json = fs.readFileSync('./stub/feedbacks/en.json', 'utf8');
+        json = fs.readFileSync('./stub/api/feedbacks/en.json', 'utf8');
+    }
+
+    res.json(JSON.parse(json));
+});
+
+app.get('/api/genders', (req, res: Response) => {
+    let json: string;
+
+    if (req.query.lang === 'ru') {
+        json = fs.readFileSync('./stub/api/genders/ru.json', 'utf8');
+    } else {
+        json = fs.readFileSync('./stub/api/genders/en.json', 'utf8');
     }
 
     res.json(JSON.parse(json));
