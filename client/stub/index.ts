@@ -32,7 +32,8 @@ app.post('/sessions', (req, res) => {
 app.get('/api/feedbacks', (req, res: Response) => {
     let json: string;
 
-    if (req.query.lang === 'ru') {
+    // eslint-disable-next-line
+    if (req.query.lang === 'ru' || req.query.lang === 'Русский') {
         json = fs.readFileSync('./stub/api/feedbacks/ru.json', 'utf8');
     } else {
         json = fs.readFileSync('./stub/api/feedbacks/en.json', 'utf8');
@@ -44,7 +45,8 @@ app.get('/api/feedbacks', (req, res: Response) => {
 app.get('/api/genders', (req, res: Response) => {
     let json: string;
 
-    if (req.query.lang === 'ru') {
+    // eslint-disable-next-line
+    if (req.query.lang === 'ru' || req.query.lang === 'Русский') {
         json = fs.readFileSync('./stub/api/genders/ru.json', 'utf8');
     } else {
         json = fs.readFileSync('./stub/api/genders/en.json', 'utf8');

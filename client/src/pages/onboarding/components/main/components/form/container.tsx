@@ -1,26 +1,90 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React, { useMemo } from 'react';
+import { Field, reduxForm } from 'redux-form';
+import { useTranslation } from 'react-i18next';
 
-import { actions, selectors } from '../../../../../../__data__';
-import { State, Status } from '../../../../../../__data__/types';
+import { Radio, RadioGroup, FormControlLabel } from '@material-ui/core';
 
-import { RegistrationForm as RegistrationForm1 } from './index';
+import { LOADING } from '../../../../../../__data__/constants';
+import { Status } from '../../../../../../__data__/types';
 
-interface FormContainerProps {
-    lol?: string
+import { RenderTextField } from '../../../../../../components/render-text-field';
+
+import { FormStyled } from './index.style';
+import { ButtonStyled, CircularProgressStyled } from '../../../../../login/components/form/index.style';
+
+// import { ButtonStyled, CircularProgressStyled } from '../index.style';
+
+interface RegistrationFormComponentProps {
+    handleSubmit?: (e: React.SyntheticEvent) => void
+    status: Status
+    genders: string[]
 }
 
-export const RegistrationFormContainer = ({
-}: FormContainerProps): JSX.Element => {
-    const handleSubmit = (e: React.SyntheticEvent): void => {
-        e.preventDefault();
-    };
+export const RegistrationFormComponent = ({
+    handleSubmit,
+    status,
+    genders
+}: RegistrationFormComponentProps): JSX.Element => {
+    const { t } = useTranslation();
+
+    // const renderChildren = useMemo(() => {
+    //     genders?.map((gender) => (
+    //         <FormControlLabel value={gender} control={<Radio />} label={gender} />
+    //     ));
+    // }, [genders]);
 
     return (
-        <RegistrationForm1
-            handleSubmit={handleSubmit}
-        />
+        <FormStyled onSubmit={handleSubmit}>
+            <div>
+                <Field
+                    name={'text'}
+                    type={'text'}
+                    isRequired={true}
+                    minlength={0}
+                    maxLength={100}
+                    placeholder={t('reg-form-name')}
+                    component={RenderTextField}
+                />
+                <Field
+                    name={'email'}
+                    type={'email'}
+                    isRequired={true}
+                    minlength={0}
+                    maxLength={100}
+                    placeholder={t('reg-form-email')}
+                    component={RenderTextField}
+                />
+                <Field
+                    name={'upload-image'}
+                    accept='image/gif, image/jpeg, image/png'
+                    type='file'
+                    defaultValue='2021-05-24'
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                    component={RenderTextField}
+                />
+            </div>
+            <div>
+                <RadioGroup row defaultValue='' aria-label='gender' name='customized-radios'>
+                    {genders?.map((gender) => (
+                        <FormControlLabel key={gender} value={gender} control={<Radio />} label={gender} />
+                    ))}
+                </RadioGroup>
+                <Field
+                    name={'bday'}
+                    type='date'
+                    defaultValue='2021-05-24'
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                    component={RenderTextField}
+                />
+            </div>
+        </FormStyled>
     );
 };
 
-export const RegistrationForm = connect(null, null)(RegistrationFormContainer);
+export const RegistrationForm = reduxForm<null, RegistrationFormComponentProps>({
+    form: 'registration',
+})(RegistrationFormComponent);

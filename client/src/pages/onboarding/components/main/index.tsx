@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 
-import { RegistrationForm } from './components/form/container';
+import { RegistrationForm } from './components/form';
 import { RegistrationModal } from './components/modal';
 
 import { MainStyled } from './index.style';

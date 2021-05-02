@@ -1,66 +1,63 @@
-import React from 'react';
-import { Field, reduxForm } from 'redux-form';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import i18next from 'i18next';
 
-import { Radio, RadioGroup, FormControlLabel } from '@material-ui/core';
+import { actions, selectors } from '../../../../../../__data__';
+import { State, Status } from '../../../../../../__data__/types';
 
-import { LOADING } from '../../../../../../__data__/constants';
-import { Status } from '../../../../../../__data__/types';
+import { RegistrationForm as MainRegistrationForm } from './container';
 
-import { RenderTextField } from '../../../../../../components/render-text-field';
-
-import { FormStyled } from '../../../../../login/index.style';
-import { ButtonStyled, CircularProgressStyled } from '../../../../../login/components/form/index.style';
-
-// import { ButtonStyled, CircularProgressStyled } from '../index.style';
-
-interface RegistrationFormComponentProps {
-    handleSubmit?: (e: React.SyntheticEvent) => void,
+interface RegistrationFormContainerProps {
+    status: Status
+    genders: string[]
+    fetchGenders: (lang: string) => Promise<void>
+    accountCreate: () => void
 }
 
-export const RegistrationFormComponent = ({
-    handleSubmit
-}: RegistrationFormComponentProps): JSX.Element => {
+export const RegistrationFormContainer = ({
+    status,
+    genders,
+    fetchGenders,
+    accountCreate
+}: RegistrationFormContainerProps): JSX.Element => {
     const { t } = useTranslation();
 
+    useEffect(() => {
+        console.log(i18next.language);
+        fetchGenders(i18next.language);
+    }, [fetchGenders]);
+
+    const handleSubmit = (e: React.SyntheticEvent): void => {
+        e.preventDefault();
+        accountCreate();
+    };
+
     return (
-        <FormStyled onSubmit={handleSubmit}>
-            <Field
-                name={'text'}
-                type={'text'}
-                isRequired={true}
-                minlength={0}
-                maxLength={100}
-                placeholder={t('reg-form-name')}
-                component={RenderTextField}
-            />
-            <Field
-                name={'email'}
-                type={'email'}
-                isRequired={true}
-                minlength={0}
-                maxLength={100}
-                placeholder={t('reg-form-email')}
-                component={RenderTextField}
-            />
-            <Field
-                name={'bday'}
-                type='date'
-                defaultValue='2021-05-24'
-                InputLabelProps={{
-                    shrink: true,
-                }}
-                component={RenderTextField}
-            />
-            <RadioGroup defaultValue='' aria-label='gender' name='customized-radios'>
-                <FormControlLabel value='female' control={<Radio />} label='Female' />
-                <FormControlLabel value='male' control={<Radio />} label='Male' />
-            </RadioGroup>
-        </FormStyled>
+        <MainRegistrationForm
+            handleSubmit={handleSubmit}
+            status={status}
+            genders={genders}
+        />
     );
 };
 
+const mapStateToProps = (state: State): {
+    status: Status
+    genders: string[]
+} => ({
+    status: selectors.accountRecovery.status(state), //TODO: change to own status
+    genders: selectors.genders.data(state)
+});
 
-export const RegistrationForm = reduxForm<null, RegistrationFormComponentProps>({
-    form: 'registration',
-})(RegistrationFormComponent);
+/* eslint-disable-next-line @typescript-eslint/explicit-function-return-type */
+const mapDispatchToProps = (dispatch) => ({
+    fetchGenders: (lang: string): Promise<void> => {
+        return dispatch(actions.fetchGenders(lang));
+    },
+    accountCreate: (): Promise<void> => { //TODO: change to own request
+        return dispatch(actions.accountRecovery('password'));
+    }
+});
+
+export const RegistrationForm = connect(mapStateToProps, mapDispatchToProps)(RegistrationFormContainer);

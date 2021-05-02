@@ -12,11 +12,13 @@ import { SelectStyled, FormControlStyled } from './index.style';
 interface LangChooserComponentProps {
     changeLang: (lang: string) => void
     fetchFeedbacks: (lang: string) => Promise<void>
+    fetchGenders: (lang: string) => Promise<void>
 }
 
 export const LangChooserComponent = ({
     changeLang,
-    fetchFeedbacks
+    fetchFeedbacks,
+    fetchGenders
 }: LangChooserComponentProps): JSX.Element => {
     const [lang, setLang] = useState(langsList[1]);
     const [open, setOpen] = useState(false);
@@ -33,6 +35,7 @@ export const LangChooserComponent = ({
         }
         changeLang(langsList[id]);
         fetchFeedbacks(langsList[id]);
+        fetchGenders(langsList[id]);
         setLang(langsList[id]);
     };
 
@@ -41,15 +44,15 @@ export const LangChooserComponent = ({
     const handleOpen = (): void => setOpen(true);
 
     const menu: ReactNodeArray = useMemo(() =>
-        langsList.map((langItem, key) => (
-            <MenuItem key={key} value={langItem}>{langItem}</MenuItem>
+        langsList.map((langItem: string) => (
+            <MenuItem key={langItem} value={langItem}>{langItem}</MenuItem>
         )), []);
 
     return (
         <FormControlStyled variant='outlined' size='small'>
             <SelectStyled
-                labelId='demo-controlled-open-select-label'
-                id='demo-controlled-open-select'
+                labelId='select-label'
+                id='select'
                 open={open}
                 onClose={handleClose}
                 onOpen={handleOpen}
@@ -70,6 +73,10 @@ const mapDispatchToProps = (dispatch) => ({
 
     fetchFeedbacks: (lang: string): Promise<void> => {
         return dispatch(actions.fetchFeedbacks(lang));
+    },
+
+    fetchGenders: (lang: string): Promise<void> => {
+        return dispatch(actions.fetchGenders(lang));
     }
 });
 
