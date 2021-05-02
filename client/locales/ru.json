@@ -33,6 +33,15 @@
     "reg-rules-3-title": "Действуйте решительно",
     "reg-rules-3-description": "Всегда сообщайте о неподобающем поведении",
     "reg-accept": "Принять",
+    "reg-form-name": "Имя",
+    "reg-form-gender": "Пол",
+    "reg-form-bday": "День рождения",
+    "reg-form-email": "Адрес электронной почты",
+    "reg-form-photo": "Фото профиля",
+    "reg-form-none-required": "Необязательное поле",
+    "reg-form-interests": "Интересы",
+    "reg-form-sexual-orientation": "Сексуальная ориентация",
+
 
     "footer-year": "© 2021 Matcha",
     "footer-title": "Github",

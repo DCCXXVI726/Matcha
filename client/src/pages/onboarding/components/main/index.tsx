@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from 'react';
 
+import { RegistrationForm } from './components/form/container';
 import { RegistrationModal } from './components/modal';
 
 import { MainStyled } from './index.style';
@@ -17,6 +18,7 @@ export const Main = (): JSX.Element => {
                 open={open}
                 handleClose={handleClose}
             />
+            <RegistrationForm />
         </MainStyled>
     );
 };

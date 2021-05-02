@@ -15,7 +15,7 @@ export {
 } from './../../../../../login/index.style';
 
 
-export const RegistrationModalStyled = styled(ModalStyled);
+export const RegistrationModalStyled = styled(ModalStyled)``;
 
 export const RegistrationSectionStyled = styled(SectionStyled)`
     padding-bottom: 0;

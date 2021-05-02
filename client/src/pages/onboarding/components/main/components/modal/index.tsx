@@ -36,8 +36,8 @@ export const RegistrationModal = ({
             closeAfterTransition
             BackdropComponent={Backdrop}
             BackdropProps={{ timeout: 500 }}
-            aria-labelledby='modal-title'
-            aria-describedby='modal-description'
+            aria-labelledby='modal-title1'
+            aria-describedby='modal-description1'
         >
             <Fade in={open}>
                 <AsideStyled currentTheme={theme as string}>

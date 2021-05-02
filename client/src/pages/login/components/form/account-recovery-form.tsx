@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { LOADING } from '../../../../__data__/constants';
 import { Status } from '../../../../__data__/types';
 
-import { renderTextField } from '../../../../components/render-text-field';
+import { RenderTextField } from '../../../../components/render-text-field';
 
 import { FormStyled } from '../../index.style';
 
@@ -31,7 +31,7 @@ export const RecoveryFormComponent = ({
                 minlength={0}
                 maxLength={100}
                 placeholder={t('auth.email-placeholder')}
-                component={renderTextField}
+                component={RenderTextField}
             />
             {status === LOADING
                 ? <CircularProgressStyled />

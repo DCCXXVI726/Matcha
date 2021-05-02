@@ -18,7 +18,7 @@ interface RenderTextFieldProps {
     onChange?: (...args: any[]) => any
 }
 
-export const renderTextField = ({
+export const RenderTextField = ({
     input,
     label,
     meta: {
