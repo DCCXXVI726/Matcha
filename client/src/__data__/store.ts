@@ -13,6 +13,7 @@ import thunkMiddleware from 'redux-thunk';
 import {
     User,
     Feedbacks,
+    Genders,
     Lang,
     AccountRecovery
 } from './types';
@@ -20,6 +21,7 @@ import {
 import {
     user,
     feedbacks,
+    genders,
     lang,
     accountRecovery
 } from './reducers';
@@ -27,12 +29,14 @@ import {
 export const createReducer = (): Reducer<CombinedState<{
     user: User
     feedbacks: Feedbacks
+    genders: Genders
     lang: Lang
     accountRecovery: AccountRecovery
     form: FormStateMap
 }>> => combineReducers({
     user,
     feedbacks,
+    genders,
     lang,
     accountRecovery,
     form: formReducer

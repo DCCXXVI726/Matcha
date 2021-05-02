@@ -17,6 +17,11 @@ export interface Feedbacks {
     status: Status
 }
 
+export interface Genders {
+    data: string[]
+    status: Status
+}
+
 export interface User {
     status: Status
     login: string
@@ -29,6 +34,7 @@ export interface AccountRecovery {
 export interface State {
     user: User
     feedbacks: Feedbacks
+    genders: Genders
     lang: Lang
     accountRecovery: AccountRecovery
     form: FormStateMap

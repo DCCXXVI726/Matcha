@@ -1,32 +1,32 @@
 import * as types from '../action-types';
 import { ERROR, LOADING, SUCCESS } from '../constants';
-import { Feedbacks, Feedback } from '../types';
+import { Genders } from '../types';
 
 interface FeedbacksFetchAction {
     type:
-        typeof types.FEEDBACKS_ERROR |
-        typeof types.FEEDBACKS_LOADING |
-        typeof types.FEEDBACKS_FETCH
+        typeof types.GENDERS_ERROR |
+        typeof types.GENDERS_LOADING |
+        typeof types.GENDERS_FETCH
 
-    payload: Feedback[]
+    payload: string[]
 }
 
 type Action = FeedbacksFetchAction;
 
-const initialState: Feedbacks = {
+const initialState: Genders = {
     data: [],
     status: SUCCESS
 };
 
-export default (state = initialState, action: Action): Feedbacks => {
+export default (state = initialState, action: Action): Genders => {
     switch (action.type) {
-        case types.FEEDBACKS_LOADING:
+        case types.GENDERS_LOADING:
             return { ...state, status: LOADING };
 
-        case types.FEEDBACKS_FETCH:
+        case types.GENDERS_FETCH:
             return { status: SUCCESS, data: action.payload };
 
-        case types.FEEDBACKS_ERROR:
+        case types.GENDERS_ERROR:
             return { ...state, status: ERROR };
 
         default:
