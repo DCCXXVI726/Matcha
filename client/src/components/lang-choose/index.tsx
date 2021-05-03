@@ -5,6 +5,8 @@ import i18next from 'i18next';
 
 import { actions } from '../../__data__';
 
+// eslint-disable-next-line
+// @ts-ignore
 import { langsList } from '../../i18n';
 
 import { SelectStyled, FormControlStyled } from './index.style';

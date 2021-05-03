@@ -25,7 +25,7 @@ export const FooterStyled = styled.footer`
     display: flex;
 
     & > .MuiButton-root {
-        margin: 10px auto;
+        margin: 20px auto;
     }
 `;
 

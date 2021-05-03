@@ -15,4 +15,8 @@ export const TextFieldStyled = styled(TextField)(({ theme }) => css`
         display: block;
     }
 
+    & > div > .MuiOutlinedInput-notchedOutline {
+        border: none;
+    }
+
 `);
