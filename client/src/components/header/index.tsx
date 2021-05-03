@@ -16,7 +16,13 @@ import {
     LogoWrapperStyled
 } from './index.style';
 
-export const Header = (): JSX.Element => {
+interface HeaderProps {
+    fetchMultiLangContent: (lang: string) => Promise<void>
+}
+
+export const Header = ({
+    fetchMultiLangContent
+}: HeaderProps): JSX.Element => {
     const { t } = useTranslation();
     const [theme,] = useContext(ThemeWrapperContext);
 
@@ -34,7 +40,9 @@ export const Header = (): JSX.Element => {
             </WrapperStyled>
             <WrapperStyled>
                 <ThemeToggle />
-                <LangChooser />
+                <LangChooser
+                    fetchMultiLangContent={(lang: string): Promise<void> => fetchMultiLangContent(lang)}
+                />
             </WrapperStyled>
         </HeaderStyled>
     );

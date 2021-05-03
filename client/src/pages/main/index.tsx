@@ -1,5 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+
+import { actions } from '../../__data__';
 
 import { Header } from '../../components/header';
 import { Navbar } from '../../components/navbar';
@@ -8,12 +11,20 @@ import {
     MainStyled
 } from './index.style';
 
-export const Main = (): JSX.Element => {
+interface MainComponentProps {
+    fetchMultiLangContent: (lang: string) => Promise<void>
+}
+
+const MainComponent = ({
+    fetchMultiLangContent
+}: MainComponentProps): JSX.Element => {
     const { t } = useTranslation();
 
     return (
         <>
-            <Header />
+            <Header
+                fetchMultiLangContent={fetchMultiLangContent}
+            />
             <Navbar />
             <MainStyled>
                 <p>{t('hello')}</p>
@@ -21,3 +32,12 @@ export const Main = (): JSX.Element => {
         </>
     );
 };
+
+/* eslint-disable-next-line */
+const mapDispatchToProps = (dispatch: any) => ({
+    fetchMultiLangContent: (lang: string): Promise<void> => {
+        return dispatch(actions.fetchGenders(lang));
+    }
+});
+
+export const Main = connect(null, mapDispatchToProps)(MainComponent);

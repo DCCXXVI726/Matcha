@@ -1,6 +1,8 @@
 import React, { useState, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { actions } from '../../../../__data__';
+
 import { ThemeWrapperContext } from '../../../../components/theme';
 import { ThemeToggle } from '../../../../components/theme-toggle';
 
@@ -18,8 +20,15 @@ import {
     LogoWrapperStyled,
     ButtonLoginWrapper
 } from '../../../../components/header/index.style';
+import { connect } from 'react-redux';
 
-export const Header = (): JSX.Element => {
+interface HeaderComponentProps {
+    fetchMultiLangContent: (lang: string) => Promise<void>
+}
+
+const HeaderComponent = ({
+    fetchMultiLangContent
+}: HeaderComponentProps): JSX.Element => {
     const { t } = useTranslation();
     const [theme,] = useContext(ThemeWrapperContext);
     const [open, setOpen] = useState<boolean>(false);
@@ -46,7 +55,9 @@ export const Header = (): JSX.Element => {
             </WrapperStyled>
             <WrapperStyled>
                 <ThemeToggle />
-                <LangChooser />
+                <LangChooser
+                    fetchMultiLangContent={fetchMultiLangContent}
+                />
                 <ButtonLoginWrapper
                     variant='contained'
                     color='primary'
@@ -65,3 +76,12 @@ export const Header = (): JSX.Element => {
         </HeaderStyled>
     );
 };
+
+/* eslint-disable-next-line */
+const mapDispatchToProps = (dispatch: any) => ({
+    fetchMultiLangContent: (lang: string): Promise<void> => {
+        return dispatch(actions.fetchFeedbacks(lang));
+    }
+});
+
+export const Header = connect(null, mapDispatchToProps)(HeaderComponent);

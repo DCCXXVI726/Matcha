@@ -24,7 +24,6 @@ export const RegistrationFormContainer = ({
     const { t } = useTranslation();
 
     useEffect(() => {
-        console.log(i18next.language);
         fetchGenders(i18next.language);
     }, [fetchGenders]);
 

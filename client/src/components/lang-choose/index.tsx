@@ -11,14 +11,12 @@ import { SelectStyled, FormControlStyled } from './index.style';
 
 interface LangChooserComponentProps {
     changeLang: (lang: string) => void
-    fetchFeedbacks: (lang: string) => Promise<void>
-    fetchGenders: (lang: string) => Promise<void>
+    fetchMultiLangContent: (lang: string) => Promise<void>
 }
 
 export const LangChooserComponent = ({
     changeLang,
-    fetchFeedbacks,
-    fetchGenders
+    fetchMultiLangContent
 }: LangChooserComponentProps): JSX.Element => {
     const [lang, setLang] = useState(langsList[1]);
     const [open, setOpen] = useState(false);
@@ -34,8 +32,7 @@ export const LangChooserComponent = ({
             id = 0;
         }
         changeLang(langsList[id]);
-        fetchFeedbacks(langsList[id]);
-        fetchGenders(langsList[id]);
+        fetchMultiLangContent(langsList[id]);
         setLang(langsList[id]);
     };
 
@@ -65,18 +62,10 @@ export const LangChooserComponent = ({
     );
 };
 
-/* eslint-disable-next-line @typescript-eslint/explicit-function-return-type */
-const mapDispatchToProps = (dispatch) => ({
+/* eslint-disable-next-line */
+const mapDispatchToProps = (dispatch: any) => ({
     changeLang: (lang: string): void => {
         dispatch(actions.changeLang(lang));
-    },
-
-    fetchFeedbacks: (lang: string): Promise<void> => {
-        return dispatch(actions.fetchFeedbacks(lang));
-    },
-
-    fetchGenders: (lang: string): Promise<void> => {
-        return dispatch(actions.fetchGenders(lang));
     }
 });
 
