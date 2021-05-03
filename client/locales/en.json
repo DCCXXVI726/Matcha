@@ -3,6 +3,7 @@
     "title": "Swipe right",
     "logout": "Logout",
     "create-account": "Сreate account",
+    "continue": "Continue",
 
     "auth.email-placeholder": "Your email",
     "auth.login-placeholder": "login",

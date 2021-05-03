@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Typography } from '@material-ui/core';
 
 import { RegistrationForm } from './components/form';
-import { RegistrationModal } from './components/modal';
+import { RegistrationModal } from './components/modal/rules';
 
 import { MainStyled } from './index.style';
 

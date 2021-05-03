@@ -6,10 +6,16 @@ import { LIGHT, ThemeColors } from '../../../../../../components/theme';
 
 export const FormStyled = styled.form(({ theme }) => css`
     background-color: ${(theme as ThemeColors).primary};
-    width: 80%;
+    width: 50%;
     margin: auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
 
 `);
+
+export const ButtonStyled = styled(Button)`
+    &.MuiButtonBase-root {
+        margin: auto;
+    }
+`;

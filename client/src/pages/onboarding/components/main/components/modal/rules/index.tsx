@@ -2,8 +2,8 @@ import React, { useContext } from 'react';
 import { Fade, Backdrop, Button } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 
-import { ThemeWrapperContext } from '../../../../../../components/theme';
-import { tinderIcon } from '../../../../../../assets';
+import { ThemeWrapperContext } from '../../../../../../../components/theme';
+import { tinderIcon } from '../../../../../../../assets';
 import { RulesList } from './rules-list';
 
 import {

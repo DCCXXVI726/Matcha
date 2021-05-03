@@ -2,15 +2,15 @@ import React, { useMemo } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { useTranslation } from 'react-i18next';
 
-import { Radio, RadioGroup, FormControlLabel } from '@material-ui/core';
+import { Radio, RadioGroup, FormControlLabel, Typography } from '@material-ui/core';
 
 import { LOADING } from '../../../../../../__data__/constants';
 import { Status } from '../../../../../../__data__/types';
 
 import { RenderTextField } from '../../../../../../components/render-text-field';
 
-import { FormStyled } from './index.style';
-import { ButtonStyled, CircularProgressStyled } from '../../../../../login/components/form/index.style';
+import { FormStyled, ButtonStyled } from './index.style';
+import { CircularProgressStyled } from '../../../../../login/components/form/index.style';
 
 // import { ButtonStyled, CircularProgressStyled } from '../index.style';
 
@@ -80,6 +80,21 @@ export const RegistrationFormComponent = ({
                     }}
                     component={RenderTextField}
                 />
+            </div>
+            <div style={{ gridColumn: '1 / span 2' }}>
+                <Typography>
+                    {t('reg-form-none-required')}
+                </Typography>
+                {status === LOADING
+                    ? <CircularProgressStyled />
+                    : <ButtonStyled
+                        type='submit'
+                        variant='contained'
+                        color='primary'
+                    >
+                        {t('continue')}
+                    </ButtonStyled>
+                }
             </div>
         </FormStyled>
     );

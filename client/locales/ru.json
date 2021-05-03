@@ -3,6 +3,7 @@
     "title": "Свайп вправо",
     "logout": "Выйти",
     "create-account": "Создать аккаунт",
+    "continue": "Продолжить",
 
     "auth.email-placeholder": "Email",
     "auth.login-placeholder": "Имя аккаунта",

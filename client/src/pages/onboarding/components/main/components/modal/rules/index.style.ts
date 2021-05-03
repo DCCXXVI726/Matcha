@@ -1,18 +1,18 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
-import { ThemeColors } from '../../../../../../components/theme';
+import { ThemeColors } from '../../../../../../../components/theme';
 
-import { ModalStyled } from './../../../../../login/index.style';
-import { SectionStyled } from './../../../../../login/components/modal/index.style';
+import { ModalStyled } from '../../../../../../login/index.style';
+import { SectionStyled } from '../../../../../../login/components/modal/index.style';
 
-export { LogoWrapperStyled } from './../../../../../login/components/modal/index.style';
+export { LogoWrapperStyled } from '../../../../../../login/components/modal/index.style';
 
 export {
     AsideStyled,
     TypographyStyled,
     DescriptionStyled
-} from './../../../../../login/index.style';
+} from '../../../../../../login/index.style';
 
 
 export const RegistrationModalStyled = styled(ModalStyled)``;
