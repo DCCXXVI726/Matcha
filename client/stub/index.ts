@@ -55,6 +55,19 @@ app.get('/api/genders', (req, res: Response) => {
     res.json(JSON.parse(json));
 });
 
+app.get('/api/interests', (req, res: Response) => {
+    let json: string;
+
+    // eslint-disable-next-line
+    if (req.query.lang === 'ru' || req.query.lang === 'Русский') {
+        json = fs.readFileSync('./stub/api/interests/ru.json', 'utf8');
+    } else {
+        json = fs.readFileSync('./stub/api/interests/en.json', 'utf8');
+    }
+
+    res.json(JSON.parse(json));
+});
+
 app.get('/api*', (_, res: Response) => {
     axios.get(`http://localhost:8080${_.path}`)
         .then((response) => res.json(response.data))

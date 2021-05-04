@@ -1,0 +1,60 @@
+{
+    "interest": [{
+            "Rap": "Rap"
+        },
+        {
+            "Series": "Series"
+        },
+        {
+            "Shopping": "Shopping"
+        },
+        {
+            "Disney": "Disney"
+        },
+        {
+            "Karaoke": "Karaoke"
+        },
+        {
+            "Dance": "Dance"
+        },
+        {
+            "Clubs": "Clubs"
+        },
+        {
+            "Parties": "Parties"
+        },
+        {
+            "Surfing": "Surfing"
+        },
+        {
+            "Wine": "Wine"
+        },
+        {
+            "Poetry": "Poetry"
+        },
+        {
+            "Reading": "Reading"
+        },
+        {
+            "Craft": "Craft beer"
+        },
+        {
+            "fashion": "fashion"
+        },
+        {
+            "Games": "Games"
+        },
+        {
+            "Sports": "Sports"
+        },
+        {
+            "Music": "Music"
+        },
+        {
+            "Baked": "Baked goods"
+        },
+        {
+            "Yoga": "Yoga"
+        }
+    ]
+}
