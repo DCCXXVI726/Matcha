@@ -10,6 +10,7 @@ import { Status } from '../../../../../../__data__/types';
 
 import { RenderTextField } from '../../../../../../components/render-text-field';
 
+import { AdditionalFormContent } from './additional-form-content';
 import { FormStyled, ButtonStyled, FormDividerStyled } from './index.style';
 import { CircularProgressStyled } from '../../../../../login/components/form/index.style';
 
@@ -59,10 +60,27 @@ export const RegistrationFormComponent = ({
                 />
             </div>
             <div>
-                <RadioGroup row defaultValue='' aria-label='gender' name='customized-radios'>
-                    {genders?.map((gender) => (
-                        <FormControlLabel key={gender} value={gender} control={<Radio />} label={gender} />
-                    ))}
+                <RadioGroup //TODO: add to redux form
+                    row
+                    defaultValue=''
+                    aria-label='gender'
+                    name='customized-radios'
+                >
+                    {genders?.map((gender) => {
+                        const values = Object.keys(gender)[0];
+                        return (
+                            <FormControlLabel
+                                key={gender}
+                                value={values}
+                                control={<Radio />}
+                                // eslint-disable-next-line
+                                // @ts-ignore
+                                label={gender[values]}
+                            />
+                        );
+                    }
+
+                    )}
                 </RadioGroup>
                 <Field
                     name={'bday'}
@@ -75,29 +93,7 @@ export const RegistrationFormComponent = ({
                 />
             </div>
             <FormDividerStyled>
-                <Typography align='center'>
-                    {t('reg-form-none-required')}
-                </Typography>
-                <Typography>
-                    {t('reg-form-interests')}
-                </Typography>
-                <Button
-                    variant='contained'
-                    color='primary'
-                    startIcon={<AddIcon />}
-                >
-                    {t('reg-form-interests-add')}
-                </Button>
-                <Typography>
-                    {t('reg-form-sexual-orientation')}
-                </Typography>
-                <Button
-                    variant='contained'
-                    color='primary'
-                    startIcon={<AddIcon />}
-                >
-                    {t('reg-form-sexual-orientation-add')}
-                </Button>
+                <AdditionalFormContent />
 
                 {status === LOADING
                     ? <CircularProgressStyled />

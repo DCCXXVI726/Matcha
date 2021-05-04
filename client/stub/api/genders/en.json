@@ -1,6 +1,7 @@
 {
-    "genders": [
-        "Male",
-        "Female"
-    ]
+    "genders": [{
+        "Male": "Male"
+    }, {
+        "Female": "Female"
+    }]
 }

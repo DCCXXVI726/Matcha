@@ -1,48 +1,50 @@
-import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React, { useContext } from 'react';
+import { Fade, Backdrop, Button } from '@material-ui/core';
+import { useTranslation } from 'react-i18next';
 
-import Chip from '@material-ui/core/Chip';
+import { ThemeWrapperContext } from '../../../../../../../components/theme';
+import { tinderIcon } from '../../../../../../../assets';
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        display: 'flex',
-        justifyContent: 'center',
-        flexWrap: 'wrap',
-        '& > *': {
-            margin: theme.spacing(0.5)
-        },
-    },
-}));
+import { Chips } from './chips';
 
-const ChipComponent = (): JSX.Element => {
-    const [variant, setVariant] = useState<'default' | 'outlined'>('outlined');
+import {
+    RegistrationModalStyled,
+    AsideStyled,
+    RegistrationSectionStyled,
+    LogoWrapperStyled,
+    TypographyStyled,
+    DescriptionStyled,
+    FooterStyled
+} from '../rules/index.style';
 
-    const handleClick = (): void => {
-        variant === 'outlined'
-            ? setVariant('default')
-            : setVariant('outlined');
-    };
+interface ChipsModalProps {
+    open: boolean
+    handleClose?: () => void
+}
 
-    return (
-        <Chip
-            variant={variant}
-            onClick={handleClick}
-            label='Primary clickable'
-            clickable
-            color='secondary'
-        />
-    );
-};
-
-
-export const Chips = (): JSX.Element => {
-    const classes = useStyles();
+export const ChipsModal = ({
+    open,
+    handleClose
+}: ChipsModalProps): JSX.Element => {
+    const { t } = useTranslation();
+    const [theme,] = useContext(ThemeWrapperContext);
 
     return (
-        <div className={classes.root}>
-            {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
-                <ChipComponent key={i} />
-            ))}
-        </div>
+        <RegistrationModalStyled
+            currentTheme={theme as string}
+            className='modal'
+            open={open}
+            closeAfterTransition
+            onClose={handleClose}
+            BackdropComponent={Backdrop}
+            BackdropProps={{ timeout: 500 }}
+            aria-labelledby='modal-chips'
+        >
+            <Fade in={open}>
+                <AsideStyled currentTheme={theme as string}>
+                    <Chips />
+                </AsideStyled>
+            </Fade>
+        </RegistrationModalStyled>
     );
 };
