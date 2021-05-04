@@ -1,7 +1,7 @@
 import { Dispatch } from 'redux';
 
-import * as types from '../action-types';
-import { convertArgsToUrlParams } from '../utils/convert-args-to-url-params';
+import * as types from '../../action-types';
+import { convertArgsToUrlParams } from '../../utils/convert-args-to-url-params';
 
 export default (password: string ) => {
     return async (dispatch: Dispatch): Promise<void> => {

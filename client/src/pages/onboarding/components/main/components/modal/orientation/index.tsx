@@ -17,7 +17,7 @@ import {
 import { LOADING } from '../../../../../../../__data__/constants';
 import { CircularProgressStyled } from '../../../../../../login/components/form/index.style';
 
-import { List } from './list';
+// import { List } from './list';
 
 interface OrientationModalProps {
     open: boolean
@@ -57,10 +57,10 @@ export const OrientationModal = ({
                     >
                         {t('reg-form-sexual-orientation-my')}
                     </TypographyStyled>
-                    {status === LOADING
+                    {/* {status === LOADING
                         ? <CircularProgressStyled />
                         : <Orientation interests={interests} />
-                    }
+                    } */}
                 </AsideStyled>
             </Fade>
         </OrientationModalStyled>

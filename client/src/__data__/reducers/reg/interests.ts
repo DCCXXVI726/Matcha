@@ -1,6 +1,6 @@
-import * as types from '../action-types';
-import { ERROR, LOADING, SUCCESS } from '../constants';
-import { Interests, KeyValue } from '../types';
+import * as types from '../../action-types';
+import { ERROR, LOADING, SUCCESS } from '../../constants';
+import { Interests, KeyValue } from '../../types';
 
 interface FeedbacksFetchAction {
     type:
@@ -11,9 +11,9 @@ interface FeedbacksFetchAction {
     payload: KeyValue[]
 }
 
-type Action = FeedbacksFetchAction;
+export type Action = FeedbacksFetchAction;
 
-const initialState: Interests = {
+export const initialState: Interests = {
     data: [],
     status: SUCCESS
 };

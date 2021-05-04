@@ -1,6 +1,6 @@
-import * as types from '../action-types';
-import { ERROR, LOADING, SUCCESS } from '../constants';
-import { AccountRecovery } from '../types';
+import * as types from '../../action-types';
+import { ERROR, LOADING, SUCCESS } from '../../constants';
+import { AccountRecovery } from '../../types';
 
 interface FeedbacksFetchAction {
     type:
@@ -9,9 +9,9 @@ interface FeedbacksFetchAction {
         typeof types.ACCOUNT_RECOVERY_ERROR
 }
 
-type Action = FeedbacksFetchAction;
+export type Action = FeedbacksFetchAction;
 
-const initialState: AccountRecovery = {
+export const initialState: AccountRecovery = {
     status: SUCCESS
 };
 

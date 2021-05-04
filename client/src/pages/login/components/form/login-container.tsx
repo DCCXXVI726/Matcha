@@ -36,15 +36,15 @@ const mapStateToProps = (state: State): {
     coockie: string
     status: Status
 } => ({
-    coockie: selectors.user.login(state),
-    status: selectors.user.status(state)
+    coockie: selectors.loginPage.user.login(state),
+    status: selectors.loginPage.user.status(state)
 });
 
 /* eslint-disable-next-line @typescript-eslint/explicit-function-return-type */
 const mapDispatchToProps = (dispatch) => {
     return {
         fethLogin: (email: string, password: string): Promise<void> => {
-            return dispatch(actions.fetchLogin(email, password));
+            return dispatch(actions.loginPage.fetchLogin(email, password));
         }
     };
 };

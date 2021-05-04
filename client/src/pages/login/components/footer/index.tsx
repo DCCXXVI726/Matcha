@@ -64,14 +64,14 @@ export const FooterComponent = ({
 const mapStateToProps = (state: State): {
     data: Feedback[]
 } => ({
-    data: selectors.feedbacks.data(state),
+    data: selectors.loginPage.feedbacks.data(state),
 });
 
 /* eslint-disable-next-line @typescript-eslint/explicit-function-return-type */
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchFeedbacks: (lang: string): Promise<void> => {
-            return dispatch(actions.fetchFeedbacks(lang));
+            return dispatch(actions.loginPage.fetchFeedbacks(lang));
         }
     };
 };

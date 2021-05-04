@@ -1,7 +1,7 @@
-import { State, Status } from '../types';
+import { State, Status } from '../../types';
 
 export const status = (state: State): Status => {
-    return state.accountRecovery.status;
+    return state.loginPage.accountRecovery.status;
 };
 
 export const email = (state: State): string => {

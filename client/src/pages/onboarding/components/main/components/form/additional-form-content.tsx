@@ -81,8 +81,8 @@ const mapStateToProps = (state: State): {
     status: Status
     interests: KeyValue[]
 } => ({
-    status: selectors.interests.status(state),
-    interests: selectors.interests.data(state)
+    status: selectors.regPage.interests.status(state),
+    interests: selectors.regPage.interests.data(state)
 });
 
 /* eslint-disable-next-line @typescript-eslint/explicit-function-return-type */

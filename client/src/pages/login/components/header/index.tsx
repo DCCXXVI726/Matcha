@@ -80,7 +80,7 @@ const HeaderComponent = ({
 /* eslint-disable-next-line */
 const mapDispatchToProps = (dispatch: any) => ({
     fetchMultiLangContent: (lang: string): Promise<void> => {
-        return dispatch(actions.fetchFeedbacks(lang));
+        return dispatch(actions.loginPage.fetchFeedbacks(lang));
     }
 });
 

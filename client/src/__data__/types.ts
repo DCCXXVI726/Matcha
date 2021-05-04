@@ -38,12 +38,20 @@ export interface AccountRecovery {
     status: Status
 }
 
-export interface State {
+export interface LoginPage {
     user: User
     feedbacks: Feedbacks
+    accountRecovery: AccountRecovery
+}
+
+export interface RegPage {
     genders: Genders
     interests: Interests
+}
+
+export interface State {
+    loginPage: LoginPage
+    regPage: RegPage
     lang: Lang
-    accountRecovery: AccountRecovery
     form: FormStateMap
 }

@@ -46,20 +46,20 @@ const mapStateToProps = (state: State): {
     status: Status
     genders: string[]
 } => ({
-    status: selectors.accountRecovery.status(state), //TODO: change to own status
-    genders: selectors.genders.data(state)
+    status: selectors.loginPage.accountRecovery.status(state), //TODO: change to own status
+    genders: selectors.regPage.genders.data(state)
 });
 
 /* eslint-disable-next-line @typescript-eslint/explicit-function-return-type */
 const mapDispatchToProps = (dispatch) => ({
     fetchGenders: (lang: string): Promise<void> => {
-        return dispatch(actions.fetchGenders(lang));
+        return dispatch(actions.regPage.fetchGenders(lang));
     },
     fetchInterests: (lang: string): Promise<void> => {
-        return dispatch(actions.fetchInterests(lang));
+        return dispatch(actions.regPage.fetchInterests(lang));
     },
     accountCreate: (): Promise<void> => { //TODO: change to own request
-        return dispatch(actions.accountRecovery('password'));
+        return dispatch(actions.loginPage.accountRecovery('password'));
     }
 });
 

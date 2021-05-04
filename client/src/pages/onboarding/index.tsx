@@ -28,8 +28,8 @@ const OnBoardingComponent = ({
 /* eslint-disable-next-line */
 const mapDispatchToProps = (dispatch: any) => ({
     fetchMultiLangContent: (lang: string): Promise<void> => {
-        dispatch(actions.fetchGenders(lang));
-        dispatch(actions.fetchInterests(lang));
+        dispatch(actions.regPage.fetchGenders(lang));
+        dispatch(actions.regPage.fetchInterests(lang));
     }
 });
 

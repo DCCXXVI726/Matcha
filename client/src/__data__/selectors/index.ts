@@ -1,13 +1,7 @@
-import * as user from './user';
-import * as feedbacks from './feedbacks';
-import * as genders from './genders';
-import * as interests from './interests';
-import * as accountRecovery from './account-recovery';
+import * as loginPage from './login';
+import * as regPage from './reg';
 
 export {
-    user,
-    feedbacks,
-    genders,
-    interests,
-    accountRecovery
+    loginPage,
+    regPage
 };

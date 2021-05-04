@@ -1,6 +1,6 @@
-import * as types from '../action-types';
-import { ERROR, LOADING, SUCCESS } from '../constants';
-import { User } from '../types';
+import * as types from '../../action-types';
+import { ERROR, LOADING, SUCCESS } from '../../constants';
+import { User } from '../../types';
 
 interface UserFetchAction {
     type:
@@ -11,9 +11,9 @@ interface UserFetchAction {
     payload: string
 }
 
-type Action = UserFetchAction;
+export type Action = UserFetchAction;
 
-const initialState: User = {
+export const initialState: User = {
     status: SUCCESS,
     login: ''
 };

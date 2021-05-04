@@ -34,15 +34,15 @@ const mapStateToProps = (state: State): {
     status: Status
     password: string
 } => ({
-    status: selectors.accountRecovery.status(state),
-    password: selectors.accountRecovery.email(state)
+    status: selectors.loginPage.accountRecovery.status(state),
+    password: selectors.loginPage.accountRecovery.email(state)
 });
 
 /* eslint-disable-next-line @typescript-eslint/explicit-function-return-type */
 const mapDispatchToProps = (dispatch) => {
     return {
         accountRecovery: (password: string): Promise<void> => {
-            return dispatch(actions.accountRecovery(password));
+            return dispatch(actions.loginPage.accountRecovery(password));
         }
     };
 };

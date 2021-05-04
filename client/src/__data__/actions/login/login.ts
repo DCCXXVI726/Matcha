@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux';
-import * as types from '../action-types';
+import * as types from '../../action-types';
 
 export const fetchLogin = (email: string, password: string) => {
     return async (dispatch: Dispatch): Promise<void> => {
