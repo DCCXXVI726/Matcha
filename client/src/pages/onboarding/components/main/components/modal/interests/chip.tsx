@@ -1,40 +1,35 @@
 import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 
-import Chip from '@material-ui/core/Chip';
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-        display: 'flex',
-        justifyContent: 'center',
-        flexWrap: 'wrap',
-        '& > *': {
-            margin: theme.spacing(0.5)
-        },
-    },
-}));
+import { ChipStyled } from './index.style';
 
 interface ChipComponentProps {
     label: string
     value: string
+    handlePush: (value: string) => void
+    handleFilter: (value: string) => void
 }
 
 export const ChipComponent = ({
     label,
-    value
+    value,
+    handlePush,
+    handleFilter
 }: ChipComponentProps): JSX.Element => {
     const [state,] = useState<string>(value);
     const [variant, setVariant] = useState<'default' | 'outlined'>('outlined');
 
     const handleClick = (): void => {
-        console.log(state);
-        variant === 'outlined'
-            ? setVariant('default')
-            : setVariant('outlined');
+        if (variant === 'outlined') {
+            setVariant('default');
+            handlePush(state);
+        } else {
+            handleFilter(state);
+            setVariant('outlined');
+        }
     };
 
     return (
-        <Chip
+        <ChipStyled
             variant={variant}
             onClick={handleClick}
             label={label}

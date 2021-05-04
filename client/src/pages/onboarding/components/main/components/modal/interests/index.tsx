@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
-import { Fade, Backdrop } from '@material-ui/core';
+import { useTranslation } from 'react-i18next';
+import { Fade, Backdrop, Typography } from '@material-ui/core';
 
 import { ThemeWrapperContext } from '../../../../../../../components/theme';
 import { Status, KeyValue } from '../../../../../../../__data__/types';
@@ -31,6 +32,7 @@ export const ChipsModal = ({
     interests,
     handleClose
 }: ChipsModalProps): JSX.Element => {
+    const { t } = useTranslation();
     const [theme,] = useContext(ThemeWrapperContext);
 
     return (
@@ -45,8 +47,20 @@ export const ChipsModal = ({
             aria-labelledby='modal-chips'
         >
             <Fade in={open}>
-                <AsideStyled currentTheme={theme as string}>
-                    {status === LOADING ? <CircularProgressStyled /> : <Chips interests={interests} /> }
+                <AsideStyled
+                    style={{ minHeight: '20vh' }}
+                    currentTheme={theme as string}
+                >
+                    <TypographyStyled
+                        variant='h3'
+                        padding='15px 0px'
+                    >
+                        {t('reg-form-interests')}
+                    </TypographyStyled>
+                    {status === LOADING
+                        ? <CircularProgressStyled />
+                        : <Chips interests={interests} />
+                    }
                 </AsideStyled>
             </Fade>
         </RegistrationModalStyled>

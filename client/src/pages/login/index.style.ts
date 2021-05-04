@@ -11,11 +11,16 @@ export const FormStyled = styled.form(({ theme }) => css`
 
 interface TypographyStyledProps {
     theme?: Theme
-    fontSize: string
+    fontSize?: string
+    padding?: string
 }
 
-export const TypographyStyled = styled(Typography)(({ theme, fontSize }: TypographyStyledProps) => css`
-    padding: 20px 0;
+export const TypographyStyled = styled(Typography)(({
+    theme,
+    fontSize,
+    padding
+}: TypographyStyledProps) => css`
+    padding: ${padding || '20px 0'};
     text-align: center;
     display: block;
     color: ${(theme as ThemeColors).secondary};
