@@ -1,48 +1,31 @@
 import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 
-import Chip from '@material-ui/core/Chip';
+import { ChipComponent } from './chip';
+import { KeyValue } from '../../../../../../../__data__/types';
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        display: 'flex',
-        justifyContent: 'center',
-        flexWrap: 'wrap',
-        '& > *': {
-            margin: theme.spacing(0.5)
-        },
-    },
-}));
 
-const ChipComponent = (): JSX.Element => {
-    const [variant, setVariant] = useState<'default' | 'outlined'>('outlined');
+interface ChipsProps {
+    interests: KeyValue[]
+}
 
-    const handleClick = (): void => {
-        variant === 'outlined'
-            ? setVariant('default')
-            : setVariant('outlined');
-    };
+export const Chips = ({
+    interests
+}: ChipsProps): JSX.Element => {
 
     return (
-        <Chip
-            variant={variant}
-            onClick={handleClick}
-            label='Primary clickable'
-            clickable
-            color='secondary'
-        />
-    );
-};
-
-
-export const Chips = (): JSX.Element => {
-    const classes = useStyles();
-
-    return (
-        <div className={classes.root}>
-            {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
-                <ChipComponent key={i} />
-            ))}
+        <div>
+            {interests?.map((item) => {
+                const values = Object.keys(item)[0];
+                return (
+                    <ChipComponent
+                        key={item[values]}
+                        value={values}
+                        label={item[values]}
+                    />
+                );
+            })
+            }
         </div>
     );
 };
+

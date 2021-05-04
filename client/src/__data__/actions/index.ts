@@ -9,6 +9,7 @@ export {
     fetchLogin,
     fetchFeedbacks,
     fetchGenders,
+    fetchInterests,
     changeLang,
     accountRecovery
 };

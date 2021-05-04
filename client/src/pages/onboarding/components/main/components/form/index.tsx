@@ -11,6 +11,7 @@ interface RegistrationFormContainerProps {
     status: Status
     genders: string[]
     fetchGenders: (lang: string) => Promise<void>
+    fetchInterests: (lang: string) => Promise<void>
     accountCreate: () => void
 }
 
@@ -18,12 +19,14 @@ export const RegistrationFormContainer = ({
     status,
     genders,
     fetchGenders,
+    fetchInterests,
     accountCreate
 }: RegistrationFormContainerProps): JSX.Element => {
 
     useEffect(() => {
         fetchGenders(i18next.language);
-    }, [fetchGenders]);
+        fetchInterests(i18next.language);
+    }, [fetchGenders, fetchInterests]);
 
     const handleSubmit = (e: React.SyntheticEvent): void => {
         e.preventDefault();
@@ -51,6 +54,9 @@ const mapStateToProps = (state: State): {
 const mapDispatchToProps = (dispatch) => ({
     fetchGenders: (lang: string): Promise<void> => {
         return dispatch(actions.fetchGenders(lang));
+    },
+    fetchInterests: (lang: string): Promise<void> => {
+        return dispatch(actions.fetchInterests(lang));
     },
     accountCreate: (): Promise<void> => { //TODO: change to own request
         return dispatch(actions.accountRecovery('password'));

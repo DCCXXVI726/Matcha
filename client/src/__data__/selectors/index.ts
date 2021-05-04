@@ -8,5 +8,6 @@ export {
     user,
     feedbacks,
     genders,
+    interests,
     accountRecovery
 };

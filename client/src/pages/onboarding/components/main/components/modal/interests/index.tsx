@@ -1,9 +1,8 @@
 import React, { useContext } from 'react';
-import { Fade, Backdrop, Button } from '@material-ui/core';
-import { useTranslation } from 'react-i18next';
+import { Fade, Backdrop } from '@material-ui/core';
 
 import { ThemeWrapperContext } from '../../../../../../../components/theme';
-import { tinderIcon } from '../../../../../../../assets';
+import { Status, KeyValue } from '../../../../../../../__data__/types';
 
 import { Chips } from './chips';
 
@@ -16,17 +15,22 @@ import {
     DescriptionStyled,
     FooterStyled
 } from '../rules/index.style';
+import { LOADING } from '../../../../../../../__data__/constants';
+import { CircularProgressStyled } from '../../../../../../login/components/form/index.style';
 
 interface ChipsModalProps {
     open: boolean
+    status: Status
+    interests: KeyValue[]
     handleClose?: () => void
 }
 
 export const ChipsModal = ({
     open,
+    status,
+    interests,
     handleClose
 }: ChipsModalProps): JSX.Element => {
-    const { t } = useTranslation();
     const [theme,] = useContext(ThemeWrapperContext);
 
     return (
@@ -42,7 +46,7 @@ export const ChipsModal = ({
         >
             <Fade in={open}>
                 <AsideStyled currentTheme={theme as string}>
-                    <Chips />
+                    {status === LOADING ? <CircularProgressStyled /> : <Chips interests={interests} /> }
                 </AsideStyled>
             </Fade>
         </RegistrationModalStyled>
