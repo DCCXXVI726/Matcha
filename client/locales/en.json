@@ -41,7 +41,9 @@
     "reg-form-photo": "Profile picture",
     "reg-form-none-required": "Optional field",
     "reg-form-interests": "Interests",
-    "reg-form-sexual-orientation": "Sexual Orientation",
+    "reg-form-interests-add": "Add interests",
+    "reg-form-sexual-orientation": "Sexual orientation",
+    "reg-form-sexual-orientation-add": "Add sexual orientation",
 
     "footer-year": "© 2021 Matcha",
     "footer-title": "Github",

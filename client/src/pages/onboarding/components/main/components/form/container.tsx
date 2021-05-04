@@ -2,17 +2,16 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { useTranslation } from 'react-i18next';
 
-import { Radio, RadioGroup, FormControlLabel, Typography } from '@material-ui/core';
+import { Radio, RadioGroup, FormControlLabel, Typography, Button } from '@material-ui/core';
+import AddIcon from '@material-ui/icons/Add';
 
 import { LOADING } from '../../../../../../__data__/constants';
 import { Status } from '../../../../../../__data__/types';
 
 import { RenderTextField } from '../../../../../../components/render-text-field';
 
-import { FormStyled, ButtonStyled } from './index.style';
+import { FormStyled, ButtonStyled, FormDividerStyled } from './index.style';
 import { CircularProgressStyled } from '../../../../../login/components/form/index.style';
-
-// import { ButtonStyled, CircularProgressStyled } from '../index.style';
 
 interface RegistrationFormComponentProps {
     handleSubmit?: (e: React.SyntheticEvent) => void
@@ -26,12 +25,6 @@ export const RegistrationFormComponent = ({
     genders
 }: RegistrationFormComponentProps): JSX.Element => {
     const { t } = useTranslation();
-
-    // const renderChildren = useMemo(() => {
-    //     genders?.map((gender) => (
-    //         <FormControlLabel value={gender} control={<Radio />} label={gender} />
-    //     ));
-    // }, [genders]);
 
     return (
         <FormStyled onSubmit={handleSubmit}>
@@ -81,10 +74,31 @@ export const RegistrationFormComponent = ({
                     component={RenderTextField}
                 />
             </div>
-            <div style={{ gridColumn: '1 / span 2' }}>
-                <Typography>
+            <FormDividerStyled>
+                <Typography align='center'>
                     {t('reg-form-none-required')}
                 </Typography>
+                <Typography>
+                    {t('reg-form-interests')}
+                </Typography>
+                <Button
+                    variant='contained'
+                    color='primary'
+                    startIcon={<AddIcon />}
+                >
+                    {t('reg-form-interests-add')}
+                </Button>
+                <Typography>
+                    {t('reg-form-sexual-orientation')}
+                </Typography>
+                <Button
+                    variant='contained'
+                    color='primary'
+                    startIcon={<AddIcon />}
+                >
+                    {t('reg-form-sexual-orientation-add')}
+                </Button>
+
                 {status === LOADING
                     ? <CircularProgressStyled />
                     : <ButtonStyled
@@ -95,7 +109,7 @@ export const RegistrationFormComponent = ({
                         {t('continue')}
                     </ButtonStyled>
                 }
-            </div>
+            </FormDividerStyled>
         </FormStyled>
     );
 };
