@@ -14,6 +14,7 @@ import {
     User,
     Feedbacks,
     Genders,
+    Interests,
     Lang,
     AccountRecovery
 } from './types';
@@ -22,6 +23,7 @@ import {
     user,
     feedbacks,
     genders,
+    interests,
     lang,
     accountRecovery
 } from './reducers';
@@ -30,6 +32,7 @@ export const createReducer = (): Reducer<CombinedState<{
     user: User
     feedbacks: Feedbacks
     genders: Genders
+    interests: Interests
     lang: Lang
     accountRecovery: AccountRecovery
     form: FormStateMap
@@ -37,6 +40,7 @@ export const createReducer = (): Reducer<CombinedState<{
     user,
     feedbacks,
     genders,
+    interests,
     lang,
     accountRecovery,
     form: formReducer

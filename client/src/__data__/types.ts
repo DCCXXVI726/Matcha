@@ -3,6 +3,8 @@ import { ERROR, LOADING, SUCCESS } from './constants';
 
 export type Status = typeof ERROR | typeof LOADING | typeof SUCCESS
 
+export type KeyValue = { [key: string]: string }
+
 export interface Lang {
     current: 'ru' | 'en'
 }
@@ -22,6 +24,11 @@ export interface Genders {
     status: Status
 }
 
+export interface Interests {
+    data: KeyValue[]
+    status: Status
+}
+
 export interface User {
     status: Status
     login: string
@@ -35,6 +42,7 @@ export interface State {
     user: User
     feedbacks: Feedbacks
     genders: Genders
+    interests: Interests
     lang: Lang
     accountRecovery: AccountRecovery
     form: FormStateMap
