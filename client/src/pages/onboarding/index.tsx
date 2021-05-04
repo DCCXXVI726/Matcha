@@ -30,6 +30,7 @@ const mapDispatchToProps = (dispatch: any) => ({
     fetchMultiLangContent: (lang: string): Promise<void> => {
         dispatch(actions.regPage.fetchGenders(lang));
         dispatch(actions.regPage.fetchInterests(lang));
+        dispatch(actions.regPage.fetchOrientations(lang));
     }
 });
 

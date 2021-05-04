@@ -24,7 +24,7 @@ export interface Genders {
     status: Status
 }
 
-export interface Interests {
+export interface KeyValueStructure {
     data: KeyValue[]
     status: Status
 }
@@ -46,7 +46,8 @@ export interface LoginPage {
 
 export interface RegPage {
     genders: Genders
-    interests: Interests
+    interests: KeyValueStructure
+    orientations: KeyValueStructure
 }
 
 export interface State {

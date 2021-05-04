@@ -2,16 +2,16 @@ import * as types from '../../action-types';
 import { ERROR, LOADING, SUCCESS } from '../../constants';
 import { KeyValueStructure, KeyValue } from '../../types';
 
-interface FeedbacksFetchAction {
+interface OrientationsFetchAction {
     type:
-        typeof types.INTERESTS_FETCH |
-        typeof types.INTERESTS_LOADING |
-        typeof types.INTERESTS_ERROR
+        typeof types.ORIENTATIONS_FETCH |
+        typeof types.ORIENTATIONS_LOADING |
+        typeof types.ORIENTATIONS_ERROR
 
     payload: KeyValue[]
 }
 
-export type Action = FeedbacksFetchAction;
+export type Action = OrientationsFetchAction;
 
 export const initialState: KeyValueStructure = {
     data: [],
@@ -20,13 +20,13 @@ export const initialState: KeyValueStructure = {
 
 export default (state = initialState, action: Action): KeyValueStructure => {
     switch (action.type) {
-        case types.INTERESTS_LOADING:
+        case types.ORIENTATIONS_LOADING:
             return { ...state, status: LOADING };
 
-        case types.INTERESTS_FETCH:
+        case types.ORIENTATIONS_FETCH:
             return { status: SUCCESS, data: action.payload };
 
-        case types.INTERESTS_ERROR:
+        case types.ORIENTATIONS_ERROR:
             return { ...state, status: ERROR };
 
         default:

@@ -12,6 +12,7 @@ interface RegistrationFormContainerProps {
     genders: string[]
     fetchGenders: (lang: string) => Promise<void>
     fetchInterests: (lang: string) => Promise<void>
+    fetchOrientations: (lang: string) => Promise<void>
     accountCreate: () => void
 }
 
@@ -20,13 +21,15 @@ export const RegistrationFormContainer = ({
     genders,
     fetchGenders,
     fetchInterests,
+    fetchOrientations,
     accountCreate
 }: RegistrationFormContainerProps): JSX.Element => {
 
     useEffect(() => {
         fetchGenders(i18next.language);
         fetchInterests(i18next.language);
-    }, [fetchGenders, fetchInterests]);
+        fetchOrientations(i18next.language);
+    }, [fetchGenders, fetchInterests, fetchOrientations]);
 
     const handleSubmit = (e: React.SyntheticEvent): void => {
         e.preventDefault();
@@ -50,14 +53,20 @@ const mapStateToProps = (state: State): {
     genders: selectors.regPage.genders.data(state)
 });
 
-/* eslint-disable-next-line @typescript-eslint/explicit-function-return-type */
-const mapDispatchToProps = (dispatch) => ({
+/* eslint-disable-next-line */
+const mapDispatchToProps = (dispatch: any) => ({
     fetchGenders: (lang: string): Promise<void> => {
         return dispatch(actions.regPage.fetchGenders(lang));
     },
+
     fetchInterests: (lang: string): Promise<void> => {
         return dispatch(actions.regPage.fetchInterests(lang));
     },
+
+    fetchOrientations: (lang: string): Promise<void> => {
+        return dispatch(actions.regPage.fetchOrientations(lang));
+    },
+
     accountCreate: (): Promise<void> => { //TODO: change to own request
         return dispatch(actions.loginPage.accountRecovery('password'));
     }

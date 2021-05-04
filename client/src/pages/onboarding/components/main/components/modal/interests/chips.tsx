@@ -36,6 +36,7 @@ export const Chips = ({
             <ChipsWrapperStyled>
                 {interests?.map((item) => {
                     const values = Object.keys(item)[0];
+
                     return (
                         <ChipComponent
                             handlePush={handlePush}

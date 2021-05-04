@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Fade, Backdrop, Typography } from '@material-ui/core';
+import { Fade, Backdrop } from '@material-ui/core';
 
 import { ThemeWrapperContext } from '../../../../../../../components/theme';
 import { Status, KeyValue } from '../../../../../../../__data__/types';
@@ -8,28 +8,24 @@ import { Status, KeyValue } from '../../../../../../../__data__/types';
 import {
     RegistrationModalStyled as OrientationModalStyled,
     AsideStyled,
-    RegistrationSectionStyled,
-    LogoWrapperStyled,
-    TypographyStyled,
-    DescriptionStyled,
-    FooterStyled
+    TypographyStyled
 } from '../rules/index.style';
 import { LOADING } from '../../../../../../../__data__/constants';
 import { CircularProgressStyled } from '../../../../../../login/components/form/index.style';
 
-// import { List } from './list';
+import { ListComponent } from './list';
 
 interface OrientationModalProps {
     open: boolean
     status: Status
-    interests: KeyValue[]
+    orientation: KeyValue[]
     handleClose?: () => void
 }
 
 export const OrientationModal = ({
     open,
     status,
-    interests,
+    orientation,
     handleClose
 }: OrientationModalProps): JSX.Element => {
     const { t } = useTranslation();
@@ -57,10 +53,12 @@ export const OrientationModal = ({
                     >
                         {t('reg-form-sexual-orientation-my')}
                     </TypographyStyled>
-                    {/* {status === LOADING
+                    {status === LOADING
                         ? <CircularProgressStyled />
-                        : <Orientation interests={interests} />
-                    } */}
+                        : <ListComponent
+                            orientation={orientation}
+                        />
+                    }
                 </AsideStyled>
             </Fade>
         </OrientationModalStyled>
