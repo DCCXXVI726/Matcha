@@ -1,0 +1,69 @@
+{
+    "orientations": [{
+            "Agender": "Агендер"
+        },
+        {
+            "Androgyne": "Андрогин"
+        },
+        {
+            "Bigender": "Бигендер"
+        },
+        {
+            "Cisgender Female": "Цисгендерная женщина"
+        },
+        {
+            "Cisgender Male": "Цисгендерный мужчина"
+        },
+        {
+            "FTM": "FTM"
+        },
+        {
+            "Gender Fluid": "Гендерфлюид"
+        },
+        {
+            "Gender Nonconforming": "Гендерная неконформность"
+        },
+        {
+            "Intersex": "Интерсекс"
+        },
+        {
+            "MTF": "MTF"
+        },
+        {
+            "Non - binary": "Небинарный"
+        },
+        {
+            "Other": "Другое"
+        },
+        {
+            "Pangender": "Пангендер"
+        },
+        {
+            "Trans": "Транс"
+        },
+        {
+            "Trans Female": "Транс женщина"
+        },
+        {
+            "Trans Male": "Транс мужчина"
+        },
+        {
+            "Transexual": "Транссексуал"
+        },
+        {
+            "Transexual Female": "Транссексуальная женщина"
+        },
+        {
+            "Transexual Male": "Транссексуальный мужчина"
+        },
+        {
+            "Transgender Female": "Трансгендерная женщина"
+        },
+        {
+            "Transgender Male": "Трансгендерный мужчина"
+        },
+        {
+            "Transmasculine": "Трансмаскулинный"
+        }
+    ]
+}

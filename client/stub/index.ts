@@ -17,6 +17,15 @@ app.use(webpackDevMiddleware(webpack(webpackConfig)));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+const langDependentApi = (res: Response, lang: unknown, ru: string, en: string): void => {
+    // eslint-disable-next-line
+    if (lang === 'ru' || lang === 'Русский') {
+        res.json(JSON.parse(ru));
+    } else {
+        res.json(JSON.parse(en));
+    }
+};
+
 app.post('/sessions', (req, res) => {
     axios.post('http://localhost:8080/sessions', {
         email: req.body?.email,
@@ -30,42 +39,39 @@ app.post('/sessions', (req, res) => {
 });
 
 app.get('/api/feedbacks', (req, res: Response) => {
-    let json: string;
-
-    // eslint-disable-next-line
-    if (req.query.lang === 'ru' || req.query.lang === 'Русский') {
-        json = fs.readFileSync('./stub/api/feedbacks/ru.json', 'utf8');
-    } else {
-        json = fs.readFileSync('./stub/api/feedbacks/en.json', 'utf8');
-    }
-
-    res.json(JSON.parse(json));
+    langDependentApi(
+        res,
+        req.query.lang,
+        fs.readFileSync('./stub/api/feedbacks/ru.json', 'utf8'),
+        fs.readFileSync('./stub/api/feedbacks/en.json', 'utf8')
+    );
 });
 
 app.get('/api/genders', (req, res: Response) => {
-    let json: string;
-
-    // eslint-disable-next-line
-    if (req.query.lang === 'ru' || req.query.lang === 'Русский') {
-        json = fs.readFileSync('./stub/api/genders/ru.json', 'utf8');
-    } else {
-        json = fs.readFileSync('./stub/api/genders/en.json', 'utf8');
-    }
-
-    res.json(JSON.parse(json));
+    langDependentApi(
+        res,
+        req.query.lang,
+        fs.readFileSync('./stub/api/genders/ru.json', 'utf8'),
+        fs.readFileSync('./stub/api/genders/en.json', 'utf8')
+    );
 });
 
 app.get('/api/interests', (req, res: Response) => {
-    let json: string;
+    langDependentApi(
+        res,
+        req.query.lang,
+        fs.readFileSync('./stub/api/interests/ru.json', 'utf8'),
+        fs.readFileSync('./stub/api/interests/en.json', 'utf8')
+    );
+});
 
-    // eslint-disable-next-line
-    if (req.query.lang === 'ru' || req.query.lang === 'Русский') {
-        json = fs.readFileSync('./stub/api/interests/ru.json', 'utf8');
-    } else {
-        json = fs.readFileSync('./stub/api/interests/en.json', 'utf8');
-    }
-
-    res.json(JSON.parse(json));
+app.get('/api/orientations', (req, res: Response) => {
+    langDependentApi(
+        res,
+        req.query.lang,
+        fs.readFileSync('./stub/api/orientations/ru.json', 'utf8'),
+        fs.readFileSync('./stub/api/orientations/en.json', 'utf8')
+    );
 });
 
 app.get('/api*', (_, res: Response) => {

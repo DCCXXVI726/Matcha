@@ -1,0 +1,69 @@
+{
+    "orientations": [{
+            "Agender": "Agender"
+        },
+        {
+            "Androgyne": "Androgyne"
+        },
+        {
+            "Bigender": "Bigender"
+        },
+        {
+            "Cisgender Female": "Cisgender Female"
+        },
+        {
+            "Cisgender Male": "Cisgender Male"
+        },
+        {
+            "FTM": "FTM"
+        },
+        {
+            "Gender Fluid": "Gender Fluid"
+        },
+        {
+            "Gender Nonconforming": "Gender Nonconforming"
+        },
+        {
+            "Intersex": "Intersex"
+        },
+        {
+            "MTF": "MTF"
+        },
+        {
+            "Non - binary": "Non - binary"
+        },
+        {
+            "Other": "Other"
+        },
+        {
+            "Pangender": "Pangender"
+        },
+        {
+            "Trans": "Trans"
+        },
+        {
+            "Trans Female": "Trans Female"
+        },
+        {
+            "Trans Male": "Trans Male"
+        },
+        {
+            "Transexual": "Transexual"
+        },
+        {
+            "Transexual Female": "Transexual Female"
+        },
+        {
+            "Transexual Male": "Transexual Male"
+        },
+        {
+            "Transgender Female": "Transgender Female"
+        },
+        {
+            "Transgender Male": "Transgender Male"
+        },
+        {
+            "Transmasculine": "Transmasculine"
+        }
+    ]
+}
