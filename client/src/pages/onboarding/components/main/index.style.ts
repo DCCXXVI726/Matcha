@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
-import { css, Theme } from '@emotion/react';
-import { Snackbar, SnackbarProps } from '@material-ui/core';
+import { css } from '@emotion/react';
 import { ThemeColors } from '../../../../components/theme';
 
 export const MainStyled = styled.main(({ theme }) => css`

@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
-import { css, Theme } from '@emotion/react';
-import { Typography, Button, Modal } from '@material-ui/core';
+import { css } from '@emotion/react';
+import { Button } from '@material-ui/core';
 
-import { LIGHT, ThemeColors } from '../../../../../../components/theme';
+import { ThemeColors } from '../../../../../../components/theme';
 
 export const FormStyled = styled.form(({ theme }) => css`
     background-color: ${(theme as ThemeColors).primary};

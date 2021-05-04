@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
 
 import { actions, selectors } from '../../../../../../__data__';
@@ -21,7 +20,6 @@ export const RegistrationFormContainer = ({
     fetchGenders,
     accountCreate
 }: RegistrationFormContainerProps): JSX.Element => {
-    const { t } = useTranslation();
 
     useEffect(() => {
         fetchGenders(i18next.language);
