@@ -1,38 +1,42 @@
 import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Fade, Backdrop } from '@material-ui/core';
+import { Fade, Backdrop, Typography } from '@material-ui/core';
 
 import { ThemeWrapperContext } from '../../../../../../../components/theme';
 import { Status, KeyValue } from '../../../../../../../__data__/types';
 
-import { Chips } from './chips';
-
 import {
-    RegistrationModalStyled as ChipsModalStyled,
+    RegistrationModalStyled as OrientationModalStyled,
     AsideStyled,
-    TypographyStyled
+    RegistrationSectionStyled,
+    LogoWrapperStyled,
+    TypographyStyled,
+    DescriptionStyled,
+    FooterStyled
 } from '../rules/index.style';
 import { LOADING } from '../../../../../../../__data__/constants';
 import { CircularProgressStyled } from '../../../../../../login/components/form/index.style';
 
-interface ChipsModalProps {
+import { List } from './list';
+
+interface OrientationModalProps {
     open: boolean
     status: Status
     interests: KeyValue[]
     handleClose?: () => void
 }
 
-export const ChipsModal = ({
+export const OrientationModal = ({
     open,
     status,
     interests,
     handleClose
-}: ChipsModalProps): JSX.Element => {
+}: OrientationModalProps): JSX.Element => {
     const { t } = useTranslation();
     const [theme,] = useContext(ThemeWrapperContext);
 
     return (
-        <ChipsModalStyled
+        <OrientationModalStyled
             currentTheme={theme as string}
             className='modal'
             open={open}
@@ -40,7 +44,7 @@ export const ChipsModal = ({
             onClose={handleClose}
             BackdropComponent={Backdrop}
             BackdropProps={{ timeout: 500 }}
-            aria-labelledby='modal-chips'
+            aria-labelledby='modal-Orientation'
         >
             <Fade in={open}>
                 <AsideStyled
@@ -51,14 +55,14 @@ export const ChipsModal = ({
                         variant='h3'
                         padding='15px 0px'
                     >
-                        {t('reg-form-interests')}
+                        {t('reg-form-sexual-orientation-my')}
                     </TypographyStyled>
                     {status === LOADING
                         ? <CircularProgressStyled />
-                        : <Chips interests={interests} />
+                        : <Orientation interests={interests} />
                     }
                 </AsideStyled>
             </Fade>
-        </ChipsModalStyled>
+        </OrientationModalStyled>
     );
 };

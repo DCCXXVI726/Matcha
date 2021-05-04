@@ -2,13 +2,14 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { Chip, Button } from '@material-ui/core';
 
-import { ThemeColors } from '../../../../../../../components/theme';
-
 export const ChipStyled = styled(Chip)`
     &.MuiChip-root {
         margin: 0.3rem;
     }
 
+    &.MuiChip-colorSecondary {
+        border: 1px solid #f50057;
+    }
 `;
 
 export const ChipsWrapperStyled = styled.div`
@@ -23,7 +24,9 @@ interface ButtonContinueStyledProps {
     isDisable: boolean
 }
 
-export const ButtonContinueStyled = styled(Button)(({ isDisable }: ButtonContinueStyledProps) => css`
+export const ButtonContinueStyled = styled(Button)(({
+    isDisable
+}: ButtonContinueStyledProps) => css`
     &.MuiButtonBase-root {
         margin: auto auto 1rem;
         display: block;
