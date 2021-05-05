@@ -17,6 +17,8 @@ import { selectors } from '../../../../../../__data__';
 import { ChipsModal } from '../modal/interests';
 import { OrientationModal } from '../modal/orientation';
 
+import { SplitterStyled } from './index.style';
+
 interface AdditionalFormContentComponentProps {
     statusInterests: Status
     interests: KeyValue[]
@@ -45,44 +47,48 @@ const AdditionalFormContentComponent = ({
             <Typography align='center'>
                 {t('reg-form-none-required')}
             </Typography>
-            <Typography>
-                {t('reg-form-interests')}
-            </Typography>
-            <Button
-                variant='contained'
-                color='primary'
-                startIcon={<AddIcon />}
-                onClick={handleInterestsOpen}
-            >
-                {t('reg-form-interests-add')}
-            </Button>
-            {/* <Chip
+            <SplitterStyled>
+                <Typography>
+                    {t('reg-form-interests')}
+                </Typography>
+                <Button
+                    variant='contained'
+                    color='primary'
+                    startIcon={<AddIcon />}
+                    onClick={handleInterestsOpen}
+                >
+                    {t('reg-form-interests-add')}
+                </Button>
+                {/* <Chip
                 variant={'outlined'}
                 label={'label'}
             /> */}
-            <ChipsModal
-                open={openInterests}
-                status={statusInterests}
-                interests={interests}
-                handleClose={handleInterestsClose}
-            />
-            <Typography>
-                {t('reg-form-sexual-orientation')}
-            </Typography>
-            <Button
-                variant='contained'
-                color='primary'
-                startIcon={<AddIcon />}
-                onClick={handleOrientationOpen}
-            >
-                {t('reg-form-sexual-orientation-add')}
-            </Button>
-            <OrientationModal
-                open={openOrientation}
-                status={statusOrientations}
-                orientation={orientations}
-                handleClose={handleOrientationClose}
-            />
+                <ChipsModal
+                    open={openInterests}
+                    status={statusInterests}
+                    interests={interests}
+                    handleClose={handleInterestsClose}
+                />
+            </SplitterStyled>
+            <SplitterStyled>
+                <Typography>
+                    {t('reg-form-sexual-orientation')}
+                </Typography>
+                <Button
+                    variant='contained'
+                    color='primary'
+                    startIcon={<AddIcon />}
+                    onClick={handleOrientationOpen}
+                >
+                    {t('reg-form-sexual-orientation-add')}
+                </Button>
+                <OrientationModal
+                    open={openOrientation}
+                    status={statusOrientations}
+                    orientation={orientations}
+                    handleClose={handleOrientationClose}
+                />
+            </SplitterStyled>
         </>
     );
 };
