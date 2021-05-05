@@ -13,7 +13,7 @@ import {
 import { LOADING } from '../../../../../../../__data__/constants';
 import { CircularProgressStyled } from '../../../../../../login/components/form/index.style';
 
-import { ListComponent } from './list';
+import { ListComponent } from './menu';
 
 interface OrientationModalProps {
     open: boolean

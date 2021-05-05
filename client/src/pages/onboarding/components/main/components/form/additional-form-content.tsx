@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import { Typography, Button } from '@material-ui/core';
+// import { Typography, Button, Chip } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 
 import {
@@ -55,6 +56,10 @@ const AdditionalFormContentComponent = ({
             >
                 {t('reg-form-interests-add')}
             </Button>
+            {/* <Chip
+                variant={'outlined'}
+                label={'label'}
+            /> */}
             <ChipsModal
                 open={openInterests}
                 status={statusInterests}
@@ -94,8 +99,4 @@ const mapStateToProps = (state: State): {
     orientations: selectors.regPage.orientations.data(state)
 });
 
-/* eslint-disable-next-line @typescript-eslint/explicit-function-return-type */
-const mapDispatchToProps = (dispatch) => ({ //TODO: remove?
-});
-
-export const AdditionalFormContent = connect(mapStateToProps, mapDispatchToProps)(AdditionalFormContentComponent);
+export const AdditionalFormContent = connect(mapStateToProps, null)(AdditionalFormContentComponent);
