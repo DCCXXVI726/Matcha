@@ -5,7 +5,11 @@ import { Button } from '@material-ui/core';
 import { ThemeColors } from '../../../../../../components/theme';
 
 export const FormStyled = styled.form(({ theme }) => css`
-    background-color: ${(theme as ThemeColors).primary};
+
+    & .MuiInputBase-root, .MuiFormControlLabel-root, .MuiTypography-root {
+        background-color: ${(theme as ThemeColors).primary};
+    }
+
     width: 50%;
     margin: auto;
     display: grid;
