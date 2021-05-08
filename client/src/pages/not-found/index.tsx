@@ -1,29 +1,35 @@
 import React from 'react';
-// import { useTranslation } from 'react-i18next';
-import { Typography, Card, CardContent } from '@material-ui/core';
-// import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { Typography } from '@material-ui/core';
+import { Link } from 'react-router-dom';
+
+import { Header } from '../../components/header';
+import { Footer } from '../../components/footer';
+import { error404 } from '../../assets';
+
+import { MainStyled, FlexWrapper, ImgStyled } from './index.style';
 
 export const NotFound = (): JSX.Element => {
-    // const { t } = useTranslation();
+    const { t } = useTranslation();
 
     return (
-        <Card>
-            <CardContent>
-                <Typography color='textSecondary' gutterBottom>
-                    Word of the Day
-                </Typography>
-                <Typography variant='h5' component='h2'>
-                    Word of the Day
-                </Typography>
-                <Typography color='textSecondary'>
-                    adjective
-                </Typography>
-                <Typography variant='body2' component='p'>
-                    well meaning and kindly.
-                </Typography>
-            </CardContent>
-        </Card>
-        // {t('not-found')}
-        // <Link to='/'>{t('back-to-home')}</Link>
+        <>
+            <Header />
+            <MainStyled>
+                <FlexWrapper>
+                    <Typography variant='h2' align='center'>
+                        {t('not-found')}
+                    </Typography>
+                </FlexWrapper>
+                <FlexWrapper>
+                    <Typography variant='h5' align='center'>
+                        <Link to='/'>{t('back-to-home')}</Link>
+                    </Typography>
+                </FlexWrapper>
+                <ImgStyled src={error404} alt='error404-picture' />
+
+            </MainStyled>
+            <Footer />
+        </>
     );
 };

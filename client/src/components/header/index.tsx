@@ -7,6 +7,7 @@ import { ThemeToggle } from '../theme-toggle';
 import { tinderIcon } from '../../assets/index';
 
 import { LangChooser } from '../lang-choose';
+import { asyncNoop } from '../../utils/noop';
 
 import {
     HeaderStyled,
@@ -17,11 +18,11 @@ import {
 } from './index.style';
 
 interface HeaderProps {
-    fetchMultiLangContent: (lang: string) => Promise<void>
+    fetchMultiLangContent?: (lang: string) => Promise<void>
 }
 
 export const Header = ({
-    fetchMultiLangContent
+    fetchMultiLangContent = asyncNoop
 }: HeaderProps): JSX.Element => {
     const { t } = useTranslation();
     const [theme,] = useContext(ThemeWrapperContext);

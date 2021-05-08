@@ -1,18 +1,34 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
-import { Card } from '@material-ui/core';
 
-import { LIGHT, ThemeColors } from '../../components/theme';
+import { ThemeColors } from '../../components/theme';
 
-export const CardStyld = styled(Card)(({ theme, currentTheme }: StyledProps) => css`
-    &.MuiPaper-root {
+export const MainStyled = styled.main(({ theme }) => css`
+    color: ${(theme as ThemeColors).secondary};
+    margin: auto;
+    width: 70%;
+
+    & h1,h2,h3,h4,h5,h6 {
         background-color: ${(theme as ThemeColors).primary};
-        color: ${(theme as ThemeColors).secondary};
+        display: inline-block;
+        margin: auto;
     }
 
-    ${currentTheme === LIGHT
-        ? 'box-shadow: 17px 17px 34px #c7c7c7, -17px -17px 34px #f9f9f9;'
-        : 'box-shadow:  15px 15px 30px #202020, -15px -15px 30px #2c2c2c;'
-}
-    background-color: ${(theme as ThemeColors).primary};
+    & a  {
+        margin: 2vh 0px;
+        text-decoration: underline;
+        display: block;
+        color: ${(theme as ThemeColors).secondary};
+    }
 `);
+
+export const FlexWrapper = styled.div`
+    display: flex;
+`;
+
+export const ImgStyled = styled.img`
+    width: 50%;
+    display: block;
+    margin: auto;
+
+`;

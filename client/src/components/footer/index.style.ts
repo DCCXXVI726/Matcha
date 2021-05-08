@@ -5,11 +5,7 @@ import { Typography, Link } from '@material-ui/core';
 import { ThemeColors } from '../theme';
 
 export const FooterStyled = styled.footer(({ theme }) => css`
-    & img {
-        width: 48px;
-        height: 100%;
-    }
-
+    margin-top: auto;
     display: flex;
     color: ${(theme as ThemeColors).secondary};
     justify-content: space-between;
@@ -17,6 +13,11 @@ export const FooterStyled = styled.footer(({ theme }) => css`
     margin-right: 5rem;
     margin-left: 5rem;
     padding: 1rem;
+
+    & img {
+        width: 48px;
+        height: 100%;
+    }
 `);
 
 export const TypographyStyled = styled(Typography)`
