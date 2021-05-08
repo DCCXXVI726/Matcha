@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="x-apple-disable-message-reformatting">
+    <title>Matcha</title>
+    <style>
+         :root {
+            --main-pink: #fd5068;
+            --main-grey: #262626;
+            --main-grey1: #989798;
+            --main-grey0: #ebebeb;
+            --main-white: #fff;
+        }
+        
+        body {
+            width: 60%;
+            margin: 0 auto;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Montserrat, Arial, sans-serif;
+        }
+        
+        .center {
+            margin: auto;
+        }
+        
+        .header__logo {
+            display: block;
+        }
+        
+        .header__logo {
+            width: 60px;
+            height: 60px;
+        }
+        
+        .link-headline {
+            text-align: center;
+            margin: 1vh;
+            font-size: 44px;
+            line-height: 48px;
+            text-align: center;
+            font-weight: 700;
+        }
+        
+        .link {
+            text-decoration: none;
+            color: var(--main-pink);
+            overflow-wrap: anywhere;
+        }
+        
+        .button {
+            text-decoration: none;
+            border-radius: 30px;
+            padding: 15px 30px;
+            color: var(--main-white);
+            font-family: Montserrat, Arial, sans-serif;
+            font-size: 14px;
+            line-height: 18px;
+            text-align: center;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background-color: var(--main-pink);
+            margin: 3vh auto;
+            display: inline-block;
+        }
+        
+        .delimeter {
+            margin: 2vh 0;
+            border-bottom: 2px solid var(--main-grey0);
+        }
+        
+        .typography {
+            color: var(--main-grey);
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        .underline {
+            text-decoration: underline;
+        }
+        
+        .flex-wrapper {
+            display: flex;
+        }
+        
+        .footer__links {
+            background-color: var(--main-grey0);
+            color: var(--main-grey1);
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .footer__links>div {
+            margin: 0 5px;
+        }
+        
+        .footer__logo-link {
+            color: var(--main-grey1);
+        }
+        
+        .footer__logo {
+            width: 10px;
+            display: inline-block;
+        }
+        
+        .footer__logo path {
+            fill: var(--main-grey1);
+        }
+        
+        .social {
+            display: flex;
+        }
+        
+        .social>a>svg {
+            width: 13px;
+            margin: 0 5px;
+        }
+        
+        .social path {
+            fill: var(--main-grey1);
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header delimeter">
+        <a class="link" href="https://matcha21.herokuapp.com" target="_blank">
+            <svg class="header__logo center" xmlns="http://www.w3.org/2000/svg" viewBox="224.419 99.761 584.098 771.733" xmlns:v="https://vecta.io/nano"><path d="M536.9 99.9c6.8 5.2 12.7 11.6 19.2 17.2 58.7 55.4 112.5 116.6 155.8 184.9 41.9 66.1 74.101 139.2 88.4 216.4 7.899 42.3 10.5 85.699 5.899 128.5-2.099 17.9-5.199 35.8-10.899 52.9-8 24.8-18.5 48.9-32.9 70.7-12.4 18.8-27.9 35.6-45.8 49.2-19.7 14.9-42.2 25.8-65.6 33.3-29.101 9.3-59.601 13.9-90 16.4-36.301 2.699-72.801 3.199-109-1.4-41-5.1-81.7-16-118.2-35.7-33.8-18.2-63.5-44.899-82.6-78.5-22.1-38.4-29.4-83.9-25.9-127.8 3.6-46.5 18.4-91.6 38-133.7 17-36.2 37.8-70.5 60.899-103.1 19.7-27.6 40.9-54.1 64.101-78.9.399-.3 1.2-1 1.7-1.3-.4 20.9 1.6 41.9 7.6 62 6.1 20.5 16.4 39.8 30.1 56.3.801 1 1.4 2.4 2.9 2.601 29.7-22.3 57.8-47.3 79.7-77.4C533 321.4 548.199 285 554 246.9c7.699-49.3 1.1-100.6-17.1-147z" fill="#df4723" stroke="#df4723" stroke-width=".094"/></svg>
+            <h2 class="link-headline">Login to your account</h2>
+        </a>
+    </header>
+    <main class="main">
+        <section class="main delimeter">
+            <p class="typography">
+                We’re happy to help you log in to your account. Please click the button below to log in.
+            </p>
+            <div class="flex-wrapper">
+                <a class="button" href="https://matcha21.herokuapp.com" target="_blank">
+                    Log In
+                </a>
+            </div>
+
+            <p class="typography">
+                Or paste this link into your browser:
+                <a class="link" href="" target="_blank">
+                    https://tinder.com/deeplink/account-recovery/confirm/eyJhbGciOiJIUzI1NiJ9.bmlrX2RAbWFpbC5ydS1yZWNvdmVyeV9lbWFpbF9vdHA.hStmVbRg6hYDbS_qjwUJNVYG2Xm77I1E2CBV0RTnPY4
+                </a>
+            </p>
+        </section>
+        <p class="typography">If you don’t have a Tinder account with this email address,
+            <a class="link underline" href="https://matcha21.herokuapp.com" target="_blank">
+                click here
+            </a>.
+        </p>
+    </main>
+    <footer class="footer">
+        <div class="footer__links">
+            <div>
+                <a class="link" href="https://matcha21.herokuapp.com" target="_blank">
+                    <svg class="footer__logo center" xmlns="http://www.w3.org/2000/svg" viewBox="224.419 99.761 584.098 771.733" xmlns:v="https://vecta.io/nano"><path d="M536.9 99.9c6.8 5.2 12.7 11.6 19.2 17.2 58.7 55.4 112.5 116.6 155.8 184.9 41.9 66.1 74.101 139.2 88.4 216.4 7.899 42.3 10.5 85.699 5.899 128.5-2.099 17.9-5.199 35.8-10.899 52.9-8 24.8-18.5 48.9-32.9 70.7-12.4 18.8-27.9 35.6-45.8 49.2-19.7 14.9-42.2 25.8-65.6 33.3-29.101 9.3-59.601 13.9-90 16.4-36.301 2.699-72.801 3.199-109-1.4-41-5.1-81.7-16-118.2-35.7-33.8-18.2-63.5-44.899-82.6-78.5-22.1-38.4-29.4-83.9-25.9-127.8 3.6-46.5 18.4-91.6 38-133.7 17-36.2 37.8-70.5 60.899-103.1 19.7-27.6 40.9-54.1 64.101-78.9.399-.3 1.2-1 1.7-1.3-.4 20.9 1.6 41.9 7.6 62 6.1 20.5 16.4 39.8 30.1 56.3.801 1 1.4 2.4 2.9 2.601 29.7-22.3 57.8-47.3 79.7-77.4C533 321.4 548.199 285 554 246.9c7.699-49.3 1.1-100.6-17.1-147z" fill="#df4723" stroke="#df4723" stroke-width=".094"/></svg>
+                    <span class="footer__logo-link">Matcha</span>
+                </a>
+            </div>
+            <div class="social">
+                <span>Folow us</span>
+                <a href="https://matcha21.herokuapp.com" target="_blank">
+                    <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m437 0h-362c-41.351562 0-75 33.648438-75 75v362c0 41.351562 33.648438 75 75 75h362c41.351562 0 75-33.648438 75-75v-362c0-41.351562-33.648438-75-75-75zm-180 390c-74.441406 0-135-60.558594-135-135s60.558594-135 135-135 135 60.558594 135 135-60.558594 135-135 135zm150-240c-24.8125 0-45-20.1875-45-45s20.1875-45 45-45 45 20.1875 45 45-20.1875 45-45 45zm0 0"/><path d="m407 90c-8.277344 0-15 6.722656-15 15s6.722656 15 15 15 15-6.722656 15-15-6.722656-15-15-15zm0 0"/><path d="m257 150c-57.890625 0-105 47.109375-105 105s47.109375 105 105 105 105-47.109375 105-105-47.109375-105-105-105zm0 0"/></svg>
+                </a>
+                <a href="https://matcha21.herokuapp.com" target="_blank">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 504.4 504.4" style="enable-background:new 0 0 504.4 504.4;" xml:space="preserve">
+                    <g><g><path d="M377.6,0.2H126.4C56.8,0.2,0,57,0,126.6v251.6c0,69.2,56.8,126,126.4,126H378c69.6,0,126.4-56.8,126.4-126.4V126.6C504,57,447.2,0.2,377.6,0.2z M377.2,189c0,2.8,0,5.6,0,8.4c0,84-64.8,180.8-183.6,180.8c-36.4,0-70.4-10.4-98.8-28.4c5.2,0.4,10,0.8,15.2,0.8c30.4,0,58-10,80-27.2c-28.4-0.4-52-18.8-60.4-44c4,0.8,8,1.2,12,1.2c6,0,12-0.8,17.2-2.4c-28.8-6-50.8-31.6-50.8-62.4V215c8,4.8,18.4,7.6,28.8,8c-17.2-11.2-28.8-30.8-28.8-52.8c0-11.6,3.2-22.4,8.8-32c32,38.4,79.2,63.6,132.8,66.4c-1.2-4.8-1.6-9.6-1.6-14.4c0-35.2,28.8-63.6,64.4-63.6c18.4,0,35.2,7.6,47.2,20c14.8-2.8,28.4-8,40.8-15.6c-4.8,14.8-15.2,27.2-28.4,35.2c13.2-1.6,25.6-4.8,37.2-10C400.4,169,389.6,180.2,377.2,189z"/>
+                	</g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+                </svg>
+                </a>
+                <a href="https://matcha21.herokuapp.com" target="_blank">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 504 504" style="enable-background:new 0 0 504 504;" xml:space="preserve">
+                    <g><g><path d="M377.6,0H126C56.8,0,0,56.8,0,126.4V378c0,69.2,56.8,126,126,126h251.6c69.6,0,126.4-56.8,126.4-126.4V126.4C504,56.8,447.2,0,377.6,0z M319.6,252H272v156h-60V252h-32v-64h28v-27.2c0-25.6,12.8-66,66.8-66H324V148h-34.8c-5.6,0-13.2,3.6-13.2,16v24h49.2L319.6,252z"/></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+                </svg>
+                </a>
+
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
