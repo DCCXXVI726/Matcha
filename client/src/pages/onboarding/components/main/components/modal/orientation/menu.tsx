@@ -11,10 +11,12 @@ const MAX_COUNT = 3;
 
 interface ListComponentProps {
     orientation: KeyValue[]
+    handleClose: () => void
 }
 
 export const ListComponent = ({
-    orientation
+    orientation,
+    handleClose
 }: ListComponentProps): JSX.Element => {
     const { t } = useTranslation();
     const [values, setCount] = useState<string[]>([]);
@@ -54,7 +56,12 @@ export const ListComponent = ({
                 isDisable={isDisable}
                 variant='contained'
                 color='secondary'
-                onClick={(): void => !isDisable && console.log(values)} //TODO: add value to redux
+                onClick={():void => {//TODO: add value to redux
+                    if (!isDisable) {
+                        console.log(values);
+                        handleClose();
+                    }
+                }}
                 disableElevation={isDisable}
                 disableFocusRipple={isDisable}
                 disableRipple={isDisable}

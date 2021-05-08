@@ -57,6 +57,7 @@ export const OrientationModal = ({
                         ? <CircularProgressStyled />
                         : <ListComponent
                             orientation={orientation}
+                            handleClose={(): void => handleClose && handleClose()}
                         />
                     }
                 </AsideStyled>

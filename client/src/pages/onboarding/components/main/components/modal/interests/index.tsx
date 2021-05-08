@@ -55,7 +55,10 @@ export const ChipsModal = ({
                     </TypographyStyled>
                     {status === LOADING
                         ? <CircularProgressStyled />
-                        : <Chips interests={interests} />
+                        : <Chips
+                            interests={interests}
+                            handleClose={(): void => handleClose && handleClose()}
+                        />
                     }
                 </AsideStyled>
             </Fade>
