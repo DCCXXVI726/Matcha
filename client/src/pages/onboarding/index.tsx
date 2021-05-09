@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { reset } from 'redux-form';
 
 import { actions } from '../../__data__';
 
@@ -31,6 +32,7 @@ const mapDispatchToProps = (dispatch: any) => ({
         dispatch(actions.regPage.fetchGenders(lang));
         dispatch(actions.regPage.fetchInterests(lang));
         dispatch(actions.regPage.fetchOrientations(lang));
+        dispatch(reset('registration'));
     }
 });
 
