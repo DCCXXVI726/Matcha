@@ -17,6 +17,7 @@ export interface ThemeColors {
     primary: string
     secondary: string
     transparent: string
+    brand: string
 }
 
 interface Theme {

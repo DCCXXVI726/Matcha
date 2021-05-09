@@ -28,3 +28,6 @@ export const gray0A = hex2rgba(gray9, 0);
 export const gray4A = hex2rgba(gray9, 4);
 export const gray8A = hex2rgba(gray9, 8);
 export const gray16A = hex2rgba(gray9, 16);
+
+/* GRAY */
+export const pink = '#f50057';
