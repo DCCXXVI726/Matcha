@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { formValueSelector, getFormValues, Field, FieldArray, reduxForm, initialize } from 'redux-form';
-// import { Field, reduxForm } from 'redux-form';
+import { formValueSelector } from 'redux-form';
 import { useTranslation } from 'react-i18next';
 
 import { Typography, Button } from '@material-ui/core';
-// import { Typography, Button, Chip } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 
 import {

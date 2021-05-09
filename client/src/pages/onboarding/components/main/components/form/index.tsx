@@ -49,7 +49,7 @@ const mapStateToProps = (state: State): {
     status: Status
     genders: string[]
 } => ({
-    status: selectors.loginPage.accountRecovery.status(state), //TODO: change to own status
+    status: selectors.loginPage.accountRecovery.status(state), // TODO: change to own status
     genders: selectors.regPage.genders.data(state)
 });
 
@@ -67,7 +67,7 @@ const mapDispatchToProps = (dispatch: any) => ({
         return dispatch(actions.regPage.fetchOrientations(lang));
     },
 
-    accountCreate: (): Promise<void> => { //TODO: change to own request
+    accountCreate: (): Promise<void> => { // TODO: change to own request
         return dispatch(actions.loginPage.accountRecovery('password'));
     }
 });

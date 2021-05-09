@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import { formValueSelector, getFormValues, Field, FieldArray, reduxForm, initialize } from 'redux-form';
-import { Checkbox, FormControlLabel, FormGroup } from '@material-ui/core';
+import { formValueSelector, Field, FieldArray, reduxForm, FieldArrayFieldsProps } from 'redux-form';
 import { useTranslation } from 'react-i18next';
 
 import { ChipComponent } from './chip';
-import { KeyValue, State } from '../../../../../../../__data__/types';
+import { KeyValue } from '../../../../../../../__data__/types';
 
 import { ChipsWrapperStyled, ButtonContinueStyled } from './index.style';
+import { FormInterests } from '../../form/additional-form-content';
 
 const MAX_COUNT = 5;
 
@@ -24,23 +24,22 @@ export const ChipsComponent = ({
 }: ChipsProps): JSX.Element => {
     const { t } = useTranslation();
 
-    // const isDisable = false;
     const isDisable = count === MAX_COUNT ? false : true;
 
-    const Kek = ({ fields, data }): JSX.Element => {
+    const ChipsArray = ({ fields }: { fields: FieldArrayFieldsProps<FormInterests> }): JSX.Element => {
         fields.length === 0 && interests.forEach(interest => {
             fields.push(interest);
         });
         return (
             <>
-                {fields.map((field, index) => {
+                {fields.map((field, index: number) => {
                     const key = fields.get(index);
                     const values = Object.keys(key)[0];
                     return (
                         <Field
                             name={`${field}.is${values}`}
                             component={ChipComponent}
-                            key={key[values]}
+                            key={values}
                             value={values}
                             label={key[values]}
                         />
@@ -55,7 +54,7 @@ export const ChipsComponent = ({
             <ChipsWrapperStyled>
                 <FieldArray
                     name='interests'
-                    component={Kek}
+                    component={ChipsArray}
                     props={{ data: interests }}
                 />
 
@@ -64,7 +63,7 @@ export const ChipsComponent = ({
                 isDisable={isDisable}
                 variant='contained'
                 color='secondary'
-                onClick={(): boolean => !isDisable && handleClose()}
+                onClick={(): boolean | void => !isDisable && handleClose()}
                 disableElevation={isDisable}
                 disableFocusRipple={isDisable}
                 disableRipple={isDisable}
@@ -75,7 +74,7 @@ export const ChipsComponent = ({
     );
 };
 
-const ChipsContainer = reduxForm({
+const ChipsContainer = reduxForm<null, ChipsProps>({
     form: 'registration',
     destroyOnUnmount: false
 })(ChipsComponent);
