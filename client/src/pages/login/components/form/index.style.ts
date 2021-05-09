@@ -23,15 +23,3 @@ export const ButtonStyled = styled(Button)`
         margin: auto;
     }
 `;
-
-export const CircularProgressStyled = styled(CircularProgress)(({ theme }) => css`
-    margin: auto;
-
-    &.MuiCircularProgress-colorPrimary {
-        color: ${(theme as ThemeColors).secondary};
-    }
-
-    &.MuiCircularProgress-root {
-        display: block;
-    }
-`);

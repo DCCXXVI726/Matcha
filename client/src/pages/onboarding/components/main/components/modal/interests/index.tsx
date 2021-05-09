@@ -13,10 +13,11 @@ import {
     TypographyStyled
 } from '../rules/index.style';
 import { LOADING } from '../../../../../../../__data__/constants';
-import { CircularProgressStyled } from '../../../../../../login/components/form/index.style';
+import { CircularProgressStyled } from '../../../../../../../components/circular-progress/index.style';
 
 interface ChipsModalProps {
     open: boolean
+    count: number
     status: Status
     interests: KeyValue[]
     handleClose?: () => void
@@ -24,6 +25,7 @@ interface ChipsModalProps {
 
 export const ChipsModal = ({
     open,
+    count,
     status,
     interests,
     handleClose
@@ -56,6 +58,7 @@ export const ChipsModal = ({
                     {status === LOADING
                         ? <CircularProgressStyled />
                         : <Chips
+                            count={count}
                             interests={interests}
                             handleClose={(): void => handleClose && handleClose()}
                         />

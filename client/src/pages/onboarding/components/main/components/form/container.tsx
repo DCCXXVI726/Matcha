@@ -2,17 +2,17 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { useTranslation } from 'react-i18next';
 
-import { Radio, RadioGroup, FormControlLabel, Typography, Button } from '@material-ui/core';
-import AddIcon from '@material-ui/icons/Add';
+import { FormControlLabel, Radio } from '@material-ui/core';
 
 import { LOADING } from '../../../../../../__data__/constants';
 import { Status } from '../../../../../../__data__/types';
 
 import { RenderTextField } from '../../../../../../components/render-text-field';
+import { RenderRadioGroup } from '../../../../../../components/render-radio-group';
 
 import { AdditionalFormContent } from './additional-form-content';
 import { FormStyled, ButtonStyled, FormDividerStyled } from './index.style';
-import { CircularProgressStyled } from '../../../../../login/components/form/index.style';
+import { CircularProgressStyled } from '../../../../../../components/circular-progress/index.style';
 
 interface RegistrationFormComponentProps {
     handleSubmit?: (e: React.SyntheticEvent) => void
@@ -31,7 +31,7 @@ export const RegistrationFormComponent = ({
         <FormStyled onSubmit={handleSubmit}>
             <div>
                 <Field
-                    name={'text'}
+                    name={'username'}
                     type={'text'}
                     isRequired={true}
                     minlength={0}
@@ -52,7 +52,6 @@ export const RegistrationFormComponent = ({
                     name={'upload-image'}
                     accept='image/gif, image/jpeg, image/png'
                     type='file'
-                    defaultValue='2021-05-24'
                     InputLabelProps={{
                         shrink: true,
                     }}
@@ -60,11 +59,12 @@ export const RegistrationFormComponent = ({
                 />
             </div>
             <div>
-                <RadioGroup //TODO: add to redux form
+                <Field
                     row
                     defaultValue=''
                     aria-label='gender'
-                    name='customized-radios'
+                    name='gender'
+                    component={RenderRadioGroup}
                 >
                     {genders?.map((gender) => {
                         const values = Object.keys(gender)[0];
@@ -73,19 +73,18 @@ export const RegistrationFormComponent = ({
                                 key={gender}
                                 value={values}
                                 control={<Radio />}
-                                // eslint-disable-next-line
-                                // @ts-ignore
+                                /* eslint-disable-next-line */
+                                /* @ts-ignore */
                                 label={gender[values]}
                             />
                         );
-                    }
-
-                    )}
-                </RadioGroup>
+                    })}
+                </Field>
                 <Field
                     name={'bday'}
                     type='date'
                     defaultValue='2021-05-24'
+                    max='2022-12-31'
                     InputLabelProps={{
                         shrink: true,
                     }}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { formValueSelector, getFormValues, Field, FieldArray, reduxForm, initialize } from 'redux-form';
 // import { Field, reduxForm } from 'redux-form';
 import { useTranslation } from 'react-i18next';
 
@@ -17,20 +18,27 @@ import { selectors } from '../../../../../../__data__';
 import { ChipsModal } from '../modal/interests';
 import { OrientationModal } from '../modal/orientation';
 
-import { SplitterStyled } from './index.style';
+import { SplitterStyled, ChipsWrapperStyled } from './index.style';
+import { ChipStyled } from '../modal/interests/index.style';
+
+export interface FormInterests {
+    [key: string]: string | boolean
+}
 
 interface AdditionalFormContentComponentProps {
     statusInterests: Status
     interests: KeyValue[]
     statusOrientations: Status
     orientations: KeyValue[]
+    formInterests: FormInterests[]
 }
 
 const AdditionalFormContentComponent = ({
     statusInterests,
     interests,
     statusOrientations,
-    orientations
+    orientations,
+    formInterests
 }: AdditionalFormContentComponentProps): JSX.Element => {
     const { t } = useTranslation();
     const [openInterests, setInterestsOpen] = useState<boolean>(false);
@@ -41,6 +49,11 @@ const AdditionalFormContentComponent = ({
 
     const handleOrientationClose = (): void => setOrientationOpen(false);
     const handleOrientationOpen = (): void => setOrientationOpen(true);
+
+    const selectedInterests = formInterests?.filter((item) => {
+        const keys = Object.keys(item);
+        return keys.length > 1 && item[keys[1]] === true;
+    });
 
     return (
         <>
@@ -59,12 +72,22 @@ const AdditionalFormContentComponent = ({
                 >
                     {t('reg-form-interests-add')}
                 </Button>
-                {/* <Chip
-                variant={'outlined'}
-                label={'label'}
-            /> */}
+                <ChipsWrapperStyled>
+                    {selectedInterests?.map((item) => {
+                        const key = Object.keys(item)[0];
+                        return (
+                            <ChipStyled
+                                variant={'outlined'}
+                                color='primary'
+                                key={key}
+                                label={item[key]}
+                            />
+                        );
+                    })}
+                </ChipsWrapperStyled>
                 <ChipsModal
                     open={openInterests}
+                    count={selectedInterests?.length || 0}
                     status={statusInterests}
                     interests={interests}
                     handleClose={handleInterestsClose}
@@ -98,11 +121,13 @@ const mapStateToProps = (state: State): {
     interests: KeyValue[]
     statusOrientations: Status
     orientations: KeyValue[]
+    formInterests: FormInterests[]
 } => ({
     statusInterests: selectors.regPage.interests.status(state),
     interests: selectors.regPage.interests.data(state),
     statusOrientations: selectors.regPage.orientations.status(state),
-    orientations: selectors.regPage.orientations.data(state)
+    orientations: selectors.regPage.orientations.data(state),
+    formInterests: formValueSelector('registration')(state, 'interests')
 });
 
 export const AdditionalFormContent = connect(mapStateToProps, null)(AdditionalFormContentComponent);

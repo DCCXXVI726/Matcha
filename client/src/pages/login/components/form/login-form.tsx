@@ -6,10 +6,11 @@ import { LOADING } from '../../../../__data__/constants';
 import { Status } from '../../../../__data__/types';
 
 import { RenderTextField } from '../../../../components/render-text-field';
+import { CircularProgressStyled } from '../../../../components/circular-progress/index.style';
 
 import { FormStyled } from '../../index.style';
 
-import { ButtonStyled, CircularProgressStyled } from './index.style';
+import { ButtonStyled } from './index.style';
 
 interface LoginFormComponentProps {
     handleSubmit: (e: React.SyntheticEvent) => void,

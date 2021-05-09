@@ -11,7 +11,7 @@ import {
     TypographyStyled
 } from '../rules/index.style';
 import { LOADING } from '../../../../../../../__data__/constants';
-import { CircularProgressStyled } from '../../../../../../login/components/form/index.style';
+import { CircularProgressStyled } from '../../../../../../../components/circular-progress/index.style';
 
 import { ListComponent } from './menu';
 

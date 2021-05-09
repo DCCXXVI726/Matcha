@@ -1,40 +1,32 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Checkbox } from '@material-ui/core';
 
-import { ChipStyled } from './index.style';
+import { FormControlLabelStyled } from './index.style';
 
 interface ChipComponentProps {
+    /* eslint-disable  @typescript-eslint/no-explicit-any */
+    input: any
     label: string
     value: string
-    handlePush: (value: string) => void
-    handleFilter: (value: string) => void
 }
 
 export const ChipComponent = ({
+    input,
     label,
-    value,
-    handlePush,
-    handleFilter
-}: ChipComponentProps): JSX.Element => {
-    const [state,] = useState<string>(value);
-    const [variant, setVariant] = useState<'default' | 'outlined'>('outlined');
-
-    const handleClick = (): void => {
-        if (variant === 'outlined') {
-            setVariant('default');
-            handlePush(state);
-        } else {
-            handleFilter(state);
-            setVariant('outlined');
+    value
+}: ChipComponentProps): JSX.Element => (
+    <FormControlLabelStyled
+        isChecked={input.value}
+        {...input}
+        name={value}
+        control={
+            <Checkbox
+                checked={input.value ? true : false}
+                /* eslint-disable-next-line */
+                /* @ts-ignore */
+                onCheck={input.onChange}
+            />
         }
-    };
-
-    return (
-        <ChipStyled
-            variant={variant}
-            onClick={handleClick}
-            label={label}
-            clickable
-            color='secondary'
-        />
-    );
-};
+        label={label}
+    />
+);

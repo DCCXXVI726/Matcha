@@ -1,73 +1,88 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { formValueSelector, getFormValues, Field, FieldArray, reduxForm, initialize } from 'redux-form';
+import { Checkbox, FormControlLabel, FormGroup } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
-import { Button } from '@material-ui/core';
 
 import { ChipComponent } from './chip';
-import { KeyValue } from '../../../../../../../__data__/types';
+import { KeyValue, State } from '../../../../../../../__data__/types';
 
 import { ChipsWrapperStyled, ButtonContinueStyled } from './index.style';
 
 const MAX_COUNT = 5;
 
 interface ChipsProps {
+    count: number
     interests: KeyValue[]
     handleClose: () => void
 }
 
-export const Chips = ({
+export const ChipsComponent = ({
+    count,
     interests,
     handleClose
 }: ChipsProps): JSX.Element => {
     const { t } = useTranslation();
-    const [values, setCount] = useState<string[]>([]);
 
-    const isDisable = values.length === MAX_COUNT ? false : true;
+    // const isDisable = false;
+    const isDisable = count === MAX_COUNT ? false : true;
 
-    const handlePush = (value: string): void => {
-        const tmp = [...values];
-        tmp.push(value);
-        setCount(tmp);
-    };
-
-    const handleFilter = (value: string): void => {
-        setCount(values.filter(item => item !== value));
+    const Kek = ({ fields, data }): JSX.Element => {
+        fields.length === 0 && interests.forEach(interest => {
+            fields.push(interest);
+        });
+        return (
+            <>
+                {fields.map((field, index) => {
+                    const key = fields.get(index);
+                    const values = Object.keys(key)[0];
+                    return (
+                        <Field
+                            name={`${field}.is${values}`}
+                            component={ChipComponent}
+                            key={key[values]}
+                            value={values}
+                            label={key[values]}
+                        />
+                    );
+                })}
+            </>
+        );
     };
 
     return (
         <>
             <ChipsWrapperStyled>
-                {interests?.map((item) => {
-                    const values = Object.keys(item)[0];
+                <FieldArray
+                    name='interests'
+                    component={Kek}
+                    props={{ data: interests }}
+                />
 
-                    return (
-                        <ChipComponent
-                            handlePush={handlePush}
-                            handleFilter={handleFilter}
-                            key={item[values]}
-                            value={values}
-                            label={item[values]}
-                        />
-                    );
-                })
-                }
             </ChipsWrapperStyled>
             <ButtonContinueStyled
                 isDisable={isDisable}
                 variant='contained'
                 color='secondary'
-                onClick={():void => {//TODO: add value to redux
-                    if (!isDisable) {
-                        console.log(values);
-                        handleClose();
-                    }
-                }}
+                onClick={(): boolean => !isDisable && handleClose()}
                 disableElevation={isDisable}
                 disableFocusRipple={isDisable}
                 disableRipple={isDisable}
             >
-                {`${t('continue')} ${values.length}/${MAX_COUNT}`}
+                {`${t('continue')} ${count}/${MAX_COUNT}`}
             </ButtonContinueStyled>
         </>
     );
 };
 
+const ChipsContainer = reduxForm({
+    form: 'registration',
+    destroyOnUnmount: false
+})(ChipsComponent);
+
+export const Chips = connect(state => {
+    const formInterests = formValueSelector('registration')(state, 'interests');
+    return {
+        formInterests
+    };
+})(ChipsContainer);

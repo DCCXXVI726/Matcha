@@ -47,3 +47,8 @@ export const FormDividerStyled = styled.div(({ theme }) => css`
 export const SplitterStyled = styled.div`
     margin: 1vh auto;
 `;
+
+export const ChipsWrapperStyled = styled.div`
+    margin: 1vh auto;
+
+`;
