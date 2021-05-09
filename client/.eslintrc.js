@@ -18,6 +18,7 @@ module.exports = {
         'eslint-plugin-no-cyrillic-string'
     ],
     rules: {
+        'eqeqeq': ['error', 'always'],
         '@typescript-eslint/explicit-function-return-type': 2,
         'indent': ['error', 4, { 'SwitchCase': 1 }],
         '@typescript-eslint/indent': ['error'],
