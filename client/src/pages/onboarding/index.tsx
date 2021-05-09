@@ -9,7 +9,7 @@ import { Main } from './components/main';
 import { Footer } from '../../components/footer';
 
 interface OnBoardingComponentProps {
-    fetchMultiLangContent: (lang: string) => Promise<void>
+    fetchMultiLangContent: (lang: string) => Promise<void> | void
 }
 
 const OnBoardingComponent = ({
@@ -28,7 +28,7 @@ const OnBoardingComponent = ({
 
 /* eslint-disable-next-line */
 const mapDispatchToProps = (dispatch: any) => ({
-    fetchMultiLangContent: (lang: string): Promise<void> => {
+    fetchMultiLangContent: (lang: string): void => {
         dispatch(actions.regPage.fetchGenders(lang));
         dispatch(actions.regPage.fetchInterests(lang));
         dispatch(actions.regPage.fetchOrientations(lang));

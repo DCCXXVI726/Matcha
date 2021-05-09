@@ -13,7 +13,7 @@ import { SelectStyled, FormControlStyled } from './index.style';
 
 interface LangChooserComponentProps {
     changeLang: (lang: string) => void
-    fetchMultiLangContent: (lang: string) => Promise<void>
+    fetchMultiLangContent: (lang: string) => Promise<void> | void
 }
 
 export const LangChooserComponent = ({

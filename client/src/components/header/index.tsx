@@ -18,7 +18,7 @@ import {
 } from './index.style';
 
 interface HeaderProps {
-    fetchMultiLangContent?: (lang: string) => Promise<void>
+    fetchMultiLangContent?: (lang: string) => Promise<void> | void
 }
 
 export const Header = ({
@@ -42,7 +42,7 @@ export const Header = ({
             <WrapperStyled>
                 <ThemeToggle />
                 <LangChooser
-                    fetchMultiLangContent={(lang: string): Promise<void> => fetchMultiLangContent(lang)}
+                    fetchMultiLangContent={(lang: string): Promise<void> | void => fetchMultiLangContent(lang)}
                 />
             </WrapperStyled>
         </HeaderStyled>
