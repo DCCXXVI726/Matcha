@@ -18,6 +18,7 @@ import { OrientationModal } from '../modal/orientation';
 
 import { SplitterStyled, ChipsWrapperStyled } from './index.style';
 import { ChipStyled } from '../modal/interests/index.style';
+import { RenderChips } from '../utils/render-chips';
 
 export interface FormInterests {
     [key: string]: string | boolean
@@ -29,6 +30,7 @@ interface AdditionalFormContentComponentProps {
     statusOrientations: Status
     orientations: KeyValue[]
     formInterests: FormInterests[]
+    formOrientations: FormInterests[]
 }
 
 const AdditionalFormContentComponent = ({
@@ -36,7 +38,8 @@ const AdditionalFormContentComponent = ({
     interests,
     statusOrientations,
     orientations,
-    formInterests
+    formInterests,
+    formOrientations
 }: AdditionalFormContentComponentProps): JSX.Element => {
     const { t } = useTranslation();
     const [openInterests, setInterestsOpen] = useState<boolean>(false);
@@ -70,19 +73,9 @@ const AdditionalFormContentComponent = ({
                 >
                     {t('reg-form-interests-add')}
                 </Button>
-                <ChipsWrapperStyled>
-                    {selectedInterests?.map((item) => {
-                        const key = Object.keys(item)[0];
-                        return (
-                            <ChipStyled
-                                variant={'outlined'}
-                                color='primary'
-                                key={key}
-                                label={item[key]}
-                            />
-                        );
-                    })}
-                </ChipsWrapperStyled>
+                <RenderChips
+                    selectedItems={selectedInterests}
+                />
                 <ChipsModal
                     open={openInterests}
                     count={selectedInterests?.length || 0}
@@ -120,12 +113,14 @@ const mapStateToProps = (state: State): {
     statusOrientations: Status
     orientations: KeyValue[]
     formInterests: FormInterests[]
+    formOrientations: FormInterests[]
 } => ({
     statusInterests: selectors.regPage.interests.status(state),
     interests: selectors.regPage.interests.data(state),
     statusOrientations: selectors.regPage.orientations.status(state),
     orientations: selectors.regPage.orientations.data(state),
-    formInterests: formValueSelector('registration')(state, 'interests')
+    formInterests: formValueSelector('registration')(state, 'interests'),
+    formOrientations: formValueSelector('registration')(state, 'orientations')
 });
 
 export const AdditionalFormContent = connect(mapStateToProps, null)(AdditionalFormContentComponent);
