@@ -1,7 +1,8 @@
-import { white, white16A, pink } from './colors.config.style';
+import * as colors from './colors.config.style';
 
 export const primary = '#262626';
-export const secondary = white;
-export const transparent = white16A;
+export const secondary = colors.white;
+export const transparent = colors.white16A;
 
-export const brand = pink;
+export const brand = colors.pink;
+export const primary8A = colors.white8A;

@@ -16,13 +16,17 @@ import { selectors } from '../../../../../../__data__';
 import { ChipsModal } from '../modal/interests';
 import { OrientationModal } from '../modal/orientation';
 
-import { SplitterStyled, ChipsWrapperStyled } from './index.style';
-import { ChipStyled } from '../modal/interests/index.style';
+import { SplitterStyled } from './index.style';
 import { RenderChips } from '../utils/render-chips';
 
 export interface FormInterests {
     [key: string]: string | boolean
 }
+
+const selectedItems = (items: FormInterests[]): FormInterests[] => items?.filter((item) => {
+    const keys = Object.keys(item);
+    return keys.length > 1 && item[keys[1]] === true;
+});
 
 interface AdditionalFormContentComponentProps {
     statusInterests: Status
@@ -51,10 +55,8 @@ const AdditionalFormContentComponent = ({
     const handleOrientationClose = (): void => setOrientationOpen(false);
     const handleOrientationOpen = (): void => setOrientationOpen(true);
 
-    const selectedInterests = formInterests?.filter((item) => {
-        const keys = Object.keys(item);
-        return keys.length > 1 && item[keys[1]] === true;
-    });
+    const selectedInterests = selectedItems(formInterests);
+    const selectedOrientations = selectedItems(formOrientations);
 
     return (
         <>
@@ -96,10 +98,14 @@ const AdditionalFormContentComponent = ({
                 >
                     {t('reg-form-sexual-orientation-add')}
                 </Button>
+                <RenderChips
+                    selectedItems={selectedOrientations}
+                />
                 <OrientationModal
                     open={openOrientation}
+                    count={selectedOrientations?.length || 0}
                     status={statusOrientations}
-                    orientation={orientations}
+                    orientations={orientations}
                     handleClose={handleOrientationClose}
                 />
             </SplitterStyled>

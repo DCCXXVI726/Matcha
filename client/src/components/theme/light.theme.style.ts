@@ -1,7 +1,8 @@
-import { gray9, gray16A, pink } from './colors.config.style';
+import * as colors from './colors.config.style';
 
 export const primary = '#ffffff';
-export const secondary = gray9;
+export const secondary = colors.gray9;
 
-export const transparent = gray16A;
-export const brand = pink;
+export const transparent = colors.gray16A;
+export const brand = colors.pink;
+export const primary8A = colors.gray8A;

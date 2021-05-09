@@ -13,19 +13,21 @@ import {
 import { LOADING } from '../../../../../../../__data__/constants';
 import { CircularProgressStyled } from '../../../../../../../components/circular-progress/index.style';
 
-import { ListComponent } from './menu';
+import { List } from './menu';
 
 interface OrientationModalProps {
     open: boolean
+    count: number
     status: Status
-    orientation: KeyValue[]
+    orientations: KeyValue[]
     handleClose?: () => void
 }
 
 export const OrientationModal = ({
     open,
+    count,
     status,
-    orientation,
+    orientations,
     handleClose
 }: OrientationModalProps): JSX.Element => {
     const { t } = useTranslation();
@@ -55,8 +57,9 @@ export const OrientationModal = ({
                     </TypographyStyled>
                     {status === LOADING
                         ? <CircularProgressStyled />
-                        : <ListComponent
-                            orientation={orientation}
+                        : <List
+                            count={count}
+                            orientations={orientations}
                             handleClose={(): void => handleClose && handleClose()}
                         />
                     }

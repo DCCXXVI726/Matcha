@@ -1,35 +1,34 @@
-import React, { ReactNode, useState } from 'react';
+import React from 'react';
+import { Checkbox } from '@material-ui/core';
 
-import { MenuItemStyled } from './index.style';
+import { FormControlLabelStyled } from './index.style';
 
 interface MenuItemProps {
-    children: ReactNode
+    /* eslint-disable  @typescript-eslint/no-explicit-any */
+    input: any
     label: string
     value: string
-    handlePush: (value: string) => void
-    handleFilter: (value: string) => void
 }
 
 export const MenuItem = ({
+    input,
     label,
-    value,
-    handlePush,
-    handleFilter
-}: MenuItemProps): JSX.Element => {
-    const [isChecked, setChecked] = useState<boolean>(false);
-
-    const handleChecked = (): void => {
-        isChecked ? handleFilter(value) : handlePush(value);
-        setChecked(!isChecked);
-    };
-
-    return (
-        <MenuItemStyled
-            onClick={handleChecked}
-            isChecked={isChecked}
-            value={value}
-        >
-            {label}
-        </MenuItemStyled>
-    );
-};
+    value
+}: MenuItemProps): JSX.Element => (
+    <li>
+        <FormControlLabelStyled
+            isChecked={input.value}
+            {...input}
+            name={value}
+            control={
+                <Checkbox
+                    checked={input.value ? true : false}
+                    /* eslint-disable-next-line */
+                    /* @ts-ignore */
+                    onCheck={input.onChange}
+                />
+            }
+            label={label}
+        />
+    </li>
+);
