@@ -74,6 +74,12 @@ app.get('/api/orientations', (req, res: Response) => {
     );
 });
 
+app.get('/api/kek', (req, res) => {
+    console.log(req.query);
+    void(res);
+});
+
+
 app.get('/api*', (_, res: Response) => {
     axios.get(`http://localhost:8080${_.path}`)
         .then((response) => res.json(response.data))

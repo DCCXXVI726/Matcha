@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { useTranslation } from 'react-i18next';
 
@@ -13,6 +13,40 @@ import { RenderRadioGroup } from '../../../../../../components/render-radio-grou
 import { AdditionalFormContent } from './additional-form-content';
 import { FormStyled, ButtonStyled, FormDividerStyled } from './index.style';
 import { CircularProgressStyled } from '../../../../../../components/circular-progress/index.style';
+import { convertArgsToUrlParams } from '../../../../../../__data__/utils/convert-args-to-url-params';
+
+const InputAndRenderUserImg = (): JSX.Element => {
+    const inputRef = useRef<HTMLInputElement | null>(null);
+    const imgRef = useRef<HTMLImageElement>(null);
+
+    const previewFile = (): void => {
+        /* eslint-disable-next-line */
+        /* @ts-ignore */
+        const file = inputRef?.current?.files[0];
+        const reader = new FileReader();
+
+        reader.onloadend = (): void => {
+            if (imgRef && imgRef.current) {
+                /* eslint-disable-next-line */
+                /* @ts-ignore */
+                imgRef.current.src = reader.result;
+            }
+        };
+
+        if (file) {
+            reader.readAsDataURL(file);
+        } else if (imgRef && imgRef.current) {
+            imgRef.current.src = '';
+        }
+    };
+
+    return (
+        <>
+            <input type='file' ref={inputRef} onChange={previewFile} />
+            <img id='lolKekId' ref={imgRef} src={''} height='200' alt='Image preview...' />
+        </>
+    );
+};
 
 interface RegistrationFormComponentProps {
     handleSubmit?: (e: React.SyntheticEvent) => void
@@ -48,7 +82,7 @@ export const RegistrationFormComponent = ({
                     placeholder={t('reg-form-email')}
                     component={RenderTextField}
                 />
-                <Field
+                {/* <Field
                     name={'upload-image'}
                     accept='image/gif, image/jpeg, image/png'
                     type='file'
@@ -56,7 +90,10 @@ export const RegistrationFormComponent = ({
                         shrink: true,
                     }}
                     component={RenderTextField}
-                />
+                /> */}
+                <InputAndRenderUserImg />
+                {/* <input type='file' onChange={previewFile} /> */}
+                {/* <img id='lolKekId' src='' height='200' alt='Image preview...' /> */}
             </div>
             <div>
                 <Field
@@ -92,6 +129,8 @@ export const RegistrationFormComponent = ({
                 />
             </div>
             <FormDividerStyled>
+                {/* eslint-disable-next-line */}
+                {/* @ts-ignore */}
                 <AdditionalFormContent />
 
                 {status === LOADING
