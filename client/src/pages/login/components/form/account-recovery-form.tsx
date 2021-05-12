@@ -2,7 +2,6 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { useTranslation } from 'react-i18next';
 
-import { LOADING } from '../../../../__data__/constants';
 import { Status } from '../../../../__data__/types';
 
 import { RenderTextField } from '../../../../components/render-text-field';
@@ -10,6 +9,7 @@ import { CircularProgressStyled } from '../../../../components/circular-progress
 
 import { FormStyled } from '../../index.style';
 import { ButtonStyled } from './index.style';
+import { FetchError } from '../../../../components/popup-messages/fetch-error';
 
 interface RecoveryFormComponentProps {
     handleSubmit: (e: React.SyntheticEvent) => void,
@@ -22,6 +22,25 @@ export const RecoveryFormComponent = ({
 }: RecoveryFormComponentProps): JSX.Element => {
     const { t } = useTranslation();
 
+    const requestStatus = {
+        LOADING: <CircularProgressStyled />,
+        ERROR: (
+            <>
+                <FetchError />
+                <CircularProgressStyled />
+            </>
+        ),
+        SUCCESS: (
+            <ButtonStyled
+                type='submit'
+                variant='contained'
+                color='primary'
+            >
+                {t('auth-button')}
+            </ButtonStyled>
+        )
+    };
+
     return (
         <FormStyled onSubmit={handleSubmit}>
             <Field
@@ -33,16 +52,7 @@ export const RecoveryFormComponent = ({
                 placeholder={t('auth.email-placeholder')}
                 component={RenderTextField}
             />
-            {status === LOADING
-                ? <CircularProgressStyled />
-                : <ButtonStyled
-                    type='submit'
-                    variant='contained'
-                    color='primary'
-                >
-                    {t('auth-button')}
-                </ButtonStyled>
-            }
+            {requestStatus[status]}
         </FormStyled>
     );
 };

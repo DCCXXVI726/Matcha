@@ -49,5 +49,6 @@
     "footer-year": "© 2021 Matcha",
     "footer-title": "Github",
 
-    "internet-snackbar": "You're offline!"
+    "disconnect": "You're offline!",
+    "fetch-error": "Something went wrong. Try reloading the page"
 }

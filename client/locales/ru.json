@@ -49,5 +49,6 @@
     "footer-year": "© 2021 Matcha",
     "footer-title": "Github",
 
-    "internet-snackbar": "Вы не в сети!"
+    "disconnect": "Вы не в сети!",
+    "fetch-error": "Что-то пошло не так. Попробуйте перезагрузить страницу"
 }

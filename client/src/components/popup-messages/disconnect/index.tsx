@@ -1,13 +1,11 @@
 import React, { useCallback, useEffect, useState, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
-import IconButton from '@material-ui/core/IconButton';
-import CloseIcon from '@material-ui/icons/Close';
 
-import { ThemeWrapperContext } from '../theme';
+import { ThemeWrapperContext } from '../../theme';
 
-import { SnackbarStyled } from './index.style';
+import { Snackbar } from '../snackbar';
 
-export const InternetSnackbar = (): JSX.Element => {
+export const Disconnect = (): JSX.Element => {
     const { t } = useTranslation();
     const [theme,] = useContext(ThemeWrapperContext);
     const [open, setOpen] = React.useState(true);
@@ -37,25 +35,15 @@ export const InternetSnackbar = (): JSX.Element => {
     return (
         <>
             {isOffline ? (
-                < SnackbarStyled
-                    currentTheme={theme as string}
+                <Snackbar
+                    theme={theme as string}
+                    open={open}
+                    handleClose={handleClose}
+                    message={t('disconnect')}
                     anchorOrigin={{
                         vertical: 'bottom',
-                        horizontal: 'left',
+                        horizontal: 'left'
                     }}
-                    open={open}
-                    autoHideDuration={null}
-                    message={t('internet-snackbar')}
-                    action={
-                        <IconButton
-                            size='small'
-                            aria-label='close'
-                            color='inherit'
-                            onClick={handleClose}
-                        >
-                            <CloseIcon fontSize='small' />
-                        </IconButton>
-                    }
                 />
             ) : <></>}
         </>

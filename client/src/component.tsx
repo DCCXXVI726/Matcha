@@ -11,7 +11,7 @@ import { NotFound } from './pages/not-found';
 
 import { ThemeWrapper } from './components/theme';
 import { SessionContext, getSessionCookie } from './session';
-import { InternetSnackbar } from './components/internet-snackbar';
+import { Disconnect } from './components/popup-messages/disconnect';
 import { GlobalStyles } from './utils';
 
 export const store = createStore();
@@ -35,7 +35,7 @@ const MainContainer = (): JSX.Element => {
                         <Route path='*' component={NotFound} />
                     </Switch>
                 </Router>
-                <InternetSnackbar />
+                <Disconnect />
             </Provider>
         </SessionContext.Provider>
     );
