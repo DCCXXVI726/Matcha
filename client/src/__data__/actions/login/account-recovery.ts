@@ -26,7 +26,8 @@ export default (password: string) => {
                     type: types.ACCOUNT_RECOVERY_FETCH
                 });
             }
-        } catch {
+        } catch (error) {
+            console.warn(`An error has occured: ${error}`);
             dispatch({
                 type: types.ACCOUNT_RECOVERY_ERROR
             });
