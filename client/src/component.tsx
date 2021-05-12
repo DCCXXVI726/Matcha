@@ -12,7 +12,7 @@ import { NotFound } from './pages/not-found';
 import { ThemeWrapper } from './components/theme';
 import { SessionContext, getSessionCookie } from './session';
 import { InternetSnackbar } from './components/internet-snackbar';
-import { GlobalStyles } from './utils/global-styles';
+import { GlobalStyles } from './utils';
 
 export const store = createStore();
 

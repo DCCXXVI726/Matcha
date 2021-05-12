@@ -7,7 +7,7 @@ import { ThemeToggle } from '../theme-toggle';
 import { tinderIcon } from '../../assets/index';
 
 import { LangChooser } from '../lang-choose';
-import { asyncNoop } from '../../utils/noop';
+import { asyncNoop } from '../../utils';
 
 import {
     HeaderStyled,

@@ -1,10 +1,10 @@
 const DEFAULT_TIMEOUT = 7000;
 
-export default (
+export const fetchWithTimeout = (
     url: RequestInfo,
     options?: RequestInit | undefined,
     timeout = DEFAULT_TIMEOUT
-): Promise<unknown> => {
+): Response | Promise<unknown> => {
     return Promise.race([
         fetch(url, options),
         new Promise((_, reject) =>
