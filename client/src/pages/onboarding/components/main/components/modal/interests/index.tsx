@@ -12,8 +12,7 @@ import {
     AsideStyled,
     TypographyStyled
 } from '../rules/index.style';
-import { LOADING } from '../../../../../../../__data__/constants';
-import { CircularProgressStyled } from '../../../../../../../components/circular-progress/index.style';
+import { requestStatus } from '../../../../../../../components/request-status';
 
 interface ChipsModalProps {
     open: boolean
@@ -32,6 +31,14 @@ export const ChipsModal = ({
 }: ChipsModalProps): JSX.Element => {
     const { t } = useTranslation();
     const [theme,] = useContext(ThemeWrapperContext);
+
+    const chips = (
+        <Chips
+            count={count}
+            interests={interests}
+            handleClose={(): void => handleClose && handleClose()}
+        />
+    );
 
     return (
         <ChipsModalStyled
@@ -55,14 +62,7 @@ export const ChipsModal = ({
                     >
                         {t('reg-form-interests')}
                     </TypographyStyled>
-                    {status === LOADING
-                        ? <CircularProgressStyled />
-                        : <Chips
-                            count={count}
-                            interests={interests}
-                            handleClose={(): void => handleClose && handleClose()}
-                        />
-                    }
+                    {requestStatus(chips)[status]}
                 </AsideStyled>
             </Fade>
         </ChipsModalStyled>

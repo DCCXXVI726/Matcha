@@ -10,10 +10,9 @@ import {
     AsideStyled,
     TypographyStyled
 } from '../rules/index.style';
-import { LOADING } from '../../../../../../../__data__/constants';
-import { CircularProgressStyled } from '../../../../../../../components/circular-progress/index.style';
 
 import { List } from './menu';
+import { requestStatus } from '../../../../../../../components/request-status';
 
 interface OrientationModalProps {
     open: boolean
@@ -32,6 +31,14 @@ export const OrientationModal = ({
 }: OrientationModalProps): JSX.Element => {
     const { t } = useTranslation();
     const [theme,] = useContext(ThemeWrapperContext);
+
+    const list = (
+        <List
+            count={count}
+            orientations={orientations}
+            handleClose={(): void => handleClose && handleClose()}
+        />
+    );
 
     return (
         <OrientationModalStyled
@@ -55,14 +62,7 @@ export const OrientationModal = ({
                     >
                         {t('reg-form-sexual-orientation-my')}
                     </TypographyStyled>
-                    {status === LOADING
-                        ? <CircularProgressStyled />
-                        : <List
-                            count={count}
-                            orientations={orientations}
-                            handleClose={(): void => handleClose && handleClose()}
-                        />
-                    }
+                    {requestStatus(list)[status]}
                 </AsideStyled>
             </Fade>
         </OrientationModalStyled>

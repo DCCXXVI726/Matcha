@@ -13,9 +13,9 @@ export default (password: string) => {
         const url = new URL('http://localhost:3030/api/account-recovery');
         const params = convertArgsToUrlParams({ password });
         url.search = new URLSearchParams(params).toString();
-        // const response = await fetch(url.toString());
+
         try {
-            const response = await fetchWithTimeout(url.toString(), undefined, 2000) as Response;
+            const response = await fetchWithTimeout(url.toString()) as Response;
             if (!response.ok) {
                 console.warn(`An error has occured: ${response.status}`);
                 dispatch({

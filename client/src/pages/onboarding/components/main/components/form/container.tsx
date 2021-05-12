@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 
 import { FormControlLabel, Radio } from '@material-ui/core';
 
-import { LOADING } from '../../../../../../__data__/constants';
 import { Status } from '../../../../../../__data__/types';
 
 import { RenderTextField } from '../../../../../../components/render-text-field';
@@ -12,7 +11,7 @@ import { RenderRadioGroup } from '../../../../../../components/render-radio-grou
 
 import { AdditionalFormContent } from './additional-form-content';
 import { FormStyled, ButtonStyled, FormDividerStyled } from './index.style';
-import { CircularProgressStyled } from '../../../../../../components/circular-progress/index.style';
+import { requestStatus } from '../../../../../../components/request-status';
 
 interface RegistrationFormComponentProps {
     handleSubmit?: (e: React.SyntheticEvent) => void
@@ -26,6 +25,16 @@ export const RegistrationFormComponent = ({
     genders
 }: RegistrationFormComponentProps): JSX.Element => {
     const { t } = useTranslation();
+
+    const submitButton = (
+        <ButtonStyled
+            type='submit'
+            variant='contained'
+            color='primary'
+        >
+            {t('auth-button')}
+        </ButtonStyled>
+    );
 
     return (
         <FormStyled onSubmit={handleSubmit}>
@@ -93,17 +102,7 @@ export const RegistrationFormComponent = ({
             </div>
             <FormDividerStyled>
                 <AdditionalFormContent />
-
-                {status === LOADING
-                    ? <CircularProgressStyled />
-                    : <ButtonStyled
-                        type='submit'
-                        variant='contained'
-                        color='primary'
-                    >
-                        {t('continue')}
-                    </ButtonStyled>
-                }
+                {requestStatus(submitButton)[status]}
             </FormDividerStyled>
         </FormStyled>
     );

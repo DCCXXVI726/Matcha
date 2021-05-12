@@ -2,15 +2,14 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { useTranslation } from 'react-i18next';
 
-import { LOADING } from '../../../../__data__/constants';
 import { Status } from '../../../../__data__/types';
 
 import { RenderTextField } from '../../../../components/render-text-field';
-import { CircularProgressStyled } from '../../../../components/circular-progress/index.style';
 
 import { FormStyled } from '../../index.style';
 
 import { ButtonStyled } from './index.style';
+import { requestStatus } from '../../../../components/request-status';
 
 interface LoginFormComponentProps {
     handleSubmit: (e: React.SyntheticEvent) => void,
@@ -22,6 +21,16 @@ export const LoginFormComponent = ({
     status
 }: LoginFormComponentProps): JSX.Element => {
     const { t } = useTranslation();
+
+    const submitButton = (
+        <ButtonStyled
+            type='submit'
+            variant='contained'
+            color='primary'
+        >
+            {t('auth-button')}
+        </ButtonStyled>
+    );
 
     return (
         <FormStyled onSubmit={handleSubmit}>
@@ -42,16 +51,7 @@ export const LoginFormComponent = ({
                 placeholder={t('auth.password-placeholder')}
                 component={RenderTextField}
             />
-            {status === LOADING
-                ? <CircularProgressStyled />
-                : <ButtonStyled
-                    type='submit'
-                    variant='contained'
-                    color='primary'
-                >
-                    {t('auth-button')}
-                </ButtonStyled>
-            }
+            {requestStatus(submitButton)[status]}
         </FormStyled>
     );
 };

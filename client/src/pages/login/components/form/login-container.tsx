@@ -19,6 +19,8 @@ export const FormContainer = ({
     status,
     fethLogin
 }: FormContainerProps): JSX.Element => {
+    void(isLogin);
+    void(coockie);
     const handleSubmit = (e: React.SyntheticEvent): void => {
         e.preventDefault();
         fethLogin('email', 'password');
