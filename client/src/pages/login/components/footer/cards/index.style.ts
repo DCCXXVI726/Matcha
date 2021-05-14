@@ -5,8 +5,8 @@ import { Grid, Typography, Card } from '@material-ui/core';
 import { LIGHT, ThemeColors } from '../../../../../components/theme';
 
 export const GridStyled = styled(Grid)(({ theme, currentTheme }: StyledProps) => css`
-    min-width: 200px;
-    min-height: 280px;
+    min-height: 20rem;
+    min-width: 16rem;
     margin: 20px;
     padding: 10px;
 
