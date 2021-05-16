@@ -54,7 +54,6 @@ export const ChipsWrapperStyled = styled.div`
 `;
 
 export const ImageStyled = styled.img`
-    height: 10rem;
     margin: 2rem auto;
 
 `;

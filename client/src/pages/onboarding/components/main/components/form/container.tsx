@@ -13,6 +13,7 @@ import { RenderRadioGroup } from '../../../../../../components/redux-form-compon
 import { AdditionalFormContent } from './additional-form-content';
 import { FormStyled, ButtonStyled, FormDividerStyled, ImageStyled } from './index.style';
 import { RenderFileInput } from '../../../../../../components/redux-form-components/file-input';
+import { requestStatus } from '../../../../../../components/request-status';
 
 interface RegistrationFormComponentProps {
     handleSubmit?: (e: React.SyntheticEvent) => void
@@ -33,7 +34,8 @@ export const RegistrationFormComponent = ({
     useEffect(() => {
         // eslint-disable-next-line
         // @ts-ignore
-        imgRef.current.src = formUserAvatar;
+        imgRef.current.src = formUserAvatar || '';
+        imgRef.current.height = formUserAvatar ? 200 : 0;
     }, [formUserAvatar]);
 
     const submitButton = (
@@ -73,7 +75,7 @@ export const RegistrationFormComponent = ({
                     isRequired={true}
                     component={RenderFileInput}
                 />
-                <ImageStyled ref={imgRef} src={''} height='200' />
+                <ImageStyled ref={imgRef} src={''} alt='' />
             </div>
             <div>
                 <Field
