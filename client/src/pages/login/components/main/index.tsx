@@ -1,9 +1,9 @@
-import React, { useCallback, useState, useContext } from 'react';
+import React, { Suspense, useCallback, useState, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { ThemeWrapperContext } from '../../../../components/theme';
 
-import { Modal } from '../modal';
+const Modal = React.lazy(() => import(/* webpackChunkName: "login-main-modal" */ '../modal').then(module => ({ default: module.Modal })));
 
 import { ButtonWrapper, HeadlineStyled } from '../../index.style';
 
@@ -40,11 +40,13 @@ export const Main = (): JSX.Element => {
                         >
                             {t('create-account')}
                         </ButtonWrapper>
-                        <Modal
-                            title={t('create-account')}
-                            open={open}
-                            handleClose={handleClose}
-                        />
+                        <Suspense fallback='<div>...</div>'>
+                            <Modal
+                                title={t('create-account')}
+                                open={open}
+                                handleClose={handleClose}
+                            />
+                        </Suspense>
                     </AsideStyled>
                 </LoginSectionStyled>
             </MainStyled>

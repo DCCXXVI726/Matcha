@@ -15,6 +15,8 @@ import { FormStyled, ButtonStyled, FormDividerStyled, ImageStyled } from './inde
 import { RenderFileInput } from '../../../../../../components/redux-form-components/file-input';
 import { requestStatus } from '../../../../../../components/request-status';
 
+const IMAGE_HEIGHT = 200;
+
 interface RegistrationFormComponentProps {
     handleSubmit?: (e: React.SyntheticEvent) => void
     formUserAvatar: string
@@ -35,7 +37,9 @@ export const RegistrationFormComponent = ({
         // eslint-disable-next-line
         // @ts-ignore
         imgRef.current.src = formUserAvatar || '';
-        imgRef.current.height = formUserAvatar ? 200 : 0;
+        // eslint-disable-next-line
+        // @ts-ignore
+        imgRef.current.height = formUserAvatar ? IMAGE_HEIGHT : 0;
     }, [formUserAvatar]);
 
     const submitButton = (

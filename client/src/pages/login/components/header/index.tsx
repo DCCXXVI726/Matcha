@@ -10,7 +10,8 @@ import { tinderIcon } from '../../../../assets/index';
 
 import { LangChooser } from '../../../../components/lang-choose';
 
-import { Modal } from '../modal';
+const Modal = React.lazy(() => import(/* webpackChunkName: "login-header-modal" */ '../modal').then(module => ({ default: module.Modal })));
+// import { Modal } from '../modal';
 
 import {
     HeaderStyled,

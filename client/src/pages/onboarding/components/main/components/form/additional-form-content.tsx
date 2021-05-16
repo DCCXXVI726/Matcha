@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Suspense, useState } from 'react';
 import { connect } from 'react-redux';
 import { formValueSelector } from 'redux-form';
 import { useTranslation } from 'react-i18next';
@@ -13,8 +13,8 @@ import {
 } from '../../../../../../__data__/types';
 import { selectors } from '../../../../../../__data__';
 
-import { ChipsModal } from '../modal/interests';
-import { OrientationModal } from '../modal/orientation';
+const ChipsModal = React.lazy(() => import(/* webpackChunkName: "chips-modal" */ '../modal/interests').then(module => ({ default: module.ChipsModal })));
+const OrientationModal = React.lazy(() => import(/* webpackChunkName: "orientation-modal" */ '../modal/orientation').then(module => ({ default: module.OrientationModal })));
 
 import { SplitterStyled } from './index.style';
 import { RenderChips } from '../utils/render-chips';
@@ -78,13 +78,15 @@ const AdditionalFormContentComponent = ({
                 <RenderChips
                     selectedItems={selectedInterests}
                 />
-                <ChipsModal
-                    open={openInterests}
-                    count={selectedInterests?.length || 0}
-                    status={statusInterests}
-                    interests={interests}
-                    handleClose={handleInterestsClose}
-                />
+                <Suspense fallback='...'>
+                    <ChipsModal
+                        open={openInterests}
+                        count={selectedInterests?.length || 0}
+                        status={statusInterests}
+                        interests={interests}
+                        handleClose={handleInterestsClose}
+                    />
+                </Suspense>
             </SplitterStyled>
             <SplitterStyled>
                 <Typography>
@@ -101,13 +103,15 @@ const AdditionalFormContentComponent = ({
                 <RenderChips
                     selectedItems={selectedOrientations}
                 />
-                <OrientationModal
-                    open={openOrientation}
-                    count={selectedOrientations?.length || 0}
-                    status={statusOrientations}
-                    orientations={orientations}
-                    handleClose={handleOrientationClose}
-                />
+                <Suspense fallback='...'>
+                    <OrientationModal
+                        open={openOrientation}
+                        count={selectedOrientations?.length || 0}
+                        status={statusOrientations}
+                        orientations={orientations}
+                        handleClose={handleOrientationClose}
+                    />
+                </Suspense>
             </SplitterStyled>
         </>
     );
