@@ -13,7 +13,6 @@ import { RenderRadioGroup } from '../../../../../../components/render-radio-grou
 import { AdditionalFormContent } from './additional-form-content';
 import { FormStyled, ButtonStyled, FormDividerStyled } from './index.style';
 import { CircularProgressStyled } from '../../../../../../components/circular-progress/index.style';
-import { convertArgsToUrlParams } from '../../../../../../__data__/utils/convert-args-to-url-params';
 
 const InputAndRenderUserImg = (): JSX.Element => {
     const inputRef = useRef<HTMLInputElement | null>(null);
@@ -42,7 +41,7 @@ const InputAndRenderUserImg = (): JSX.Element => {
 
     return (
         <>
-            <input type='file' ref={inputRef} onChange={previewFile} />
+            <input type='file' ref={inputRef} onChange={previewFile} accept='image/*' />
             <img id='lolKekId' ref={imgRef} src={''} height='200' alt='Image preview...' />
         </>
     );
