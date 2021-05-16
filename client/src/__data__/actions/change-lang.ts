@@ -1,4 +1,5 @@
 import { Dispatch } from 'redux';
+
 import * as types from '../action-types';
 
 export const changeLang = (lang: string) => {

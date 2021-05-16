@@ -13,6 +13,7 @@ interface RegistrationFormContainerProps {
     fetchGenders: (lang: string) => Promise<void>
     fetchInterests: (lang: string) => Promise<void>
     fetchOrientations: (lang: string) => Promise<void>
+    getLocation: () => Promise<void>
     accountCreate: () => void
 }
 
@@ -22,6 +23,7 @@ export const RegistrationFormContainer = ({
     fetchGenders,
     fetchInterests,
     fetchOrientations,
+    getLocation,
     accountCreate
 }: RegistrationFormContainerProps): JSX.Element => {
 
@@ -29,7 +31,8 @@ export const RegistrationFormContainer = ({
         fetchGenders(i18next.language);
         fetchInterests(i18next.language);
         fetchOrientations(i18next.language);
-    }, [fetchGenders, fetchInterests, fetchOrientations]);
+        getLocation();
+    }, [fetchGenders, fetchInterests, fetchOrientations, getLocation]);
 
     const handleSubmit = (e: React.SyntheticEvent): void => {
         e.preventDefault();
@@ -65,6 +68,10 @@ const mapDispatchToProps = (dispatch: any) => ({
 
     fetchOrientations: (lang: string): Promise<void> => {
         return dispatch(actions.regPage.fetchOrientations(lang));
+    },
+
+    getLocation: (): Promise<void> => {
+        return dispatch(actions.regPage.getLocation());
     },
 
     accountCreate: (): Promise<void> => { // TODO: change to own request

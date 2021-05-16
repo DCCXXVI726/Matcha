@@ -36,7 +36,7 @@ const MainComponent = ({
 /* eslint-disable-next-line */
 const mapDispatchToProps = (dispatch: any) => ({
     fetchMultiLangContent: (lang: string): Promise<void> => {
-        return dispatch(actions.fetchGenders(lang));
+        return dispatch(actions.regPage.fetchGenders(lang));
     }
 });
 

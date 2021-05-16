@@ -7,6 +7,15 @@ export type KeyValue = {
     [key: string]: string
 }
 
+export interface UserLocation {
+    lat: number
+    lon: number
+    center: {
+        lat: number
+        lon: number
+    }
+}
+
 export interface Lang {
     current: 'ru' | 'en'
 }
@@ -50,6 +59,7 @@ export interface RegPage {
     genders: Genders
     interests: KeyValueStructure
     orientations: KeyValueStructure
+    location: UserLocation
 }
 
 export interface State {

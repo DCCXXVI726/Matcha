@@ -17,18 +17,29 @@ import orientations, {
     initialState as orientationsInitialState
 } from './orientations';
 
+import location, {
+    Action as UserLocationAction,
+    initialState as UserLocationInitialState
+} from './location';
+
 const reducers = combineReducers({
     genders,
     interests,
-    orientations
+    orientations,
+    location
 });
 
-type Action = GendersAction | InterestsAction | OrientationsAction
+type Action =
+    GendersAction |
+    InterestsAction |
+    OrientationsAction |
+    UserLocationAction
 
 const initialState: RegPage = {
     genders: gendersInitialState,
     interests: interestsInitialState,
-    orientations: orientationsInitialState
+    orientations: orientationsInitialState,
+    location: UserLocationInitialState
 };
 
 export default (state = initialState, action: Action): RegPage => {
