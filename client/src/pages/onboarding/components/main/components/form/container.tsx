@@ -1,30 +1,40 @@
-import React from 'react';
-import { Field, reduxForm } from 'redux-form';
+import React, { useEffect, useRef } from 'react';
+import { connect } from 'react-redux';
+import { Field, reduxForm, formValueSelector } from 'redux-form';
 import { useTranslation } from 'react-i18next';
 
 import { FormControlLabel, Radio } from '@material-ui/core';
 
-import { Status } from '../../../../../../__data__/types';
+import { State, Status } from '../../../../../../__data__/types';
 
-import { RenderTextField } from '../../../../../../components/render-text-field';
-import { RenderRadioGroup } from '../../../../../../components/render-radio-group';
+import { RenderTextField } from '../../../../../../components/redux-form-components/text-field';
+import { RenderRadioGroup } from '../../../../../../components/redux-form-components/radio-group';
 
 import { AdditionalFormContent } from './additional-form-content';
-import { FormStyled, ButtonStyled, FormDividerStyled } from './index.style';
-import { requestStatus } from '../../../../../../components/request-status';
+import { FormStyled, ButtonStyled, FormDividerStyled, ImageStyled } from './index.style';
+import { RenderFileInput } from '../../../../../../components/redux-form-components/file-input';
 
 interface RegistrationFormComponentProps {
     handleSubmit?: (e: React.SyntheticEvent) => void
+    formUserAvatar: string
     status: Status
     genders: string[]
 }
 
 export const RegistrationFormComponent = ({
     handleSubmit,
+    formUserAvatar,
     status,
     genders
 }: RegistrationFormComponentProps): JSX.Element => {
     const { t } = useTranslation();
+    const imgRef = useRef<HTMLImageElement>(null);
+
+    useEffect(() => {
+        // eslint-disable-next-line
+        // @ts-ignore
+        imgRef.current.src = formUserAvatar;
+    }, [formUserAvatar]);
 
     const submitButton = (
         <ButtonStyled
@@ -58,14 +68,12 @@ export const RegistrationFormComponent = ({
                     component={RenderTextField}
                 />
                 <Field
-                    name={'upload-image'}
-                    accept='image/gif, image/jpeg, image/png'
+                    name='user-avatar'
                     type='file'
-                    InputLabelProps={{
-                        shrink: true,
-                    }}
-                    component={RenderTextField}
+                    isRequired={true}
+                    component={RenderFileInput}
                 />
+                <ImageStyled ref={imgRef} src={''} height='200' />
             </div>
             <div>
                 <Field
@@ -101,6 +109,8 @@ export const RegistrationFormComponent = ({
                 />
             </div>
             <FormDividerStyled>
+                {/* eslint-disable-next-line */}
+                {/* @ts-ignore */}
                 <AdditionalFormContent />
                 {requestStatus(submitButton)[status]}
             </FormDividerStyled>
@@ -108,6 +118,14 @@ export const RegistrationFormComponent = ({
     );
 };
 
-export const RegistrationForm = reduxForm<null, RegistrationFormComponentProps>({
+const mapStateToProps = (state: State): {
+    formUserAvatar: string
+} => ({
+    formUserAvatar: formValueSelector('registration')(state, 'user-avatar')
+});
+
+const RegistrationFormContainer = reduxForm<null, RegistrationFormComponentProps>({
     form: 'registration',
 })(RegistrationFormComponent);
+
+export const RegistrationForm = connect(mapStateToProps, null)(RegistrationFormContainer);

@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Status } from '../../../../__data__/types';
 
-import { RenderTextField } from '../../../../components/render-text-field';
+import { RenderTextField } from '../../../../components/redux-form-components/text-field';
 
 import { FormStyled } from '../../index.style';
 import { ButtonStyled } from './index.style';
