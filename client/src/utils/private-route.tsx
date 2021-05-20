@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import { Route, Redirect } from 'react-router';
+import { Route, RouteProps, Redirect } from 'react-router';
 
 import { SessionContext } from '../session';
 
-export const PrivateRoute = ({ ...rest }): JSX.Element => {
+export const PrivateRoute = ({ ...rest }: RouteProps): JSX.Element => {
     const session = useContext(SessionContext);
 
     return (
