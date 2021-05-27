@@ -6,6 +6,8 @@ import (
 	"github.com/sleonia/Matcha/internal/app/store"
 	"github.com/gorilla/mux"
 	"github.com/sirupsen/logrus"
+	"github.com/prometheus/client_golang/prometheus"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"net/http"
 	"encoding/json"
 	"errors"
@@ -53,12 +55,44 @@ func (s *server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 }
 
 func (s *server) configureRouter() {
+
+	usersRegistered := prometheus.NewCounter(
+    prometheus.CounterOpts{
+      Name: "users_registered",
+    })
+
+	prometheus.MustRegister(usersRegistered)
+
+	RequestsTotalCounter := prometheus.NewCounterVec(
+    	prometheus.CounterOpts{
+        	Name: "requests_total",
+			Help: "HTTP Failures",
+    	},
+    	[]string{"method", "endpoint"},
+	)
+
+	prometheus.MustRegister(RequestsTotalCounter)
+
+	go func() {
+    	for {
+      		usersRegistered.Inc()
+      		time.Sleep(1000 * time.Millisecond)
+ 		}
+	}()
+
+	RequestsTotalCounter.With(
+    	prometheus.Labels{
+        	"method": "GET",
+        	"endpoint": "private/whoami",
+    	},
+	).Inc()
+
 	s.router.Use(s.setRequestID)
 	s.router.Use(s.logRequest)
 	s.router.Use(handlers.CORS(handlers.AllowedOrigins([]string{"*"})))
 	s.router.HandleFunc("/users", s.handleUsersCreate()).Methods("POST")
 	s.router.HandleFunc("/sessions", s.handleSessionsCreate()).Methods("POST")
-
+	s.router.Handle("/metrics", promhttp.Handler())
 	private := s.router.PathPrefix("/private").Subrouter()
 	private.Use(s.authenticateUser)
 	private.HandleFunc("/whoami",s.handleWhoami()).Methods("GET")
