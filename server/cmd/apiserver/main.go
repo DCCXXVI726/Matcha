@@ -1,9 +1,10 @@
 package main
 
 import (
-	"github.com/BurntSushi/toml"
 	"flag"
 	"log"
+
+	"github.com/BurntSushi/toml"
 	"github.com/sleonia/Matcha/internal/app/apiserver"
 )
 

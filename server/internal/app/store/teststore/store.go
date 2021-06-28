@@ -1,10 +1,9 @@
 package teststore
 
-import(
-	"github.com/sleonia/Matcha/internal/app/store"
+import (
 	"github.com/sleonia/Matcha/internal/app/model"
+	"github.com/sleonia/Matcha/internal/app/store"
 )
-
 
 type Store struct {
 	userRepository *UserRepository

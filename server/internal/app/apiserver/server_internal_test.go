@@ -1,18 +1,19 @@
 package apiserver
 
 import (
+	"bytes"
+	"encoding/json"
 	"fmt"
-	"github.com/gorilla/securecookie"
 	"net/http"
 	"net/http/httptest"
 	"testing"
-	"bytes"
-	"encoding/json"
+
+	"github.com/gorilla/securecookie"
 
 	"github.com/gorilla/sessions"
-	"github.com/stretchr/testify/assert"
 	"github.com/sleonia/Matcha/internal/app/model"
 	"github.com/sleonia/Matcha/internal/app/store/teststore"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestServe_AuthenticateUser(t *testing.T) {
@@ -20,8 +21,8 @@ func TestServe_AuthenticateUser(t *testing.T) {
 	u := model.TestUser(t)
 	store.User().Create(u)
 	testCases := []struct {
-		name string
-		cookieValue map[interface{}]interface{}
+		name         string
+		cookieValue  map[interface{}]interface{}
 		expectedCode int
 	}{
 		{
@@ -32,24 +33,24 @@ func TestServe_AuthenticateUser(t *testing.T) {
 			expectedCode: http.StatusOK,
 		},
 		{
-			name: "not authenticated",
-			cookieValue: nil,
+			name:         "not authenticated",
+			cookieValue:  nil,
 			expectedCode: http.StatusUnauthorized,
 		},
 	}
 	secretKey := []byte("secret")
 	s := newServer(store, sessions.NewCookieStore(secretKey))
 	sc := securecookie.New(secretKey, nil)
-	handler := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request){
+	handler := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
 	})
 	for _, tc := range testCases {
-		t.Run(tc.name, func(t *testing.T){
+		t.Run(tc.name, func(t *testing.T) {
 			rec := httptest.NewRecorder()
 			req, _ := http.NewRequest(http.MethodGet, "/", nil)
 			cookieStr, _ := sc.Encode(sessionName, tc.cookieValue)
-			req.Header.Set("Cookie", fmt.Sprintf("%s=%s",sessionName,cookieStr))
-			s.authenticateUser(handler).ServeHTTP(rec,req)
+			req.Header.Set("Cookie", fmt.Sprintf("%s=%s", sessionName, cookieStr))
+			s.authenticateUser(handler).ServeHTTP(rec, req)
 			assert.Equal(t, tc.expectedCode, rec.Code)
 		})
 	}
@@ -58,21 +59,21 @@ func TestServe_AuthenticateUser(t *testing.T) {
 func TestServer_HandleUsersCreate(t *testing.T) {
 	s := newServer(teststore.New(), sessions.NewCookieStore([]byte("secret")))
 	testCases := []struct {
-		name string
-		payload interface{}
+		name         string
+		payload      interface{}
 		expectedCode int
 	}{
 		{
 			name: "valid",
 			payload: map[string]string{
-				"email": "user@example2.org",
+				"email":    "user@example2.org",
 				"password": "password",
 			},
 			expectedCode: http.StatusCreated,
 		},
 		{
-			name: "invalid payload",
-			payload: "invalid",
+			name:         "invalid payload",
+			payload:      "invalid",
 			expectedCode: http.StatusBadRequest,
 		},
 		{
@@ -102,27 +103,27 @@ func TestServer_HandleSessionCreate(t *testing.T) {
 	store.User().Create(u)
 	s := newServer(store, sessions.NewCookieStore([]byte("secret")))
 	testCases := []struct {
-		name	string
-		payload	interface{}
+		name         string
+		payload      interface{}
 		expectedCode int
 	}{
 		{
 			name: "valid",
 			payload: map[string]string{
-				"email":	u.Email,
+				"email":    u.Email,
 				"password": u.Password,
 			},
 			expectedCode: http.StatusOK,
 		},
 		{
-			name: "invalid payload",
-			payload: "invalid",
+			name:         "invalid payload",
+			payload:      "invalid",
 			expectedCode: http.StatusBadRequest,
 		},
 		{
 			name: "invalid email",
 			payload: map[string]string{
-				"email":	"invalid",
+				"email":    "invalid",
 				"password": u.Password,
 			},
 			expectedCode: http.StatusUnauthorized,
@@ -130,7 +131,7 @@ func TestServer_HandleSessionCreate(t *testing.T) {
 		{
 			name: "invalid password",
 			payload: map[string]string{
-				"email":	u.Email,
+				"email":    u.Email,
 				"password": "invalid",
 			},
 			expectedCode: http.StatusUnauthorized,

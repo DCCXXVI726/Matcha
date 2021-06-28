@@ -7,17 +7,17 @@ import (
 )
 
 type User struct {
-	ID	int `json:"id"`
-	Email	string `json:"email"`
-	Password	string `json:"password,omitempty"`
-	EncryptedPassword	string `json:"-"`
+	ID                int    `json:"id"`
+	Email             string `json:"email"`
+	Password          string `json:"password,omitempty"`
+	EncryptedPassword string `json:"-"`
 }
 
 func (u *User) Validate() error {
 	return validation.ValidateStruct(
 		u,
 		validation.Field(&u.Email, validation.Required, is.Email),
-		validation.Field(&u.Password, validation.By(requiredIf(u.EncryptedPassword == "")), validation.Length(6,100)),
+		validation.Field(&u.Password, validation.By(requiredIf(u.EncryptedPassword == "")), validation.Length(6, 100)),
 	)
 }
 

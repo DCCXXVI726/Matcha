@@ -1,14 +1,14 @@
 package sqlstore
 
-import(
-	"github.com/sleonia/Matcha/internal/app/store"
+import (
 	"database/sql"
+
 	_ "github.com/lib/pq"
+	"github.com/sleonia/Matcha/internal/app/store"
 )
 
-
 type Store struct {
-	db	*sql.DB
+	db             *sql.DB
 	userRepository *UserRepository
 }
 

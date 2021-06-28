@@ -1,8 +1,8 @@
 package sqlstore_test
 
 import (
-	"testing"
 	"os"
+	"testing"
 )
 
 var (

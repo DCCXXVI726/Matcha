@@ -1,10 +1,12 @@
 package sqlstore
 
 import (
+	"database/sql"
+
 	"github.com/sleonia/Matcha/internal/app/model"
 	"github.com/sleonia/Matcha/internal/app/store"
-	"database/sql"
 )
+
 type UserRepository struct {
 	store *Store
 }
@@ -12,10 +14,10 @@ type UserRepository struct {
 func (r *UserRepository) Create(u *model.User) error {
 
 	if err := u.Validate(); err != nil {
-		return  err
+		return err
 	}
 	if err := u.BeforeCreate(); err != nil {
-		return  err
+		return err
 	}
 	return r.store.db.QueryRow(
 		"INSERT INTO users (email, encrypted_password) VALUES ($1, $2) RETURNING id",

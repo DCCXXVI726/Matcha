@@ -1,3 +1,5 @@
 FROM node:14.15-alpine3.12 AS node_builder
 COPY ./client ./
 RUN npm install && npm run build
+EXPOSE 3030
+CMD ["npm", "start"]

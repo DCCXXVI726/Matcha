@@ -2,46 +2,47 @@ package apiserver
 
 import (
 	"context"
-	"github.com/sleonia/Matcha/internal/app/model"
-	"github.com/sleonia/Matcha/internal/app/store"
-	"github.com/gorilla/mux"
-	"github.com/sirupsen/logrus"
-	"github.com/prometheus/client_golang/prometheus"
-	"github.com/prometheus/client_golang/prometheus/promhttp"
-	"net/http"
 	"encoding/json"
 	"errors"
-	"github.com/gorilla/sessions"
-	"github.com/gorilla/handlers"
-	"github.com/google/uuid"
+	"net/http"
 	"time"
+
+	"github.com/google/uuid"
+	"github.com/gorilla/handlers"
+	"github.com/gorilla/mux"
+	"github.com/gorilla/sessions"
+	"github.com/prometheus/client_golang/prometheus"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
+	"github.com/sirupsen/logrus"
+	"github.com/sleonia/Matcha/internal/app/model"
+	"github.com/sleonia/Matcha/internal/app/store"
 )
 
 var (
 	errIncorrectEmailOrPassword = errors.New("incorrect email or password")
-	errNotAuthenticated = errors.New("not authenticated")
+	errNotAuthenticated         = errors.New("not authenticated")
 )
 
 type ctxKey int8
 
 const (
-	sessionName = "keksion"
-	ctxKeyUser ctxKey = iota
+	sessionName        = "keksion"
+	ctxKeyUser  ctxKey = iota
 	ctxkeyRequestID
 )
 
 type server struct {
-	router	*mux.Router
-	logger	*logrus.Logger
-	store	store.Store
+	router       *mux.Router
+	logger       *logrus.Logger
+	store        store.Store
 	sessionStore sessions.Store
 }
 
 func newServer(store store.Store, sessionStore sessions.Store) *server {
-	s := &server {
-		router: mux.NewRouter(),
-		logger:	logrus.New(),
-		store: store,
+	s := &server{
+		router:       mux.NewRouter(),
+		logger:       logrus.New(),
+		store:        store,
 		sessionStore: sessionStore,
 	}
 
@@ -57,34 +58,34 @@ func (s *server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 func (s *server) configureRouter() {
 
 	usersRegistered := prometheus.NewCounter(
-    prometheus.CounterOpts{
-      Name: "users_registered",
-    })
+		prometheus.CounterOpts{
+			Name: "users_registered",
+		})
 
 	prometheus.MustRegister(usersRegistered)
 
 	RequestsTotalCounter := prometheus.NewCounterVec(
-    	prometheus.CounterOpts{
-        	Name: "requests_total",
+		prometheus.CounterOpts{
+			Name: "requests_total",
 			Help: "HTTP Failures",
-    	},
-    	[]string{"method", "endpoint"},
+		},
+		[]string{"method", "endpoint"},
 	)
 
 	prometheus.MustRegister(RequestsTotalCounter)
 
 	go func() {
-    	for {
-      		usersRegistered.Inc()
-      		time.Sleep(1000 * time.Millisecond)
- 		}
+		for {
+			usersRegistered.Inc()
+			time.Sleep(1000 * time.Millisecond)
+		}
 	}()
 
 	RequestsTotalCounter.With(
-    	prometheus.Labels{
-        	"method": "GET",
-        	"endpoint": "private/whoami",
-    	},
+		prometheus.Labels{
+			"method":   "GET",
+			"endpoint": "private/whoami",
+		},
 	).Inc()
 
 	s.router.Use(s.setRequestID)
@@ -95,12 +96,11 @@ func (s *server) configureRouter() {
 	s.router.Handle("/metrics", promhttp.Handler())
 	private := s.router.PathPrefix("/private").Subrouter()
 	private.Use(s.authenticateUser)
-	private.HandleFunc("/whoami",s.handleWhoami()).Methods("GET")
+	private.HandleFunc("/whoami", s.handleWhoami()).Methods("GET")
 }
 
-
 func (s *server) setRequestID(next http.Handler) http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request){
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		id := uuid.New().String()
 		w.Header().Set("X-Request-ID", id)
 		next.ServeHTTP(w, r.WithContext(context.WithValue(r.Context(), ctxkeyRequestID, id)))
@@ -108,10 +108,10 @@ func (s *server) setRequestID(next http.Handler) http.Handler {
 }
 
 func (s *server) logRequest(next http.Handler) http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request){
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		logger := s.logger.WithFields(logrus.Fields{
 			"remote_addr": r.RemoteAddr,
-			"request_id": r.Context().Value(ctxkeyRequestID),
+			"request_id":  r.Context().Value(ctxkeyRequestID),
 		})
 		logger.Infof("started %s %s", r.Method, r.RequestURI)
 
@@ -123,12 +123,12 @@ func (s *server) logRequest(next http.Handler) http.Handler {
 			rw.code,
 			http.StatusText(rw.code),
 			time.Now().Sub(start),
-			)
+		)
 	})
 }
 
 func (s *server) authenticateUser(next http.Handler) http.Handler {
-	return http.HandlerFunc(func (w http.ResponseWriter, r *http.Request) {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		session, err := s.sessionStore.Get(r, sessionName)
 		if err != nil {
 			s.error(w, r, http.StatusInternalServerError, err)
@@ -151,15 +151,15 @@ func (s *server) authenticateUser(next http.Handler) http.Handler {
 	})
 }
 
-func (s *server) handleWhoami() http.HandlerFunc{
+func (s *server) handleWhoami() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		s.respond(w, r, http.StatusOK, r.Context().Value(ctxKeyUser).(*model.User))
 	}
 }
 
-func (s * server) handleUsersCreate() http.HandlerFunc {
-	type request struct  {
-		Email string `json:"email"`
+func (s *server) handleUsersCreate() http.HandlerFunc {
+	type request struct {
+		Email    string `json:"email"`
 		Password string `json:"password"`
 	}
 	return func(w http.ResponseWriter, r *http.Request) {
@@ -170,7 +170,7 @@ func (s * server) handleUsersCreate() http.HandlerFunc {
 		}
 
 		u := &model.User{
-			Email: req.Email,
+			Email:    req.Email,
 			Password: req.Password,
 		}
 
@@ -186,8 +186,8 @@ func (s * server) handleUsersCreate() http.HandlerFunc {
 
 func (s *server) handleSessionsCreate() http.HandlerFunc {
 	type request struct {
-		Email	string `json:"email"`
-		Password	string `json:"password"`
+		Email    string `json:"email"`
+		Password string `json:"password"`
 	}
 
 	return func(w http.ResponseWriter, r *http.Request) {

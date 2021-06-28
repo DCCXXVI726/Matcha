@@ -3,14 +3,14 @@ package teststore
 import (
 	"github.com/sleonia/Matcha/internal/app/model"
 	"github.com/sleonia/Matcha/internal/app/store"
-	)
+)
 
 type UserRepository struct {
 	store *Store
 	users map[int]*model.User
 }
 
-func (r *UserRepository)  Create(u *model.User) error {
+func (r *UserRepository) Create(u *model.User) error {
 	if err := u.Validate(); err != nil {
 		return err
 	}
@@ -18,7 +18,6 @@ func (r *UserRepository)  Create(u *model.User) error {
 	if err := u.BeforeCreate(); err != nil {
 		return err
 	}
-
 
 	u.ID = len(r.users)
 	r.users[u.ID] = u

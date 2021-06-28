@@ -1,11 +1,13 @@
 package apiserver
 
 import (
-	"net/http"
 	"database/sql"
+	"net/http"
+
 	"github.com/gorilla/sessions"
 	"github.com/sleonia/Matcha/internal/app/store/sqlstore"
 )
+
 func Start(config *Config) error {
 	db, err := newDB(config.DatabaseURL)
 	if err != nil {

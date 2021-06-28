@@ -7,11 +7,10 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-
 func TestUser_validate(t *testing.T) {
-	testCases := []struct{
-		name string
-		u	func() *model.User
+	testCases := []struct {
+		name    string
+		u       func() *model.User
 		isValid bool
 	}{
 		{
@@ -70,7 +69,7 @@ func TestUser_validate(t *testing.T) {
 	}
 
 	for _, tc := range testCases {
-		t.Run(tc.name, func(t * testing.T) {
+		t.Run(tc.name, func(t *testing.T) {
 			if tc.isValid {
 				assert.NoError(t, tc.u().Validate())
 			} else {
@@ -80,7 +79,7 @@ func TestUser_validate(t *testing.T) {
 	}
 }
 
-func TestUser_BeforeCreate(t * testing.T) {
+func TestUser_BeforeCreate(t *testing.T) {
 	u := model.TestUser(t)
 	assert.NoError(t, u.BeforeCreate())
 	assert.NotEmpty(t, u.EncryptedPassword)
