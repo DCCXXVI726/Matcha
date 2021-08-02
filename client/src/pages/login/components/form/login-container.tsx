@@ -23,13 +23,9 @@ import Cookies from 'js-cookie';
 export const FormContainer = ({
     email = '',
     password = '',
-    coockie,
     status,
     fethLogin
 }: FormContainerProps): JSX.Element => {
-    // const session = useContext(SessionContext);
-    // void (isLogin);
-    // void (coockie);
     const handleSubmit = (e: React.SyntheticEvent): void => {
         e.preventDefault();
         // fethLogin('linuxize@example.com', '1asfasf23456789');
@@ -60,6 +56,7 @@ const mapStateToProps = (state: State): {
     status: selectors.loginPage.user.status(state)
 });
 
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 const mapDispatchToProps = (dispatch) => ({
     fethLogin: (email: string, password: string): Promise<void> => {
         return dispatch(actions.loginPage.fetchLogin(email, password));
