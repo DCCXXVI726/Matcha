@@ -35,7 +35,7 @@ app.post('/sessions', (req, res) => {
             console.log(response.headers['set-cookie']);
             return res.json(response.headers['set-cookie']);
         })
-        .catch(e => console.error(e));
+        // .catch(e => console.error(e));
 });
 
 app.get('/api/feedbacks', (req, res: Response) => {

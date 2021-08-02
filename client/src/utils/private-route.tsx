@@ -7,7 +7,7 @@ export const PrivateRoute = ({ ...rest }: RouteProps): JSX.Element => {
     const session = useContext(SessionContext);
 
     return (
-        session.email
+        session
             ? <Route {...rest} />
             : <Redirect to={{ pathname: '/login' }} />
     );

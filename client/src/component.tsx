@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import { Router, Switch, Route } from 'react-router';
 import { createBrowserHistory } from 'history';
 
+import { PrivateRoute } from './utils';
 import { createStore } from './__data__';
 
 const Login = React.lazy(() => import(/* webpackChunkName: "pages: login" */ './pages/login').then(module => ({ default: module.Login })));
@@ -17,22 +18,27 @@ import { GlobalStyles } from './utils';
 export const store = createStore();
 
 export const history = createBrowserHistory();
-
+import Cookies from 'js-cookie';
 const MainContainer = (): JSX.Element => {
     const [session, setSession] = useState(getSessionCookie());
+    window.kek = Cookies;
+    // console.log(session)
 
     useEffect(() => {
-        setSession(getSessionCookie());
-    }, [session]);
+        // console.log(session)
+        // setSession(getSessionCookie());
+        // console.log(session)
+    }, []);
 
     return (
         <SessionContext.Provider value={session}>
             <Provider store={store}>
-                <Suspense fallback='<div>...</div>'>
+                <Suspense fallback={<></>}>
                     <Router history={history}>
                         <Switch>
                             <Route path='/login' component={Login} />
                             <Route path='/onboarding' component={OnBoarding} />
+                            <PrivateRoute path='/main' component={() => <div>lox</div>} />
                             <Route path='*' component={NotFound} />
                         </Switch>
                     </Router>

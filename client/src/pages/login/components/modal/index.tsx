@@ -20,14 +20,12 @@ import { SectionStyled, LogoWrapperStyled } from './index.style';
 const TIMEOUT = 400;
 
 interface ModalProps {
-    isLogin?: boolean
     title: string
     open: boolean
     handleClose: () => void
 }
 
 export const Modal = ({
-    isLogin = false,
     title,
     open,
     handleClose
@@ -73,7 +71,6 @@ export const Modal = ({
                                 {title}
                             </TypographyStyled>
                             <DefaulModal
-                                isLogin={isLogin}
                                 handleRecoveryOpen={handleRecoveryOpen}
                             />
                         </>)}

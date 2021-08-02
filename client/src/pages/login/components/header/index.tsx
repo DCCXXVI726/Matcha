@@ -68,7 +68,6 @@ const HeaderComponent = ({
                     {t('auth-button')}
                 </ButtonLoginWrapper>
                 <Modal
-                    isLogin
                     title={t('login.begin')}
                     open={open}
                     handleClose={handleClose}

@@ -44,6 +44,7 @@ export const LoginFormComponent = ({
                 component={RenderTextField}
             />
             <Field
+                name={'password'}
                 type={'password'}
                 isRequired={true}
                 minlength={6}
@@ -58,5 +59,5 @@ export const LoginFormComponent = ({
 
 
 export const ReduxLoginForm = reduxForm<null, LoginFormComponentProps>({
-    form: 'form',
+    form: 'login-form',
 })(LoginFormComponent);

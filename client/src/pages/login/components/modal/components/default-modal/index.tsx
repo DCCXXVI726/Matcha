@@ -6,12 +6,10 @@ import { Form } from '../../../form/login-container';
 import { LoginButtonStyled, LinkStyled } from '../../index.style';
 
 interface DefaulModalProps {
-    isLogin?: boolean
     handleRecoveryOpen: () => void
 }
 
 export const DefaulModal = ({
-    isLogin,
     handleRecoveryOpen
 }: DefaulModalProps): JSX.Element => {
     const { t } = useTranslation();
@@ -46,7 +44,7 @@ export const DefaulModal = ({
             </LinkStyled>
             {showForm && (
                 <>
-                    <Form isLogin={isLogin} />
+                    <Form />
                     <LinkStyled
                         type='button'
                         component='button'

@@ -13,4 +13,3 @@ export const Login = (): JSX.Element => {
         </>
     );
 };
-

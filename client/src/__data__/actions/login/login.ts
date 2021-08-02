@@ -1,4 +1,5 @@
 import { Dispatch } from 'redux';
+import { setSessionCookie } from '../../../session';
 import { fetchWithTimeout } from '../../../utils';
 import * as types from '../../action-types';
 
@@ -24,6 +25,7 @@ export const fetchLogin = (email: string, password: string) => {
                 });
             } else {
                 const json = await response.json();
+                setSessionCookie(json);
                 dispatch({
                     type: types.AUTH_FETCH,
                     payload: json

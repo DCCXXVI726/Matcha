@@ -6,3 +6,4 @@ return: statuscreated
 #логин
 /sessions (POST)
 params: email, password
+/login (usernmame:passw) -> zalupa

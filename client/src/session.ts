@@ -1,16 +1,18 @@
 import React from 'react';
-import * as Cookies from 'js-cookie';
+import Cookies from 'js-cookie';
 
 export const setSessionCookie = (session: any): void => {
-    Cookies.remove('session');
-    Cookies.set('session', session, { expires: 14 });
+    // TODO: change
+    Cookies.remove('keksion');
+    Cookies.set('keksion', session, { expires: 14 });
 };
 
 export const getSessionCookie: any = () => {
-    const sessionCookie = Cookies.get('session');
+    // fetch на бек
+    const sessionCookie = Cookies.get('keksion');
 
     if (sessionCookie === undefined) {
-        return {};
+        return null;
     } else {
         return JSON.parse(sessionCookie);
     }
