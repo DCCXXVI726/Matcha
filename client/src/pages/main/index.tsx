@@ -33,8 +33,8 @@ const MainComponent = ({
     );
 };
 
-/* eslint-disable-next-line */
-const mapDispatchToProps = (dispatch: any) => ({
+/* eslint-disable-next-line @typescript-eslint/explicit-function-return-type */
+const mapDispatchToProps = (dispatch: MatchaDispatch) => ({
     fetchMultiLangContent: (lang: string): Promise<void> => {
         return dispatch(actions.regPage.fetchGenders(lang));
     }

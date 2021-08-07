@@ -29,7 +29,9 @@ export const Main = (): JSX.Element => {
                     currentTheme={theme as string}
                 >
                     <AsideStyled>
-                        <HeadlineStyled variant='h2'>
+                        <HeadlineStyled
+                            variant='h2'
+                        >
                             {t('title')}
                         </HeadlineStyled>
                         <ButtonWrapper

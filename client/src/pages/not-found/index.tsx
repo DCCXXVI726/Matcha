@@ -8,6 +8,7 @@ import { Footer } from '../../components/footer';
 import { error404 } from '../../assets';
 
 import { MainStyled, FlexWrapper, ImgStyled } from './index.style';
+import { navigation } from '../../navigation';
 
 export const NotFound = (): JSX.Element => {
     const { t } = useTranslation();
@@ -17,17 +18,29 @@ export const NotFound = (): JSX.Element => {
             <Header />
             <MainStyled>
                 <FlexWrapper>
-                    <Typography variant='h2' align='center'>
+                    <Typography
+                        variant='h2'
+                        align='center'
+                    >
                         {t('not-found')}
                     </Typography>
                 </FlexWrapper>
                 <FlexWrapper>
-                    <Typography variant='h5' align='center'>
-                        <Link to='/'>{t('back-to-home')}</Link>
+                    <Typography
+                        variant='h5'
+                        align='center'
+                    >
+                        <Link
+                            to={navigation.index}
+                        >
+                            {t('back-to-home')}
+                        </Link>
                     </Typography>
                 </FlexWrapper>
-                <ImgStyled src={error404} alt='error404-picture' />
-
+                <ImgStyled
+                    src={error404}
+                    alt='error404-picture'
+                />
             </MainStyled>
             <Footer />
         </>

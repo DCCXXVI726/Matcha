@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux';
-import { setSessionCookie } from '../../../session';
+import { setSessionCookie } from '../../cookies';
 import { fetchWithTimeout } from '../../../utils';
 import * as types from '../../action-types';
 

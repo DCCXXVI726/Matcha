@@ -6,4 +6,7 @@ declare global {
         currentTheme: string
         children?: JSX.Element | JSX.Element[]
     }
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    type MatchaDispatch = any
 }

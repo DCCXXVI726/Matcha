@@ -39,12 +39,10 @@ const mapStateToProps = (state: State): {
 });
 
 /* eslint-disable-next-line @typescript-eslint/explicit-function-return-type */
-const mapDispatchToProps = (dispatch) => {
-    return {
-        accountRecovery: (password: string): Promise<void> => {
-            return dispatch(actions.loginPage.accountRecovery(password));
-        }
-    };
-};
+const mapDispatchToProps = (dispatch: MatchaDispatch) => ({
+    accountRecovery: (password: string): Promise<void> => {
+        return dispatch(actions.loginPage.accountRecovery(password));
+    }
+});
 
 export const AccountRecoveryForm = connect(mapStateToProps, mapDispatchToProps)(AccountRecoveryFormContainer);

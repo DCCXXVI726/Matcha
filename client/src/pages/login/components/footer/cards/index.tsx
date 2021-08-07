@@ -8,7 +8,6 @@ import { ThemeWrapperContext } from '../../../../../components/theme';
 
 import { Skeletons, Skeleton } from '../index.style';
 
-const CARDS_COUNT = 3;
 const START_INDEX = -3;
 export const GRID_STEP = 3;
 
@@ -34,7 +33,7 @@ export const Cards = ({
                 navButtonsAlwaysVisible={false}
                 navButtonsAlwaysInvisible={true}
             >
-                {(data.map((item, index) => {
+                {(data.map((_item, index) => {
                     if (end + GRID_STEP < data.length) {
                         end += GRID_STEP;
                         start += GRID_STEP;
@@ -56,7 +55,6 @@ export const Cards = ({
                         <Skeleton currentTheme={theme as string} />
                         <Skeleton currentTheme={theme as string} />
                         <Skeleton currentTheme={theme as string} />
-
                     </Skeletons>
                 )
             }

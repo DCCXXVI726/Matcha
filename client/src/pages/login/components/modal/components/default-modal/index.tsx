@@ -9,9 +9,7 @@ interface DefaulModalProps {
     handleRecoveryOpen: () => void
 }
 
-export const DefaulModal = ({
-    handleRecoveryOpen
-}: DefaulModalProps): JSX.Element => {
+export const DefaulModal = ({ handleRecoveryOpen }: DefaulModalProps): JSX.Element => {
     const { t } = useTranslation();
     const [showForm, setShowForm] = useState<boolean>(false);
 
@@ -36,9 +34,7 @@ export const DefaulModal = ({
             <LinkStyled
                 component='button'
                 variant='body1'
-                onClick={(): void => {
-                    setShowForm(!showForm);
-                }}
+                onClick={(): void => setShowForm(!showForm)}
             >
                 {t('login.additional-button')}
             </LinkStyled>
@@ -49,9 +45,7 @@ export const DefaulModal = ({
                         type='button'
                         component='button'
                         variant='body1'
-                        onClick={(): void => {
-                            handleRecoveryOpen();
-                        }}
+                        onClick={(): void => handleRecoveryOpen()}
                     >
                         {t('login-problems')}
                     </LinkStyled>

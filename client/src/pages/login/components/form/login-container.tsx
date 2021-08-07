@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Redirect } from 'react-router';
 import { connect } from 'react-redux';
 import { formValueSelector } from 'redux-form';
@@ -8,7 +8,8 @@ import { State, Status } from '../../../../__data__/types';
 
 import { ReduxLoginForm } from './login-form';
 import { SUCCESS } from '../../../../__data__/constants';
-import { SessionContext } from '../../../../session';
+import { getSessionCookie } from '../../../../__data__/cookies';
+import { navigation } from '../../../../navigation';
 
 interface FormContainerProps {
     email: string
@@ -18,8 +19,6 @@ interface FormContainerProps {
     fethLogin: (email: string, password: string) => Promise<void>
 }
 
-import Cookies from 'js-cookie';
-
 export const FormContainer = ({
     email = '',
     password = '',
@@ -28,12 +27,11 @@ export const FormContainer = ({
 }: FormContainerProps): JSX.Element => {
     const handleSubmit = (e: React.SyntheticEvent): void => {
         e.preventDefault();
-        // fethLogin('linuxize@example.com', '1asfasf23456789');
         fethLogin(email, password);
     };
 
-    if (status === SUCCESS && Cookies.get('keksion')) {
-        return <Redirect to={{ pathname: '/main' }} />;
+    if (status === SUCCESS && getSessionCookie()) {
+        return <Redirect to={{ pathname: navigation.main }} />;
     }
 
     return (
@@ -57,7 +55,7 @@ const mapStateToProps = (state: State): {
 });
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch: MatchaDispatch) => ({
     fethLogin: (email: string, password: string): Promise<void> => {
         return dispatch(actions.loginPage.fetchLogin(email, password));
     }

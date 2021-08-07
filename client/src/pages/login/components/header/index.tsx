@@ -11,7 +11,6 @@ import { tinderIcon } from '../../../../assets/index';
 import { LangChooser } from '../../../../components/lang-choose';
 
 const Modal = React.lazy(() => import(/* webpackChunkName: "login-header-modal" */ '../modal').then(module => ({ default: module.Modal })));
-// import { Modal } from '../modal';
 
 import {
     HeaderStyled,
@@ -22,6 +21,7 @@ import {
     ButtonLoginWrapper
 } from '../../../../components/header/index.style';
 import { connect } from 'react-redux';
+import { navigation } from '../../../../navigation';
 
 interface HeaderComponentProps {
     fetchMultiLangContent: (lang: string) => Promise<void>
@@ -47,7 +47,7 @@ const HeaderComponent = ({
             currentTheme={theme as string}
         >
             <WrapperStyled>
-                <LinkStyled to='/'>
+                <LinkStyled to={navigation.index}>
                     <LogoWrapperStyled src={tinderIcon} />
                     <TypographyLogoStyled>
                         {t('logo-title')}
@@ -77,8 +77,8 @@ const HeaderComponent = ({
     );
 };
 
-/* eslint-disable-next-line */
-const mapDispatchToProps = (dispatch: any) => ({
+/* eslint-disable-next-line @typescript-eslint/explicit-function-return-type */
+const mapDispatchToProps = (dispatch: MatchaDispatch) => ({
     fetchMultiLangContent: (lang: string): Promise<void> => {
         return dispatch(actions.loginPage.fetchFeedbacks(lang));
     }

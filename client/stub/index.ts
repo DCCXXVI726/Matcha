@@ -13,6 +13,8 @@ const app = express();
 
 const PORT = 3030;
 
+/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
+/* @ts-ignore */
 app.use(webpackDevMiddleware(webpack(webpackConfig)));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -34,8 +36,8 @@ app.post('/sessions', (req, res) => {
         .then((response) => {
             console.log(response.headers['set-cookie']);
             return res.json(response.headers['set-cookie']);
-        })
-        // .catch(e => console.error(e));
+        });
+    // .catch(e => console.error(e));
 });
 
 app.get('/api/feedbacks', (req, res: Response) => {
@@ -76,7 +78,7 @@ app.get('/api/orientations', (req, res: Response) => {
 
 app.get('/api/kek', (req, res) => {
     console.log(req.query);
-    void(res);
+    void (res);
 });
 
 
