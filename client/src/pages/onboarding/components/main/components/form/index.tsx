@@ -56,14 +56,11 @@ const mapStateToProps = (state: State): {
     genders: selectors.regPage.genders.data(state)
 });
 
-/* eslint-disable-next-line */
-const mapDispatchToProps = (dispatch: any) => ({
+/* eslint-disable-next-line @typescript-eslint/explicit-function-return-type */
+const mapDispatchToProps = (dispatch: MatchaDispatch) => ({
     fetchGenders: (lang: string): Promise<void> => dispatch(actions.regPage.fetchGenders(lang)),
-
     fetchInterests: (lang: string): Promise<void> => dispatch(actions.regPage.fetchInterests(lang)),
-
     fetchOrientations: (lang: string): Promise<void> => dispatch(actions.regPage.fetchOrientations(lang)),
-
     getLocation: (): Promise<void> => dispatch(actions.regPage.getLocation()),
 
     accountCreate: (): Promise<void> => // TODO: change to own request

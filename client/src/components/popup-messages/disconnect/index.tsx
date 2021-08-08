@@ -17,7 +17,6 @@ export const Disconnect = (): JSX.Element => {
     };
 
     const networkHandler = useCallback((): void => {
-        navigator.onLine ? setStatus(false) : setStatus(true);
         window.addEventListener('online', () => toggleStatus(false));
         window.addEventListener('offline', () => toggleStatus(true));
     }, []);

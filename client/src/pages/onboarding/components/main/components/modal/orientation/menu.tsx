@@ -28,9 +28,11 @@ export const ListComponent = ({
     const isDisable = count !== MAX_COUNT;
 
     const MenuArray = ({ fields }: { fields: FieldArrayFieldsProps<FormInterests> }): JSX.Element => {
-        fields.length === 0 && orientations.forEach((item) => {
-            fields.push(item);
-        });
+        if (fields.length === 0) {
+            orientations.forEach((item) => {
+                fields.push(item);
+            });
+        }
         return (
             <>
                 {fields.map((field, index: number) => {

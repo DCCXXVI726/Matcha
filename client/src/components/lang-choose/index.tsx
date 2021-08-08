@@ -61,8 +61,8 @@ export const LangChooserComponent = ({
     );
 };
 
-/* eslint-disable-next-line */
-const mapDispatchToProps = (dispatch: any) => ({
+/* eslint-disable-next-line @typescript-eslint/explicit-function-return-type */
+const mapDispatchToProps = (dispatch: MatchaDispatch) => ({
     changeLang: (lang: string): void => {
         dispatch(actions.changeLang(lang));
     }

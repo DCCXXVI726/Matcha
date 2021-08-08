@@ -2,13 +2,11 @@ import fs = require('fs');
 
 import express, { Response } from 'express';
 
-const langDependentApi = (res: Response, lang: unknown, ru: string, en: string): void => {
-    if (lang === 'ru' || lang === 'Русский') {
-        res.json(JSON.parse(ru));
-    } else {
-        res.json(JSON.parse(en));
-    }
-};
+const langDependentApi = (res: Response, lang: unknown, ru: string, en: string): Response => (
+    lang === 'ru' || lang === 'Русский'
+        ? res.json(JSON.parse(ru))
+        : res.json(JSON.parse(en))
+);
 
 export const router = express.Router()
     .get('/feedbacks', (req, res: Response) => {

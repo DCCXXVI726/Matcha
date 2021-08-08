@@ -94,8 +94,6 @@ export const RegistrationFormComponent = ({
                                 key={gender}
                                 value={values}
                                 control={<Radio />}
-                                /* eslint-disable-next-line */
-                                /* @ts-ignore */
                                 label={gender[values]}
                             />
                         );
@@ -120,9 +118,7 @@ export const RegistrationFormComponent = ({
     );
 };
 
-const mapStateToProps = (state: State): {
-    formUserAvatar: string
-} => ({
+const mapStateToProps = (state: State): { formUserAvatar: string } => ({
     formUserAvatar: formValueSelector('registration')(state, 'user-avatar')
 });
 

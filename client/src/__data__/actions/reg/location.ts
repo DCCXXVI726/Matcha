@@ -49,7 +49,7 @@ const showPosition = (position: GeolocationPosition, dispatch: Dispatch): void =
     });
 };
 
-export const getLocation = (dispatch: Dispatch): void => {
+export const getLocation = () => (dispatch: Dispatch): void => {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
             (position: GeolocationPosition) => showPosition(position, dispatch),

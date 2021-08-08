@@ -21,14 +21,11 @@ app.use(webpackDevMiddleware(webpack(webpackConfig)));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const langDependentApi = (res: Response, lang: unknown, ru: string, en: string): void => {
-    // eslint-disable-next-line
-    if (lang === 'ru' || lang === 'Русский') {
-        res.json(JSON.parse(ru));
-    } else {
-        res.json(JSON.parse(en));
-    }
-};
+const langDependentApi = (res: Response, lang: unknown, ru: string, en: string): Response => (
+    lang === 'ru' || lang === 'Русский'
+        ? res.json(JSON.parse(ru))
+        : res.json(JSON.parse(en))
+);
 
 app.post('/sessions', (req, res) => {
     axios.post('http://localhost:8080/sessions', {
@@ -38,7 +35,8 @@ app.post('/sessions', (req, res) => {
         .then((response) => {
             console.log(response.headers['set-cookie']);
             return res.json(response.headers['set-cookie']);
-        });
+        })
+        .catch(e => console.warn(e));
 });
 
 app.get('/api/feedbacks', (req, res: Response) => {
@@ -77,12 +75,6 @@ app.get('/api/orientations', (req, res: Response) => {
     );
 });
 
-app.get('/api/kek', (req, res) => {
-    console.log(req.query);
-    void res;
-});
-
-
 app.get('/api*', (_, res: Response) => {
     axios.get(`http://localhost:8080${_.path}`)
         .then((response) => res.json(response.data))
@@ -93,4 +85,4 @@ app.get('/*', (_, res: Response) => {
     res.sendFile(path.resolve(__dirname, 'index.html'));
 });
 
-app.listen(PORT, () => 'Dev server started');
+app.listen(PORT, () => `Dev server started on PORT=${PORT}`);

@@ -35,6 +35,8 @@ interface ThemeWrapperProps {
     children?: ReactNode | ReactNodeArray
 }
 
+export const ThemeWrapperContext = createContext([{}, (): void => {}]);
+
 export const ThemeWrapper = ({ children }: ThemeWrapperProps): JSX.Element => {
     const isUserThemeLight = window.matchMedia('(prefers-color-scheme: light)').matches;
     const [themeColor, setThemeColor] = useState(isUserThemeLight ? LIGHT : DARK);
@@ -57,5 +59,3 @@ export const ThemeWrapper = ({ children }: ThemeWrapperProps): JSX.Element => {
     );
 };
 
-/* eslint-disable-next-line @typescript-eslint/no-empty-function */
-export const ThemeWrapperContext = createContext([{}, (): void => {}]);

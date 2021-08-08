@@ -28,9 +28,9 @@ export const ChipsComponent = ({
     const isDisable = count !== MAX_COUNT;
 
     const ChipsArray = ({ fields }: { fields: FieldArrayFieldsProps<FormInterests> }): JSX.Element => {
-        fields.length === 0 && interests.forEach((interest) => {
-            fields.push(interest);
-        });
+        if (fields.length === 0) {
+            interests.forEach((interest) => fields.push(interest));
+        }
         return (
             <>
                 {fields.map((field, index: number) => {

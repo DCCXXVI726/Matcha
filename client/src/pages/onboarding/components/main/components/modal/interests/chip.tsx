@@ -22,8 +22,7 @@ export const ChipComponent = ({
         control={
             <Checkbox
                 checked={!!input.value}
-                /* eslint-disable-next-line */
-                /* @ts-ignore */
+                /* eslint-disable-next-line react/jsx-handler-names */
                 onCheck={input.onChange}
             />
         }
