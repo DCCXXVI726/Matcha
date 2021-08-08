@@ -18,19 +18,19 @@ export const FormControlStyled = styled(FormControl)`
 
 export const SelectStyled = styled(Select)(({ theme }) => css`
     &.MuiInputBase-root {
-        color: ${(theme as ThemeColors).secondary};
+        color: ${theme as ThemeColors.secondary};
     }
 
     & > .MuiOutlinedInput-notchedOutline {
-        border-color: ${(theme as ThemeColors).secondary};
+        border-color: ${theme as ThemeColors.secondary};
     }
 
     & .MuiSelect-root {
-        color: ${(theme as ThemeColors).secondary};
+        color: ${theme as ThemeColors.secondary};
     }
 
     & .MuiSvgIcon-root {
-        color: ${(theme as ThemeColors).secondary};
+        color: ${theme as ThemeColors.secondary};
     }
 
 `);

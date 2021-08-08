@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom';
 import { Header } from '../../components/header';
 import { Footer } from '../../components/footer';
 import { error404 } from '../../assets';
+import { navigation } from '../../navigation';
 
 import { MainStyled, FlexWrapper, ImgStyled } from './index.style';
-import { navigation } from '../../navigation';
 
 export const NotFound = (): JSX.Element => {
     const { t } = useTranslation();

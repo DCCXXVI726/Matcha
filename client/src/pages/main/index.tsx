@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import { actions } from '../../__data__';
-
 import { Header } from '../../components/header';
 import { Navbar } from '../../components/navbar';
 
@@ -35,9 +34,7 @@ const MainComponent = ({
 
 /* eslint-disable-next-line @typescript-eslint/explicit-function-return-type */
 const mapDispatchToProps = (dispatch: MatchaDispatch) => ({
-    fetchMultiLangContent: (lang: string): Promise<void> => {
-        return dispatch(actions.regPage.fetchGenders(lang));
-    }
+    fetchMultiLangContent: (lang: string): Promise<void> => dispatch(actions.regPage.fetchGenders(lang))
 });
 
 export const Main = connect(null, mapDispatchToProps)(MainComponent);

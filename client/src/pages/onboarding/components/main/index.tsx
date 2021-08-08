@@ -4,7 +4,6 @@ import { Typography } from '@material-ui/core';
 
 import { RegistrationForm } from './components/form';
 import { RegistrationModal } from './components/modal/rules';
-
 import { MainStyled, HeadlineWrapperStyled } from './index.style';
 
 export const Main = (): JSX.Element => {

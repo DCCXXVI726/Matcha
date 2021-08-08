@@ -5,16 +5,15 @@ import { formValueSelector } from 'redux-form';
 
 import { actions, selectors } from '../../../../__data__';
 import { State, Status } from '../../../../__data__/types';
-
-import { ReduxLoginForm } from './login-form';
 import { SUCCESS } from '../../../../__data__/constants';
 import { getSessionCookie } from '../../../../__data__/cookies';
 import { navigation } from '../../../../navigation';
 
+import { ReduxLoginForm } from './login-form';
+
 interface FormContainerProps {
     email: string
     password: string
-    coockie: string
     status: Status
     fethLogin: (email: string, password: string) => Promise<void>
 }
@@ -45,20 +44,16 @@ export const FormContainer = ({
 const mapStateToProps = (state: State): {
     email: string
     password: string
-    coockie: string
     status: Status
 } => ({
     email: formValueSelector('login-form')(state, 'email'),
     password: formValueSelector('login-form')(state, 'password'),
-    coockie: selectors.loginPage.user.login(state),
     status: selectors.loginPage.user.status(state)
 });
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 const mapDispatchToProps = (dispatch: MatchaDispatch) => ({
-    fethLogin: (email: string, password: string): Promise<void> => {
-        return dispatch(actions.loginPage.fetchLogin(email, password));
-    }
+    fethLogin: (email: string, password: string): Promise<void> => dispatch(actions.loginPage.fetchLogin(email, password))
 });
 
 export const Form = connect(mapStateToProps, mapDispatchToProps)(FormContainer);

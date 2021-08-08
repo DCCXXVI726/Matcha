@@ -6,8 +6,8 @@ import { ThemeColors } from '../../../../components/theme';
 
 export const TextFieldStyled = styled(TextField)(({ theme }) => css`
     & > .MuiInputBase-root {
-        color: ${(theme as ThemeColors).secondary};
-        border: 2px solid ${(theme as ThemeColors).secondary};
+        color: ${theme as ThemeColors.secondary};
+        border: 2px solid ${theme as ThemeColors.secondary};
     }
 
     &.MuiFormControl-root {

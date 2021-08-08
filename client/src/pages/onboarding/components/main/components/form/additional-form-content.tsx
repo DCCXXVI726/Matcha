@@ -2,7 +2,6 @@ import React, { Suspense, useState } from 'react';
 import { connect } from 'react-redux';
 import { formValueSelector } from 'redux-form';
 import { useTranslation } from 'react-i18next';
-
 import { Typography, Button } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 
@@ -12,12 +11,12 @@ import {
     KeyValue
 } from '../../../../../../__data__/types';
 import { selectors } from '../../../../../../__data__';
-
-const ChipsModal = React.lazy(() => import(/* webpackChunkName: "chips-modal" */ '../modal/interests').then(module => ({ default: module.ChipsModal })));
-const OrientationModal = React.lazy(() => import(/* webpackChunkName: "orientation-modal" */ '../modal/orientation').then(module => ({ default: module.OrientationModal })));
+import { RenderChips } from '../utils/render-chips';
 
 import { SplitterStyled } from './index.style';
-import { RenderChips } from '../utils/render-chips';
+
+const ChipsModal = React.lazy(() => import(/* webpackChunkName: "chips-modal" */ '../modal/interests').then((module) => ({ default: module.ChipsModal })));
+const OrientationModal = React.lazy(() => import(/* webpackChunkName: "orientation-modal" */ '../modal/orientation').then((module) => ({ default: module.OrientationModal })));
 
 export interface FormInterests {
     [key: string]: string | boolean

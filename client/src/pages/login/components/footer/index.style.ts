@@ -1,9 +1,9 @@
-import { LIGHT } from './../../../../components/theme/index';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { Typography, Link } from '@material-ui/core';
 
-import { ThemeColors } from '../../../../components/theme';
+import { ThemeColors, LIGHT } from '../../../../components/theme';
+
 
 export const FooterStyled = styled.footer`
     margin-right: 5rem;
@@ -13,8 +13,8 @@ export const FooterStyled = styled.footer`
 `;
 
 export const TypographyStyled = styled(Typography)(({ theme }) => css`
-    color: ${(theme as ThemeColors).secondary};
-    background-color: ${(theme as ThemeColors).primary};
+    color: ${theme as ThemeColors.secondary};
+    background-color: ${theme as ThemeColors.primary};
     display: flex;
 
 `);
@@ -28,14 +28,14 @@ export const BasementStyled = styled.div(({ theme }) => css`
     & img {
         width: 48px;
         height: 100%;
-        background-color: ${(theme as ThemeColors).primary};
+        background-color: ${theme as ThemeColors.primary};
     }
 
     display: flex;
-    color: ${(theme as ThemeColors).secondary};
+    color: ${theme as ThemeColors.secondary};
     padding-top: 1rem;
     justify-content: space-between;
-    border-top: 1px solid ${(theme as ThemeColors).secondary};
+    border-top: 1px solid ${theme as ThemeColors.secondary};
 
 `);
 
@@ -44,11 +44,11 @@ export const Skeletons = styled.div(({ theme }) => css`
     display: flex;
     flex-wrap: wrap;
     box-sizing: border-box;
-    background-color: ${(theme as ThemeColors).primary};
+    background-color: ${theme as ThemeColors.primary};
 `);
 
 export const Skeleton = styled.div(({ theme, currentTheme }: StyledProps) => css`
-    background-color: ${(theme as ThemeColors).primary8A};
+    background-color: ${theme as ThemeColors.primary8A};
     min-height: 20rem;
     min-width: 16rem;
     margin: 20px;

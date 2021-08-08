@@ -15,7 +15,6 @@ import {
     LoginPage,
     RegPage
 } from './types';
-
 import {
     loginPage,
     regPage,
@@ -43,7 +42,8 @@ declare global {
 export const createStore = (): Store => {
     const reducer = createReducer();
 
-    const composeEnhancers = window['__REDUX_DEVTOOLS_EXTENSION_COMPOSE__'] || compose;
+    // eslint-disable-next-line no-underscore-dangle
+    const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
     return composeEnhancers(
         applyMiddleware(

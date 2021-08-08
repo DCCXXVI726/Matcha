@@ -18,5 +18,6 @@ test('Empty', () => {
 });
 
 test('Invalid args', () => {
+    // eslint-disable-next-line no-undefined
     expect(convertArgsToUrlParams({ test: null }, { test: undefined }, { test: void 0 })).toEqual({});
 });

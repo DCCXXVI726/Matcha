@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import { actions, selectors } from '../../../../__data__';
 import { State, Status } from '../../../../__data__/types';
-
 import { RecoveryForm } from '../form/account-recovery-form';
 
 interface FormContainerProps {
@@ -40,9 +39,7 @@ const mapStateToProps = (state: State): {
 
 /* eslint-disable-next-line @typescript-eslint/explicit-function-return-type */
 const mapDispatchToProps = (dispatch: MatchaDispatch) => ({
-    accountRecovery: (password: string): Promise<void> => {
-        return dispatch(actions.loginPage.accountRecovery(password));
-    }
+    accountRecovery: (password: string): Promise<void> => dispatch(actions.loginPage.accountRecovery(password))
 });
 
 export const AccountRecoveryForm = connect(mapStateToProps, mapDispatchToProps)(AccountRecoveryFormContainer);

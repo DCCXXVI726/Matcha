@@ -6,17 +6,14 @@ import genders, {
     Action as GendersAction,
     initialState as gendersInitialState
 } from './genders';
-
 import interests, {
     Action as InterestsAction,
     initialState as interestsInitialState
 } from './interests';
-
 import orientations, {
     Action as OrientationsAction,
     initialState as orientationsInitialState
 } from './orientations';
-
 import location, {
     Action as UserLocationAction,
     initialState as UserLocationInitialState

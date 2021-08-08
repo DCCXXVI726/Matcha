@@ -2,18 +2,16 @@ import React, { useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm, formValueSelector } from 'redux-form';
 import { useTranslation } from 'react-i18next';
-
 import { FormControlLabel, Radio } from '@material-ui/core';
 
 import { State, Status } from '../../../../../../__data__/types';
-
 import { RenderTextField } from '../../../../../../components/redux-form-components/text-field';
 import { RenderRadioGroup } from '../../../../../../components/redux-form-components/radio-group';
+import { RenderFileInput } from '../../../../../../components/redux-form-components/file-input';
+import { requestStatus } from '../../../../../../components/request-status';
 
 import { AdditionalFormContent } from './additional-form-content';
 import { FormStyled, ButtonStyled, FormDividerStyled, ImageStyled } from './index.style';
-import { RenderFileInput } from '../../../../../../components/redux-form-components/file-input';
-import { requestStatus } from '../../../../../../components/request-status';
 
 const IMAGE_HEIGHT = 200;
 
@@ -34,10 +32,10 @@ export const RegistrationFormComponent = ({
     const imgRef = useRef<HTMLImageElement>(null);
 
     useEffect(() => {
-        // eslint-disable-next-line
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         imgRef.current.src = formUserAvatar || '';
-        // eslint-disable-next-line
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         imgRef.current.height = formUserAvatar ? IMAGE_HEIGHT : 0;
     }, [formUserAvatar]);
@@ -56,18 +54,18 @@ export const RegistrationFormComponent = ({
         <FormStyled onSubmit={handleSubmit}>
             <div>
                 <Field
-                    name={'username'}
-                    type={'text'}
-                    isRequired={true}
+                    name='username'
+                    type='text'
+                    isRequired
                     minlength={0}
                     maxLength={100}
                     placeholder={t('reg-form-name')}
                     component={RenderTextField}
                 />
                 <Field
-                    name={'email'}
-                    type={'email'}
-                    isRequired={true}
+                    name='email'
+                    type='email'
+                    isRequired
                     minlength={0}
                     maxLength={100}
                     placeholder={t('reg-form-email')}
@@ -76,10 +74,10 @@ export const RegistrationFormComponent = ({
                 <Field
                     name='user-avatar'
                     type='file'
-                    isRequired={true}
+                    isRequired
                     component={RenderFileInput}
                 />
-                <ImageStyled ref={imgRef} src={''} alt='' />
+                <ImageStyled ref={imgRef} src='' alt='' />
             </div>
             <div>
                 <Field
@@ -104,19 +102,17 @@ export const RegistrationFormComponent = ({
                     })}
                 </Field>
                 <Field
-                    name={'bday'}
+                    name='bday'
                     type='date'
                     defaultValue='2021-05-24'
                     max='2022-12-31'
                     InputLabelProps={{
-                        shrink: true,
+                        shrink: true
                     }}
                     component={RenderTextField}
                 />
             </div>
             <FormDividerStyled>
-                {/* eslint-disable-next-line */}
-                {/* @ts-ignore */}
                 <AdditionalFormContent />
                 {requestStatus(submitButton)[status]}
             </FormDividerStyled>
@@ -131,7 +127,7 @@ const mapStateToProps = (state: State): {
 });
 
 const RegistrationFormContainer = reduxForm<null, RegistrationFormComponentProps>({
-    form: 'registration',
+    form: 'registration'
 })(RegistrationFormComponent);
 
 export const RegistrationForm = connect(mapStateToProps, null)(RegistrationFormContainer);

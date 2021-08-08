@@ -4,12 +4,12 @@ import { css } from '@emotion/react';
 import { ThemeColors } from '../../components/theme';
 
 export const MainStyled = styled.main(({ theme }) => css`
-    color: ${(theme as ThemeColors).secondary};
+    color: ${theme as ThemeColors.secondary};
     margin: auto;
     width: 70%;
 
     & h1,h2,h3,h4,h5,h6 {
-        background-color: ${(theme as ThemeColors).primary};
+        background-color: ${theme as ThemeColors.primary};
         display: inline-block;
         margin: auto;
     }
@@ -18,7 +18,7 @@ export const MainStyled = styled.main(({ theme }) => css`
         margin: 2vh 0px;
         text-decoration: underline;
         display: block;
-        color: ${(theme as ThemeColors).secondary};
+        color: ${theme as ThemeColors.secondary};
     }
 `);
 

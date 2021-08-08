@@ -22,9 +22,8 @@ export const MenuItem = ({
             name={value}
             control={
                 <Checkbox
-                    checked={input.value ? true : false}
-                    /* eslint-disable-next-line */
-                    /* @ts-ignore */
+                    checked={!!input.value}
+                    /* eslint-disable-next-line react/jsx-handler-names */
                     onCheck={input.onChange}
                 />
             }

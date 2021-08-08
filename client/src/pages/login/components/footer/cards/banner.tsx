@@ -4,8 +4,9 @@ import { CardContent, Typography, Grid } from '@material-ui/core';
 
 import { Feedback } from '../../../../../__data__/types';
 
-import { GRID_STEP } from './index';
 import { CardStyld, GridStyled, HeadlineStyled, DescriptionStyled } from './index.style';
+
+import { GRID_STEP } from '.';
 
 interface BannerProps {
     currentTheme: string
@@ -17,7 +18,7 @@ export const Banner = ({ currentTheme, data }: BannerProps): JSX.Element => {
     const mediaLength = totalItems;
     const items = [];
 
-    for (let i = 0; i < mediaLength; i++) {
+    for (let i = 0; i < mediaLength; i += 1) {
         const media = (
             <GridStyled
                 currentTheme={currentTheme}

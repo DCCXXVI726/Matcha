@@ -8,7 +8,7 @@ export const CircularProgressStyled = styled(CircularProgress)(({ theme }) => cs
     margin: auto;
 
     &.MuiCircularProgress-colorPrimary {
-        color: ${(theme as ThemeColors).secondary};
+        color: ${theme as ThemeColors.secondary};
     }
 
     &.MuiCircularProgress-root {

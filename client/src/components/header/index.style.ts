@@ -25,10 +25,10 @@ export const WrapperStyled = styled.div`
 
 export const TypographyLogoStyled = styled(Typography)(({ theme }) => css`
     display: inline-block;
-    color: ${(theme as ThemeColors).secondary};
+    color: ${theme as ThemeColors.secondary};
 
     &:hover &:active {
-        color: ${(theme as ThemeColors).secondary};
+        color: ${theme as ThemeColors.secondary};
     }
 
     &.MuiTypography-body1 {
@@ -47,7 +47,7 @@ export const HeaderStyled = styled.header(({ theme, currentTheme }: StyledProps)
         ? 'box-shadow:  20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;'
         : 'box-shadow:  20px 20px 60px #202020, -20px -20px 60px #2c2c2c;'
 }
-    background-color: ${(theme as ThemeColors).primary};
+    background-color: ${theme as ThemeColors.primary};
     display: flex;
     flex-direction: row;
     justify-content: space-between;

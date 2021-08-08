@@ -1,9 +1,8 @@
 import React, { useState, useCallback, useContext } from 'react';
 import { Fade, Backdrop } from '@material-ui/core';
+
 import { ThemeWrapperContext } from '../../../../components/theme';
-
 import { tinderIcon } from '../../../../assets';
-
 import {
     TypographyStyled,
     ModalStyled,
@@ -14,7 +13,6 @@ import { Header } from './components/header';
 import { AccountRecovery } from './components/account-recovery-modal';
 import { DefaulModal } from './components/default-modal';
 import { Footer } from './components/footer';
-
 import { SectionStyled, LogoWrapperStyled } from './index.style';
 
 const TIMEOUT = 400;
@@ -30,7 +28,7 @@ export const Modal = ({
     open,
     handleClose
 }: ModalProps): JSX.Element => {
-    const [theme,] = useContext(ThemeWrapperContext);
+    const [theme] = useContext(ThemeWrapperContext);
     const [isRecovery, setRecovery] = useState<boolean>(false);
 
     const handleRecoveryOpen = useCallback((): void => {

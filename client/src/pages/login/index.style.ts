@@ -5,7 +5,7 @@ import { Typography, Button, Modal } from '@material-ui/core';
 import { LIGHT, ThemeColors } from '../../components/theme';
 
 export const FormStyled = styled.form(({ theme }) => css`
-    background-color: ${(theme as ThemeColors).primary};
+    background-color: ${theme as ThemeColors.primary};
 
 `);
 
@@ -23,10 +23,10 @@ export const TypographyStyled = styled(Typography)(({
     padding: ${padding || '20px 0'};
     text-align: center;
     display: block;
-    color: ${(theme as ThemeColors).secondary};
+    color: ${theme as ThemeColors.secondary};
 
     &:hover &:active {
-        color: ${(theme as ThemeColors).secondary};
+        color: ${theme as ThemeColors.secondary};
     }
 
     &.MuiTypography-body1 {
@@ -38,10 +38,10 @@ export const TypographyStyled = styled(Typography)(({
 export const DescriptionStyled = styled(Typography)(({ theme }) => css`
     text-align: center;
     display: block;
-    color: ${(theme as ThemeColors).secondary};
+    color: ${theme as ThemeColors.secondary};
 
     &:hover &:active {
-        color: ${(theme as ThemeColors).secondary};
+        color: ${theme as ThemeColors.secondary};
     }
 
     &.MuiTypography-body1 {
@@ -51,8 +51,8 @@ export const DescriptionStyled = styled(Typography)(({ theme }) => css`
 `);
 
 export const HeadlineStyled = styled(Typography)(({ theme }) => css`
-    background-color: ${(theme as ThemeColors).primary};
-    color: ${(theme as ThemeColors).secondary};
+    background-color: ${theme as ThemeColors.primary};
+    color: ${theme as ThemeColors.secondary};
 `);
 
 
@@ -66,7 +66,7 @@ export const ButtonWrapper = styled(Button)`
 
 export const ModalStyled = styled(Modal)(({ theme }: StyledProps) => css`
     .MuiBackdrop-root {
-        background: ${(theme as ThemeColors).transparent};
+        background: ${theme as ThemeColors.transparent};
     }
 
     &.modal {
@@ -95,6 +95,7 @@ export const ModalStyled = styled(Modal)(({ theme }: StyledProps) => css`
 `);
 
 export const AsideStyled = styled.aside(({ theme, currentTheme }: StyledProps) => css`
+    min-height: '20vh';
     outline: none;
     inset: unset;
     margin: auto;
@@ -111,5 +112,5 @@ export const AsideStyled = styled.aside(({ theme, currentTheme }: StyledProps) =
         ? 'box-shadow: 17px 17px 34px #c7c7c7, -17px -17px 34px #f9f9f9;'
         : 'box-shadow:  15px 15px 30px #202020, -15px -15px 30px #2c2c2c;'
 }
-    background-color: ${(theme as ThemeColors).primary};
+    background-color: ${theme as ThemeColors.primary};
 `);

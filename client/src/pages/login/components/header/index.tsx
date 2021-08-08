@@ -1,17 +1,12 @@
 import React, { useState, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
+import { connect } from 'react-redux';
 
 import { actions } from '../../../../__data__';
-
 import { ThemeWrapperContext } from '../../../../components/theme';
 import { ThemeToggle } from '../../../../components/theme-toggle';
-
-import { tinderIcon } from '../../../../assets/index';
-
+import { tinderIcon } from '../../../../assets';
 import { LangChooser } from '../../../../components/lang-choose';
-
-const Modal = React.lazy(() => import(/* webpackChunkName: "login-header-modal" */ '../modal').then(module => ({ default: module.Modal })));
-
 import {
     HeaderStyled,
     LinkStyled,
@@ -20,8 +15,9 @@ import {
     LogoWrapperStyled,
     ButtonLoginWrapper
 } from '../../../../components/header/index.style';
-import { connect } from 'react-redux';
 import { navigation } from '../../../../navigation';
+
+const Modal = React.lazy(() => import(/* webpackChunkName: "login-header-modal" */ '../modal').then((module) => ({ default: module.Modal })));
 
 interface HeaderComponentProps {
     fetchMultiLangContent: (lang: string) => Promise<void>
@@ -31,7 +27,7 @@ const HeaderComponent = ({
     fetchMultiLangContent
 }: HeaderComponentProps): JSX.Element => {
     const { t } = useTranslation();
-    const [theme,] = useContext(ThemeWrapperContext);
+    const [theme] = useContext(ThemeWrapperContext);
     const [open, setOpen] = useState<boolean>(false);
 
     const handleOpen = (): void => {
@@ -79,9 +75,7 @@ const HeaderComponent = ({
 
 /* eslint-disable-next-line @typescript-eslint/explicit-function-return-type */
 const mapDispatchToProps = (dispatch: MatchaDispatch) => ({
-    fetchMultiLangContent: (lang: string): Promise<void> => {
-        return dispatch(actions.loginPage.fetchFeedbacks(lang));
-    }
+    fetchMultiLangContent: (lang: string): Promise<void> => dispatch(actions.loginPage.fetchFeedbacks(lang))
 });
 
 export const Header = connect(null, mapDispatchToProps)(HeaderComponent);

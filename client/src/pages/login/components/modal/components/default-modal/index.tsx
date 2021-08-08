@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Form } from '../../../form/login-container';
-
 import { LoginButtonStyled, LinkStyled } from '../../index.style';
 
 interface DefaulModalProps {

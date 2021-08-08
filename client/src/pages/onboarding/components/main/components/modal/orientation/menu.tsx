@@ -6,8 +6,8 @@ import { formValueSelector, Field, FieldArray, reduxForm, FieldArrayFieldsProps 
 import { KeyValue } from '../../../../../../../__data__/types';
 import { FormInterests } from '../../form/additional-form-content';
 import { ButtonContinueStyled } from '../interests/index.style';
-import { MenuListStyled } from './index.style';
 
+import { MenuListStyled } from './index.style';
 import { MenuItem } from './menu-item';
 
 const MAX_COUNT = 3;
@@ -25,10 +25,10 @@ export const ListComponent = ({
 }: ListComponentProps): JSX.Element => {
     const { t } = useTranslation();
 
-    const isDisable = count === MAX_COUNT ? false : true;
+    const isDisable = count !== MAX_COUNT;
 
     const MenuArray = ({ fields }: { fields: FieldArrayFieldsProps<FormInterests> }): JSX.Element => {
-        fields.length === 0 && orientations.forEach(item => {
+        fields.length === 0 && orientations.forEach((item) => {
             fields.push(item);
         });
         return (
@@ -79,7 +79,7 @@ const ListContainer = reduxForm<null, ListComponentProps>({
     destroyOnUnmount: false
 })(ListComponent);
 
-export const List = connect(state => {
+export const List = connect((state) => {
     const formInterests = formValueSelector('registration')(state, 'orientations');
     return {
         formInterests

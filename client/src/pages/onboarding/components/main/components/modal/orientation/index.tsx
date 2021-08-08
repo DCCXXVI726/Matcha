@@ -4,15 +4,14 @@ import { Fade, Backdrop } from '@material-ui/core';
 
 import { ThemeWrapperContext } from '../../../../../../../components/theme';
 import { Status, KeyValue } from '../../../../../../../__data__/types';
-
 import {
     RegistrationModalStyled as OrientationModalStyled,
     AsideStyled,
     TypographyStyled
 } from '../rules/index.style';
+import { requestStatus } from '../../../../../../../components/request-status';
 
 import { List } from './menu';
-import { requestStatus } from '../../../../../../../components/request-status';
 
 interface OrientationModalProps {
     open: boolean
@@ -30,7 +29,7 @@ export const OrientationModal = ({
     handleClose
 }: OrientationModalProps): JSX.Element => {
     const { t } = useTranslation();
-    const [theme,] = useContext(ThemeWrapperContext);
+    const [theme] = useContext(ThemeWrapperContext);
 
     const list = (
         <List
@@ -53,7 +52,6 @@ export const OrientationModal = ({
         >
             <Fade in={open}>
                 <AsideStyled
-                    style={{ minHeight: '20vh' }}
                     currentTheme={theme as string}
                 >
                     <TypographyStyled

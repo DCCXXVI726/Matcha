@@ -21,7 +21,7 @@ export const ChipComponent = ({
         name={value}
         control={
             <Checkbox
-                checked={input.value ? true : false}
+                checked={!!input.value}
                 /* eslint-disable-next-line */
                 /* @ts-ignore */
                 onCheck={input.onChange}

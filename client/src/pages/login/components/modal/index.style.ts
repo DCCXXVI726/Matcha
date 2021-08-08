@@ -9,7 +9,7 @@ export const IconButtonStyled = styled(IconButton)(({ theme }) => css`
     float: right;
 
     & > .MuiIconButton-label > .MuiSvgIcon-root {
-        fill: ${(theme as ThemeColors).secondary}
+        fill: ${theme as ThemeColors.secondary}
     }
 `);
 
@@ -37,11 +37,11 @@ export const LoginBlockStyled = styled.div`
 `;
 
 export const FooterStyled = styled.footer(({ theme }) => css`
-    border-top: 1px solid ${(theme as ThemeColors).secondary};
+    border-top: 1px solid ${theme as ThemeColors.secondary};
 `);
 
 export const HeadlineStyled = styled(Typography)(({ theme }) => css`
-    color: ${(theme as ThemeColors).secondary};
+    color: ${theme as ThemeColors.secondary};
     text-align: center;
     padding-top: 10px;
     font-style: italic;
@@ -56,7 +56,7 @@ export const AppLinkStyled = styled.div(({ theme }) => css`
     justify-content: space-around;
 
     & > a > .MuiIconButton-label > .MuiSvgIcon-root {
-        fill: ${(theme as ThemeColors).secondary}
+        fill: ${theme as ThemeColors.secondary}
     }
 `);
 
@@ -65,6 +65,6 @@ export const LinkStyled = styled(Link)(({ theme }) => css`
         margin: 10px auto;
         display: block;
         text-decoration: underline;
-        color: ${(theme as ThemeColors).secondary};
+        color: ${theme as ThemeColors.secondary};
     }
 `);

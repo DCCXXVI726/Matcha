@@ -3,13 +3,11 @@ import { Field, reduxForm } from 'redux-form';
 import { useTranslation } from 'react-i18next';
 
 import { Status } from '../../../../__data__/types';
-
 import { RenderTextField } from '../../../../components/redux-form-components/text-field';
-
 import { FormStyled } from '../../index.style';
+import { requestStatus } from '../../../../components/request-status';
 
 import { ButtonStyled } from './index.style';
-import { requestStatus } from '../../../../components/request-status';
 
 interface LoginFormComponentProps {
     handleSubmit: (e: React.SyntheticEvent) => void,
@@ -35,18 +33,18 @@ export const LoginFormComponent = ({
     return (
         <FormStyled onSubmit={handleSubmit}>
             <Field
-                name={'email'}
-                type={'email'}
-                isRequired={true}
+                name='email'
+                type='email'
+                isRequired
                 minlength={0}
                 maxLength={100}
                 placeholder={t('auth.email-placeholder')}
                 component={RenderTextField}
             />
             <Field
-                name={'password'}
-                type={'password'}
-                isRequired={true}
+                name='password'
+                type='password'
+                isRequired
                 minlength={6}
                 maxLength={100}
                 placeholder={t('auth.password-placeholder')}
@@ -59,5 +57,5 @@ export const LoginFormComponent = ({
 
 
 export const ReduxLoginForm = reduxForm<null, LoginFormComponentProps>({
-    form: 'login-form',
+    form: 'login-form'
 })(LoginFormComponent);

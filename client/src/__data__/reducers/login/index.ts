@@ -6,12 +6,10 @@ import accountRecovery, {
     Action as AccountRecoveryAction,
     initialState as accountRecoveryInitialState
 } from './account-recovery';
-
 import feedbacks, {
     Action as FeedbacksAction,
     initialState as feedbacksInitialState
 } from './feedbacks';
-
 import user, {
     Action as UserAction,
     initialState as userInitialState

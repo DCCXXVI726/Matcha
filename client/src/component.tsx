@@ -3,17 +3,16 @@ import { Provider } from 'react-redux';
 import { Router, Switch, Route } from 'react-router';
 import { createBrowserHistory } from 'history';
 
-import { PrivateRoute } from './utils';
+import { PrivateRoute, GlobalStyles } from './utils';
 import { createStore } from './__data__';
-
-const Login = React.lazy(() => import(/* webpackChunkName: "pages: login" */ './pages/login').then(module => ({ default: module.Login })));
-const OnBoarding = React.lazy(() => import(/* webpackChunkName: "pages: onboarding" */ './pages/onboarding').then(module => ({ default: module.OnBoarding })));
-const NotFound = React.lazy(() => import(/* webpackChunkName: "pages: not-found" */ './pages/not-found').then(module => ({ default: module.NotFound })));
-
 import { ThemeWrapper } from './components/theme';
 import { Disconnect } from './components/popup-messages/disconnect';
-import { GlobalStyles } from './utils';
 import { navigation } from './navigation';
+import { Main } from './pages/main';
+
+const Login = React.lazy(() => import(/* webpackChunkName: "pages: login" */ './pages/login').then((module) => ({ default: module.Login })));
+const OnBoarding = React.lazy(() => import(/* webpackChunkName: "pages: onboarding" */ './pages/onboarding').then((module) => ({ default: module.OnBoarding })));
+const NotFound = React.lazy(() => import(/* webpackChunkName: "pages: not-found" */ './pages/not-found').then((module) => ({ default: module.NotFound })));
 
 export const store = createStore();
 
@@ -26,7 +25,7 @@ const MainContainer = (): JSX.Element => (
                 <Switch>
                     <Route path={navigation.login} component={Login} />
                     <Route path={navigation.onboarding} component={OnBoarding} />
-                    <PrivateRoute path={navigation.main} component={(): JSX.Element => <div>lox</div>} />
+                    <PrivateRoute path={navigation.main} component={<Main />} />
                     <PrivateRoute path='*' component={NotFound} />
                 </Switch>
             </Router>

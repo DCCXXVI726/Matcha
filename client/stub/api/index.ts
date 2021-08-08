@@ -1,8 +1,8 @@
 import fs = require('fs');
-import express, { Request, Response } from 'express';
+
+import express, { Response } from 'express';
 
 const langDependentApi = (res: Response, lang: unknown, ru: string, en: string): void => {
-    // eslint-disable-next-line no-cyrillic-string/no-cyrillic-string
     if (lang === 'ru' || lang === 'Русский') {
         res.json(JSON.parse(ru));
     } else {

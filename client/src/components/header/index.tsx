@@ -1,11 +1,9 @@
-import React, { useContext } from 'react';
+import React, { useContext, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { ThemeWrapperContext } from '../theme';
 import { ThemeToggle } from '../theme-toggle';
-
-import { tinderIcon } from '../../assets/index';
-
+import { tinderIcon } from '../../assets';
 import { LangChooser } from '../lang-choose';
 import { asyncNoop } from '../../utils';
 
@@ -25,7 +23,11 @@ export const Header = ({
     fetchMultiLangContent = asyncNoop
 }: HeaderProps): JSX.Element => {
     const { t } = useTranslation();
-    const [theme,] = useContext(ThemeWrapperContext);
+    const [theme] = useContext(ThemeWrapperContext);
+
+    const handleFetchMultiLangContent = useCallback((lang: string): Promise<void> | void => {
+        fetchMultiLangContent(lang);
+    }, [fetchMultiLangContent]);
 
     return (
         <HeaderStyled
@@ -42,7 +44,7 @@ export const Header = ({
             <WrapperStyled>
                 <ThemeToggle />
                 <LangChooser
-                    fetchMultiLangContent={(lang: string): Promise<void> | void => fetchMultiLangContent(lang)}
+                    fetchMultiLangContent={handleFetchMultiLangContent}
                 />
             </WrapperStyled>
         </HeaderStyled>

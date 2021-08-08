@@ -4,15 +4,14 @@ import { Fade, Backdrop } from '@material-ui/core';
 
 import { ThemeWrapperContext } from '../../../../../../../components/theme';
 import { Status, KeyValue } from '../../../../../../../__data__/types';
-
-import { Chips } from './chips';
-
 import {
     RegistrationModalStyled as ChipsModalStyled,
     AsideStyled,
     TypographyStyled
 } from '../rules/index.style';
 import { requestStatus } from '../../../../../../../components/request-status';
+
+import { Chips } from './chips';
 
 interface ChipsModalProps {
     open: boolean
@@ -30,7 +29,7 @@ export const ChipsModal = ({
     handleClose
 }: ChipsModalProps): JSX.Element => {
     const { t } = useTranslation();
-    const [theme,] = useContext(ThemeWrapperContext);
+    const [theme] = useContext(ThemeWrapperContext);
 
     const chips = (
         <Chips
@@ -53,7 +52,6 @@ export const ChipsModal = ({
         >
             <Fade in={open}>
                 <AsideStyled
-                    style={{ minHeight: '20vh' }}
                     currentTheme={theme as string}
                 >
                     <TypographyStyled

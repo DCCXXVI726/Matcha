@@ -58,25 +58,17 @@ const mapStateToProps = (state: State): {
 
 /* eslint-disable-next-line */
 const mapDispatchToProps = (dispatch: any) => ({
-    fetchGenders: (lang: string): Promise<void> => {
-        return dispatch(actions.regPage.fetchGenders(lang));
-    },
+    fetchGenders: (lang: string): Promise<void> => dispatch(actions.regPage.fetchGenders(lang)),
 
-    fetchInterests: (lang: string): Promise<void> => {
-        return dispatch(actions.regPage.fetchInterests(lang));
-    },
+    fetchInterests: (lang: string): Promise<void> => dispatch(actions.regPage.fetchInterests(lang)),
 
-    fetchOrientations: (lang: string): Promise<void> => {
-        return dispatch(actions.regPage.fetchOrientations(lang));
-    },
+    fetchOrientations: (lang: string): Promise<void> => dispatch(actions.regPage.fetchOrientations(lang)),
 
-    getLocation: (): Promise<void> => {
-        return dispatch(actions.regPage.getLocation());
-    },
+    getLocation: (): Promise<void> => dispatch(actions.regPage.getLocation()),
 
-    accountCreate: (): Promise<void> => { // TODO: change to own request
-        return dispatch(actions.loginPage.accountRecovery('password'));
-    }
+    accountCreate: (): Promise<void> => // TODO: change to own request
+        dispatch(actions.loginPage.accountRecovery('password'))
+    
 });
 
 export const RegistrationForm = connect(mapStateToProps, mapDispatchToProps)(RegistrationFormContainer);

@@ -3,11 +3,12 @@ import { connect } from 'react-redux';
 import { formValueSelector, Field, FieldArray, reduxForm, FieldArrayFieldsProps } from 'redux-form';
 import { useTranslation } from 'react-i18next';
 
-import { ChipComponent } from './chip';
 import { KeyValue } from '../../../../../../../__data__/types';
-
-import { ChipsWrapperStyled, ButtonContinueStyled } from './index.style';
 import { FormInterests } from '../../form/additional-form-content';
+
+import { ChipComponent } from './chip';
+import { ChipsWrapperStyled, ButtonContinueStyled } from './index.style';
+
 
 const MAX_COUNT = 5;
 
@@ -24,10 +25,10 @@ export const ChipsComponent = ({
 }: ChipsProps): JSX.Element => {
     const { t } = useTranslation();
 
-    const isDisable = count === MAX_COUNT ? false : true;
+    const isDisable = count !== MAX_COUNT;
 
     const ChipsArray = ({ fields }: { fields: FieldArrayFieldsProps<FormInterests> }): JSX.Element => {
-        fields.length === 0 && interests.forEach(interest => {
+        fields.length === 0 && interests.forEach((interest) => {
             fields.push(interest);
         });
         return (
@@ -79,7 +80,7 @@ const ChipsContainer = reduxForm<null, ChipsProps>({
     destroyOnUnmount: false
 })(ChipsComponent);
 
-export const Chips = connect(state => {
+export const Chips = connect((state) => {
     const formInterests = formValueSelector('registration')(state, 'interests');
     return {
         formInterests

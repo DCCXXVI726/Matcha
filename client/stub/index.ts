@@ -1,10 +1,12 @@
 import fs = require('fs');
 import path = require('path');
+
 import axios from 'axios';
 import express = require('express');
 import { Response } from 'express';
 import webpack = require('webpack');
 import webpackDevMiddleware = require('webpack-dev-middleware');
+
 /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
 /* @ts-ignore */
 import webpackConfig = require('../webpack-config');
@@ -37,7 +39,6 @@ app.post('/sessions', (req, res) => {
             console.log(response.headers['set-cookie']);
             return res.json(response.headers['set-cookie']);
         });
-    // .catch(e => console.error(e));
 });
 
 app.get('/api/feedbacks', (req, res: Response) => {
@@ -78,14 +79,14 @@ app.get('/api/orientations', (req, res: Response) => {
 
 app.get('/api/kek', (req, res) => {
     console.log(req.query);
-    void (res);
+    void res;
 });
 
 
 app.get('/api*', (_, res: Response) => {
     axios.get(`http://localhost:8080${_.path}`)
         .then((response) => res.json(response.data))
-        .catch(e => console.error(e));
+        .catch((e) => console.error(e));
 });
 
 app.get('/*', (_, res: Response) => {

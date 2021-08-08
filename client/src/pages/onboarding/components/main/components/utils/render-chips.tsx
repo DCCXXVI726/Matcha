@@ -16,7 +16,7 @@ export const RenderChips = ({
             const key = Object.keys(item)[0];
             return (
                 <ChipStyled
-                    variant={'outlined'}
+                    variant='outlined'
                     color='primary'
                     key={key}
                     label={item[key]}

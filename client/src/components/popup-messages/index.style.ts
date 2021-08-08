@@ -10,8 +10,8 @@ export const SnackbarStyled = styled(Snackbar)(({ theme, currentTheme }: StyledP
         : 'box-shadow:  5px 5px 10px #222222, -5px -5px 10px #2a2a2a;'
 }
     & > .MuiSnackbarContent-root {
-        background-color: ${(theme as ThemeColors).primary};
-        color: ${(theme as ThemeColors).secondary};
+        background-color: ${theme as ThemeColors.primary};
+        color: ${theme as ThemeColors.secondary};
         font-size: 1.2rem;
     }
 `);

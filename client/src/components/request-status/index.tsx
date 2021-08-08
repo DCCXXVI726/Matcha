@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { CircularProgressStyled } from '../circular-progress/index.style';
 import { FetchError } from '../popup-messages/fetch-error';
 

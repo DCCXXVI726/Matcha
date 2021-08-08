@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import Carousel from 'react-material-ui-carousel';
 
-import { Banner } from './banner';
 
 import { Feedback } from '../../../../../__data__/types';
 import { ThemeWrapperContext } from '../../../../../components/theme';
-
 import { Skeletons, Skeleton } from '../index.style';
+
+import { Banner } from './banner';
 
 const START_INDEX = -3;
 export const GRID_STEP = 3;
@@ -18,7 +18,7 @@ interface CardsProps {
 export const Cards = ({
     data
 }: CardsProps): JSX.Element => {
-    const [theme,] = useContext(ThemeWrapperContext);
+    const [theme] = useContext(ThemeWrapperContext);
 
     let start = START_INDEX;
     let end = 0;
@@ -26,12 +26,11 @@ export const Cards = ({
         <>
             {data.length > 0 ? (<Carousel
                 autoPlay={false}
-                // autoPlay={true}
                 animation='fade'
-                cycleNavigation={true}
+                cycleNavigation
                 indicators={false}
                 navButtonsAlwaysVisible={false}
-                navButtonsAlwaysInvisible={true}
+                navButtonsAlwaysInvisible
             >
                 {(data.map((_item, index) => {
                     if (end + GRID_STEP < data.length) {

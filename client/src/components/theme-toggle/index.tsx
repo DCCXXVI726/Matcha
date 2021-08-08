@@ -12,7 +12,7 @@ export const ThemeToggle = (): JSX.Element => {
             onClick={changeTheme as () => void}
             size='medium'
         >
-            <img src={theme === DARK ? lightMode : darkMode} />
+            <img src={theme === DARK ? lightMode : darkMode} alt='theme-toggle' />
         </IconButton>
     );
 };

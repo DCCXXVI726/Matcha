@@ -9,8 +9,8 @@ export const MenuListStyled = styled.ul(({ theme }) => css`
     max-height: 30vh;
     overflow-y: auto;
     margin: 2vw;
-    background-color: ${(theme as ThemeColors).primary};
-    color: ${(theme as ThemeColors).secondary};
+    background-color: ${theme as ThemeColors.primary};
+    color: ${theme as ThemeColors.secondary};
     padding: 0;
 
     & li {
@@ -45,7 +45,7 @@ export const FormControlLabelStyled = styled(FormControlLabel)(({
         margin: 0.3rem;
         display: block;
         border-radius: 10px;
-        border: 1px solid ${(theme as ThemeColors).primary};
+        border: 1px solid ${theme as ThemeColors.primary};
     }
 
     &.MuiButtonBase-root {
@@ -54,20 +54,20 @@ export const FormControlLabelStyled = styled(FormControlLabel)(({
 
     ${isChecked && css`
         &.MuiFormControlLabel-root {
-            color: ${(theme as ThemeColors).secondary};
-            background-color: ${(theme as ThemeColors).primary};
-            border: 1px solid ${(theme as ThemeColors).secondary};
+            color: ${theme as ThemeColors.secondary};
+            background-color: ${theme as ThemeColors.primary};
+            border: 1px solid ${theme as ThemeColors.secondary};
         }
 
         &:hover {
-            color: ${(theme as ThemeColors).secondary};
-            background-color: ${(theme as ThemeColors).primary};
+            color: ${theme as ThemeColors.secondary};
+            background-color: ${theme as ThemeColors.primary};
         }
     `}
 
     &:hover {
-        color: ${(theme as ThemeColors).secondary};
-        border: 1px solid ${(theme as ThemeColors).secondary};
+        color: ${theme as ThemeColors.secondary};
+        border: 1px solid ${theme as ThemeColors.secondary};
     }
 
     & > .MuiButtonBase-root {

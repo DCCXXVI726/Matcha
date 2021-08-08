@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
 import { ThemeColors } from '../../../../../../../components/theme';
-
 import { ModalStyled } from '../../../../../../login/index.style';
 import { SectionStyled } from '../../../../../../login/components/modal/index.style';
 
@@ -34,7 +33,7 @@ export const ListStyled = styled.ul(({ theme }) => css`
     padding: 0;
     list-style: none;
     margin: 0 25px;
-    color: ${(theme as ThemeColors).secondary};
+    color: ${theme as ThemeColors.secondary};
 
     & li {
         margin: 10px;

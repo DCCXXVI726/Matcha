@@ -3,12 +3,11 @@ import { Field, reduxForm } from 'redux-form';
 import { useTranslation } from 'react-i18next';
 
 import { Status } from '../../../../__data__/types';
-
 import { RenderTextField } from '../../../../components/redux-form-components/text-field';
-
 import { FormStyled } from '../../index.style';
-import { ButtonStyled } from './index.style';
 import { requestStatus } from '../../../../components/request-status';
+
+import { ButtonStyled } from './index.style';
 
 interface RecoveryFormComponentProps {
     handleSubmit: (e: React.SyntheticEvent) => void,
@@ -34,9 +33,9 @@ export const RecoveryFormComponent = ({
     return (
         <FormStyled onSubmit={handleSubmit}>
             <Field
-                name={'email'}
-                type={'email'}
-                isRequired={true}
+                name='email'
+                type='email'
+                isRequired
                 minlength={0}
                 maxLength={100}
                 placeholder={t('auth.email-placeholder')}
@@ -49,5 +48,5 @@ export const RecoveryFormComponent = ({
 
 
 export const RecoveryForm = reduxForm<null, RecoveryFormComponentProps>({
-    form: 'account-recovery',
+    form: 'account-recovery'
 })(RecoveryFormComponent);

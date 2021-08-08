@@ -1,21 +1,18 @@
 import React from 'react';
 import { RadioGroup } from '@material-ui/core';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type Input = any
+
 interface RenderRadioGroupProps {
-    // eslint-disable-next-line
-    input: any
+    input: Input
 }
 
-export const RenderRadioGroup = ({
-    input,
-    ...rest
-}: RenderRadioGroupProps): JSX.Element => (
+export const RenderRadioGroup = ({ input, ...rest }: RenderRadioGroupProps): JSX.Element => (
     <RadioGroup
         {...input}
         {...rest}
         valueSelected={input.value}
-        // eslint-disable-next-line
-        // @ts-ignore
-        onChange={(event, value): void => input.onChange(value)}
+        onChange={(_event, value): void => input.onChange(value)}
     />
 );

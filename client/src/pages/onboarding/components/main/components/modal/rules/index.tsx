@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next';
 
 import { ThemeWrapperContext } from '../../../../../../../components/theme';
 import { tinderIcon } from '../../../../../../../assets';
-import { RulesList } from './rules-list';
 
+import { RulesList } from './rules-list';
 import {
     RegistrationModalStyled,
     AsideStyled,
@@ -26,7 +26,7 @@ export const RegistrationModal = ({
     handleClose
 }: RegistrationModalProps): JSX.Element => {
     const { t } = useTranslation();
-    const [theme,] = useContext(ThemeWrapperContext);
+    const [theme] = useContext(ThemeWrapperContext);
 
     return (
         <RegistrationModalStyled

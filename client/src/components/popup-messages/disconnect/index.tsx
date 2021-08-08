@@ -2,12 +2,11 @@ import React, { useCallback, useEffect, useState, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { ThemeWrapperContext } from '../../theme';
-
 import { Snackbar } from '../snackbar';
 
 export const Disconnect = (): JSX.Element => {
     const { t } = useTranslation();
-    const [theme,] = useContext(ThemeWrapperContext);
+    const [theme] = useContext(ThemeWrapperContext);
     const [open, setOpen] = React.useState(true);
     const [isOffline, setStatus] = useState<boolean>(false);
 

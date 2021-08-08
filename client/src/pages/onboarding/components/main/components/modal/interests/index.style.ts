@@ -12,8 +12,8 @@ export const ChipStyled = styled(Chip)(({ theme }) => css`
     }
 
     &.MuiChip-outlined {
-        background-color: ${(theme as ThemeColors).primary};
-        color: ${(theme as ThemeColors).secondary};
+        background-color: ${theme as ThemeColors.primary};
+        color: ${theme as ThemeColors.secondary};
     }
 
     &.MuiChip-colorSecondary {
@@ -72,7 +72,7 @@ export const FormControlLabelStyled = styled(FormControlLabel)(({
     vertical-align: middle;
     justify-content: center;
     text-decoration: none;
-    border: 1px solid ${(theme as ThemeColors).brand};
+    border: 1px solid ${theme as ThemeColors.brand};
     overflow: hidden;
     white-space: nowrap;
     padding-left: 12px;
@@ -86,12 +86,12 @@ export const FormControlLabelStyled = styled(FormControlLabel)(({
 
     ${isChecked
         ? css`
-            background-color: ${(theme as ThemeColors).brand};;
+            background-color: ${theme as ThemeColors.brand};;
             color: ${white};
         `
         : css`
-            background-color: ${(theme as ThemeColors).primary};
-            color: ${(theme as ThemeColors).brand};
+            background-color: ${theme as ThemeColors.primary};
+            color: ${theme as ThemeColors.brand};
         `
 }
 

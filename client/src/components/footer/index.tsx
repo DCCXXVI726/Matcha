@@ -13,11 +13,14 @@ import {
 
 export const Footer = (): JSX.Element => {
     const { t } = useTranslation();
-    const [theme,] = useContext(ThemeWrapperContext);
+    const [theme] = useContext(ThemeWrapperContext);
 
     return (
         <FooterStyled>
-            <img src={theme === DARK ? madeInRussiaIconWhite : madeInRussiaIconBlack} />
+            <img
+                src={theme === DARK ? madeInRussiaIconWhite : madeInRussiaIconBlack}
+                alt='madeInRussiaIcon'
+            />
             <TypographyStyled>
                 <Typography>
                     {t('footer-year')}
@@ -25,7 +28,6 @@ export const Footer = (): JSX.Element => {
                 <LinkStyled
                     color='inherit'
                     href='https://github.com/sleonia/Matcha'
-                    style={{ marginLeft: '1rem' }}
                     target='_blank'
                 >
                     {t('footer-title')}

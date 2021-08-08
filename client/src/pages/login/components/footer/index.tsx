@@ -7,14 +7,12 @@ import { Typography } from '@material-ui/core';
 import { Feedback, State } from '../../../../__data__/types';
 import { actions, selectors } from '../../../../__data__';
 import { DARK, ThemeWrapperContext } from '../../../../components/theme';
-
 import {
     madeInRussiaIconWhite,
     madeInRussiaIconBlack
 } from '../../../../assets';
 
 import { Cards } from './cards';
-
 import {
     FooterStyled,
     LinkStyled,
@@ -32,7 +30,7 @@ export const FooterComponent = ({
     fetchFeedbacks
 }: FooterComponentProps): JSX.Element => {
     const { t } = useTranslation();
-    const [theme,] = useContext(ThemeWrapperContext);
+    const [theme] = useContext(ThemeWrapperContext);
 
     useEffect(() => {
         fetchFeedbacks(i18next.language);
@@ -42,7 +40,10 @@ export const FooterComponent = ({
         <FooterStyled>
             <Cards data={data} />
             <BasementStyled>
-                <img src={theme === DARK ? madeInRussiaIconWhite : madeInRussiaIconBlack} />
+                <img
+                    src={theme === DARK ? madeInRussiaIconWhite : madeInRussiaIconBlack}
+                    alt='madeInRussiaIcon'
+                />
                 <TypographyStyled>
                     <Typography>
                         {t('footer-year')}
@@ -50,7 +51,6 @@ export const FooterComponent = ({
                     <LinkStyled
                         color='inherit'
                         href='https://github.com/sleonia/Matcha'
-                        style={{ marginLeft: '1rem' }}
                         target='_blank'
                     >
                         {t('footer-title')}
@@ -67,9 +67,7 @@ const mapStateToProps = (state: State): { data: Feedback[] } => ({
 
 /* eslint-disable-next-line @typescript-eslint/explicit-function-return-type */
 const mapDispatchToProps = (dispatch: MatchaDispatch) => ({
-    fetchFeedbacks: (lang: string): Promise<void> => {
-        return dispatch(actions.loginPage.fetchFeedbacks(lang));
-    }
+    fetchFeedbacks: (lang: string): Promise<void> => dispatch(actions.loginPage.fetchFeedbacks(lang))
 });
 
 export const Footer = connect(mapStateToProps, mapDispatchToProps)(FooterComponent);

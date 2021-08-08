@@ -28,7 +28,7 @@ interface Theme {
 
 const theme: Theme = {
     LIGHT: LIGHT_THEME,
-    DARK: DARK_THEME,
+    DARK: DARK_THEME
 };
 
 interface ThemeWrapperProps {
