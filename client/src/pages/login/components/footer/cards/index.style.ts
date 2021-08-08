@@ -2,7 +2,8 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { Grid, Typography, Card } from '@material-ui/core';
 
-import { LIGHT, ThemeColors } from '../../../../../components/theme';
+import { LIGHT } from '../../../../../components/theme';
+import { themeTypeCast } from '../../../../../utils';
 
 export const GridStyled = styled(Grid)(({ theme, currentTheme }: StyledProps) => css`
     min-height: 20rem;
@@ -11,8 +12,8 @@ export const GridStyled = styled(Grid)(({ theme, currentTheme }: StyledProps) =>
     padding: 10px;
 
     &.MuiPaper-root {   
-        background-color: ${theme as ThemeColors.primary};
-        color: ${theme as ThemeColors.secondary};
+        background-color: ${themeTypeCast(theme).primary};
+        color: ${themeTypeCast(theme).secondary};
     }
 
     &.MuiGrid-grid-xs-4 {
@@ -31,7 +32,7 @@ export const GridStyled = styled(Grid)(({ theme, currentTheme }: StyledProps) =>
 export const HeadlineStyled = styled.div(({ theme }) => css`
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid ${theme as ThemeColors.secondary};
+    border-bottom: 1px solid ${themeTypeCast(theme).secondary};
     padding-bottom: 0.1rem;
 
 `);
@@ -43,7 +44,7 @@ export const DescriptionStyled = styled(Typography)`
 
 export const CardStyld = styled(Card)(({ theme }) => css`
     &.MuiPaper-root {
-        background-color: ${theme as ThemeColors.primary};
-        color: ${theme as ThemeColors.secondary};
+        background-color: ${themeTypeCast(theme).primary};
+        color: ${themeTypeCast(theme).secondary};
     }
 `);

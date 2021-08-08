@@ -2,10 +2,11 @@ import styled from '@emotion/styled';
 import { css, Theme } from '@emotion/react';
 import { Typography, Button, Modal } from '@material-ui/core';
 
-import { LIGHT, ThemeColors } from '../../components/theme';
+import { LIGHT } from '../../components/theme';
+import { themeTypeCast } from '../../utils';
 
 export const FormStyled = styled.form(({ theme }) => css`
-    background-color: ${theme as ThemeColors.primary};
+    background-color: ${themeTypeCast(theme).primary};
 
 `);
 
@@ -23,10 +24,10 @@ export const TypographyStyled = styled(Typography)(({
     padding: ${padding || '20px 0'};
     text-align: center;
     display: block;
-    color: ${theme as ThemeColors.secondary};
+    color: ${themeTypeCast(theme).secondary};
 
     &:hover &:active {
-        color: ${theme as ThemeColors.secondary};
+        color: ${themeTypeCast(theme).secondary};
     }
 
     &.MuiTypography-body1 {
@@ -38,10 +39,10 @@ export const TypographyStyled = styled(Typography)(({
 export const DescriptionStyled = styled(Typography)(({ theme }) => css`
     text-align: center;
     display: block;
-    color: ${theme as ThemeColors.secondary};
+    color: ${themeTypeCast(theme).secondary};
 
     &:hover &:active {
-        color: ${theme as ThemeColors.secondary};
+        color: ${themeTypeCast(theme).secondary};
     }
 
     &.MuiTypography-body1 {
@@ -51,8 +52,8 @@ export const DescriptionStyled = styled(Typography)(({ theme }) => css`
 `);
 
 export const HeadlineStyled = styled(Typography)(({ theme }) => css`
-    background-color: ${theme as ThemeColors.primary};
-    color: ${theme as ThemeColors.secondary};
+    background-color: ${themeTypeCast(theme).primary};
+    color: ${themeTypeCast(theme).secondary};
 `);
 
 
@@ -66,7 +67,7 @@ export const ButtonWrapper = styled(Button)`
 
 export const ModalStyled = styled(Modal)(({ theme }: StyledProps) => css`
     .MuiBackdrop-root {
-        background: ${theme as ThemeColors.transparent};
+        background: ${themeTypeCast(theme).transparent};
     }
 
     &.modal {
@@ -112,5 +113,5 @@ export const AsideStyled = styled.aside(({ theme, currentTheme }: StyledProps) =
         ? 'box-shadow: 17px 17px 34px #c7c7c7, -17px -17px 34px #f9f9f9;'
         : 'box-shadow:  15px 15px 30px #202020, -15px -15px 30px #2c2c2c;'
 }
-    background-color: ${theme as ThemeColors.primary};
+    background-color: ${themeTypeCast(theme).primary};
 `);

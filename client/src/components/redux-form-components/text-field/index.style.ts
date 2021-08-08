@@ -2,12 +2,12 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { TextField } from '@material-ui/core';
 
-import { ThemeColors } from '../../theme';
+import { themeTypeCast } from '../../../utils';
 
 export const TextFieldStyled = styled(TextField)(({ theme }) => css`
     & > .MuiInputBase-root {
-        color: ${theme as ThemeColors.secondary};
-        border: 2px solid ${theme as ThemeColors.secondary};
+        color: ${themeTypeCast(theme).secondary};
+        border: 2px solid ${themeTypeCast(theme).secondary};
     }
 
     &.MuiFormControl-root {

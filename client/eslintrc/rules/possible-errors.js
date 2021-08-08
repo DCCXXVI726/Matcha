@@ -54,4 +54,4 @@ module.exports = {
         }],
         'valid-typeof': ['error', { requireStringLiterals: true }]
     }
-}
+};

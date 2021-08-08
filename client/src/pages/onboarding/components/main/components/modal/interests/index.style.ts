@@ -2,8 +2,8 @@ import styled from '@emotion/styled';
 import { css, Theme } from '@emotion/react';
 import { FormControlLabel, Button, Chip } from '@material-ui/core';
 
-import { ThemeColors } from '../../../../../../../components/theme';
 import { white } from '../../../../../../../components/theme/colors.config.style';
+import { themeTypeCast } from '../../../../../../../utils';
 
 export const ChipStyled = styled(Chip)(({ theme }) => css`
     &.MuiChip-root {
@@ -12,8 +12,8 @@ export const ChipStyled = styled(Chip)(({ theme }) => css`
     }
 
     &.MuiChip-outlined {
-        background-color: ${theme as ThemeColors.primary};
-        color: ${theme as ThemeColors.secondary};
+        background-color: ${themeTypeCast(theme).primary};
+        color: ${themeTypeCast(theme).secondary};
     }
 
     &.MuiChip-colorSecondary {
@@ -72,7 +72,7 @@ export const FormControlLabelStyled = styled(FormControlLabel)(({
     vertical-align: middle;
     justify-content: center;
     text-decoration: none;
-    border: 1px solid ${theme as ThemeColors.brand};
+    border: 1px solid ${themeTypeCast(theme).brand};
     overflow: hidden;
     white-space: nowrap;
     padding-left: 12px;
@@ -86,12 +86,12 @@ export const FormControlLabelStyled = styled(FormControlLabel)(({
 
     ${isChecked
         ? css`
-            background-color: ${theme as ThemeColors.brand};;
+            background-color: ${themeTypeCast(theme).brand};;
             color: ${white};
         `
         : css`
-            background-color: ${theme as ThemeColors.primary};
-            color: ${theme as ThemeColors.brand};
+            background-color: ${themeTypeCast(theme).primary};
+            color: ${themeTypeCast(theme).brand};
         `
 }
 

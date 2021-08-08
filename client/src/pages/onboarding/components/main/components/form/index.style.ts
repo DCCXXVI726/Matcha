@@ -2,12 +2,11 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { Button } from '@material-ui/core';
 
-import { ThemeColors } from '../../../../../../components/theme';
+import { themeTypeCast } from '../../../../../../utils';
 
 export const FormStyled = styled.form(({ theme }) => css`
-
     & .MuiInputBase-root, .MuiFormControlLabel-root, .MuiTypography-root {
-        background-color: ${theme as ThemeColors.primary};
+        background-color: ${themeTypeCast(theme).primary};
     }
 
     width: 50%;
@@ -33,7 +32,7 @@ export const FormDividerStyled = styled.div(({ theme }) => css`
     }
 
     & > p:nth-child(1)::after, & > p:nth-child(1)::before {
-        background-color: ${theme as ThemeColors.secondary};
+        background-color: ${themeTypeCast(theme).secondary};
         width: 28%;
         height: 1px;
         display: inline-block;

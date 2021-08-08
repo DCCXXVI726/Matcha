@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { Select, FormControl } from '@material-ui/core';
 
-import { ThemeColors } from '../theme';
+import { themeTypeCast } from '../../utils';
 
 export const FormControlStyled = styled(FormControl)`
     &.MuiFormControl-root {
@@ -18,19 +18,19 @@ export const FormControlStyled = styled(FormControl)`
 
 export const SelectStyled = styled(Select)(({ theme }) => css`
     &.MuiInputBase-root {
-        color: ${theme as ThemeColors.secondary};
+        color: ${themeTypeCast(theme).secondary};
     }
 
     & > .MuiOutlinedInput-notchedOutline {
-        border-color: ${theme as ThemeColors.secondary};
+        border-color: ${themeTypeCast(theme).secondary};
     }
 
     & .MuiSelect-root {
-        color: ${theme as ThemeColors.secondary};
+        color: ${themeTypeCast(theme).secondary};
     }
 
     & .MuiSvgIcon-root {
-        color: ${theme as ThemeColors.secondary};
+        color: ${themeTypeCast(theme).secondary};
     }
 
 `);

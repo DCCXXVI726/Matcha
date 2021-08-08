@@ -2,15 +2,15 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { FormControlLabel, Theme } from '@material-ui/core';
 
-import { ThemeColors } from '../../../../../../../components/theme';
+import { themeTypeCast } from '../../../../../../../utils';
 
 export const MenuListStyled = styled.ul(({ theme }) => css`
     list-style: none;
     max-height: 30vh;
     overflow-y: auto;
     margin: 2vw;
-    background-color: ${theme as ThemeColors.primary};
-    color: ${theme as ThemeColors.secondary};
+    background-color: ${themeTypeCast(theme).primary};
+    color: ${themeTypeCast(theme).secondary};
     padding: 0;
 
     & li {
@@ -45,7 +45,7 @@ export const FormControlLabelStyled = styled(FormControlLabel)(({
         margin: 0.3rem;
         display: block;
         border-radius: 10px;
-        border: 1px solid ${theme as ThemeColors.primary};
+        border: 1px solid ${themeTypeCast(theme).primary};
     }
 
     &.MuiButtonBase-root {
@@ -54,20 +54,20 @@ export const FormControlLabelStyled = styled(FormControlLabel)(({
 
     ${isChecked && css`
         &.MuiFormControlLabel-root {
-            color: ${theme as ThemeColors.secondary};
-            background-color: ${theme as ThemeColors.primary};
-            border: 1px solid ${theme as ThemeColors.secondary};
+            color: ${themeTypeCast(theme).secondary};
+            background-color: ${themeTypeCast(theme).primary};
+            border: 1px solid ${themeTypeCast(theme).secondary};
         }
 
         &:hover {
-            color: ${theme as ThemeColors.secondary};
-            background-color: ${theme as ThemeColors.primary};
+            color: ${themeTypeCast(theme).secondary};
+            background-color: ${themeTypeCast(theme).primary};
         }
     `}
 
     &:hover {
-        color: ${theme as ThemeColors.secondary};
-        border: 1px solid ${theme as ThemeColors.secondary};
+        color: ${themeTypeCast(theme).secondary};
+        border: 1px solid ${themeTypeCast(theme).secondary};
     }
 
     & > .MuiButtonBase-root {
