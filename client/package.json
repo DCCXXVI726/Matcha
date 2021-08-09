@@ -8,6 +8,9 @@
         "lint:js": "eslint 'src/**/*.{js,ts,tsx}' 'stub/**/*.{js,ts,tsx}'",
         "lint:css": "stylelint './src/**/*.ts'"
     },
+	"engines": {
+ 		"node": ">=0.10.x"
+	},
     "dependencies": {
         "@babel/preset-react": "^7.12.13",
         "@babel/preset-typescript": "^7.12.17",

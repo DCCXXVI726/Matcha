@@ -85,4 +85,4 @@ app.get('/*', (_, res: Response) => {
     res.sendFile(path.resolve(__dirname, 'index.html'));
 });
 
-app.listen(PORT, () => `Dev server started on PORT=${PORT}`);
+app.listen(process.env.PORT || PORT, () => Dev server started on PORT=${PORT});

@@ -1,0 +1,8 @@
+FROM alpine:latest
+RUN apk --no-cache add ca-certificates
+COPY --from=matcha_builder ./main ./
+COPY ./server/configs/apiserver.toml ./configs/
+COPY --from=matcha_node_builder /stub ./web
+RUN chmod +x ./main
+EXPOSE 8080
+CMD ./main
