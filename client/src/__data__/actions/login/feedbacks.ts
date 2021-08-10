@@ -9,7 +9,7 @@ export default (lang: string) => async (dispatch: Dispatch): Promise<void> => {
         type: types.FEEDBACKS_LOADING
     });
 
-    const url = new URL('http://localhost:3030/api/feedbacks');
+    const url = new URL('http://localhost:3030/static/feedbacks');
     const params = convertArgsToUrlParams({ lang });
     url.search = new URLSearchParams(params).toString();
 

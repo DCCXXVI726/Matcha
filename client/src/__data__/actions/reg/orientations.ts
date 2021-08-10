@@ -9,7 +9,7 @@ export const fetchOrientations = (lang: string) => async (dispatch: Dispatch): P
         type: types.ORIENTATIONS_LOADING
     });
 
-    const url = new URL('http://localhost:3030/api/orientations');
+    const url = new URL('http://localhost:3030/static/orientations');
     const params = convertArgsToUrlParams({ lang });
     url.search = new URLSearchParams(params).toString();
 

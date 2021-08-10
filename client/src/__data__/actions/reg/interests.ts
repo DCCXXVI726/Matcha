@@ -9,7 +9,7 @@ export const fetchInterests = (lang: string) => async (dispatch: Dispatch): Prom
         type: types.INTERESTS_LOADING
     });
 
-    const url = new URL('http://localhost:3030/api/interests');
+    const url = new URL('http://localhost:3030/static/interests');
     const params = convertArgsToUrlParams({ lang });
     url.search = new URLSearchParams(params).toString();
 

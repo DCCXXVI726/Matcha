@@ -9,7 +9,7 @@ export const fetchGenders = (lang: string) => async (dispatch: Dispatch): Promis
         type: types.GENDERS_LOADING
     });
 
-    const url = new URL('http://localhost:3030/api/genders');
+    const url = new URL('http://localhost:3030/static/genders');
     const params = convertArgsToUrlParams({ lang });
     url.search = new URLSearchParams(params).toString();
 
