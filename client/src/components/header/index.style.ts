@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { LIGHT } from '../theme';
 import { themeTypeCast } from '../../utils';
 
+export const headerHeight = '68px';
 
 export const LogoWrapperStyled = styled.img`
     height: 3rem;
@@ -45,6 +46,7 @@ export const LinkStyled = styled(Link)`
 `;
 
 export const HeaderStyled = styled.header(({ theme, currentTheme }: StyledProps) => css`
+    height: ${headerHeight};
     ${currentTheme === LIGHT
         ? 'box-shadow:  20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;'
         : 'box-shadow:  20px 20px 60px #202020, -20px -20px 60px #2c2c2c;'

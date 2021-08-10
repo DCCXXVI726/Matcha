@@ -1,11 +1,9 @@
 import styled from '@emotion/styled';
 
+import { headerHeight } from '../../components/header/index.style';
+
 export const MainStyled = styled.main`
-    display: grid;
-    align-items: center;
-    max-width: unset;
-    width: 100%;
-    padding: 20px 0px;
-    user-select: none;
-    grid-area: main;
+    display: flex;
+    flex-direction: row;
+    min-height: calc(100vh - ${headerHeight});
 `;

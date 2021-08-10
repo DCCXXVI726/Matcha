@@ -1,6 +1,6 @@
 import * as colors from './colors.config.style';
 
-export const primary = '#ffffff';
+export const primary = colors.white;
 export const secondary = colors.gray9;
 
 export const transparent = colors.gray16A;

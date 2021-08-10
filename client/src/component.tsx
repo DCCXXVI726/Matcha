@@ -25,7 +25,7 @@ const MainContainer = (): JSX.Element => (
                 <Switch>
                     <Route path={navigation.login} component={Login} />
                     <Route path={navigation.onboarding} component={OnBoarding} />
-                    <PrivateRoute path={navigation.main} component={() => <div>{'kek'}</div>} />
+                    <PrivateRoute path={navigation.main} component={Main} />
                     <PrivateRoute path='*' component={NotFound} />
                 </Switch>
             </Router>

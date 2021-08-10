@@ -4,11 +4,11 @@ import { useTranslation } from 'react-i18next';
 
 import { actions } from '../../__data__';
 import { Header } from '../../components/header';
-import { Navbar } from '../../components/navbar';
 
 import {
     MainStyled
 } from './index.style';
+import { Sidebar } from './sidebar';
 
 interface MainComponentProps {
     fetchMultiLangContent: (lang: string) => Promise<void>
@@ -24,9 +24,11 @@ const MainComponent = ({
             <Header
                 fetchMultiLangContent={fetchMultiLangContent}
             />
-            <Navbar />
             <MainStyled>
-                <p>{t('hello')}</p>
+                <Sidebar />
+                <div>
+                    <p>{t('hello')}</p>
+                </div>
             </MainStyled>
         </>
     );
