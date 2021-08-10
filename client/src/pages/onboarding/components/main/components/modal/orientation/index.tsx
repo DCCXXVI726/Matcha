@@ -40,29 +40,31 @@ export const OrientationModal = ({
     );
 
     return (
-        <OrientationModalStyled
-            currentTheme={theme as string}
-            className='modal'
-            open={open}
-            closeAfterTransition
-            onClose={handleClose}
-            BackdropComponent={Backdrop}
-            BackdropProps={{ timeout: 500 }}
-            aria-labelledby='modal-Orientation'
-        >
-            <Fade in={open}>
-                <AsideStyled
-                    currentTheme={theme as string}
-                >
-                    <TypographyStyled
-                        variant='h3'
-                        padding='15px 0px'
+        <div>
+            <OrientationModalStyled
+                currentTheme={theme as string}
+                className='modal'
+                open={open}
+                closeAfterTransition
+                onClose={handleClose}
+                BackdropComponent={Backdrop}
+                BackdropProps={{ timeout: 500 }}
+                aria-labelledby='modal-Orientation'
+            >
+                <Fade in={open}>
+                    <AsideStyled
+                        currentTheme={theme as string}
                     >
-                        {t('reg-form-sexual-orientation-my')}
-                    </TypographyStyled>
-                    {requestStatus(list)[status]}
-                </AsideStyled>
-            </Fade>
-        </OrientationModalStyled>
+                        <TypographyStyled
+                            variant='h3'
+                            padding='15px 0px'
+                        >
+                            {t('reg-form-sexual-orientation-my')}
+                        </TypographyStyled>
+                        {requestStatus(list)[status]}
+                    </AsideStyled>
+                </Fade>
+            </OrientationModalStyled>
+        </div>
     );
 };

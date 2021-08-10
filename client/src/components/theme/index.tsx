@@ -19,6 +19,8 @@ export interface ThemeColors {
     transparent: string
     brand: string
     primary8A: string
+    primary40A: string
+    primary70A: string
 }
 
 interface Theme {

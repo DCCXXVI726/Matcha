@@ -19,7 +19,7 @@ export const FormStyled = styled.form(({ theme }) => css`
 
 export const ButtonStyled = styled(Button)`
     &.MuiButtonBase-root {
-        margin: 5vh auto 0;
+        margin: 5vh auto;
         display: block;
     }
 `;

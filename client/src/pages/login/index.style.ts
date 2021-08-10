@@ -65,9 +65,12 @@ export const ButtonWrapper = styled(Button)`
     }
 `;
 
-export const ModalStyled = styled(Modal)(({ theme }: StyledProps) => css`
+export const ModalStyled = styled(Modal)(({ theme, currentTheme }: StyledProps) => css`
     .MuiBackdrop-root {
-        background: ${themeTypeCast(theme).transparent};
+        ${currentTheme === LIGHT
+        ? `background: ${themeTypeCast(theme).primary70A};`
+        : `background: ${themeTypeCast(theme).primary8A};`
+}
     }
 
     &.modal {
@@ -110,8 +113,8 @@ export const AsideStyled = styled.aside(({ theme, currentTheme }: StyledProps) =
     border-radius: 10px;
 
     ${currentTheme === LIGHT
-        ? 'box-shadow: 17px 17px 34px #c7c7c7, -17px -17px 34px #f9f9f9;'
-        : 'box-shadow:  15px 15px 30px #202020, -15px -15px 30px #2c2c2c;'
+        ? `box-shadow: 17px 17px 34px ${themeTypeCast(theme).primary40A}, -17px -17px 34px ${themeTypeCast(theme).primary40A};`
+        : `box-shadow:  15px 15px 30px ${themeTypeCast(theme).primary8A}, -15px -15px 30px ${themeTypeCast(theme).primary8A};`
 }
     background-color: ${themeTypeCast(theme).primary};
 `);
