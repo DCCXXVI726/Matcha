@@ -11,7 +11,13 @@ import { RenderFileInput } from '../../../../../../components/redux-form-compone
 import { requestStatus } from '../../../../../../components/request-status';
 
 import { AdditionalFormContent } from './additional-form-content';
-import { FormStyled, ButtonStyled, FormDividerStyled, ImageStyled } from './index.style';
+import {
+    FormStyled,
+    ButtonStyled,
+    FormDividerStyled,
+    ImageStyled,
+    FormDividerWrapperStyled
+} from './index.style';
 
 const IMAGE_HEIGHT = 200;
 
@@ -112,7 +118,9 @@ export const RegistrationFormComponent = ({
             </div>
             <FormDividerStyled>
                 <AdditionalFormContent />
-                {requestStatus(submitButton)[status]}
+                <FormDividerWrapperStyled>
+                    {requestStatus(submitButton)[status]}
+                </FormDividerWrapperStyled>
             </FormDividerStyled>
         </FormStyled>
     );
