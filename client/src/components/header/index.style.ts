@@ -10,7 +10,7 @@ export const headerHeight = '68px';
 
 export const LogoWrapperStyled = styled.img`
     height: 3rem;
-    margin: 0 10px 0;
+    margin: 0px 16px 0 10px;
 
 `;
 

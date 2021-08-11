@@ -13,16 +13,6 @@ import * as DARK_THEME from './dark.theme.style';
 export const LIGHT = 'LIGHT';
 export const DARK = 'DARK';
 
-export interface ThemeColors {
-    primary: string
-    secondary: string
-    transparent: string
-    brand: string
-    primary8A: string
-    primary40A: string
-    primary70A: string
-}
-
 interface Theme {
     LIGHT: ThemeColors
     DARK: ThemeColors

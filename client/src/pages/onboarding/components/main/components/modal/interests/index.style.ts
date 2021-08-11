@@ -72,7 +72,7 @@ export const FormControlLabelStyled = styled(FormControlLabel)(({
     vertical-align: middle;
     justify-content: center;
     text-decoration: none;
-    border: 1px solid ${themeTypeCast(theme).brand};
+    border: 1px solid ${themeTypeCast(theme).matchaPink};
     overflow: hidden;
     white-space: nowrap;
     padding-left: 12px;
@@ -86,12 +86,12 @@ export const FormControlLabelStyled = styled(FormControlLabel)(({
 
     ${isChecked
         ? css`
-            background-color: ${themeTypeCast(theme).brand};;
+            background-color: ${themeTypeCast(theme).matchaPink};;
             color: ${white};
         `
         : css`
             background-color: ${themeTypeCast(theme).primary};
-            color: ${themeTypeCast(theme).brand};
+            color: ${themeTypeCast(theme).matchaPink};
         `
 }
 

@@ -46,6 +46,10 @@
     "reg-form-sexual-orientation-my": "Моя сексуальная ориентация",
     "reg-form-sexual-orientation-add": "Добавить сексуальную ориентацию",
 
+    "main.header.my-profile": "Мой профиль",
+    "main.header.pairs": "Пары",
+    "main.header.messages": "Сообщения",
+
     "footer-year": "© 2021 Matcha",
     "footer-title": "Github",
 

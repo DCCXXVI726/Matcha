@@ -45,5 +45,7 @@ export const gray16A = hex2rgba(gray9, 16);
 export const gray40A = hex2rgba(gray9, 40);
 export const gray70A = hex2rgba(gray9, 70);
 
-/* GRAY */
+/* PINK */
 export const pink = '#f50057';
+
+export const orange = '#ff6c48';

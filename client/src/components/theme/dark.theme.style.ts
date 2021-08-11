@@ -8,3 +8,5 @@ export const brand = colors.pink;
 export const primary8A = colors.white8A;
 export const primary40A = colors.white40A;
 export const primary70A = colors.white70A;
+export const matchaPink = colors.pink;
+export const matchaOrange = colors.orange;
