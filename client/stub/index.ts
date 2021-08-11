@@ -14,7 +14,8 @@ import { router as staticRouter } from './api';
 
 const app = express();
 
-const PORT = 3030;
+const PORT = 3000;
+// const PORT = 3030;
 
 /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
 /* @ts-ignore */

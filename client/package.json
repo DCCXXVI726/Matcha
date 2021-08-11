@@ -9,7 +9,8 @@
         "lint:css": "stylelint './src/**/*.ts'"
     },
 	"engines": {
- 		"node": ">=0.10.x"
+ 		"node": "14.15.5",
+        "npm": "6.14.11"
 	},
     "dependencies": {
         "@babel/preset-react": "^7.12.13",
