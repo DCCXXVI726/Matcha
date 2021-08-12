@@ -2,8 +2,8 @@ import styled from '@emotion/styled';
 import { css, Theme } from '@emotion/react';
 import { FormControlLabel, Button, Chip } from '@material-ui/core';
 
-import { white } from '../../../../../../../components/theme/colors.config.style';
-import { themeTypeCast } from '../../../../../../../utils';
+import { white } from './../../../../../components/theme/colors.config.style';
+import { themeTypeCast } from './../../../../../utils';
 
 export const ChipStyled = styled(Chip)(({ theme }) => css`
     &.MuiChip-root {

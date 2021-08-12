@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { Button } from '@material-ui/core';
 
-import { themeTypeCast } from '../../../../../../utils';
+import { themeTypeCast } from './../../../../utils';
 
 export const FormStyled = styled.form(({ theme }) => css`
     & .MuiInputBase-root, .MuiFormControlLabel-root, .MuiTypography-root {

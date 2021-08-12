@@ -6,7 +6,7 @@ import { actions } from '../../__data__';
 import { Header } from '../../components/header';
 import { Footer } from '../../components/footer';
 
-import { Main } from './components/main';
+import { Main } from './main';
 
 interface OnBoardingComponentProps {
     fetchMultiLangContent: (lang: string) => Promise<void> | void

@@ -4,12 +4,11 @@ import { Field, reduxForm, formValueSelector } from 'redux-form';
 import { useTranslation } from 'react-i18next';
 import { FormControlLabel, Radio } from '@material-ui/core';
 
-import { State, Status } from '../../../../../../__data__/types';
-import { RenderTextField } from '../../../../../../components/redux-form-components/text-field';
-import { RenderRadioGroup } from '../../../../../../components/redux-form-components/radio-group';
-import { RenderFileInput } from '../../../../../../components/redux-form-components/file-input';
-import { requestStatus } from '../../../../../../components/request-status';
-
+import { State, Status } from './../../../../__data__/types';
+import { RenderTextField } from './../../../../components/redux-form-components/text-field';
+import { RenderRadioGroup } from './../../../../components/redux-form-components/radio-group';
+import { RenderFileInput } from './../../../../components/redux-form-components/file-input';
+import { requestStatus } from './../../../../components/request-status';
 import { AdditionalFormContent } from './additional-form-content';
 import {
     FormStyled,

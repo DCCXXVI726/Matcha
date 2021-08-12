@@ -9,8 +9,8 @@ import {
     Status,
     State,
     KeyValue
-} from '../../../../../../__data__/types';
-import { selectors } from '../../../../../../__data__';
+} from '../../../../__data__/types';
+import { selectors } from '../../../../__data__';
 import { RenderChips } from '../utils/render-chips';
 
 import { SplitterStyled } from './index.style';

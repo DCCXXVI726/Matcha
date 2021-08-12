@@ -1,35 +1,38 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { formValueSelector, Field, FieldArray, reduxForm, FieldArrayFieldsProps } from 'redux-form';
 import { useTranslation } from 'react-i18next';
+import { formValueSelector, Field, FieldArray, reduxForm, FieldArrayFieldsProps } from 'redux-form';
 
-import { KeyValue } from '../../../../../../../__data__/types';
+
 import { FormInterests } from '../../form/additional-form-content';
+import { ButtonContinueStyled } from '../interests/index.style';
 
-import { ChipComponent } from './chip';
-import { ChipsWrapperStyled, ButtonContinueStyled } from './index.style';
+import { MenuItem } from './menu-item';
+import { MenuListStyled } from './index.style';
+import { KeyValue } from './../../../../../__data__/types';
 
+const MAX_COUNT = 3;
 
-const MAX_COUNT = 5;
-
-interface ChipsProps {
+interface ListComponentProps {
     count: number
-    interests: KeyValue[]
+    orientations: KeyValue[]
     handleClose: () => void
 }
 
-export const ChipsComponent = ({
+export const ListComponent = ({
     count,
-    interests,
+    orientations,
     handleClose
-}: ChipsProps): JSX.Element => {
+}: ListComponentProps): JSX.Element => {
     const { t } = useTranslation();
 
     const isDisable = count !== MAX_COUNT;
 
-    const ChipsArray = ({ fields }: { fields: FieldArrayFieldsProps<FormInterests> }): JSX.Element => {
+    const MenuArray = ({ fields }: { fields: FieldArrayFieldsProps<FormInterests> }): JSX.Element => {
         if (fields.length === 0) {
-            interests.forEach((interest) => fields.push(interest));
+            orientations.forEach((item) => {
+                fields.push(item);
+            });
         }
         return (
             <>
@@ -39,7 +42,7 @@ export const ChipsComponent = ({
                     return (
                         <Field
                             name={`${field}.is${values}`}
-                            component={ChipComponent}
+                            component={MenuItem}
                             key={values}
                             value={values}
                             label={key[values]}
@@ -52,14 +55,13 @@ export const ChipsComponent = ({
 
     return (
         <>
-            <ChipsWrapperStyled>
+            <MenuListStyled>
                 <FieldArray
-                    name='interests'
-                    component={ChipsArray}
-                    props={{ data: interests }}
+                    name='orientations'
+                    component={MenuArray}
+                    props={{ data: orientations }}
                 />
-
-            </ChipsWrapperStyled>
+            </MenuListStyled>
             <ButtonContinueStyled
                 isDisable={isDisable}
                 variant='contained'
@@ -75,14 +77,14 @@ export const ChipsComponent = ({
     );
 };
 
-const ChipsContainer = reduxForm<null, ChipsProps>({
+const ListContainer = reduxForm<null, ListComponentProps>({
     form: 'registration',
     destroyOnUnmount: false
-})(ChipsComponent);
+})(ListComponent);
 
-export const Chips = connect((state) => {
-    const formInterests = formValueSelector('registration')(state, 'interests');
+export const List = connect((state) => {
+    const formInterests = formValueSelector('registration')(state, 'orientations');
     return {
         formInterests
     };
-})(ChipsContainer);
+})(ListContainer);

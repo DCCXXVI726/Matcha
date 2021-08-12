@@ -2,15 +2,15 @@ import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Fade, Backdrop } from '@material-ui/core';
 
-import { ThemeWrapperContext } from '../../../../../../../components/theme';
-import { Status, KeyValue } from '../../../../../../../__data__/types';
 import {
     RegistrationModalStyled as ChipsModalStyled,
     AsideStyled,
     TypographyStyled
 } from '../rules/index.style';
-import { requestStatus } from '../../../../../../../components/request-status';
 
+import { ThemeWrapperContext } from './../../../../../components/theme';
+import { Status, KeyValue } from './../../../../../__data__/types';
+import { requestStatus } from './../../../../../components/request-status';
 import { Chips } from './chips';
 
 interface ChipsModalProps {

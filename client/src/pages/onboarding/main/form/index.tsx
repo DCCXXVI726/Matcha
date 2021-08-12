@@ -2,9 +2,8 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import i18next from 'i18next';
 
-import { actions, selectors } from '../../../../../../__data__';
-import { State, Status } from '../../../../../../__data__/types';
-
+import { actions, selectors } from './../../../../__data__';
+import { State, Status } from './../../../../__data__/types';
 import { RegistrationForm as MainRegistrationForm } from './container';
 
 interface RegistrationFormContainerProps {

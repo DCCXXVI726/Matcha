@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
-import { themeTypeCast } from '../../../../utils';
+import { themeTypeCast } from '../../../utils';
 
 export const MainStyled = styled.main(({ theme }) => css`
     color: ${themeTypeCast(theme).secondary};
