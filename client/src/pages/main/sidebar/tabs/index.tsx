@@ -1,7 +1,8 @@
 import React, { useState, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import MaterialUiTabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
+
+import { SidebarTabStyled } from './tabs.style';
 
 interface TabsProps {
     handleToggleTab: (newValue: string) => void
@@ -25,8 +26,8 @@ export const Tabs = ({ handleToggleTab }: TabsProps): JSX.Element => {
                 textColor='secondary'
                 centered
             >
-                <Tab label={t('main.header.pairs')} />
-                <Tab label={t('main.header.messages')} />
+                <SidebarTabStyled label={t('main.sidebar.pairs')} />
+                <SidebarTabStyled label={t('main.sidebar.messages')} />
             </MaterialUiTabs>
         </div>
     );

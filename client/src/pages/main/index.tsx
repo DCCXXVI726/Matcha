@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { useTranslation } from 'react-i18next';
 
 import { actions } from '../../__data__';
 import { Header } from '../../components/header';
@@ -9,30 +8,23 @@ import {
     MainStyled
 } from './index.style';
 import { Sidebar } from './sidebar';
+import { Content } from './content';
 
 interface MainComponentProps {
     fetchMultiLangContent: (lang: string) => Promise<void>
 }
 
-const MainComponent = ({
-    fetchMultiLangContent
-}: MainComponentProps): JSX.Element => {
-    const { t } = useTranslation();
-
-    return (
-        <>
-            <Header
-                fetchMultiLangContent={fetchMultiLangContent}
-            />
-            <MainStyled>
-                <Sidebar />
-                <div>
-                    <p>{t('hello')}</p>
-                </div>
-            </MainStyled>
-        </>
-    );
-};
+const MainComponent = ({ fetchMultiLangContent }: MainComponentProps): JSX.Element => (
+    <>
+        <Header
+            fetchMultiLangContent={fetchMultiLangContent}
+        />
+        <MainStyled>
+            <Content />
+            <Sidebar />
+        </MainStyled>
+    </>
+);
 
 /* eslint-disable-next-line @typescript-eslint/explicit-function-return-type */
 const mapDispatchToProps = (dispatch: MatchaDispatch) => ({

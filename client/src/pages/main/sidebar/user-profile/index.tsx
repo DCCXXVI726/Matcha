@@ -20,7 +20,7 @@ export const UserProfile = (): JSX.Element => {
             <TypographyStyled
                 variant='h2'
             >
-                {t('main.header.my-profile')}
+                {t('main.sidebar.my-profile')}
             </TypographyStyled>
         </UserProfileStyled>
     );

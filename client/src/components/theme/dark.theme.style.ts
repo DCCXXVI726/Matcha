@@ -10,3 +10,6 @@ export const primary40A = colors.white40A;
 export const primary70A = colors.white70A;
 export const matchaPink = colors.pink;
 export const matchaOrange = colors.orange;
+export const matchaContentBackground = colors.coolGray7;
+
+export const sidebarTitle = colors.white;

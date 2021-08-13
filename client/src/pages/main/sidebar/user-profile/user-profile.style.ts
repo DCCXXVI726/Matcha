@@ -18,7 +18,7 @@ export const SidebarAvatarStyled = styled(Avatar)`
 `;
 
 export const TypographyStyled = styled(Typography)(({ theme }) => css`
-    color: ${themeTypeCast(theme).primary};
+    color: ${themeTypeCast(theme).sidebarTitle};
 
     &.MuiTypography-h2 {
         font-size: 1.75rem;

@@ -25,6 +25,8 @@ export const Sidebar = (): JSX.Element => {
                 ? <div />
                 : <div />
             }
+            {/* TODO: сделать только в случае, если ничего больше нет */}
+            
         </SidebarStyled>
     );
 };

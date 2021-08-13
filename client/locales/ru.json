@@ -46,9 +46,11 @@
     "reg-form-sexual-orientation-my": "Моя сексуальная ориентация",
     "reg-form-sexual-orientation-add": "Добавить сексуальную ориентацию",
 
-    "main.header.my-profile": "Мой профиль",
-    "main.header.pairs": "Пары",
-    "main.header.messages": "Сообщения",
+    "main.sidebar.my-profile": "Мой профиль",
+    "main.sidebar.pairs": "Пары",
+    "main.sidebar.messages": "Сообщения",
+    "main.sidebar.start-pairs-search-title": "Начать поиск пар",
+    "main.sidebar.start-pairs-search-description": "Пары появятся в этой вкладке, как только вы начнёте ставить лайки. Здесь же можно начать переписку, оставив сообщение",
 
     "footer-year": "© 2021 Matcha",
     "footer-title": "Github",

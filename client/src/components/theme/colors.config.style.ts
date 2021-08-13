@@ -35,6 +35,8 @@ export const white70A = hex2rgba(white, 70);
 
 /* COOl GRAY */
 export const coolGray9 = '#e0e0e0';
+export const coolGray8 = '#f5f7fa';
+export const coolGray7 = '#2b2b2b';
 
 /* GRAY */
 export const gray9 = '#262626';
