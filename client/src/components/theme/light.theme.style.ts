@@ -12,3 +12,4 @@ export const matchaOrange = colors.orange;
 export const matchaContentBackground = colors.coolGray8;
 
 export const sidebarTitle = colors.white;
+export const langChooseBorder = colors.gray40A;
