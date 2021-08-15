@@ -1,6 +1,6 @@
 import { Dispatch } from 'redux';
 
-import { fetchWithTimeout } from '../../../utils';
+import { baseUrl, fetchWithTimeout } from '../../../utils';
 import * as types from '../../action-types';
 import { convertArgsToUrlParams } from '../../utils/convert-args-to-url-params';
 
@@ -9,7 +9,7 @@ export const fetchOrientations = (lang: string) => async (dispatch: Dispatch): P
         type: types.ORIENTATIONS_LOADING
     });
 
-    const url = new URL('http://localhost:3030/static/orientations');
+    const url = new URL(`${baseUrl()}/static/orientations`);
     const params = convertArgsToUrlParams({ lang });
     url.search = new URLSearchParams(params).toString();
 

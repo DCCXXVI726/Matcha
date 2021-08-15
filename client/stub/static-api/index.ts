@@ -13,8 +13,8 @@ export const router = express.Router()
         langDependentApi(
             res,
             req.query.lang,
-            fs.readFileSync('./stub/api/feedbacks/ru.json', 'utf8'),
-            fs.readFileSync('./stub/api/feedbacks/en.json', 'utf8')
+            fs.readFileSync('./stub/static-api/feedbacks/ru.json', 'utf8'),
+            fs.readFileSync('./stub/static-api/feedbacks/en.json', 'utf8')
         );
     })
 
@@ -22,8 +22,8 @@ export const router = express.Router()
         langDependentApi(
             res,
             req.query.lang,
-            fs.readFileSync('./stub/api/genders/ru.json', 'utf8'),
-            fs.readFileSync('./stub/api/genders/en.json', 'utf8')
+            fs.readFileSync('./stub/static-api/genders/ru.json', 'utf8'),
+            fs.readFileSync('./stub/static-api/genders/en.json', 'utf8')
         );
     })
 
@@ -31,8 +31,8 @@ export const router = express.Router()
         langDependentApi(
             res,
             req.query.lang,
-            fs.readFileSync('./stub/api/interests/ru.json', 'utf8'),
-            fs.readFileSync('./stub/api/interests/en.json', 'utf8')
+            fs.readFileSync('./stub/static-api/interests/ru.json', 'utf8'),
+            fs.readFileSync('./stub/static-api/interests/en.json', 'utf8')
         );
     })
 
@@ -40,7 +40,7 @@ export const router = express.Router()
         langDependentApi(
             res,
             req.query.lang,
-            fs.readFileSync('./stub/api/orientations/ru.json', 'utf8'),
-            fs.readFileSync('./stub/api/orientations/en.json', 'utf8')
+            fs.readFileSync('./stub/static-api/orientations/ru.json', 'utf8'),
+            fs.readFileSync('./stub/static-api/orientations/en.json', 'utf8')
         );
     });

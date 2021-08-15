@@ -1,18 +1,25 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { connect } from 'react-redux';
 
+import { actions } from './../../../__data__';
 import { UserProfile } from './user-profile';
 import { Tabs } from './tabs';
-import { InfoBlock } from './info-block';
+import { Pairs } from './pairs';
+import { Messages } from './messages';
 import { SidebarStyled } from './sidebar.style';
 
 const PAIRS = 0;
 
-interface SidebarProps {
-    isEmpty: boolean
+interface SidebarComponentProps {
+    fetchPairs: () => Promise<void>
 }
 
-export const Sidebar = ({ isEmpty = true }: SidebarProps): JSX.Element => {
+export const SidebarComponent = ({ fetchPairs }: SidebarComponentProps): JSX.Element => {
     const [value, setValue] = useState(PAIRS);
+
+    useEffect(() => {
+        fetchPairs();
+    }, [fetchPairs]);
 
     const handleToggleTab = useCallback((newValue) => {
         setValue(newValue);
@@ -25,12 +32,16 @@ export const Sidebar = ({ isEmpty = true }: SidebarProps): JSX.Element => {
                 handleToggleTab={handleToggleTab}
             />
             {value === PAIRS
-                ? <div />
-                : <div />
+                ? <Pairs />
+                : <Messages />
             }
-
-            {isEmpty && <InfoBlock />}
-            
         </SidebarStyled>
     );
 };
+
+/* eslint-disable-next-line @typescript-eslint/explicit-function-return-type */
+const mapDispatchToProps = (dispatch: MatchaDispatch) => ({
+    fetchPairs: (): Promise<void> => dispatch(actions.mainPage.fetchPairs())
+});
+
+export const Sidebar = connect(null, mapDispatchToProps)(SidebarComponent);

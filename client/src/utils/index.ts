@@ -3,3 +3,4 @@ export { GlobalStyles } from './global-styles';
 export { asyncNoop } from './noop';
 export { PrivateRoute } from './private-route';
 export { themeTypeCast } from './theme-type-cast';
+export { baseUrl } from './base-url';

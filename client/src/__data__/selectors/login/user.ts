@@ -1,4 +1,5 @@
-import { State, Status } from '../../types';
+import { Status } from '../../constants';
+import { State } from '../../types';
 
 export const status = (state: State): Status => state.loginPage.user.status;
 

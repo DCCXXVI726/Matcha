@@ -1,6 +1,6 @@
 import * as types from '../../action-types';
 import { ERROR, LOADING, SUCCESS } from '../../constants';
-import { Feedbacks, Feedback } from '../../types';
+import { Feedbacks, Feedback } from '../../types/login-page';
 
 interface FeedbacksFetchAction {
     type:

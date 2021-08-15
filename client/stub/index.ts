@@ -6,11 +6,13 @@ import { Response } from 'express';
 import webpack = require('webpack');
 import webpackDevMiddleware = require('webpack-dev-middleware');
 
+
 /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
 /* @ts-ignore */
 import webpackConfig = require('../webpack-config');
 
-import { router as staticRouter } from './api';
+import { router as staticRouter } from './static-api';
+import { router as dummyRouter } from './dummy';
 
 const app = express();
 
@@ -35,6 +37,7 @@ app.post('/sessions', (req, res) => {
 });
 
 app.use('/static', staticRouter);
+app.use('/dummy', dummyRouter);
 
 app.get('/api*', (_, res: Response) => {
     axios.get(`http://localhost:8080${_.path}`)

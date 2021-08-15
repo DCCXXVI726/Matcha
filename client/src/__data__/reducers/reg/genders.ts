@@ -1,6 +1,6 @@
 import * as types from '../../action-types';
 import { ERROR, LOADING, SUCCESS } from '../../constants';
-import { Genders } from '../../types';
+import { Genders } from '../../types/reg-page';
 
 interface FeedbacksFetchAction {
     type:

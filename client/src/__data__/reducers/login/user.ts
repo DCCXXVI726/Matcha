@@ -1,6 +1,6 @@
 import * as types from '../../action-types';
 import { ERROR, LOADING, SUCCESS } from '../../constants';
-import { User } from '../../types';
+import { User } from '../../types/login-page';
 
 interface UserFetchAction {
     type:

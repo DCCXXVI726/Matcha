@@ -3,14 +3,14 @@ import { Dispatch } from 'redux';
 import * as types from '../../action-types';
 import { convertArgsToUrlParams } from '../../utils/convert-args-to-url-params';
 
-import { fetchWithTimeout } from './../../../utils';
+import { baseUrl, fetchWithTimeout } from './../../../utils';
 
 export default (password: string) => async (dispatch: Dispatch): Promise<void> => {
     dispatch({
         type: types.ACCOUNT_RECOVERY_LOADING
     });
 
-    const url = new URL('http://localhost:3030/api/account-recovery');
+    const url = new URL(`${baseUrl()}/api/account-recovery`);
     const params = convertArgsToUrlParams({ password });
     url.search = new URLSearchParams(params).toString();
 

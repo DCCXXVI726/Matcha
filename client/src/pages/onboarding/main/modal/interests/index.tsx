@@ -9,7 +9,7 @@ import {
 } from '../rules/index.style';
 
 import { ThemeWrapperContext } from './../../../../../components/theme';
-import { Status, KeyValue } from './../../../../../__data__/types';
+import { Status } from './../../../../../__data__/constants';
 import { requestStatus } from './../../../../../components/request-status';
 import { Chips } from './chips';
 

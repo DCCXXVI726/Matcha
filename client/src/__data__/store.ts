@@ -10,24 +10,18 @@ import {
 import { reducer as formReducer, FormStateMap } from 'redux-form';
 import thunkMiddleware from 'redux-thunk';
 
-import {
-    Lang,
-    LoginPage,
-    RegPage
-} from './types';
-import {
-    loginPage,
-    regPage,
-    lang
-} from './reducers';
+import { Lang, LoginPage, RegPage, MainPage } from './types';
+import { loginPage, regPage, mainPage, lang } from './reducers';
 
 export const createReducer = (): Reducer<CombinedState<{
     loginPage: LoginPage
     regPage: RegPage
+    mainPage: MainPage
     lang: Lang
     form: FormStateMap
 }>> => combineReducers({
     loginPage,
+    mainPage,
     regPage,
     lang,
     form: formReducer
@@ -46,9 +40,7 @@ export const createStore = (): Store => {
     const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
     return composeEnhancers(
-        applyMiddleware(
-            thunkMiddleware
-        )
+        applyMiddleware(thunkMiddleware)
     )(createReduxStore)(reducer, {});
 };
 

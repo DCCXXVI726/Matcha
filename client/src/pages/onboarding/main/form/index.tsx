@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import i18next from 'i18next';
 
 import { actions, selectors } from './../../../../__data__';
-import { State, Status } from './../../../../__data__/types';
+import { State } from './../../../../__data__/types';
+import { Status } from './../../../../__data__/constants';
 import { RegistrationForm as MainRegistrationForm } from './container';
 
 interface RegistrationFormContainerProps {

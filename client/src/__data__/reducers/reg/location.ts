@@ -1,5 +1,5 @@
 import * as types from '../../action-types';
-import { UserLocation } from '../../types';
+import { UserLocation } from '../../types/reg-page';
 
 interface UserLocationFetchAction {
     type:

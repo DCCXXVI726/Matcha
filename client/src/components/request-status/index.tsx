@@ -3,10 +3,10 @@ import React from 'react';
 import { CircularProgressStyled } from '../circular-progress/index.style';
 import { FetchError } from '../popup-messages/fetch-error';
 
-export const requestStatus = (successComponent: JSX.Element): {
+export const requestStatus = (successComponent: JSX.Element | JSX.Element[]): {
     LOADING: JSX.Element
     ERROR: JSX.Element
-    SUCCESS: JSX.Element
+    SUCCESS: JSX.Element | JSX.Element[]
 } => ({
     LOADING: <CircularProgressStyled />,
     ERROR: (

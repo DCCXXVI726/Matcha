@@ -20,7 +20,12 @@
         "experimentalDecorators": true,
         "typeRoots" : [
             "./node_modules/@types",
-            "./types/**/*.d.ts"
+            "./types/css.d.ts",
+            "./types/images.d.ts",
+            "./types/index.d.ts",
+            "./types/svg.d.ts",
+            "./types/theme.d.ts"
+            
         ]
     },
     "include": [

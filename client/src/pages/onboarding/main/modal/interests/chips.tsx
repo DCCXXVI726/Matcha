@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next';
 
 import { FormInterests } from '../../form/additional-form-content';
 
-import { KeyValue } from './../../../../../__data__/types';
 import { ChipComponent } from './chip';
 import { ChipsWrapperStyled, ButtonContinueStyled } from './index.style';
 

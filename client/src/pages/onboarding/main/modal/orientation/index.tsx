@@ -8,7 +8,7 @@ import {
     TypographyStyled
 } from '../rules/index.style';
 
-import { Status, KeyValue } from './../../../../../__data__/types';
+import { Status } from './../../../../../__data__/constants';
 import { requestStatus } from './../../../../../components/request-status';
 import { ThemeWrapperContext } from './../../../../../components/theme';
 import { List } from './menu';

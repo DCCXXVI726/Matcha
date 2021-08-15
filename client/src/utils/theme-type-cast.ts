@@ -1,5 +1,4 @@
 import { Theme } from '@emotion/react';
 
-import { ThemeColors } from '../components/theme';
-
+// @ts-ignore
 export const themeTypeCast = (theme: Theme | undefined): ThemeColors => theme as ThemeColors;

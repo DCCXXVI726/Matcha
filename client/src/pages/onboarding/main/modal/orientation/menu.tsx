@@ -9,7 +9,6 @@ import { ButtonContinueStyled } from '../interests/index.style';
 
 import { MenuItem } from './menu-item';
 import { MenuListStyled } from './index.style';
-import { KeyValue } from './../../../../../__data__/types';
 
 const MAX_COUNT = 3;
 

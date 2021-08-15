@@ -1,4 +1,6 @@
-import { Feedback, State, Status } from '../../types';
+import { Feedback } from '../../types/login-page';
+import { Status } from '../../constants';
+import { State } from '../../types';
 
 export const status = (state: State): Status => state.loginPage.feedbacks.status;
 

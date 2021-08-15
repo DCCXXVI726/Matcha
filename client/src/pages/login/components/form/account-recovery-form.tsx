@@ -2,7 +2,7 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { useTranslation } from 'react-i18next';
 
-import { Status } from '../../../../__data__/types';
+import { Status } from '../../../../__data__/constants';
 import { RenderTextField } from '../../../../components/redux-form-components/text-field';
 import { FormStyled } from '../../index.style';
 import { requestStatus } from '../../../../components/request-status';
@@ -45,7 +45,6 @@ export const RecoveryFormComponent = ({
         </FormStyled>
     );
 };
-
 
 export const RecoveryForm = reduxForm<null, RecoveryFormComponentProps>({
     form: 'account-recovery'

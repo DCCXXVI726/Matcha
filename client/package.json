@@ -2,16 +2,16 @@
     "name": "matcha",
     "license": "UNLICENSED",
     "scripts": {
-        "start": "ts-node stub/index.ts",
+        "start": "npx cross-env PORT=3030 HOST='http://localhost' ts-node stub/index.ts",
         "build": "webpack --config ./webpack-config.js",
         "lint": "npm run lint:js && npm run lint:css",
         "lint:js": "eslint 'src/**/*.{js,ts,tsx}' 'stub/**/*.{js,ts,tsx}'",
         "lint:css": "stylelint './src/**/*.ts'"
     },
-	"engines": {
+    "engines": {
         "node": "14.x",
         "npm": "6.x"
-	},
+    },
     "dependencies": {
         "@babel/preset-react": "^7.12.13",
         "@babel/preset-typescript": "^7.12.17",
@@ -27,6 +27,7 @@
         "@typescript-eslint/eslint-plugin": "^4.15.0",
         "@typescript-eslint/parser": "^4.15.0",
         "axios": "^0.21.1",
+        "cross-env": "^7.0.3",
         "emotion": "^11.0.0",
         "eslint": "^7.20.0",
         "eslint-plugin-no-cyrillic-string": "^1.0.5",

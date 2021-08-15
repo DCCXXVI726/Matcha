@@ -2,9 +2,7 @@ import * as types from '../action-types';
 import { Lang } from '../types';
 
 interface LangAction {
-    type:
-        typeof types.CHANGE_LANG
-
+    type: typeof types.CHANGE_LANG
     payload: 'ru' | 'en'
 }
 

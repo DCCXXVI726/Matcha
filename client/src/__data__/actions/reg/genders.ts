@@ -1,6 +1,6 @@
 import { Dispatch } from 'redux';
 
-import { fetchWithTimeout } from '../../../utils';
+import { baseUrl, fetchWithTimeout } from '../../../utils';
 import * as types from '../../action-types';
 import { convertArgsToUrlParams } from '../../utils/convert-args-to-url-params';
 
@@ -9,7 +9,7 @@ export const fetchGenders = (lang: string) => async (dispatch: Dispatch): Promis
         type: types.GENDERS_LOADING
     });
 
-    const url = new URL('http://localhost:3030/static/genders');
+    const url = new URL(`${baseUrl()}/static/genders`);
     const params = convertArgsToUrlParams({ lang });
     url.search = new URLSearchParams(params).toString();
 
