@@ -13,11 +13,11 @@ export const UserProfileStyled = styled.div(({ theme }: StyledProps) => css`
 
 `);
 
-export const SidebarAvatarStyled = styled(Avatar)`
+export const UserProfileAvatarStyled = styled(Avatar)`
     margin: 0 10px;
 `;
 
-export const TypographyStyled = styled(Typography)(({ theme }) => css`
+export const UserProfileTypographyStyled = styled(Typography)(({ theme }) => css`
     color: ${themeTypeCast(theme).sidebarTitle};
 
     &.MuiTypography-h2 {

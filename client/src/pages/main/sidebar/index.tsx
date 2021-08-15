@@ -2,14 +2,17 @@ import React, { useState, useCallback } from 'react';
 
 import { UserProfile } from './user-profile';
 import { Tabs } from './tabs';
-import {
-    SidebarStyled
-} from './sidebar.style';
+import { InfoBlock } from './info-block';
+import { SidebarStyled } from './sidebar.style';
 
 const PAIRS = 0;
 
-export const Sidebar = (): JSX.Element => {
-    const [value, setValue] = useState(0);
+interface SidebarProps {
+    isEmpty: boolean
+}
+
+export const Sidebar = ({ isEmpty = true }: SidebarProps): JSX.Element => {
+    const [value, setValue] = useState(PAIRS);
 
     const handleToggleTab = useCallback((newValue) => {
         setValue(newValue);
@@ -25,7 +28,8 @@ export const Sidebar = (): JSX.Element => {
                 ? <div />
                 : <div />
             }
-            {/* TODO: сделать только в случае, если ничего больше нет */}
+
+            {isEmpty && <InfoBlock />}
             
         </SidebarStyled>
     );

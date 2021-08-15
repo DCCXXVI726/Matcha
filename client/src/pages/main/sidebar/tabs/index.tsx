@@ -18,17 +18,15 @@ export const Tabs = ({ handleToggleTab }: TabsProps): JSX.Element => {
     }, [handleToggleTab]);
 
     return (
-        <div>
-            <MaterialUiTabs
-                value={value}
-                onChange={handleChange}
-                indicatorColor='secondary'
-                textColor='secondary'
-                centered
-            >
-                <SidebarTabStyled label={t('main.sidebar.pairs')} />
-                <SidebarTabStyled label={t('main.sidebar.messages')} />
-            </MaterialUiTabs>
-        </div>
+        <MaterialUiTabs
+            value={value}
+            onChange={handleChange}
+            indicatorColor='secondary'
+            textColor='secondary'
+            centered
+        >
+            <SidebarTabStyled label={t('main.sidebar.pairs')} />
+            <SidebarTabStyled label={t('main.sidebar.messages')} />
+        </MaterialUiTabs>
     );
 };

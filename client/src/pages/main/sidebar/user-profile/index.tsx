@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 
 import {
     UserProfileStyled,
-    TypographyStyled,
-    SidebarAvatarStyled
+    UserProfileTypographyStyled,
+    UserProfileAvatarStyled
 } from './user-profile.style';
 
 export const UserProfile = (): JSX.Element => {
@@ -12,16 +12,16 @@ export const UserProfile = (): JSX.Element => {
 
     return (
         <UserProfileStyled>
-            <SidebarAvatarStyled
+            <UserProfileAvatarStyled
                 alt='User avatar'
             >
                 {'N'}
-            </SidebarAvatarStyled>
-            <TypographyStyled
+            </UserProfileAvatarStyled>
+            <UserProfileTypographyStyled
                 variant='h2'
             >
                 {t('main.sidebar.my-profile')}
-            </TypographyStyled>
+            </UserProfileTypographyStyled>
         </UserProfileStyled>
     );
 };
