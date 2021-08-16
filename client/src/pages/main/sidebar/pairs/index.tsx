@@ -1,5 +1,4 @@
-import { Avatar } from '@material-ui/core';
-import React, { useMemo } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
 import { requestStatus } from '../../../../components/request-status';
@@ -9,34 +8,42 @@ import { InfoBlock } from '../info-block';
 
 import { selectors } from './../../../../__data__';
 import { State } from './../../../../__data__/types';
-import {
-    PairsListStyled,
-    PairsItemStyled,
-    PairsTypographyStyled
-} from './pairs.style';
+import { PairsList } from './pairs-list';
+import { PairsListStyled } from './pairs.style';
 
 interface PairsComponentProps {
     status: Status
     pairs: Pair[]
 }
 
-export const PairsComponent = ({ status, pairs }: PairsComponentProps): JSX.Element => {
+// const PairsList = ({ name, avatar }: Pair): JSX.Element => {
+//     const [hover, setHover] = useState<boolean>(false);
 
-    const PairsList = useMemo(() => pairs.map(({ name, avatar }): JSX.Element => (
-        <PairsItemStyled key={name}>
-            <Avatar
-                src={avatar}
-                alt={`avatar of ${name}`}
-            />
-            <PairsTypographyStyled>
-                {name}
-            </PairsTypographyStyled>
-        </PairsItemStyled>
-    )), [pairs]);
+//     const handleHover = (): void => setHover(!hover);
+
+//     return (
+//         <PairsItemStyled
+//             onMouseOver={handleHover}
+//             onMouseOut={handleHover}
+//         >
+//             <Avatar
+//                 src={avatar}
+//                 alt={`avatar of ${name}`}
+//             />
+//             <PairsTypographyStyled>
+//                 {name}
+//             </PairsTypographyStyled>
+//             {hover}
+//         </PairsItemStyled>
+//     );
+// };
+
+export const PairsComponent = ({ status, pairs }: PairsComponentProps): JSX.Element => {
+    const renderChildren = pairs.map((pair): JSX.Element => <PairsList key={pair.name} {...pair} />);
 
     return (
         <PairsListStyled>
-            {requestStatus(PairsList)[status]}
+            {requestStatus(renderChildren)[status]}
             {pairs.length === 0 && <InfoBlock />}
         </PairsListStyled>
     );
