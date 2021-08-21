@@ -10,4 +10,7 @@ declare interface ThemeColors {
     matchaPink: string
     matchaOrange: string
     matchaContentBackground: string
+
+    sidebarTitle: string
+    langChooseBorder: string
 }

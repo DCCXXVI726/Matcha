@@ -14,8 +14,7 @@ interface RenderTextFieldProps {
     minlength: number
     maxLength: number
     placeholder: string
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    onChange?: (...args: any[]) => any
+    onChange?: (...args: unknown[]) => unknown
 }
 
 export const RenderTextField = ({

@@ -4,6 +4,8 @@ interface Navigation {
 
     login: string
     onboarding: string
+
+    profile: string
 }
 
 export const navigation: Navigation = {
@@ -11,5 +13,7 @@ export const navigation: Navigation = {
     main: '/main',
 
     login: '/login',
-    onboarding: '/onboarding'
+    onboarding: '/onboarding',
+
+    profile: '/profile'
 };
