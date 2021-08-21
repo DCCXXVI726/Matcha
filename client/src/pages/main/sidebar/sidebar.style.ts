@@ -6,6 +6,8 @@ import { themeTypeCast } from '../../../utils';
 export const sidebarWidth = '320px';
 
 export const SidebarStyled = styled.aside(({ theme }: StyledProps) => css`
+    display: flex;
+    flex-direction: column;
     width: ${sidebarWidth};
     border-color: ${themeTypeCast(theme).transparent};
     border-left-width: 1px;

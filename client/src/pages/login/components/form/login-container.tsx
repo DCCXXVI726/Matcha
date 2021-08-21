@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import { formValueSelector } from 'redux-form';
 
 import { actions, selectors } from '../../../../__data__';
-import { State, Status } from '../../../../__data__/types';
-import { SUCCESS } from '../../../../__data__/constants';
+import { State } from '../../../../__data__/types';
+import { Status, SUCCESS } from '../../../../__data__/constants';
 import { getSessionCookie } from '../../../../__data__/cookies';
 import { navigation } from '../../../../navigation';
 
@@ -30,7 +30,7 @@ export const FormContainer = ({
     };
 
     if (status === SUCCESS && getSessionCookie()) {
-        return <Redirect to={{ pathname: navigation.main }} />;
+        return <Redirect to={{ pathname: navigation.index }} />;
     }
 
     return (

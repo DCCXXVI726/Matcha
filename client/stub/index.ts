@@ -2,7 +2,7 @@ import path = require('path');
 
 import axios from 'axios';
 import express = require('express');
-import { Response } from 'express';
+import { Request, Response } from 'express';
 import webpack = require('webpack');
 import webpackDevMiddleware = require('webpack-dev-middleware');
 
@@ -11,6 +11,7 @@ import webpackDevMiddleware = require('webpack-dev-middleware');
 /* @ts-ignore */
 import webpackConfig = require('../webpack-config');
 
+import { navigation } from './../src/navigation';
 import { router as staticRouter } from './static-api';
 import { router as dummyRouter } from './dummy';
 
@@ -45,7 +46,8 @@ app.get('/api*', (_, res: Response) => {
         .catch((e) => console.error(e));
 });
 
-app.get('/*', (_, res: Response) => {
+app.get(Object.values(navigation), (req: Request, res: Response) => {
+    console.log(req.params);
     res.sendFile(path.resolve(__dirname, 'index.html'));
 });
 

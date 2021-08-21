@@ -9,6 +9,7 @@ import { ThemeWrapper } from './components/theme';
 import { Disconnect } from './components/popup-messages/disconnect';
 import { navigation } from './navigation';
 import { Main } from './pages/main';
+import { Messages } from './pages/messages';
 
 const Login = React.lazy(() => import(/* webpackChunkName: "pages: login" */ './pages/login').then((module) => ({ default: module.Login })));
 const OnBoarding = React.lazy(() => import(/* webpackChunkName: "pages: onboarding" */ './pages/onboarding').then((module) => ({ default: module.OnBoarding })));
@@ -25,7 +26,8 @@ const MainContainer = (): JSX.Element => (
                 <Switch>
                     <Route path={navigation.login} component={Login} />
                     <Route path={navigation.onboarding} component={OnBoarding} />
-                    <PrivateRoute path={navigation.main} component={Main} />
+                    <PrivateRoute path={[navigation.messages, navigation.message]} component={Messages} />
+                    <PrivateRoute exact path={navigation.index} component={Main} />
                     <PrivateRoute path='*' component={NotFound} />
                 </Switch>
             </Router>
