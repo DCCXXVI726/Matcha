@@ -32,7 +32,7 @@ export const UserProfile = (): JSX.Element => {
             <UserProfileNavLinkStyled
                 to={navigation.profile}
             >
-                <HomeIcon color='primary' />
+                <HomeIcon />
             </UserProfileNavLinkStyled>
         </UserProfileStyled>
     );

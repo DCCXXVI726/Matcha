@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Avatar, Button } from '@material-ui/core';
 
@@ -11,16 +11,10 @@ import {
 
 export const PairsList = ({ name, avatar }: Pair): JSX.Element => {
     const { t } = useTranslation();
-    const [hover, setHover] = useState<boolean>(false);
-
-    const handleHover = (): void => setHover(true);
-    // const handleHover = (): void => setHover(!hover);
+    const isPair = Math.random() >= 0.5;
 
     return (
-        <PairsItemStyled
-            onMouseOver={handleHover}
-        // onMouseOut={handleHover}
-        >
+        <PairsItemStyled>
             <div
                 style={{ display: 'flex' }}
             >
@@ -32,7 +26,7 @@ export const PairsList = ({ name, avatar }: Pair): JSX.Element => {
                     {name}
                 </PairsTypographyStyled>
             </div>
-            {hover && (
+            {isPair && (
                 <Button
                     size='small'
                     variant='outlined'

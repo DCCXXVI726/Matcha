@@ -16,28 +16,6 @@ interface PairsComponentProps {
     pairs: Pair[]
 }
 
-// const PairsList = ({ name, avatar }: Pair): JSX.Element => {
-//     const [hover, setHover] = useState<boolean>(false);
-
-//     const handleHover = (): void => setHover(!hover);
-
-//     return (
-//         <PairsItemStyled
-//             onMouseOver={handleHover}
-//             onMouseOut={handleHover}
-//         >
-//             <Avatar
-//                 src={avatar}
-//                 alt={`avatar of ${name}`}
-//             />
-//             <PairsTypographyStyled>
-//                 {name}
-//             </PairsTypographyStyled>
-//             {hover}
-//         </PairsItemStyled>
-//     );
-// };
-
 export const PairsComponent = ({ status, pairs }: PairsComponentProps): JSX.Element => {
     const renderChildren = pairs.map((pair): JSX.Element => <PairsList key={pair.name} {...pair} />);
 
