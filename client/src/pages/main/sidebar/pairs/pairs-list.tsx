@@ -6,18 +6,18 @@ import { Pair } from '../../../../__data__/types/main-types';
 
 import {
     PairsItemStyled,
+    PairsWrapperStyled,
     PairsTypographyStyled
 } from './pairs.style';
 
 export const PairsList = ({ name, avatar }: Pair): JSX.Element => {
     const { t } = useTranslation();
+    // TODO: only for ui-test isPair
     const isPair = Math.random() >= 0.5;
 
     return (
         <PairsItemStyled>
-            <div
-                style={{ display: 'flex' }}
-            >
+            <PairsWrapperStyled>
                 <Avatar
                     src={avatar}
                     alt={`avatar of ${name}`}
@@ -25,7 +25,7 @@ export const PairsList = ({ name, avatar }: Pair): JSX.Element => {
                 <PairsTypographyStyled>
                     {name}
                 </PairsTypographyStyled>
-            </div>
+            </PairsWrapperStyled>
             {isPair && (
                 <Button
                     size='small'

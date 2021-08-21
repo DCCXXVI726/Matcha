@@ -10,8 +10,7 @@ export const fetchMessagesList = () => async (dispatch: Dispatch): Promise<void>
     });
 
     baseUrl();
-    const url = new URL(`${baseUrl()}/api/messages-list`);
-    // TODO: add pagination
+    const url = new URL(`${baseUrl()}/dummy/messages-list`);
     const params = convertArgsToUrlParams({});
     url.search = new URLSearchParams(params).toString();
 
@@ -25,7 +24,7 @@ export const fetchMessagesList = () => async (dispatch: Dispatch): Promise<void>
             const json = await response.json();
             dispatch({
                 type: types.MESSAGES_LIST_FETCH,
-                payload: json
+                payload: json.messages
             });
         }
     } catch (error) {

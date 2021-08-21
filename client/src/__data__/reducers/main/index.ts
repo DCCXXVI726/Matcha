@@ -7,17 +7,23 @@ import pairs, {
     initialState as pairsInitialState
 } from './pairs';
 // import {} from './messages-by-user';
-// import {} from './messages-list';
+import messagesList, {
+    Action as MessagesListAction,
+    initialState as messagesInitialState
+} from './messages-list';
 
 const reducers = combineReducers({
-    pairs
+    pairs,
+    messagesList
 });
 
 type Action =
-    PairsAction
+    PairsAction |
+    MessagesListAction
 
 const initialState: MainPage = {
-    pairs: pairsInitialState
+    pairs: pairsInitialState,
+    messagesList: messagesInitialState
 };
 
 export default (state = initialState, action: Action): MainPage => {

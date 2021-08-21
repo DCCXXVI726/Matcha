@@ -26,6 +26,11 @@ export const PairsItemStyled = styled.li(({ theme }) => css`
 
 `);
 
+export const PairsWrapperStyled = styled.div`
+    display: flex;
+
+`;
+
 export const PairsTypographyStyled = styled(Typography)(({ theme }) => css`
     align-self: center;
 

@@ -1,5 +1,7 @@
 import * as pairs from './pairs';
+import * as messagesList from './messages-list';
 
 export {
-    pairs
+    pairs,
+    messagesList
 };
