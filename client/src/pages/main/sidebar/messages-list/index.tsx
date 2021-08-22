@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Avatar } from '@material-ui/core';
 
 import { requestStatus } from '../../../../components/request-status';
 import { Status } from '../../../../__data__/constants';
@@ -11,12 +10,8 @@ import {
 
 import { selectors } from './../../../../__data__';
 import { State } from './../../../../__data__/types';
-import {
-    MessagesListComponentStyled,
-    MessagesListItemStyled,
-    MessagesListItemWrapperStyled,
-    MessagesListItemTypographyStyled
-} from './messages.style';
+import { MessagesListComponentStyled } from './messages.style';
+import { MessagesListItem } from './messages-list-item';
 
 interface MessagesListProps {
     status: Status
@@ -24,31 +19,10 @@ interface MessagesListProps {
 }
 
 export const MessagesListComponent = ({ status, messages }: MessagesListProps): JSX.Element => {
-    const renderChildren = messages.map(({
-        name,
-        avatar,
-        'last-message': lastMessage
-    }: MessagesListItemType): JSX.Element => (
-        <MessagesListItemStyled key={name}>
-            <Avatar
-                src={avatar}
-                alt={`avatar of ${name}`}
-            />
-            <MessagesListItemWrapperStyled>
-                <MessagesListItemTypographyStyled
-                    className='message-title'
-                >
-                    {name}
-                </MessagesListItemTypographyStyled>
-                <MessagesListItemTypographyStyled
-                    variant='body2'
-                    className='message-body'
-                >
-                    {lastMessage}
-                </MessagesListItemTypographyStyled>
-            </MessagesListItemWrapperStyled>
-        </MessagesListItemStyled>
+    const renderChildren = messages.map((message: MessagesListItemType) => (
+        <MessagesListItem key={message.name} {...message} />
     ));
+
     return (
         <MessagesListComponentStyled>
             {requestStatus(renderChildren)[status]}

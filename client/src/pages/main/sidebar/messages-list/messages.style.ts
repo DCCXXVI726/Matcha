@@ -32,16 +32,24 @@ export const MessagesListItemWrapperStyled = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
+    margin-left: 5px;
+
 `;
 
 export const MessagesListItemTypographyStyled = styled(Typography)(({ theme }) => css`
     align-self: center;
-    padding: 0 10px;
     width: 100%;
     align-self: flex-start;
 
     &.message-title {
         font-weight: 600;
+        color: ${themeTypeCast(theme).secondary};
+    }
+
+    &.message-owner {
+        color: ${themeTypeCast(theme).matchaPink};
+        width: auto;
+        margin-right: 5px;
     }
 
     &.message-body {
@@ -59,6 +67,9 @@ export const MessagesListItemTypographyStyled = styled(Typography)(({ theme }) =
         font-size: 1.2rem;
     }
 
-    color: ${themeTypeCast(theme).secondary};
-
 `);
+
+export const MessagesListItemBodyWrapperStyled = styled.div`
+    display: flex;
+
+`;
