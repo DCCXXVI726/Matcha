@@ -9,7 +9,7 @@ export const UserProfileStyled = styled.div(({ theme }: StyledProps) => css`
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    height: 64px;
+    padding: 10px 0;
     background: ${themeTypeCast(theme).matchaPink};
     background: linear-gradient(90deg, ${themeTypeCast(theme).matchaPink} 35%, ${themeTypeCast(theme).matchaOrange} 98%); 
 

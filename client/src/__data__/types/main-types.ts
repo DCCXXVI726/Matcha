@@ -4,6 +4,7 @@ export interface MessagesListItem {
     name: string
     avatar: string
     'last-message': string
+    'is-last-message-your': boolean
 }
 
 export interface Pair {
