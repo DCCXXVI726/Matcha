@@ -1,6 +1,7 @@
 import { Status } from '../constants';
 
 export interface MessagesListItem {
+    id: number
     name: string
     avatar: string
     'last-message': string
@@ -8,6 +9,7 @@ export interface MessagesListItem {
 }
 
 export interface Pair {
+    id: number
     name: string
     avatar: string
 }

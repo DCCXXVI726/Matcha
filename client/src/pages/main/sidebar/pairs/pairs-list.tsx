@@ -9,8 +9,9 @@ import {
     PairsWrapperStyled,
     PairsTypographyStyled
 } from './pairs.style';
+import { navigation } from '../../../../navigation';
 
-export const PairsList = ({ name, avatar }: Pair): JSX.Element => {
+export const PairsList = ({ id, name, avatar }: Pair): JSX.Element => {
     const { t } = useTranslation();
     // TODO: only for ui-test isPair
     const isPair = Math.random() >= 0.5;
@@ -31,6 +32,7 @@ export const PairsList = ({ name, avatar }: Pair): JSX.Element => {
                     size='small'
                     variant='outlined'
                     color='secondary'
+                    href={`${navigation.message}/${id}`}
                 >
                     {t('main.sidebar.pairs-button-write')}
                 </Button>

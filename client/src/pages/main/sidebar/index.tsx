@@ -24,11 +24,15 @@ export const SidebarComponent = ({
     const [isMessages, setMessages] = useState<boolean>(false);
 
     useEffect(() => {
-        fetchPairs();
+        if (isPairs) {
+            fetchPairs();
+        }
     }, [isPairs]);
 
     useEffect(() => {
-        fetchMessagesList();
+        if (isMessages) {
+            fetchMessagesList();
+        }
     }, [isMessages]);
 
     const handleToggleTab = useCallback((newValue) => {
